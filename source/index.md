@@ -82,14 +82,14 @@ Content-Type: application/json
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
-            "mobile": "+33612345678",
+            "mobile": "33612345678",
             "address": {
                 "street": "82, avenue du général Leclerc",
                 "postCode": "75014",
                 "city": "PARIS",
                 "country": "France"
             },
-            "phone": "+33187654321",
+            "phone": "33187654321",
             "legalEntity": {
                 "category": "company",
                 "name": "Acme",
@@ -144,14 +144,14 @@ X-Auth-Token: myapikeyvalue
         "email": "user@example.com",
         "firstName": "Marc",
         "lastName": "Dupont",
-        "mobile": "+33612345678",
+        "mobile": "33612345678",
         "address": {
             "street": "82, avenue du général Leclerc",
             "postCode": "75014",
             "city": "PARIS",
             "country": "France"
         },
-        "phone": "+33187654321",
+        "phone": "33187654321",
         "legalEntity": {
             "category": "company",
             "name": "Acme",
@@ -178,14 +178,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -208,14 +208,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -280,14 +280,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -342,14 +342,14 @@ X-Auth-Token: myapikeyvalue
         "email": "user@example.com",
         "firstName": "Marc",
         "lastName": "Dupont",
-        "mobile": "+33612345678",
+        "mobile": "33612345678",
         "address": {
             "street": "82, avenue du général Leclerc",
             "postCode": "75014",
             "city": "PARIS",
             "country": "France"
         },
-        "phone": "+33187654321",
+        "phone": "33187654321",
         "legalEntity": {
             "category": "company",
             "name": "Acme",
@@ -376,14 +376,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -574,14 +574,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -1248,10 +1248,10 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 # Models
 ## SCI
 ```json
-"string"
+"DE98ZZZ09999999999"
 ```
 
-SEPA creditor identifier, called ICS in French.
+SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
 
 
 ## Address
@@ -1268,25 +1268,20 @@ Address JSON schema.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-street<b title="required">&nbsp;*&nbsp;</b> | string | Full street information including number, for example &#039;82, avenue du général Leclerc&#039;.
-postCode<b title="required">&nbsp;*&nbsp;</b> | string | For example &#039;93500&#039;.
-city<b title="required">&nbsp;*&nbsp;</b> | string | For example &#039;Paris&#039;.
-country<b title="required">&nbsp;*&nbsp;</b> | string | For example &#039;France&#039;.
+Name | Type | Default | Description
+--- | --- | --- | ---
+street<b title="required">&nbsp;*&nbsp;</b> | string | | Full street information including number, for example &#039;82, avenue du général Leclerc&#039;.
+postCode<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;93500&#039;.
+city<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;Paris&#039;.
+country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#039;France&#039;.
 
 	
 ## PhoneNumber
 ```json
-"string"
+"33612345678"
 ```
 
 Phone number respecting the &lt;a href=&quot;https://en.wikipedia.org/wiki/MSISDN&quot;&gt;MSISDN&lt;/a&gt; format. For example use 33650021433 instead of 0650021433.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
 
 	
 ## LegalEntity
@@ -1306,7 +1301,7 @@ Information about all types of corporation such as companies, associations...
 ### Fields
 Name | Type | Description
 --- | --- | ---
-category<b title="required">&nbsp;*&nbsp;</b> | string | 
+category<b title="required">&nbsp;*&nbsp;</b> | enum | Can be 'company', 'association' or 'auto-entrepreneur'
 name<b title="required">&nbsp;*&nbsp;</b> | string | 
 registrationId | string | 
 vatNumber | string | 
@@ -1319,14 +1314,14 @@ sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -1364,14 +1359,14 @@ metadata | string | Custom information goes here.
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "+33612345678",
+    "mobile": "33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "+33187654321",
+    "phone": "33187654321",
     "legalEntity": {
         "category": "company",
         "name": "Acme",
@@ -1418,14 +1413,14 @@ metadata | string | Custom information goes here.
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
-            "mobile": "+33612345678",
+            "mobile": "33612345678",
             "address": {
                 "street": "82, avenue du général Leclerc",
                 "postCode": "75014",
                 "city": "PARIS",
                 "country": "France"
             },
-            "phone": "+33187654321",
+            "phone": "33187654321",
             "legalEntity": {
                 "category": "company",
                 "name": "Acme",
@@ -1497,7 +1492,7 @@ Name | Type | Description
 --- | --- | ---
 id | string | Should be a valid UUID string.
 versionNo | integer | 
-status | string | 
+status | enum | Can be 'ToBeVerified', 'Verified', 'Rejected' or 'Disabled'
 createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 proof | string | ID of the uploaded document (if any) that proves that the bank account belongs to the user.
@@ -1543,15 +1538,10 @@ bankAccounts<b title="required">&nbsp;*&nbsp;</b> | array[[BankAccount](#bankacc
 	
 ## UMR
 ```json
-"string"
+"MYSPECIALUMR"
 ```
 
-Unique Mandate Reference, also called RUM in French.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
+Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 
 	
 ## NewMandate
@@ -1576,20 +1566,20 @@ Information required to issue a new mandate.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-debtor<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s user id.
-debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s bank account id.
-creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
-thirdPartyCreditor | string | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | string | 
-scheme | string | 
-isRecurring | boolean | 
-umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French.
-clientReference | string | 
-contractId | string | 
-contractDescription | string | 
-metadata | string | Custom information goes here.
+Name | Type | Default | Description
+--- | --- | --- | ---
+debtor<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s user id.
+debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s bank account id.
+creditor<b title="required">&nbsp;*&nbsp;</b> | string | | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
+thirdPartyCreditor | string | | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
+mandateType | enum | SEPA | Can only be 'SEPA'.
+scheme | enum | Core | Can be 'Core' or 'B2B'.
+isRecurring | boolean | true |
+umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French.
+clientReference | string | |
+contractId | string | |
+contractDescription | string | |
+metadata | string | | Custom information goes here.
 
 	
 ## Mandate
@@ -1626,20 +1616,20 @@ Name | Type | Description
 --- | --- | ---
 id | string | Should be a valid UUID string.
 versionNo | integer | 
-status | string | 
+status | enum | Can be 'Canceled', 'PendingClientRegistration', 'ToBeSigned', 'ToBeValidated', 'ValidatedNotUsedYet', 'ValidatedUsed', 'Disabled' or 'Rejected'.
 createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-signatureUrl | string | 
+signatureUrl | string | This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.
 document | string | ID of the signed PDF document (if any).
-signatureDate | string | 
-fee | number | 
+signatureDate | string | Signature date, for example '2015-01-01'.
+fee | number | This field only appears once a mandate is signed.
 debtor<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s user id.
 debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s bank account id.
 creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
 thirdPartyCreditor | string | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | string | 
-scheme | string | 
-isRecurring | boolean | 
+mandateType | string | Can only be 'SEPA'.
+scheme | string | Can be 'Core' or 'B2B'.
+isRecurring | boolean | Is 'true' by default.
 umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French.
 clientReference | string | 
 contractId | string | 
