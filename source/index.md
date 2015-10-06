@@ -52,9 +52,7 @@ There are three types of API keys you can create:
 
 <aside class="warning">If you're using the wrong type of key, some requests will return 403 Forbidden.</aside>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<aside class="success">Remember — a happy user is an authenticated user!</aside>
 
 # Users
 
@@ -72,34 +70,34 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "users": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "email": "string",
-            "firstName": "string",
-            "lastName": "string",
-            "mobile": "string",
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "email": "user@example.com",
+            "firstName": "Marc",
+            "lastName": "Dupont",
+            "mobile": "+33612345678",
             "address": {
-                "street": "string",
-                "postCode": "string",
-                "city": "string",
-                "country": "string"
+                "street": "82, avenue du général Leclerc",
+                "postCode": "75014",
+                "city": "PARIS",
+                "country": "France"
             },
-            "phone": "string",
+            "phone": "+33187654321",
             "legalEntity": {
-                "category": "string",
-                "name": "string",
-                "registrationId": "string",
-                "vatNumber": "string",
-                "sci": "string"
+                "category": "company",
+                "name": "Acme",
+                "registrationId": "73282932000074",
+                "vatNumber": "FR44732829320",
+                "sci": "DE98ZZZ09999999999"
             },
-            "metadata": "string"
+            "metadata": "custom data"
         }
     ]
 }
@@ -143,25 +141,25 @@ X-Auth-Token: myapikeyvalue
 
 {
     "user": {
-        "email": "string",
-        "firstName": "string",
-        "lastName": "string",
-        "mobile": "string",
+        "email": "user@example.com",
+        "firstName": "Marc",
+        "lastName": "Dupont",
+        "mobile": "+33612345678",
         "address": {
-            "street": "string",
-            "postCode": "string",
-            "city": "string",
-            "country": "string"
+            "street": "82, avenue du général Leclerc",
+            "postCode": "75014",
+            "city": "PARIS",
+            "country": "France"
         },
-        "phone": "string",
+        "phone": "+33187654321",
         "legalEntity": {
-            "category": "string",
-            "name": "string",
-            "registrationId": "string",
-            "vatNumber": "string",
-            "sci": "string"
+            "category": "company",
+            "name": "Acme",
+            "registrationId": "73282932000074",
+            "vatNumber": "FR44732829320",
+            "sci": "DE98ZZZ09999999999"
         },
-        "metadata": "string"
+        "metadata": "custom data"
     }
 }
 ```
@@ -173,29 +171,29 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -203,29 +201,29 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -275,29 +273,29 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -341,25 +339,25 @@ X-Auth-Token: myapikeyvalue
 
 {
     "user": {
-        "email": "string",
-        "firstName": "string",
-        "lastName": "string",
-        "mobile": "string",
+        "email": "user@example.com",
+        "firstName": "Marc",
+        "lastName": "Dupont",
+        "mobile": "+33612345678",
         "address": {
-            "street": "string",
-            "postCode": "string",
-            "city": "string",
-            "country": "string"
+            "street": "82, avenue du général Leclerc",
+            "postCode": "75014",
+            "city": "PARIS",
+            "country": "France"
         },
-        "phone": "string",
+        "phone": "+33187654321",
         "legalEntity": {
-            "category": "string",
-            "name": "string",
-            "registrationId": "string",
-            "vatNumber": "string",
-            "sci": "string"
+            "category": "company",
+            "name": "Acme",
+            "registrationId": "73282932000074",
+            "vatNumber": "FR44732829320",
+            "sci": "DE98ZZZ09999999999"
         },
-        "metadata": "string"
+        "metadata": "custom data"
     }
 }
 ```
@@ -371,29 +369,29 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -438,22 +436,22 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "bankAccounts": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "proof": "string",
-            "user": "string",
-            "holder": "string",
-            "bic": "string",
-            "iban": "string",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "Verified",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "holder": "Marc Dupont",
+            "bic": "SOGEFRPPXXX",
+            "iban": "FR1420041010050500013M02606",
+            "metadata": "custom data"
         }
     ]
 }
@@ -499,16 +497,16 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "mandates": [
         {
-            "id": "string",
-            "versionNo": "integer",
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
             "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
             "signatureUrl": "string",
             "document": "string",
             "signatureDate": "string",
@@ -524,7 +522,7 @@ Content-Type: application/json
             "clientReference": "string",
             "contractId": "string",
             "contractDescription": "string",
-            "metadata": "string"
+            "metadata": "custom data"
         }
     ]
 }
@@ -570,29 +568,29 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -633,22 +631,22 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "bankAccounts": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "proof": "string",
-            "user": "string",
-            "holder": "string",
-            "bic": "string",
-            "iban": "string",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "Verified",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "holder": "Marc Dupont",
+            "bic": "SOGEFRPPXXX",
+            "iban": "FR1420041010050500013M02606",
+            "metadata": "custom data"
         }
     ]
 }
@@ -693,11 +691,11 @@ X-Auth-Token: myapikeyvalue
 
 {
     "bankAccount": {
-        "user": "string",
-        "holder": "string",
-        "bic": "string",
-        "iban": "string",
-        "metadata": "string"
+        "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+        "holder": "Marc Dupont",
+        "bic": "SOGEFRPPXXX",
+        "iban": "FR1420041010050500013M02606",
+        "metadata": "custom data"
     }
 }
 ```
@@ -709,17 +707,17 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "proof": "string",
-    "user": "string",
-    "holder": "string",
-    "bic": "string",
-    "iban": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "Verified",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -763,17 +761,17 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "proof": "string",
-    "user": "string",
-    "holder": "string",
-    "bic": "string",
-    "iban": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "Verified",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -821,17 +819,17 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "proof": "string",
-    "user": "string",
-    "holder": "string",
-    "bic": "string",
-    "iban": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "Verified",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -879,22 +877,22 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "bankAccounts": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "proof": "string",
-            "user": "string",
-            "holder": "string",
-            "bic": "string",
-            "iban": "string",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "Verified",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "holder": "Marc Dupont",
+            "bic": "SOGEFRPPXXX",
+            "iban": "FR1420041010050500013M02606",
+            "metadata": "custom data"
         }
     ]
 }
@@ -937,16 +935,16 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "mandates": [
         {
-            "id": "string",
-            "versionNo": "integer",
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
             "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
             "signatureUrl": "string",
             "document": "string",
             "signatureDate": "string",
@@ -962,7 +960,7 @@ Content-Type: application/json
             "clientReference": "string",
             "contractId": "string",
             "contractDescription": "string",
-            "metadata": "string"
+            "metadata": "custom data"
         }
     ]
 }
@@ -1015,7 +1013,7 @@ X-Auth-Token: myapikeyvalue
         "clientReference": "string",
         "contractId": "string",
         "contractDescription": "string",
-        "metadata": "string"
+        "metadata": "custom data"
     }
 }
 ```
@@ -1024,11 +1022,11 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
     "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "signatureUrl": "string",
     "document": "string",
     "signatureDate": "string",
@@ -1044,7 +1042,7 @@ Content-Type: application/json
     "clientReference": "string",
     "contractId": "string",
     "contractDescription": "string",
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -1088,11 +1086,11 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
     "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "signatureUrl": "string",
     "document": "string",
     "signatureDate": "string",
@@ -1108,7 +1106,7 @@ Content-Type: application/json
     "clientReference": "string",
     "contractId": "string",
     "contractDescription": "string",
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -1156,11 +1154,11 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
     "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "signatureUrl": "string",
     "document": "string",
     "signatureDate": "string",
@@ -1176,7 +1174,7 @@ Content-Type: application/json
     "clientReference": "string",
     "contractId": "string",
     "contractDescription": "string",
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 ```http
@@ -1266,10 +1264,10 @@ SEPA creditor identifier, called ICS in French.
 ## Address
 ```json
 {
-    "street": "string",
-    "postCode": "string",
-    "city": "string",
-    "country": "string"
+    "street": "82, avenue du général Leclerc",
+    "postCode": "75014",
+    "city": "PARIS",
+    "country": "France"
 }
 ```
 
@@ -1301,11 +1299,11 @@ Name | Type | Description
 ## LegalEntity
 ```json
 {
-    "category": "string",
-    "name": "string",
-    "registrationId": "string",
-    "vatNumber": "string",
-    "sci": "string"
+    "category": "company",
+    "name": "Acme",
+    "registrationId": "73282932000074",
+    "vatNumber": "FR44732829320",
+    "sci": "DE98ZZZ09999999999"
 }
 ```
 
@@ -1325,25 +1323,25 @@ sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
 ## NewUser
 ```json
 {
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 
@@ -1366,29 +1364,29 @@ metadata | string | Custom information goes here.
 ## User
 ```json
 {
-    "id": "string",
-    "versionNo": "integer",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "email": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "mobile": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
     "address": {
-        "street": "string",
-        "postCode": "string",
-        "city": "string",
-        "country": "string"
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
     },
-    "phone": "string",
+    "phone": "+33187654321",
     "legalEntity": {
-        "category": "string",
-        "name": "string",
-        "registrationId": "string",
-        "vatNumber": "string",
-        "sci": "string"
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
     },
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 
@@ -1415,34 +1413,34 @@ metadata | string | Custom information goes here.
 ## Users
 ```json
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "users": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "email": "string",
-            "firstName": "string",
-            "lastName": "string",
-            "mobile": "string",
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "email": "user@example.com",
+            "firstName": "Marc",
+            "lastName": "Dupont",
+            "mobile": "+33612345678",
             "address": {
-                "street": "string",
-                "postCode": "string",
-                "city": "string",
-                "country": "string"
+                "street": "82, avenue du général Leclerc",
+                "postCode": "75014",
+                "city": "PARIS",
+                "country": "France"
             },
-            "phone": "string",
+            "phone": "+33187654321",
             "legalEntity": {
-                "category": "string",
-                "name": "string",
-                "registrationId": "string",
-                "vatNumber": "string",
-                "sci": "string"
+                "category": "company",
+                "name": "Acme",
+                "registrationId": "73282932000074",
+                "vatNumber": "FR44732829320",
+                "sci": "DE98ZZZ09999999999"
             },
-            "metadata": "string"
+            "metadata": "custom data"
         }
     ]
 }
@@ -1460,11 +1458,11 @@ users<b title="required">&nbsp;*&nbsp;</b> | array[[User](#user)] |
 ## NewBankAccount
 ```json
 {
-    "user": "string",
-    "holder": "string",
-    "bic": "string",
-    "iban": "string",
-    "metadata": "string"
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 
@@ -1484,17 +1482,17 @@ metadata | string | Custom information goes here.
 ## BankAccount
 ```json
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "proof": "string",
-    "user": "string",
-    "holder": "string",
-    "bic": "string",
-    "iban": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "Verified",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 
@@ -1520,22 +1518,22 @@ metadata | string | Custom information goes here.
 ## BankAccounts
 ```json
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "bankAccounts": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "proof": "string",
-            "user": "string",
-            "holder": "string",
-            "bic": "string",
-            "iban": "string",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "Verified",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "holder": "Marc Dupont",
+            "bic": "SOGEFRPPXXX",
+            "iban": "FR1420041010050500013M02606",
+            "metadata": "custom data"
         }
     ]
 }
@@ -1577,7 +1575,7 @@ Name | Type | Description
     "clientReference": "string",
     "contractId": "string",
     "contractDescription": "string",
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 
@@ -1604,11 +1602,11 @@ metadata | string | Custom information goes here.
 ## Mandate
 ```json
 {
-    "id": "string",
-    "versionNo": "integer",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
     "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "signatureUrl": "string",
     "document": "string",
     "signatureDate": "string",
@@ -1624,7 +1622,7 @@ metadata | string | Custom information goes here.
     "clientReference": "string",
     "contractId": "string",
     "contractDescription": "string",
-    "metadata": "string"
+    "metadata": "custom data"
 }
 ```
 
@@ -1660,16 +1658,16 @@ metadata | string | Custom information goes here.
 ## Mandates
 ```json
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
     "mandates": [
         {
-            "id": "string",
-            "versionNo": "integer",
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
             "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
             "signatureUrl": "string",
             "document": "string",
             "signatureDate": "string",
@@ -1685,7 +1683,7 @@ metadata | string | Custom information goes here.
             "clientReference": "string",
             "contractId": "string",
             "contractDescription": "string",
-            "metadata": "string"
+            "metadata": "custom data"
         }
     ]
 }
