@@ -3,4 +3,4 @@ Then, `chmod +x swagger2slate.phar`.
 
 This solution works only with swagger.json file, therefore make to export the swagger.yaml in JSON from the editor. Then:
     
-    ./swagger2slate.phar convert ../solution/modules/api/src/main/swagger/swagger.json -o source/index.md
+    ./swagger2slate.phar convert ../../solution/modules/api/src/main/swagger/swagger.json -o ../source/index.md
