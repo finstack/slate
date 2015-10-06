@@ -2,7 +2,7 @@
 title: Finstack API Reference
 
 language_tabs:
-  - shell: cURL
+  - http: HTTP
 
 toc_footers:
   - <a href='https://finstack.io/admin/settings'>Sign Up for an API Key</a>
@@ -52,120 +52,21 @@ There are three types of API keys you can create:
 
 <aside class="warning">If you're using the wrong type of key, some requests will return 403 Forbidden.</aside>
 
-# Users
-
-## Get All Users
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Get a Specific Kitten
+# Users
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-
-## Find users
+## Find Users
 
 ```http
 GET /api/v1/users HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -218,14 +119,12 @@ The Users endpoint returns information about *Finstack* users you created,
 whether they are merchants or simply end users. The response includes 
 the display name and other details about each user.
 
-
-
 ### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-offset | query | integer | Offset the list of returned results by this amount. Default is zero.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
-//todo: migrate to html tables. after cool looking nested table
+Name | In | Type | Default | Description
+--- | --- | --- | --- | ---
+offset | query | integer | 0 | Offset the list of returned results by this amount.
+limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -233,11 +132,14 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>200</td><td>[Users](#users)</td><td>An array of users.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
-## Create user
+
+
+## Create User
 
 ```http
 POST /api/v1/users HTTP/1.1
 Content-Type: application/json
+X-Auth-Token: myapikeyvalue
 
 {
     "user": {
@@ -263,6 +165,9 @@ Content-Type: application/json
     }
 }
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -339,31 +244,32 @@ Therefore, when you call this method and provide an email already known you will
 Unless the optional `isUpdateAllowed` parameter is set to true, in which case it will 
 update the existing user with the new details.
 
-
-
 ### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-isUpdateAllowed | query | boolean | This parameter allows to update an existing user than throw an error if she already exists.
-Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
+Name | In | Type | Default | Description
+--- | --- | --- | --- | ---
+isUpdateAllowed | query | boolean | false | This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
+user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
 
-user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | 
-//todo: migrate to html tables. after cool looking nested table
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[User](#user)</td><td>The updated user, if `isUpdateAllowed` is set to `true`, and the email provided belongs to an existing user.
 </td></tr> 
-<tr><td>201</td><td>[User](#user)</td><td>The created user.</td></tr> 
+<tr><td>201</td><td>[User](#user)</td><td>The newly created user.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get user
+
+## Get User
 
 ```http
 GET /api/v1/users/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -415,7 +321,7 @@ Returns the user with the specified id.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -424,11 +330,14 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error</td></tr> 
 </table>
-## Update user
+
+
+## Update User
 
 ```http
 PUT /api/v1/users/{id} HTTP/1.1
 Content-Type: application/json
+X-Auth-Token: myapikeyvalue
 
 {
     "user": {
@@ -454,6 +363,9 @@ Content-Type: application/json
     }
 }
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -503,7 +415,7 @@ Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | 
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -512,11 +424,15 @@ user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) |
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Find bank accounts of user
+## Find Bank Accounts of User
 
 ```http
 GET /api/v1/users/{id}/bank_accounts HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -560,7 +476,7 @@ Returns all bank accounts that belong to the specified user.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -569,11 +485,15 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Find mandates of user
+## Find Mandates of User
 
 ```http
 GET /api/v1/users/{id}/mandates HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -627,7 +547,7 @@ Returns all mandates that belong to the specified user.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -636,11 +556,15 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get my user profile
+## Get my User Profile
 
 ```http
 GET /api/v1/users/me HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -695,11 +619,15 @@ Returns the profile information of the authenticated user.
 
 # Bank Accounts
 
-## Finds bank accounts
+## Finds Bank Accounts
 
 ```http
 GET /api/v1/bank_accounts HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -742,11 +670,11 @@ they authorized you to access their information.
 
 
 ### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-offset | query | integer | Offset the list of returned results by this amount. Default is zero.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
-//todo: migrate to html tables. after cool looking nested table
+Name | In | Type | Default | Description
+--- | --- | --- | --- | ---
+offset | query | integer | 0 | Offset the list of returned results by this amount.
+limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -754,11 +682,14 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>200</td><td>[BankAccounts](#bankaccounts)</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
-## Create bank account
+
+
+## Create Bank Account
 
 ```http
 POST /api/v1/bank_accounts HTTP/1.1
 Content-Type: application/json
+X-Auth-Token: myapikeyvalue
 
 {
     "bankAccount": {
@@ -770,6 +701,9 @@ Content-Type: application/json
     }
 }
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -806,20 +740,24 @@ Creates a managed bank account.
 Name | In | Type | Description
 --- | --- | --- | ---
 bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newbankaccount) | 
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td>[BankAccount](#bankaccount)</td><td>URL of the created bank account.</td></tr> 
+<tr><td>201</td><td>[BankAccount](#bankaccount)</td><td>The newly created bank account.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get bank account
+## Get Bank Account
 
 ```http
 GET /api/v1/bank_accounts/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -859,7 +797,7 @@ Gets the bank account with the specified id.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -868,11 +806,16 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
-## Disable bank account
+
+## Disable Bank Account
 
 ```http
 DELETE /api/v1/bank_accounts/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -912,7 +855,7 @@ Disables the bank account with the specified id.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -922,11 +865,15 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Find my bank accounts
+## Find My Bank Accounts
 
 ```http
 GET /api/v1/bank_accounts/me HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -976,11 +923,15 @@ Finds all bank accounts that belong to the authenticated user.
 
 # Mandates
 
-## Find mandates
+## Find Mandates
 
 ```http
 GET /api/v1/mandates HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -1031,11 +982,11 @@ Returns mandates that belong to users that you manage, or mandates that you crea
 
 
 ### Parameters
-Name | In | Type | Description
---- | --- | --- | ---
-offset | query | integer | Offset the list of returned results by this amount. Default is zero.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
-//todo: migrate to html tables. after cool looking nested table
+Name | In | Type | Default | Description
+--- | --- | --- | --- | ---
+offset | query | integer | 0 | Offset the list of returned results by this amount.
+limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -1044,11 +995,94 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get mandate
+## Create Mandate
+
+```http
+POST /api/v1/mandates HTTP/1.1
+Content-Type: application/json
+X-Auth-Token: myapikeyvalue
+
+{
+    "mandate": {
+        "debtor": "string",
+        "debtorBankAccount": "string",
+        "creditor": "string",
+        "thirdPartyCreditor": "string",
+        "mandateType": "string",
+        "scheme": "string",
+        "isRecurring": "boolean",
+        "umr": "string",
+        "clientReference": "string",
+        "contractId": "string",
+        "contractDescription": "string",
+        "metadata": "string"
+    }
+}
+```
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "id": "string",
+    "versionNo": "integer",
+    "status": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "signatureUrl": "string",
+    "document": "string",
+    "signatureDate": "string",
+    "fee": "number",
+    "debtor": "string",
+    "debtorBankAccount": "string",
+    "creditor": "string",
+    "thirdPartyCreditor": "string",
+    "mandateType": "string",
+    "scheme": "string",
+    "isRecurring": "boolean",
+    "umr": "string",
+    "clientReference": "string",
+    "contractId": "string",
+    "contractDescription": "string",
+    "metadata": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Creates a direct debit mandate to be signed.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+mandate<b title="required">&nbsp;*&nbsp;</b> | body | [NewMandate](#newmandate) | 
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>201</td><td>[Mandate](#mandate)</td><td>The newly created mandate.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get Mandate
 
 ```http
 GET /api/v1/mandates/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -1098,7 +1132,7 @@ Gets the mandate with the specified id.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -1107,11 +1141,16 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
-## Cancel or revoke mandate
+
+## Cancel or Revoke Mandate
 
 ```http
 DELETE /api/v1/mandates/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -1161,7 +1200,7 @@ Cancels the mandate if it isn&#039;t signed yet or revokes it if it is signed.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -1171,11 +1210,15 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get signed mandate in pdf
+## Get Signed Mandate in PDF
 
 ```http
 GET /api/v1/mandates/{id}/pdf HTTP/1.1
+X-Auth-Token: myapikeyvalue
 ```
+
+> The above command returns a HTTP response such as:
+
 ```http
 HTTP/1.1 200 OK
 ```
@@ -1200,7 +1243,7 @@ Returns signed mandate (if any) with the specified id in PDF.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
-//todo: migrate to html tables. after cool looking nested table
+
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -1219,12 +1262,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 
 SEPA creditor identifier, called ICS in French.
 
-	
-### Fields
-Name | Type | Description
---- | --- | ---
 
-	
 ## Address
 ```json
 {
