@@ -5,7 +5,8 @@ language_tabs:
   - shell: cURL
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://finstack.io/admin/settings'>Sign Up for an API Key</a>
+  - <a href='http://swagger.io/'>API Specification Powered by Swagger</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -16,45 +17,40 @@ search: true
 
 # Introduction
 
-Welcome to the Finstack API! You can use our API to access Finstack API endpoints, which can get information on various users, mandates, and direct debits in our database.
+Welcome to the Finstack API! You can use our API to access Finstack API endpoints, which can get information on various users, bank accounts and mandates.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The Finstack API follows [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) principles in a pragmatic (non-dogmatic) way.
+Focus is on simplicity, consistency and security; less on discoverability.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate).
+Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces `application/json` content.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "X-Auth-Token: myapikeyvalue"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `myapikeyvalue` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our [admin portal](https://finstack.io/admin/settings).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`X-Auth-Token: myapikeyvalue`
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+There are three types of API keys you can create:
+
+ - Read only keys: Used for reading data.
+ - Read and write keys: They offer access to all methods of the API. They should be kept in a safe place and renewed frequently.
+ - Public keys: They can be shared publicly and are only used to initiate mandate signature on an e-commerce website.
+
+<aside class="notice">Carefully pick the API key you need for your use case.</aside>
+
+<aside class="warning">If you're using the wrong type of key, some requests will return 403 Forbidden.</aside>
 
 # Users
 
@@ -163,19 +159,6 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
-
-> ### Consumes  
-> `application/json`  
-
-> ### Produces
-> `application/json`
-
-### Authorization: API Key
-Type | Name | In | Description
---- | --- | --- | ---
-apiKey | X-Auth-Token | header | API Key that you created in your admin interface
-
 
 
 ## Find users
