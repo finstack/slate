@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","scala","java","php","ruby","python"]);
+          setupLanguages(["http"]);
         });
       </script>
   </head>
@@ -28,12 +28,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="scala">Scala</a>
-              <a href="#" data-language-name="java">Java</a>
-              <a href="#" data-language-name="php">PHP</a>
-              <a href="#" data-language-name="ruby">Ruby</a>
-              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="http">HTTP</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -42,7 +37,8 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://finstack.io/admin/settings'>Sign Up for an API Key</a></li>
+            <li><a href='http://swagger.io/'>API Specification Powered by Swagger</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -51,167 +47,2298 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Finstack API! You can use our API to access Finstack API endpoints, which can get information on various users, mandates, and direct debits in our database.</p>
+<p>Welcome to the Finstack API! You can use our API to access Finstack API endpoints, which can get information on various users, bank accounts and mandates.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>The Finstack API follows <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> principles in a pragmatic (non-dogmatic) way.
+Focus is on simplicity, consistency and security; less on discoverability.</p>
 
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>.</p>
+<p>Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces <code class="prettyprint">application/json</code> content.</p>
 
 <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+  -H <span class="s2">"X-Auth-Token: myapikeyvalue"</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code class="prettyprint">myapikeyvalue</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our <a href="https://finstack.io/admin/settings">admin portal</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p><code class="prettyprint">X-Auth-Token: myapikeyvalue</code></p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+<p>There are three types of API keys you can create:</p>
+
+<ul>
+<li>Read only keys: Used for reading data.</li>
+<li>Read and write keys: They offer access to all methods of the API. They should be kept in a safe place and renewed frequently.</li>
+<li>Public keys: They can be shared publicly and are only used to initiate mandate signature on an e-commerce website.</li>
+</ul>
+
+<aside class="notice">Carefully pick the API key you need for your use case.</aside>
+
+<aside class="warning">If you&rsquo;re using the wrong type of key, some requests will return 403 Forbidden.</aside>
+
+<aside class="success">Remember — a happy user is an authenticated user!</aside>
 
 <h1 id="users">Users</h1>
 
-<h2 id="get-all-users">Get All Users</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h2 id="find-users">Find Users</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns a HTTP response such as:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>The Users endpoint returns information about <em>Finstack</em> users you created,
+whether they are merchants or simply end users. The response includes 
+the display name and other details about each user.</p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>0</td>
+<td>Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>10</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<h3 id="responses">Responses</h3>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#users">Users</a></td><td>An array of users.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h2 id="create-user">Create User</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<h3 id="http-request">HTTP Request</h3>
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<p>Creates a managed user. Be careful, a user is identified uniquely be her email. 
+Therefore, when you call this method and provide an email already known you will get an error.
+Unless the optional <code class="prettyprint">isUpdateAllowed</code> parameter is set to true, in which case it will 
+update the existing user with the new details.</p>
+
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>isUpdateAllowed</td>
+<td>query</td>
+<td>boolean</td>
+<td>false</td>
+<td>This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.</td>
+</tr>
+<tr>
+<td>user<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newuser">NewUser</a></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h3 id="responses">Responses</h3>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#user">User</a></td><td>The updated user, if <code class="prettyprint">isUpdateAllowed</code> is set to <code class="prettyprint">true</code>, and the email provided belongs to an existing user.
+</td></tr> 
+<tr><td>201</td><td><a href="#user">User</a></td><td>The newly created user.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
 
-<p>The Kittn API uses the following error codes:</p>
+<h2 id="get-user">Get User</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns the user with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#user">User</a></td><td>User found.</td></tr> 
+<tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error</td></tr> 
+</table></p>
+
+<h2 id="update-user">Update User</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates the user profile.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+<tr>
+<td>user<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newuser">NewUser</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#user">User</a></td><td>The updated user.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="find-bank-accounts-of-user">Find Bank Accounts of User</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all bank accounts that belong to the specified user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#bankaccounts">BankAccounts</a></td><td>An array of bank accounts.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="find-mandates-of-user">Find Mandates of User</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/mandates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all mandates that belong to the specified user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#mandates">Mandates</a></td><td>An array of mandates.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-my-user-profile">Get my User Profile</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns the profile information of the authenticated user.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#user">User</a></td><td>Profile information.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h1 id="bank-accounts">Bank Accounts</h1>
+
+<h2 id="finds-bank-accounts">Finds Bank Accounts</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns bank accounts that belong to users that you manage, either because you created them or because 
+they authorized you to access their information.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>0</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>10</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#bankaccounts">BankAccounts</a></td><td>An array of bank accounts.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="create-bank-account">Create Bank Account</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"bankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a managed bank account.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bankAccount<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newbankaccount">NewBankAccount</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>201</td><td><a href="#bankaccount">BankAccount</a></td><td>The newly created bank account.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-bank-account">Get Bank Account</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets the bank account with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the bank account.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Bank account found.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="disable-bank-account">Disable Bank Account</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/bank_accounts/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Disables the bank account with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the bank account.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Disabled bank account.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="find-my-bank-accounts">Find My Bank Accounts</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Finds all bank accounts that belong to the authenticated user.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#bankaccounts">BankAccounts</a></td><td>An array of bank accounts.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h1 id="mandates">Mandates</h1>
+
+<h2 id="find-mandates">Find Mandates</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns mandates that belong to users that you manage, or mandates that you created.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>0</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>10</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#mandates">Mandates</a></td><td>An array of mandates.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="create-mandate">Create Mandate</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/mandates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"mandate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ToBeSigned"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatureUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a direct debit mandate to be signed.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mandate<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newmandate">NewMandate</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>201</td><td><a href="#mandate">Mandate</a></td><td>The newly created mandate.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-mandate">Get Mandate</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets the mandate with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the mandate.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate found.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="cancel-or-revoke-mandate">Cancel or Revoke Mandate</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/mandates/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Cancels the mandate if it isn&#039;t signed yet or revokes it if it is signed.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the bank account.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate canceled or revoked.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-signed-mandate-in-pdf">Get Signed Mandate in PDF</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}/pdf</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns a HTTP response such as:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns signed mandate (if any) with the specified id in PDF.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the mandate.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h1 id="models">Models</h1>
+
+<h2 id="sci">SCI</h2>
+<pre class="highlight json"><code><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+</span></code></pre>
+
+<p>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</p>
+
+<h2 id="address">Address</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Address JSON schema.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>street<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>Full street information including number, for example &#039;82, avenue du général Leclerc&#039;.</td>
+</tr>
+<tr>
+<td>postCode<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>For example &#039;93500&#039;.</td>
+</tr>
+<tr>
+<td>city<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>For example &#039;Paris&#039;.</td>
+</tr>
+<tr>
+<td>country<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>France</td>
+<td>For example &#039;France&#039;.</td>
+</tr>
+</tbody></table>
+
+<h2 id="phonenumber">PhoneNumber</h2>
+<pre class="highlight json"><code><span class="s2">"33612345678"</span><span class="w">
+</span></code></pre>
+
+<p>Phone number respecting the &lt;a href=&ldquo;https://en.wikipedia.org/wiki/MSISDN&rdquo;&gt;MSISDN&lt;/a&gt; format. For example use 33650021433 instead of 0650021433.</p>
+
+<h2 id="legalentity">LegalEntity</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information about all types of corporation such as companies, associations&hellip;</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category<b title="required">&nbsp;*&nbsp;</b></td>
+<td>enum</td>
+<td>Can be &lsquo;company&rsquo;, &#39;association&rsquo; or &#39;auto-entrepreneur&rsquo;</td>
+</tr>
+<tr>
+<td>name<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>registrationId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>vatNumber</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sci</td>
+<td><a href="#sci">SCI</a></td>
+<td>SEPA creditor identifier, called ICS in French.</td>
+</tr>
+</tbody></table>
+
+<h2 id="newuser">NewUser</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>JSON schema of user information required to create a new user.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>mobile<b title="required">&nbsp;*&nbsp;</b></td>
+<td><a href="#phonenumber">PhoneNumber</a></td>
+<td>Mobile phone number.</td>
+</tr>
+<tr>
+<td>address<b title="required">&nbsp;*&nbsp;</b></td>
+<td><a href="#address">Address</a></td>
+<td>Address JSON schema.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><a href="#phonenumber">PhoneNumber</a></td>
+<td>Landline phone number.</td>
+</tr>
+<tr>
+<td>legalEntity</td>
+<td><a href="#legalentity">LegalEntity</a></td>
+<td>Provide this field if the user is not an individual.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="user">User</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>JSON schema of user information required to create a new user.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>string</td>
+<td>Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>string</td>
+<td>Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>email<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>mobile<b title="required">&nbsp;*&nbsp;</b></td>
+<td><a href="#phonenumber">PhoneNumber</a></td>
+<td>Mobile phone number.</td>
+</tr>
+<tr>
+<td>address<b title="required">&nbsp;*&nbsp;</b></td>
+<td><a href="#address">Address</a></td>
+<td>Address JSON schema.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><a href="#phonenumber">PhoneNumber</a></td>
+<td>Landline phone number.</td>
+</tr>
+<tr>
+<td>legalEntity</td>
+<td><a href="#legalentity">LegalEntity</a></td>
+<td>Provide this field if the user is not an individual.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="users">Users</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33612345678"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33187654321"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Total number of users available.</td>
+</tr>
+<tr>
+<td>users<b title="required">&nbsp;*&nbsp;</b></td>
+<td>array[<a href="#user">User</a>]</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="newbankaccount">NewBankAccount</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Bank account information JSON schema.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>The user&#039;s id to whom the bank account belongs.</td>
+</tr>
+<tr>
+<td>holder<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>bic<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iban<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="bankaccount">BankAccount</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Bank account information JSON schema.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Can be &#39;ToBeVerified&rsquo;, &#39;Verified&rsquo;, &#39;Rejected&rsquo; or &#39;Disabled&rsquo;</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>string</td>
+<td>Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>string</td>
+<td>Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>proof</td>
+<td>string</td>
+<td>ID of the uploaded document (if any) that proves that the bank account belongs to the user.</td>
+</tr>
+<tr>
+<td>user<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>The user&#039;s id to whom the bank account belongs.</td>
+</tr>
+<tr>
+<td>holder<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>bic<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>iban<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="bankaccounts">BankAccounts</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Total number of bank accounts available.</td>
+</tr>
+<tr>
+<td>bankAccounts<b title="required">&nbsp;*&nbsp;</b></td>
+<td>array[<a href="#bankaccount">BankAccount</a>]</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="umr">UMR</h2>
+<pre class="highlight json"><code><span class="s2">"MYSPECIALUMR"</span><span class="w">
+</span></code></pre>
+
+<p>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</p>
+
+<h2 id="newmandate">NewMandate</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information required to issue a new mandate.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>debtor<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>The debtor&#039;s user id.</td>
+</tr>
+<tr>
+<td>debtorBankAccount<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>The debtor&#039;s bank account id.</td>
+</tr>
+<tr>
+<td>creditor<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+<td>The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.</td>
+</tr>
+<tr>
+<td>thirdPartyCreditor</td>
+<td>string</td>
+<td></td>
+<td>The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.</td>
+</tr>
+<tr>
+<td>mandateType</td>
+<td>enum</td>
+<td>SEPA</td>
+<td>Can only be &#39;SEPA&rsquo;.</td>
+</tr>
+<tr>
+<td>scheme</td>
+<td>enum</td>
+<td>Core</td>
+<td>Can be &#39;Core&rsquo; or &#39;B2B&rsquo;.</td>
+</tr>
+<tr>
+<td>isRecurring</td>
+<td>boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>umr</td>
+<td><a href="#umr">UMR</a></td>
+<td></td>
+<td>Unique Mandate Reference, also called RUM in French.</td>
+</tr>
+<tr>
+<td>clientReference</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>contractId</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>contractDescription</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="mandate">Mandate</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information required to issue a new mandate.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Can be &#39;Canceled&rsquo;, &#39;PendingClientRegistration&rsquo;, &#39;ToBeSigned&rsquo;, &#39;ToBeValidated&rsquo;, &#39;ValidatedNotUsedYet&rsquo;, &#39;ValidatedUsed&rsquo;, &#39;Disabled&rsquo; or &#39;Rejected&rsquo;.</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>string</td>
+<td>Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>string</td>
+<td>Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+</tr>
+<tr>
+<td>signatureUrl</td>
+<td>string</td>
+<td>This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.</td>
+</tr>
+<tr>
+<td>document</td>
+<td>string</td>
+<td>ID of the signed PDF document (if any).</td>
+</tr>
+<tr>
+<td>signatureDate</td>
+<td>string</td>
+<td>Signature date, for example &#39;2015-01-01&rsquo;.</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>number</td>
+<td>This field only appears once a mandate is signed.</td>
+</tr>
+<tr>
+<td>debtor<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>The debtor&#039;s user id.</td>
+</tr>
+<tr>
+<td>debtorBankAccount<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>The debtor&#039;s bank account id.</td>
+</tr>
+<tr>
+<td>creditor<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td>The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.</td>
+</tr>
+<tr>
+<td>thirdPartyCreditor</td>
+<td>string</td>
+<td>The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.</td>
+</tr>
+<tr>
+<td>mandateType</td>
+<td>string</td>
+<td>Can only be &#39;SEPA&rsquo;.</td>
+</tr>
+<tr>
+<td>scheme</td>
+<td>string</td>
+<td>Can be &#39;Core&rsquo; or &#39;B2B&rsquo;.</td>
+</tr>
+<tr>
+<td>isRecurring</td>
+<td>boolean</td>
+<td>Is &#39;true&rsquo; by default.</td>
+</tr>
+<tr>
+<td>umr</td>
+<td><a href="#umr">UMR</a></td>
+<td>Unique Mandate Reference, also called RUM in French.</td>
+</tr>
+<tr>
+<td>clientReference</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>contractId</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>contractDescription</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="mandates">Mandates</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SEPA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"clientReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contractDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A special contract"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<b title="required">&nbsp;*&nbsp;</b></td>
+<td>integer</td>
+<td>Total number of mandates available.</td>
+</tr>
+<tr>
+<td>mandates<b title="required">&nbsp;*&nbsp;</b></td>
+<td>array[<a href="#mandate">Mandate</a>]</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="error">Error</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>message<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>fields<b title="required">&nbsp;*&nbsp;</b></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="http-error-codes">HTTP Error Codes</h1>
+
+<p>The Finstack API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -221,39 +2348,31 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request &ndash; There was an error while processing the request payload (malformed JSON, for instance)</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; The request is not authenticated, or invalid API key</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The request is successfully authenticated (see 401), but the action requires a different type of key</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; There is no resource behind the URI</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; You tried to access a resource with an invalid method (GET instead of POST for example)</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t JSON</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You have sent too many requests in a given amount of time (&ldquo;rate limiting&rdquo;)</td>
 </tr>
 <tr>
 <td>500</td>
@@ -261,19 +2380,14 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">cURL</a>
-                <a href="#" data-language-name="scala">Scala</a>
-                <a href="#" data-language-name="java">Java</a>
-                <a href="#" data-language-name="php">PHP</a>
-                <a href="#" data-language-name="ruby">Ruby</a>
-                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="http">HTTP</a>
           </div>
       </div>
     </div>
