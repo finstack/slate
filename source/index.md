@@ -507,9 +507,24 @@ Content-Type: application/json
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-02-01T12:00:00Z",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "debtorDesignation": "Debtor SAS",
+            "debtorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "sci": "DE98ZZZ09999999999",
+            "creditorDesignation": "Creditor SARL",
+            "creditorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
-            "fee": "0.99",
+            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -944,9 +959,24 @@ Content-Type: application/json
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-02-01T12:00:00Z",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "debtorDesignation": "Debtor SAS",
+            "debtorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "sci": "DE98ZZZ09999999999",
+            "creditorDesignation": "Creditor SARL",
+            "creditorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "thirdPartyCreditorDesignation": "3rd party Company",
             "signatureDate": "2015-02-01",
-            "fee": "0.99",
+            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1025,6 +1055,22 @@ Content-Type: application/json
     "status": "ToBeSigned",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
+    "debtorDesignation": "Debtor SAS",
+    "debtorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "sci": "DE98ZZZ09999999999",
+    "creditorDesignation": "Creditor SARL",
+    "creditorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureUrl": "https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503",
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
@@ -1086,9 +1132,24 @@ Content-Type: application/json
     "status": "ValidatedNotUsedYet",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-02-01T12:00:00Z",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "debtorDesignation": "Debtor SAS",
+    "debtorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "sci": "DE98ZZZ09999999999",
+    "creditorDesignation": "Creditor SARL",
+    "creditorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "fee": "0.99",
+    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1153,9 +1214,24 @@ Content-Type: application/json
     "status": "ValidatedNotUsedYet",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-02-01T12:00:00Z",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "debtorDesignation": "Debtor SAS",
+    "debtorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "sci": "DE98ZZZ09999999999",
+    "creditorDesignation": "Creditor SARL",
+    "creditorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "fee": "0.99",
+    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1590,9 +1666,24 @@ metadata | string | | Custom information goes here.
     "status": "ValidatedNotUsedYet",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-02-01T12:00:00Z",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "debtorDesignation": "Debtor SAS",
+    "debtorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "sci": "DE98ZZZ09999999999",
+    "creditorDesignation": "Creditor SARL",
+    "creditorAddress": {
+        "street": "13, rue du paradis",
+        "postCode": "54000",
+        "city": "NANCY",
+        "country": "France"
+    },
+    "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "fee": "0.99",
+    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1616,21 +1707,26 @@ Name | Type | Description
 --- | --- | ---
 id | string | Should be a valid UUID string.
 versionNo | integer | 
-status | enum | Can be 'Canceled', 'PendingClientRegistration', 'ToBeSigned', 'ToBeValidated', 'ValidatedNotUsedYet', 'ValidatedUsed', 'Disabled' or 'Rejected'.
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+status | string | Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;, &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
+createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+debtorDesignation | string | Full name of the debtor whether it&#039;s an individual or legal entity. It is taken from the &#039;holder&#039; field of the bank account!
+debtorAddress | [Address](#address) | Address of the debtor when the mandate was generated.
+sci | [SCI](#sci) | SEPA Creditor Identifier.
+creditorDesignation | string | Full name of the creditor whether it&#039;s an individual or legal entity.
+creditorAddress | [Address](#address) | Address of the creditor when the mandate was generated.
+thirdPartyCreditorDesignation | string | Full name of the third party creditor (if any) whether it&#039;s an individual or legal entity.
 signatureUrl | string | This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.
+signatureDate | string | Signature date, for example &#039;2015-01-01&#039;.
 document | string | ID of the signed PDF document (if any).
-signatureDate | string | Signature date, for example '2015-01-01'.
-fee | number | This field only appears once a mandate is signed.
 debtor<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s user id.
 debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s bank account id.
 creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
 thirdPartyCreditor | string | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | string | Can only be 'SEPA'.
-scheme | string | Can be 'Core' or 'B2B'.
+mandateType | string | Can only be &#039;SEPA&#039;.
+scheme | string | Can be &#039;Core&#039; or &#039;B2B&#039;.
 isRecurring | boolean | Is 'true' by default.
-umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French.
+umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 clientReference | string | 
 contractId | string | 
 contractDescription | string | 
@@ -1650,9 +1746,25 @@ metadata | string | Custom information goes here.
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-02-01T12:00:00Z",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "debtorDesignation": "Debtor SAS",
+            "debtorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "sci": "DE98ZZZ09999999999",
+            "creditorDesignation": "Creditor SARL",
+            "creditorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "thirdPartyCreditorDesignation": "3rd party Company",
+            "signatureUrl": "string",
             "signatureDate": "2015-02-01",
-            "fee": "0.99",
+            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
