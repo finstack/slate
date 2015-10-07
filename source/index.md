@@ -63,7 +63,7 @@ GET /api/v1/users HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -164,7 +164,7 @@ X-Auth-Token: myapikeyvalue
 }
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -266,7 +266,7 @@ GET /api/v1/users/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -362,7 +362,7 @@ X-Auth-Token: myapikeyvalue
 }
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -429,7 +429,7 @@ GET /api/v1/users/{id}/bank_accounts HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -490,7 +490,7 @@ GET /api/v1/users/{id}/mandates HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -575,7 +575,7 @@ GET /api/v1/users/me HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -638,7 +638,7 @@ GET /api/v1/bank_accounts HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -714,7 +714,7 @@ X-Auth-Token: myapikeyvalue
 }
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 201 Created
@@ -768,7 +768,7 @@ GET /api/v1/bank_accounts/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -826,7 +826,7 @@ DELETE /api/v1/bank_accounts/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -884,7 +884,7 @@ GET /api/v1/bank_accounts/me HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -942,7 +942,7 @@ GET /api/v1/mandates HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -1120,7 +1120,7 @@ GET /api/v1/mandates/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -1202,7 +1202,7 @@ DELETE /api/v1/mandates/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
@@ -1210,8 +1210,8 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
-    "status": "ValidatedNotUsedYet",
+    "versionNo": "3",
+    "status": "Disabled",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-02-01T12:00:00Z",
     "debtorDesignation": "Debtor SAS",
@@ -1284,7 +1284,7 @@ GET /api/v1/mandates/{id}/pdf HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
-> The above command returns a HTTP response such as:
+> HTTP response example:
 
 ```http
 HTTP/1.1 200 OK
