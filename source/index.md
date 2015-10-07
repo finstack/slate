@@ -1281,7 +1281,7 @@ country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#0
 "33612345678"
 ```
 
-Phone number respecting the &lt;a href=&quot;https://en.wikipedia.org/wiki/MSISDN&quot;&gt;MSISDN&lt;/a&gt; format. For example use 33650021433 instead of 0650021433.
+Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.
 
 	
 ## LegalEntity
