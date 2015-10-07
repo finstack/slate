@@ -96,7 +96,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -215,7 +215,7 @@ the display name and other details about each user.</p>
 </span></code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -334,7 +334,7 @@ update the existing user with the new details.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -438,7 +438,7 @@ update the existing user with the new details.</p>
 </span></code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -520,7 +520,7 @@ update the existing user with the new details.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -591,7 +591,7 @@ update the existing user with the new details.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -607,9 +607,24 @@ update the existing user with the new details.</p>
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">            
             </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
@@ -671,7 +686,7 @@ update the existing user with the new details.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -731,7 +746,7 @@ update the existing user with the new details.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -823,7 +838,7 @@ they authorized you to access their information.</p>
 </span></code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -887,7 +902,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -954,7 +969,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1021,7 +1036,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1076,7 +1091,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1092,9 +1107,24 @@ they authorized you to access their information.</p>
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
@@ -1190,6 +1220,22 @@ they authorized you to access their information.</p>
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ToBeSigned"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"signatureUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
@@ -1250,7 +1296,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1261,9 +1307,24 @@ they authorized you to access their information.</p>
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
@@ -1326,20 +1387,35 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disabled"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
@@ -1402,7 +1478,7 @@ they authorized you to access their information.</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns a HTTP response such as:</p>
+<p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 </code></pre>
@@ -2103,9 +2179,24 @@ they authorized you to access their information.</p>
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
@@ -2144,18 +2235,48 @@ they authorized you to access their information.</p>
 </tr>
 <tr>
 <td>status</td>
-<td>enum</td>
-<td>Can be &#39;Canceled&rsquo;, &#39;PendingClientRegistration&rsquo;, &#39;ToBeSigned&rsquo;, &#39;ToBeValidated&rsquo;, &#39;ValidatedNotUsedYet&rsquo;, &#39;ValidatedUsed&rsquo;, &#39;Disabled&rsquo; or &#39;Rejected&rsquo;.</td>
+<td>string</td>
+<td>Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;, &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.</td>
 </tr>
 <tr>
 <td>createdAt</td>
 <td>string</td>
-<td>Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+<td>Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
 </tr>
 <tr>
 <td>updatedAt</td>
 <td>string</td>
-<td>Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;</td>
+<td>Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>debtorDesignation</td>
+<td>string</td>
+<td>Full name of the debtor whether it&#039;s an individual or legal entity. It is taken from the &#039;holder&#039; field of the bank account!</td>
+</tr>
+<tr>
+<td>debtorAddress</td>
+<td><a href="#address">Address</a></td>
+<td>Address of the debtor when the mandate was generated.</td>
+</tr>
+<tr>
+<td>sci</td>
+<td><a href="#sci">SCI</a></td>
+<td>SEPA Creditor Identifier.</td>
+</tr>
+<tr>
+<td>creditorDesignation</td>
+<td>string</td>
+<td>Full name of the creditor whether it&#039;s an individual or legal entity.</td>
+</tr>
+<tr>
+<td>creditorAddress</td>
+<td><a href="#address">Address</a></td>
+<td>Address of the creditor when the mandate was generated.</td>
+</tr>
+<tr>
+<td>thirdPartyCreditorDesignation</td>
+<td>string</td>
+<td>Full name of the third party creditor (if any) whether it&#039;s an individual or legal entity.</td>
 </tr>
 <tr>
 <td>signatureUrl</td>
@@ -2163,19 +2284,14 @@ they authorized you to access their information.</p>
 <td>This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.</td>
 </tr>
 <tr>
+<td>signatureDate</td>
+<td>string</td>
+<td>Signature date, for example &#039;2015-01-01&#039;.</td>
+</tr>
+<tr>
 <td>document</td>
 <td>string</td>
 <td>ID of the signed PDF document (if any).</td>
-</tr>
-<tr>
-<td>signatureDate</td>
-<td>string</td>
-<td>Signature date, for example &#39;2015-01-01&rsquo;.</td>
-</tr>
-<tr>
-<td>fee</td>
-<td>number</td>
-<td>This field only appears once a mandate is signed.</td>
 </tr>
 <tr>
 <td>debtor<b title="required">&nbsp;*&nbsp;</b></td>
@@ -2200,12 +2316,12 @@ they authorized you to access their information.</p>
 <tr>
 <td>mandateType</td>
 <td>string</td>
-<td>Can only be &#39;SEPA&rsquo;.</td>
+<td>Can only be &#039;SEPA&#039;.</td>
 </tr>
 <tr>
 <td>scheme</td>
 <td>string</td>
-<td>Can be &#39;Core&rsquo; or &#39;B2B&rsquo;.</td>
+<td>Can be &#039;Core&#039; or &#039;B2B&#039;.</td>
 </tr>
 <tr>
 <td>isRecurring</td>
@@ -2215,7 +2331,7 @@ they authorized you to access their information.</p>
 <tr>
 <td>umr</td>
 <td><a href="#umr">UMR</a></td>
-<td>Unique Mandate Reference, also called RUM in French.</td>
+<td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
 </tr>
 <tr>
 <td>clientReference</td>
@@ -2251,9 +2367,25 @@ they authorized you to access their information.</p>
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValidatedNotUsedYet"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"debtorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"creditorAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13, rue du paradis"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NANCY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"signatureUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"debtorBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"creditor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
