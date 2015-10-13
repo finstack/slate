@@ -114,7 +114,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[ShortUsers](#shortusers)</td><td>An array of short users.</td></tr> 
+<tr><td>200</td><td>[ShortUserArray](#shortuserarray)</td><td>An array of short users.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -316,7 +316,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Users](#users)</td><td>An array of users with details.</td></tr> 
+<tr><td>200</td><td>[UserArray](#userarray)</td><td>An array of users with details.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -542,7 +542,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccounts](#bankaccounts)</td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -627,7 +627,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Mandates](#mandates)</td><td>An array of mandates.</td></tr> 
+<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -754,7 +754,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccounts](#bankaccounts)</td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -992,7 +992,7 @@ Finds all bank accounts that belong to the authenticated user.
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccounts](#bankaccounts)</td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1080,7 +1080,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Mandates](#mandates)</td><td>An array of mandates.</td></tr> 
+<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1443,7 +1443,7 @@ iban<b title="required">&nbsp;*&nbsp;</b> | string |
 metadata | string | Custom information goes here.
 
 	
-## BankAccounts
+## BankAccountArray
 ```json
 {
     "offset": "0",
@@ -1609,7 +1609,7 @@ contractDescription | string |
 metadata | string | Custom information goes here.
 
 	
-## Mandates
+## MandateArray
 ```json
 {
     "offset": "0",
@@ -1722,7 +1722,7 @@ thirdPartyCreditor | string | | The third party creditor&#039;s (or true credito
 mandateType | enum | SEPA | Can only be 'SEPA'.
 scheme | enum | Core | Can be 'Core' or 'B2B'.
 isRecurring | boolean | true |
-umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French.
+umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 clientReference | string | |
 contractId | string | |
 contractDescription | string | |
@@ -1814,7 +1814,7 @@ createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in 
 links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | 
 
 	
-## ShortUsers
+## ShortUserArray
 ```json
 {
     "offset": "0",
@@ -1903,7 +1903,7 @@ legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is no
 metadata | string | Custom information goes here.
 
 
-## Users
+## UserArray
 ```json
 {
     "offset": "0",
