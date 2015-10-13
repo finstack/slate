@@ -76,28 +76,15 @@ Content-Type: application/json
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "designation": "An Awesome Company",
             "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
-            "email": "user@example.com",
-            "firstName": "Marc",
-            "lastName": "Dupont",
-            "mobile": "33612345678",
-            "address": {
-                "street": "82, avenue du général Leclerc",
-                "postCode": "75014",
-                "city": "PARIS",
-                "country": "France"
-            },
-            "phone": "33187654321",
-            "legalEntity": {
-                "category": "company",
-                "name": "Acme",
-                "registrationId": "73282932000074",
-                "vatNumber": "FR44732829320",
-                "sci": "DE98ZZZ09999999999"
-            },
-            "metadata": "custom data"
+            "links": [
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                }
+            ]            
         }
     ]
 }
@@ -127,7 +114,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Users](#users)</td><td>An array of users.</td></tr> 
+<tr><td>200</td><td>[ShortUsers](#shortusers)</td><td>An array of short users.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -257,6 +244,82 @@ user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
 <tr><td>201</td><td>[User](#user)</td><td>The newly created user.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
+
+## Find Users with Details
+
+```http
+GET /api/v1/users/full HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "users": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "email": "user@example.com",
+            "firstName": "Marc",
+            "lastName": "Dupont",
+            "mobile": "33612345678",
+            "address": {
+                "street": "82, avenue du général Leclerc",
+                "postCode": "75014",
+                "city": "PARIS",
+                "country": "France"
+            },
+            "phone": "33187654321",
+            "legalEntity": {
+                "category": "Acme",
+                "name": "73282932000074",
+                "registrationId": "FR44732829320",
+                "vatNumber": "FR44732829320",
+                "sci": "DE98ZZZ09999999999"
+            },
+            "metadata": "custom data"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+The Users endpoint returns information about *Finstack* users you created,
+whether they are merchants or simply end users. The response includes 
+the display name and other details about each user.
+
+### Parameters
+Name | In | Type | Default | Description
+--- | --- | --- | --- | ---
+offset | query | integer | 0 | Offset the list of returned results by this amount.
+limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[Users](#users)</td><td>An array of users with details.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
 
 
 ## Get User
@@ -1519,6 +1582,66 @@ count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users ava
 users<b title="required">&nbsp;*&nbsp;</b> | array[[User](#user)] | 
 
 	
+## ShortUser
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "designation": "An Awesome Company",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        }
+    ]
+}
+```
+
+Minimal information about a user.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
+designation | string | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
+createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | 
+
+	
+## ShortUsers
+```json
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "users": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "designation": "An Awesome Company",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "links": [
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                }
+            ]
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
+limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
+count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
+users<b title="required">&nbsp;*&nbsp;</b> | array[[ShortUser](#shortuser)] | 
+
+	
 ## NewBankAccount
 ```json
 {
@@ -1789,6 +1912,23 @@ offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
 limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
 count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates available.
 mandates<b title="required">&nbsp;*&nbsp;</b> | array[[Mandate](#mandate)] | 
+
+	
+## Link
+```json
+{
+    "rel": "Get User",
+    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "verb": "GET"
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+rel | string | Describes the action that can be conducted.
+href | string | URL to execute the action.
+verb | string | HTTP verb required to execute the action.
 
 	
 ## Error
