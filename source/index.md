@@ -1385,14 +1385,6 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 
 
 # Models
-## SCI
-```json
-"DE98ZZZ09999999999"
-```
-
-SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
-
-
 ## Address
 ```json
 {
@@ -1413,257 +1405,6 @@ street<b title="required">&nbsp;*&nbsp;</b> | string | | Full street information
 postCode<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;93500&#039;.
 city<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;Paris&#039;.
 country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#039;France&#039;.
-
-	
-## PhoneNumber
-```json
-"33612345678"
-```
-
-Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.
-
-	
-## LegalEntity
-```json
-{
-    "category": "company",
-    "name": "Acme",
-    "registrationId": "73282932000074",
-    "vatNumber": "FR44732829320",
-    "sci": "DE98ZZZ09999999999"
-}
-```
-
-Information about all types of corporation such as companies, associations...
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-category<b title="required">&nbsp;*&nbsp;</b> | enum | Can be 'company', 'association' or 'auto-entrepreneur'
-name<b title="required">&nbsp;*&nbsp;</b> | string | 
-registrationId | string | 
-vatNumber | string | 
-sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
-
-	
-## NewUser
-```json
-{
-    "email": "user@example.com",
-    "firstName": "Marc",
-    "lastName": "Dupont",
-    "mobile": "33612345678",
-    "address": {
-        "street": "82, avenue du général Leclerc",
-        "postCode": "75014",
-        "city": "PARIS",
-        "country": "France"
-    },
-    "phone": "33187654321",
-    "legalEntity": {
-        "category": "company",
-        "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
-        "sci": "DE98ZZZ09999999999"
-    },
-    "metadata": "custom data"
-}
-```
-
-JSON schema of user information required to create a new user.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-email<b title="required">&nbsp;*&nbsp;</b> | string | 
-firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
-lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
-mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
-address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
-phone | [PhoneNumber](#phonenumber) | Landline phone number.
-legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
-metadata | string | Custom information goes here.
-
-	
-## User
-```json
-{
-    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
-    "email": "user@example.com",
-    "firstName": "Marc",
-    "lastName": "Dupont",
-    "mobile": "33612345678",
-    "address": {
-        "street": "82, avenue du général Leclerc",
-        "postCode": "75014",
-        "city": "PARIS",
-        "country": "France"
-    },
-    "phone": "33187654321",
-    "legalEntity": {
-        "category": "company",
-        "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
-        "sci": "DE98ZZZ09999999999"
-    },
-    "metadata": "custom data"
-}
-```
-
-JSON schema of user information required to create a new user.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-id | string | Should be a valid UUID string.
-versionNo | integer | 
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-email<b title="required">&nbsp;*&nbsp;</b> | string | 
-firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
-lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
-mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
-address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
-phone | [PhoneNumber](#phonenumber) | Landline phone number.
-legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
-metadata | string | Custom information goes here.
-
-	
-## Users
-```json
-{
-    "offset": "0",
-    "limit": "10",
-    "count": "1",
-    "users": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
-            "email": "user@example.com",
-            "firstName": "Marc",
-            "lastName": "Dupont",
-            "mobile": "33612345678",
-            "address": {
-                "street": "82, avenue du général Leclerc",
-                "postCode": "75014",
-                "city": "PARIS",
-                "country": "France"
-            },
-            "phone": "33187654321",
-            "legalEntity": {
-                "category": "company",
-                "name": "Acme",
-                "registrationId": "73282932000074",
-                "vatNumber": "FR44732829320",
-                "sci": "DE98ZZZ09999999999"
-            },
-            "metadata": "custom data"
-        }
-    ]
-}
-```
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
-users<b title="required">&nbsp;*&nbsp;</b> | array[[User](#user)] | 
-
-	
-## ShortUser
-```json
-{
-    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "designation": "An Awesome Company",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "links": [
-        {
-            "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "verb": "GET"
-        }
-    ]
-}
-```
-
-Minimal information about a user.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
-designation | string | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
-createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | 
-
-	
-## ShortUsers
-```json
-{
-    "offset": "0",
-    "limit": "10",
-    "count": "1",
-    "users": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "designation": "An Awesome Company",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "links": [
-                {
-                    "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
-                    "verb": "GET"
-                }
-            ]
-        }
-    ]
-}
-```
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
-users<b title="required">&nbsp;*&nbsp;</b> | array[[ShortUser](#shortuser)] | 
-
-	
-## NewBankAccount
-```json
-{
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-    "holder": "Marc Dupont",
-    "bic": "SOGEFRPPXXX",
-    "iban": "FR1420041010050500013M02606",
-    "metadata": "custom data"
-}
-```
-
-Bank account information JSON schema.
-
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
-holder<b title="required">&nbsp;*&nbsp;</b> | string | 
-bic<b title="required">&nbsp;*&nbsp;</b> | string | 
-iban<b title="required">&nbsp;*&nbsp;</b> | string | 
-metadata | string | Custom information goes here.
 
 	
 ## BankAccount
@@ -1734,51 +1475,63 @@ limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrie
 count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of bank accounts available.
 bankAccounts<b title="required">&nbsp;*&nbsp;</b> | array[[BankAccount](#bankaccount)] | 
 
-	
-## UMR
-```json
-"MYSPECIALUMR"
-```
 
-Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-
-	
-## NewMandate
+## Error
 ```json
 {
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
-    "scheme": "Core",
-    "isRecurring": "true",
-    "umr": "ASPECIALUMR",
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
-    "metadata": "custom data"
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+code<b title="required">&nbsp;*&nbsp;</b> | string | 
+message<b title="required">&nbsp;*&nbsp;</b> | string | 
+fields<b title="required">&nbsp;*&nbsp;</b> | string | 
+
+
+## LegalEntity
+```json
+{
+    "category": "company",
+    "name": "Acme",
+    "registrationId": "73282932000074",
+    "vatNumber": "FR44732829320",
+    "sci": "DE98ZZZ09999999999"
 }
 ```
 
-Information required to issue a new mandate.
+Information about all types of corporation such as companies, associations...
 
 	
 ### Fields
-Name | Type | Default | Description
---- | --- | --- | ---
-debtor<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s user id.
-debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s bank account id.
-creditor<b title="required">&nbsp;*&nbsp;</b> | string | | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
-thirdPartyCreditor | string | | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | enum | SEPA | Can only be 'SEPA'.
-scheme | enum | Core | Can be 'Core' or 'B2B'.
-isRecurring | boolean | true |
-umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French.
-clientReference | string | |
-contractId | string | |
-contractDescription | string | |
-metadata | string | | Custom information goes here.
+Name | Type | Description
+--- | --- | ---
+category<b title="required">&nbsp;*&nbsp;</b> | enum | Can be 'company', 'association' or 'auto-entrepreneur'
+name<b title="required">&nbsp;*&nbsp;</b> | string | 
+registrationId | string | 
+vatNumber | string | 
+sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
+
+
+## Link
+```json
+{
+    "rel": "Get User",
+    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "verb": "GET"
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+rel | string | Describes the action that can be conducted.
+href | string | URL to execute the action.
+verb | enum | HTTP verb required to execute the action. Can be 'GET', 'POST', 'PUT' and 'DELETE'.
 
 	
 ## Mandate
@@ -1913,36 +1666,283 @@ limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrie
 count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates available.
 mandates<b title="required">&nbsp;*&nbsp;</b> | array[[Mandate](#mandate)] | 
 
-	
-## Link
+
+## NewBankAccount
 ```json
 {
-    "rel": "Get User",
-    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "verb": "GET"
+    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
-	
-### Fields
-Name | Type | Description
---- | --- | ---
-rel | string | Describes the action that can be conducted.
-href | string | URL to execute the action.
-verb | string | HTTP verb required to execute the action.
+
+Bank account information JSON schema.
 
 	
-## Error
+### Fields
+Name | Type | Description
+--- | --- | ---
+user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
+holder<b title="required">&nbsp;*&nbsp;</b> | string | 
+bic<b title="required">&nbsp;*&nbsp;</b> | string | 
+iban<b title="required">&nbsp;*&nbsp;</b> | string | 
+metadata | string | Custom information goes here.
+
+
+## NewMandate
 ```json
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "mandateType": "SEPA",
+    "scheme": "Core",
+    "isRecurring": "true",
+    "umr": "ASPECIALUMR",
+    "clientReference": "CLIENT1",
+    "contractId": "CONTRACT1",
+    "contractDescription": "A special contract",
+    "metadata": "custom data"
+}
+```
+
+Information required to issue a new mandate.
+
+	
+### Fields
+Name | Type | Default | Description
+--- | --- | --- | ---
+debtor<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s user id.
+debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s bank account id.
+creditor<b title="required">&nbsp;*&nbsp;</b> | string | | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
+thirdPartyCreditor | string | | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
+mandateType | enum | SEPA | Can only be 'SEPA'.
+scheme | enum | Core | Can be 'Core' or 'B2B'.
+isRecurring | boolean | true |
+umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French.
+clientReference | string | |
+contractId | string | |
+contractDescription | string | |
+metadata | string | | Custom information goes here.
+
+
+## NewUser
+```json
+{
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "phone": "33187654321",
+    "legalEntity": {
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
+}
+```
+
+JSON schema of user information required to create a new user.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+email<b title="required">&nbsp;*&nbsp;</b> | string | 
+firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
+lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
+mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
+address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
+phone | [PhoneNumber](#phonenumber) | Landline phone number.
+legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
+metadata | string | Custom information goes here.
+
+
+## PhoneNumber
+```json
+"33612345678"
+```
+
+Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.
+
+
+## SCI
+```json
+"DE98ZZZ09999999999"
+```
+
+SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+
+
+## ShortUser
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "designation": "An Awesome Company",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        }
+    ]
+}
+```
+
+Minimal information about a user.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
+designation | string | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
+createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | 
+
+	
+## ShortUsers
+```json
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "users": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "designation": "An Awesome Company",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "links": [
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                }
+            ]
+        }
+    ]
 }
 ```
 	
 ### Fields
 Name | Type | Description
 --- | --- | ---
-code<b title="required">&nbsp;*&nbsp;</b> | string | 
-message<b title="required">&nbsp;*&nbsp;</b> | string | 
-fields<b title="required">&nbsp;*&nbsp;</b> | string | 
+offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
+limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
+count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
+users<b title="required">&nbsp;*&nbsp;</b> | array[[ShortUser](#shortuser)] | 
+
+
+## UMR
+```json
+"MYSPECIALUMR"
+```
+
+Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+
+
+## User
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "phone": "33187654321",
+    "legalEntity": {
+        "category": "company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
+}
+```
+
+JSON schema of user information required to create a new user.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+id | string | Should be a valid UUID string.
+versionNo | integer | 
+createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+email<b title="required">&nbsp;*&nbsp;</b> | string | 
+firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
+lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
+mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
+address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
+phone | [PhoneNumber](#phonenumber) | Landline phone number.
+legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
+metadata | string | Custom information goes here.
+
+
+## Users
+```json
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "users": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-01-01T12:00:00Z",
+            "email": "user@example.com",
+            "firstName": "Marc",
+            "lastName": "Dupont",
+            "mobile": "33612345678",
+            "address": {
+                "street": "82, avenue du général Leclerc",
+                "postCode": "75014",
+                "city": "PARIS",
+                "country": "France"
+            },
+            "phone": "33187654321",
+            "legalEntity": {
+                "category": "company",
+                "name": "Acme",
+                "registrationId": "73282932000074",
+                "vatNumber": "FR44732829320",
+                "sci": "DE98ZZZ09999999999"
+            },
+            "metadata": "custom data"
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
+limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
+count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
+users<b title="required">&nbsp;*&nbsp;</b> | array[[User](#user)] | 
