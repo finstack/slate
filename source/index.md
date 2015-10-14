@@ -83,6 +83,21 @@ Content-Type: application/json
                     "rel": "Get User",
                     "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
+                },
+                {
+                    "rel": "Update User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "PUT"
+                },
+                {
+                    "rel": "Find Bank Accounts of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Find Mandates of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "verb": "GET"
                 }
             ]            
         }
@@ -663,6 +678,99 @@ Content-Type: application/json
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "umr": "ASPECIALUMR",
+            "status": "ValidatedNotUsedYet",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-02-01T18:00:00Z",
+            "debtorDesignation": "Debtor SAS",
+            "creditorDesignation": "Creditor SARL",
+            "thirdPartyCreditorDesignation": "3rd party Company",
+            "signatureDate": "2015-02-01",
+            "links": [
+                {
+                    "rel": "Get Mandate Details",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ]
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all mandates that belong to the specified user.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
+
+//todo: migrate to html tables. after cool looking nested table
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Find Mandates of User with Details
+
+```http
+GET /api/v1/users/{id}/mandates/full HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "mandates": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00Z",
@@ -739,19 +847,20 @@ Content-Type: application/json
 }
 ```
 
-Returns all mandates that belong to the specified user.
+Returns all mandates that belong to the specified user with details.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+role | query | string | Filter mandates depending on role. Possible values are 'all', 'asDebtor', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all mandates.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates.</td></tr> 
+<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1208,29 +1317,20 @@ Content-Type: application/json
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "2",
+            "umr": "ASPECIALUMR",
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-02-01T12:00:00Z",
             "debtorDesignation": "Debtor SAS",
-            "debtorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
-            "sci": "DE98ZZZ09999999999",
             "creditorDesignation": "Creditor SARL",
-            "creditorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "thirdPartyCreditorDesignation": "3rd party Company",
             "signatureDate": "2015-02-01",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
+                {
+                    "rel": "Get Mandate Details",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                },
                 {
                     "rel": "Get Debtor",
                     "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
@@ -1256,19 +1356,7 @@ Content-Type: application/json
                     "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
-            ],
-            "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-            "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "mandateType": "SEPA",
-            "scheme": "Core",
-            "isRecurring": "true",
-            "umr": "ASPECIALUMR",
-            "clientReference": "CLIENT1",
-            "contractId": "CONTRACT1",
-            "contractDescription": "A special contract",
-            "metadata": "custom data"
+            ]
         }
     ]
 }
@@ -1297,7 +1385,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates.</td></tr> 
+<tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1325,6 +1413,9 @@ X-Auth-Token: myapikeyvalue
     }
 }
 ```
+
+> HTTP response example:
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -1417,6 +1508,120 @@ mandate<b title="required">&nbsp;*&nbsp;</b> | body | [NewMandate](#newmandate) 
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td>[Mandate](#mandate)</td><td>The newly created mandate.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+
+## Find Mandates with Details
+
+```http
+GET /api/v1/mandates/full HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "mandates": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "2",
+            "status": "ValidatedNotUsedYet",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-02-01T12:00:00Z",
+            "debtorDesignation": "Debtor SAS",
+            "debtorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "sci": "DE98ZZZ09999999999",
+            "creditorDesignation": "Creditor SARL",
+            "creditorAddress": {
+                "street": "13, rue du paradis",
+                "postCode": "54000",
+                "city": "NANCY",
+                "country": "France"
+            },
+            "thirdPartyCreditorDesignation": "3rd party Company",            
+            "signatureDate": "2015-02-01",
+            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "links": [
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
+            "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
+            "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "mandateType": "SEPA",
+            "scheme": "Core",
+            "isRecurring": "true",
+            "umr": "ASPECIALUMR",
+            "clientReference": "CLIENT1",
+            "contractId": "CONTRACT1",
+            "contractDescription": "A special contract",
+            "metadata": "custom data"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns mandates that belong to users that you manage, or mandates that you created.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1947,7 +2152,7 @@ creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s use
 thirdPartyCreditor | string | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
 mandateType | string | Can only be &#039;SEPA&#039;.
 scheme | string | Can be &#039;Core&#039; or &#039;B2B&#039;.
-isRecurring | boolean | Is 'true' by default.
+isRecurring | boolean | Is &#039;true&#039; by default.
 umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 clientReference | string | 
 contractId | string | 
@@ -2040,6 +2245,15 @@ count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates 
 mandates<b title="required">&nbsp;*&nbsp;</b> | array[[Mandate](#mandate)] | 
 
 
+## MandateStatus
+```json
+"ValidatedUsed"
+```
+
+Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
+&#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
+
+	
 ## NewBankAccount
 ```json
 {
@@ -2058,9 +2272,9 @@ Bank account information JSON schema.
 Name | Type | Description
 --- | --- | ---
 user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
-holder<b title="required">&nbsp;*&nbsp;</b> | string | 
-bic<b title="required">&nbsp;*&nbsp;</b> | string | 
-iban<b title="required">&nbsp;*&nbsp;</b> | string | 
+holder<b title="required">&nbsp;*&nbsp;</b> | string | Holder of the bank account.
+bic<b title="required">&nbsp;*&nbsp;</b> | string | Bank Identifier Code.
+iban<b title="required">&nbsp;*&nbsp;</b> | string | International Bank Account Number.
 metadata | string | Custom information goes here.
 
 
@@ -2092,9 +2306,9 @@ debtor<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s user 
 debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s bank account id.
 creditor<b title="required">&nbsp;*&nbsp;</b> | string | | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
 thirdPartyCreditor | string | | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | enum | SEPA | Can only be 'SEPA'.
-scheme | enum | Core | Can be 'Core' or 'B2B'.
-isRecurring | boolean | true |
+mandateType | enum | SEPA | Can only be &#039;SEPA&#039;.
+scheme | enum | Core | Can be &#039;Core&#039; or &#039;B2B&#039;.
+isRecurring | boolean | true | Is &#039;true&#039; by default.
 umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 clientReference | string | |
 contractId | string | |
@@ -2159,6 +2373,134 @@ Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISD
 SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
 
 
+## ShortMandate
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "umr": "ASPECIALUMR",
+    "status": "ValidatedNotUsedYet",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-02-01T18:00:00Z",
+    "debtorDesignation": "Debtor SAS",
+    "creditorDesignation": "Creditor SARL",
+    "thirdPartyCreditorDesignation": "3rd party Company",
+    "signatureDate": "2015-02-01",
+    "links": [
+        {
+            "rel": "Get Mandate Details",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor",
+            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+           "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        },
+        {
+            "rel": "Revoke Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ]
+}
+```
+
+Minimal information about a mandate.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
+umr<b title="required">&nbsp;*&nbsp;</b> | [UMR](#umr) | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+status<b title="required">&nbsp;*&nbsp;</b> | [MandateStatus](#mandatestatus) | Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;, &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
+createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+debtorDesignation<b title="required">&nbsp;*&nbsp;</b> | string | Full name of the debtor whether it&#039;s an individual or legal entity. It is taken from the &#039;holder&#039; field of the bank account!
+creditorDesignation<b title="required">&nbsp;*&nbsp;</b> | string | Full name of the creditor whether it&#039;s an individual or legal entity.
+thirdPartyCreditorDesignation | string | Full name of the third party creditor (if any) whether it&#039;s an individual or legal entity.
+signatureDate | string | Signature date, for example &#039;2015-01-01&#039;.
+links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Available actions on the mandate.
+
+	
+## ShortMandateArray
+```json
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "mandates": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "umr": "ASPECIALUMR",
+            "status": "ValidatedNotUsedYet",
+            "createdAt": "2015-01-01T12:00:00Z",
+            "updatedAt": "2015-02-01T18:00:00Z",
+            "debtorDesignation": "Debtor SAS",
+            "creditorDesignation": "Creditor SARL",
+            "thirdPartyCreditorDesignation": "3rd party Company",
+            "signatureDate": "2015-02-01",
+            "links": [
+                {
+                    "rel": "Get Mandate Details",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ]
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
+limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
+count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates available.
+mandates<b title="required">&nbsp;*&nbsp;</b> | array[[ShortMandate](#shortmandate)] | 
+
+
 ## ShortUser
 ```json
 {
@@ -2169,6 +2511,21 @@ SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
         {
             "rel": "Get User",
             "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ]
@@ -2202,6 +2559,21 @@ links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Link to the 
                 {
                     "rel": "Get User",
                     "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Update User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "PUT"
+                },
+                {
+                    "rel": "Find Bank Accounts of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Find Mandates of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
                     "verb": "GET"
                 }
             ]
