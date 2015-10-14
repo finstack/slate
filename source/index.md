@@ -600,6 +600,11 @@ Content-Type: application/json
                     "rel": "Disable Bank Account",
                     "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
+                },
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "verb": "GET"
                 }
             ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -860,6 +865,11 @@ Content-Type: application/json
                     "rel": "Disable Bank Account",
                     "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
+                },
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "verb": "GET"
                 }
             ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -938,6 +948,11 @@ Content-Type: application/json
             "rel": "Disable Bank Account",
             "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
+        },
+        {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "verb": "GET"
         }
     ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -999,6 +1014,11 @@ Content-Type: application/json
             "rel": "Disable Bank Account",
             "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
+        },
+        {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "verb": "GET"
         }
     ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -1128,6 +1148,11 @@ Content-Type: application/json
                     "rel": "Disable Bank Account",
                     "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
+                },
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "verb": "GET"
                 }
             ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -1689,6 +1714,11 @@ country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#0
             "rel": "Disable Bank Account",
             "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
+        },
+        {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "verb": "GET"
         }
     ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -1733,6 +1763,18 @@ metadata | string | Custom information goes here.
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "links": [
+                {
+                    "rel": "Disable Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                },
+                {
+                    "rel": "Get User",
+                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "verb": "GET"
+                }
+            ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
