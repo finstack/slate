@@ -24,6 +24,14 @@ Focus is on simplicity, consistency and security; less on discoverability.
 
 Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces `application/json` content.
 
+The base URL of the API is __https://finstack.io/api/v1__.
+
+The current version is __1.0.0__.
+
+You can contact us at __contact@finstack.io__.
+
+[Terms of service](http://finstack.io/terms/)
+
 # Authentication
 
 > To authorize, use this code:
@@ -1897,12 +1905,12 @@ Address JSON schema.
 
 	
 ### Fields
-Name | Type | Default | Description
---- | --- | --- | ---
-street<b title="required">&nbsp;*&nbsp;</b> | string | | Full street information including number, for example &#039;82, avenue du général Leclerc&#039;.
-postCode<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;93500&#039;.
-city<b title="required">&nbsp;*&nbsp;</b> | string | | For example &#039;Paris&#039;.
-country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#039;France&#039;.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|street|Full street information including number, for example '82, avenue du général Leclerc'.|true|string||
+|postCode|For example '93500'.|true|string||
+|city|For example 'Paris'.|true|string||
+|country|For example 'France'.|true|string|France|
 
 	
 ## BankAccount
@@ -1938,20 +1946,20 @@ Bank account information JSON schema.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id | string | Should be a valid UUID string.
-versionNo | integer | 
-status | enum | Can be 'ToBeVerified', 'Verified', 'Rejected' or 'Disabled'
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-proof | string | ID of the uploaded document (if any) that proves that the bank account belongs to the user.
-links | array[[Link](#link)] | Available actions on the bank account.
-user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
-holder<b title="required">&nbsp;*&nbsp;</b> | string | 
-bic<b title="required">&nbsp;*&nbsp;</b> | string | 
-iban<b title="required">&nbsp;*&nbsp;</b> | string | 
-metadata | string | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
+|status|Status of the bank account.|true|enum (ToBeVerified, Verified, Rejected, Disabled)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|proof|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
+|links|Available actions on the bank account.|true|array[[Link](#link)]||
+|user|The user's id to whom the bank account belongs.|true|string||
+|holder|Holder of the bank account.|true|string||
+|bic|Bank Identifier Code.|true|string||
+|iban|International Bank Account Number.|true|string||
+|metadata|Custom information goes here.|false|string||
 
 	
 ## BankAccountArray
@@ -1991,12 +1999,12 @@ metadata | string | Custom information goes here.
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of bank accounts available.
-bankAccounts<b title="required">&nbsp;*&nbsp;</b> | array[[BankAccount](#bankaccount)] | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of bank accounts available.|true|integer (int32)||
+|bankAccounts||true|array[[BankAccount](#bankaccount)]||
 
 
 ## Error
@@ -2009,11 +2017,11 @@ bankAccounts<b title="required">&nbsp;*&nbsp;</b> | array[[BankAccount](#bankacc
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-code<b title="required">&nbsp;*&nbsp;</b> | string | 
-message<b title="required">&nbsp;*&nbsp;</b> | string | 
-fields<b title="required">&nbsp;*&nbsp;</b> | string | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|code||true|string||
+|message||true|string||
+|fields||true|string||
 
 
 ## LegalEntity
@@ -2031,13 +2039,13 @@ Information about all types of corporation such as companies, associations...
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-category<b title="required">&nbsp;*&nbsp;</b> | enum | Can be 'company', 'association' or 'auto-entrepreneur'
-name<b title="required">&nbsp;*&nbsp;</b> | string | 
-registrationId | string | 
-vatNumber | string | 
-sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|category|Type of legal entity.|true|enum (company, association, auto-entrepreneur)|company|
+|name||true|string||
+|registrationId||false|string||
+|vatNumber||false|string||
+|sci|SEPA creditor identifier, called ICS in French.|false|[SCI](#sci)||
 
 
 ## Link
@@ -2050,11 +2058,11 @@ sci | [SCI](#sci) | SEPA creditor identifier, called ICS in French.
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-rel | string | Describes the action that can be conducted.
-href | string | URL to execute the action.
-verb | enum | HTTP verb required to execute the action. Can be 'GET', 'POST', 'PUT' and 'DELETE'.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|rel|Describes the action that can be conducted.|true|string||
+|href|URL to execute the action.|true|string||
+|verb|HTTP verb required to execute the action.|true|enum (GET, POST, PUT, DELETE)||
 
 	
 ## Mandate
@@ -2129,35 +2137,35 @@ Information required to issue a new mandate.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id | string | Should be a valid UUID string.
-versionNo | integer | 
-status | string | Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;, &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-debtorDesignation | string | Full name of the debtor whether it&#039;s an individual or legal entity. It is taken from the &#039;holder&#039; field of the bank account!
-debtorAddress | [Address](#address) | Address of the debtor when the mandate was generated.
-sci | [SCI](#sci) | SEPA Creditor Identifier.
-creditorDesignation | string | Full name of the creditor whether it&#039;s an individual or legal entity.
-creditorAddress | [Address](#address) | Address of the creditor when the mandate was generated.
-thirdPartyCreditorDesignation | string | Full name of the third party creditor (if any) whether it&#039;s an individual or legal entity.
-signatureUrl | string | This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.
-signatureDate | string | Signature date, for example &#039;2015-01-01&#039;.
-document | string | ID of the signed PDF document (if any).
-links | array[[Link](#link)] | Available actions on the mandate.
-debtor<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s user id.
-debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s bank account id.
-creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
-thirdPartyCreditor | string | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | string | Can only be &#039;SEPA&#039;.
-scheme | string | Can be &#039;Core&#039; or &#039;B2B&#039;.
-isRecurring | boolean | Is &#039;true&#039; by default.
-umr | [UMR](#umr) | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-clientReference | string | 
-contractId | string | 
-contractDescription | string | 
-metadata | string | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
+|status|Status of the mandate.|true|[MandateStatus](#mandatestatus)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
+|debtorAddress|Address of the debtor when the mandate was generated.|true|[Address](#address)||
+|sci|SEPA Creditor Identifier.|true|[SCI](#sci)||
+|creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
+|creditorAddress|Address of the creditor when the mandate was generated.|true|[Address](#address)||
+|thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
+|signatureUrl|This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.|false|string||
+|signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
+|document|ID of the signed PDF document (if any).|false|string||
+|links|Available actions on the mandate.|true|array[[Link](#link)]||
+|debtor|The debtor's user id.|true|string||
+|debtorBankAccount|The debtor's bank account id.|true|string||
+|creditor|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
+|thirdPartyCreditor|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
+|mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
+|scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
+|isRecurring|Is 'true' by default.|false|boolean|true|
+|umr||false|[UMR](#umr)||
+|clientReference||false|string||
+|contractId||false|string||
+|contractDescription||false|string||
+|metadata|Custom information goes here.|false|string||
 
 	
 ## MandateArray
@@ -2237,12 +2245,12 @@ metadata | string | Custom information goes here.
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates available.
-mandates<b title="required">&nbsp;*&nbsp;</b> | array[[Mandate](#mandate)] | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of mandates available.|true|integer (int32)||
+|mandates||true|array[[Mandate](#mandate)]||
 
 
 ## MandateStatus
@@ -2269,13 +2277,13 @@ Bank account information JSON schema.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
-holder<b title="required">&nbsp;*&nbsp;</b> | string | Holder of the bank account.
-bic<b title="required">&nbsp;*&nbsp;</b> | string | Bank Identifier Code.
-iban<b title="required">&nbsp;*&nbsp;</b> | string | International Bank Account Number.
-metadata | string | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|user|The user's id to whom the bank account belongs.|true|string||
+|holder|Holder of the bank account.|true|string||
+|bic|Bank Identifier Code.|true|string||
+|iban|International Bank Account Number.|true|string||
+|metadata|Custom information goes here.|false|string||
 
 
 ## NewMandate
@@ -2300,20 +2308,20 @@ Information required to issue a new mandate.
 
 	
 ### Fields
-Name | Type | Default | Description
---- | --- | --- | ---
-debtor<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s user id.
-debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | | The debtor&#039;s bank account id.
-creditor<b title="required">&nbsp;*&nbsp;</b> | string | | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
-thirdPartyCreditor | string | | The third party creditor&#039;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.
-mandateType | enum | SEPA | Can only be &#039;SEPA&#039;.
-scheme | enum | Core | Can be &#039;Core&#039; or &#039;B2B&#039;.
-isRecurring | boolean | true | Is &#039;true&#039; by default.
-umr | [UMR](#umr) | | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-clientReference | string | |
-contractId | string | |
-contractDescription | string | |
-metadata | string | | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|debtor|The debtor's user id.|true|string||
+|debtorBankAccount|The debtor's bank account id.|true|string||
+|creditor|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
+|thirdPartyCreditor|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
+|mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
+|scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
+|isRecurring|Is 'true' by default.|false|boolean|true|
+|umr||false|[UMR](#umr)||
+|clientReference||false|string||
+|contractId||false|string||
+|contractDescription||false|string||
+|metadata|Custom information goes here.|false|string||
 
 
 ## NewUser
@@ -2345,16 +2353,16 @@ JSON schema of user information required to create a new user.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-email<b title="required">&nbsp;*&nbsp;</b> | string | 
-firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
-lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
-mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
-address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
-phone | [PhoneNumber](#phonenumber) | Landline phone number.
-legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
-metadata | string | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||true|string||
+|firstName||true|string||
+|lastName||true|string||
+|mobile|Mobile phone number.|true|[PhoneNumber](#phonenumber)||
+|address||true|[Address](#address)||
+|phone|Landline phone number.|false|[PhoneNumber](#phonenumber)||
+|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
+|metadata|Custom information goes here.|false|string||
 
 
 ## PhoneNumber
@@ -2424,20 +2432,20 @@ Minimal information about a mandate.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
-umr<b title="required">&nbsp;*&nbsp;</b> | [UMR](#umr) | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-status<b title="required">&nbsp;*&nbsp;</b> | [MandateStatus](#mandatestatus) | Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;, &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
-createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-debtorDesignation<b title="required">&nbsp;*&nbsp;</b> | string | Full name of the debtor whether it&#039;s an individual or legal entity. It is taken from the &#039;holder&#039; field of the bank account!
-creditorDesignation<b title="required">&nbsp;*&nbsp;</b> | string | Full name of the creditor whether it&#039;s an individual or legal entity.
-thirdPartyCreditorDesignation | string | Full name of the third party creditor (if any) whether it&#039;s an individual or legal entity.
-signatureDate | string | Signature date, for example &#039;2015-01-01&#039;.
-links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Available actions on the mandate.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|umr|Unique Mandate Reference, also called RUM in French.|true|[UMR](#umr)||
+|status|Status of the mandate.|true|[MandateStatus](#mandatestatus)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
+|creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
+|thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
+|signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
+|links|Available actions on the mandate.|true|array[[Link](#link)]||
 
-	
+
 ## ShortMandateArray
 ```json
 {
@@ -2493,12 +2501,12 @@ links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Available ac
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of mandates available.
-mandates<b title="required">&nbsp;*&nbsp;</b> | array[[ShortMandate](#shortmandate)] | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of mandates available.|true|integer (int32)||
+|mandates||true|array[[ShortMandate](#shortmandate)]||
 
 
 ## ShortUser
@@ -2536,14 +2544,15 @@ Minimal information about a user.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
-designation | string | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
-createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Link to the user.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|designation|If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.|true|string||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|links|Actions available on the user.|true|array[[Link](#link)]||
 
-	
+
 ## ShortUserArray
 ```json
 {
@@ -2583,12 +2592,12 @@ links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Link to the 
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
-users<b title="required">&nbsp;*&nbsp;</b> | array[[ShortUser](#shortuser)] | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of users available.|true|integer (int32)||
+|users||true|array[[ShortUser](#shortuser)]||
 
 
 ## UMR
@@ -2649,21 +2658,21 @@ JSON schema of user information required to create a new user.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id | string | Should be a valid UUID string.
-versionNo | integer | 
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-links | array[[Link](#link)] | Available actions on the user.
-email<b title="required">&nbsp;*&nbsp;</b> | string | 
-firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
-lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
-mobile<b title="required">&nbsp;*&nbsp;</b> | [PhoneNumber](#phonenumber) | Mobile phone number.
-address<b title="required">&nbsp;*&nbsp;</b> | [Address](#address) | Address JSON schema.
-phone | [PhoneNumber](#phonenumber) | Landline phone number.
-legalEntity | [LegalEntity](#legalentity) | Provide this field if the user is not an individual.
-metadata | string | Custom information goes here.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'|false|string (date-time)||
+|links|Available actions on the user.|true|array[[Link](#link)]||
+|email||true|string||
+|firstName||true|string||
+|lastName||true|string||
+|mobile|Mobile phone number.|true|[PhoneNumber](#phonenumber)||
+|address||true|[Address](#address)||
+|phone|Landline phone number.|false|[PhoneNumber](#phonenumber)||
+|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
+|metadata|Custom information goes here.|false|string||
 
 
 ## UserArray
@@ -2720,9 +2729,9 @@ metadata | string | Custom information goes here.
 ```
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-offset<b title="required">&nbsp;*&nbsp;</b> | integer | Position in pagination.
-limit<b title="required">&nbsp;*&nbsp;</b> | integer | Number of items to retrieve (100 max).
-count<b title="required">&nbsp;*&nbsp;</b> | integer | Total number of users available.
-users<b title="required">&nbsp;*&nbsp;</b> | array[[User](#user)] | 
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of users available.|true|integer (int32)||
+|users||true|array[[User](#user)]||
