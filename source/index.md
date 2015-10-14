@@ -159,9 +159,26 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": "2",
     "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T18:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -192,6 +209,23 @@ Content-Type: application/json
     "versionNo": "1",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -268,6 +302,23 @@ Content-Type: application/json
             "versionNo": "1",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
+            "links": [
+                {
+                    "rel": "Update User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "PUT"
+                },
+                {
+                    "rel": "Find Bank Accounts of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Find Mandates of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "verb": "GET"
+                }
+            ],
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
@@ -340,6 +391,23 @@ Content-Type: application/json
     "versionNo": "1",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -433,9 +501,26 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": "2",
     "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T18:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -510,6 +595,13 @@ Content-Type: application/json
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "links": [
+                {
+                    "rel": "Disable Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
@@ -588,6 +680,33 @@ Content-Type: application/json
             "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
             "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "links": [
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -649,6 +768,23 @@ Content-Type: application/json
     "versionNo": "1",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -719,6 +855,13 @@ Content-Type: application/json
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "links": [
+                {
+                    "rel": "Disable Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
@@ -790,6 +933,13 @@ Content-Type: application/json
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "links": [
+        {
+            "rel": "Disable Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -844,6 +994,13 @@ Content-Type: application/json
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "links": [
+        {
+            "rel": "Disable Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -897,11 +1054,12 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
-    "status": "Verified",
+    "versionNo": "2",
+    "status": "Disabled",
     "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T18:00:00Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "links": [],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -965,6 +1123,13 @@ Content-Type: application/json
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "links": [
+                {
+                    "rel": "Disable Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
@@ -1040,6 +1205,33 @@ Content-Type: application/json
             "thirdPartyCreditorDesignation": "3rd party Company",
             "signatureDate": "2015-02-01",
             "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "links": [
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1135,6 +1327,33 @@ Content-Type: application/json
     },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureUrl": "https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503",
+    "links": [
+        {
+            "rel": "Get Debtor",
+            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        },
+        {
+            "rel": "Cancel Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1213,6 +1432,33 @@ Content-Type: application/json
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "links": [
+        {
+            "rel": "Get Debtor",
+            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        },
+        {
+            "rel": "Revoke Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1295,6 +1541,28 @@ Content-Type: application/json
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "links": [
+        {
+            "rel": "Get Debtor",
+            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        }
+    ],
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1416,6 +1684,13 @@ country<b title="required">&nbsp;*&nbsp;</b> | string | France | For example &#0
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "links": [
+        {
+            "rel": "Disable Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -1436,6 +1711,7 @@ status | enum | Can be 'ToBeVerified', 'Verified', 'Rejected' or 'Disabled'
 createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 proof | string | ID of the uploaded document (if any) that proves that the bank account belongs to the user.
+links | array[[Link](#link)] | Available actions on the bank account.
 user<b title="required">&nbsp;*&nbsp;</b> | string | The user&#039;s id to whom the bank account belongs.
 holder<b title="required">&nbsp;*&nbsp;</b> | string | 
 bic<b title="required">&nbsp;*&nbsp;</b> | string | 
@@ -1560,6 +1836,33 @@ verb | enum | HTTP verb required to execute the action. Can be 'GET', 'POST', 'P
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "links": [
+        {
+            "rel": "Get Debtor",
+            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Debtor Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        },
+        {
+            "rel": "Revoke Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
     "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1595,6 +1898,7 @@ thirdPartyCreditorDesignation | string | Full name of the third party creditor (
 signatureUrl | string | This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.
 signatureDate | string | Signature date, for example &#039;2015-01-01&#039;.
 document | string | ID of the signed PDF document (if any).
+links | array[[Link](#link)] | Available actions on the mandate.
 debtor<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s user id.
 debtorBankAccount<b title="required">&nbsp;*&nbsp;</b> | string | The debtor&#039;s bank account id.
 creditor<b title="required">&nbsp;*&nbsp;</b> | string | The creditor&#039;s user id. The creditor must be a corporation that owns an SCI.
@@ -1641,6 +1945,33 @@ metadata | string | Custom information goes here.
             "signatureUrl": "string",
             "signatureDate": "2015-02-01",
             "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "links": [
+                {
+                    "rel": "Get Debtor",
+                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Debtor Bank Account",
+                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
             "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
             "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
@@ -1811,7 +2142,7 @@ Name | Type | Description
 id<b title="required">&nbsp;*&nbsp;</b> | string | Should be a valid UUID string.
 designation | string | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
 createdAt<b title="required">&nbsp;*&nbsp;</b> | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | 
+links<b title="required">&nbsp;*&nbsp;</b> | array[[Link](#link)] | Link to the user.
 
 	
 ## ShortUserArray
@@ -1861,6 +2192,23 @@ Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 ch
     "versionNo": "1",
     "createdAt": "2015-01-01T12:00:00Z",
     "updatedAt": "2015-01-01T12:00:00Z",
+    "links": [
+        {
+            "rel": "Update User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Find Bank Accounts of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "verb": "GET"
+        },
+        {
+            "rel": "Find Mandates of User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "verb": "GET"
+        }
+    ],
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
@@ -1893,6 +2241,7 @@ id | string | Should be a valid UUID string.
 versionNo | integer | 
 createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
 updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+links | array[[Link](#link)] | Available actions on the user.
 email<b title="required">&nbsp;*&nbsp;</b> | string | 
 firstName<b title="required">&nbsp;*&nbsp;</b> | string | 
 lastName<b title="required">&nbsp;*&nbsp;</b> | string | 
@@ -1915,6 +2264,23 @@ metadata | string | Custom information goes here.
             "versionNo": "1",
             "createdAt": "2015-01-01T12:00:00Z",
             "updatedAt": "2015-01-01T12:00:00Z",
+            "links": [
+                {
+                    "rel": "Update User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "PUT"
+                },
+                {
+                    "rel": "Find Bank Accounts of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Find Mandates of User",
+                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "verb": "GET"
+                }
+            ],
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
