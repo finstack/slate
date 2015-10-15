@@ -394,6 +394,91 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get All User Events
+
+```http
+GET /api/v1/users/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "events": [
+        {
+            "resourceType": "User",
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "timestamp": "2015-01-01T12:00:00Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "UserCreated"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events on users since a given date.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get User Event Types
+
+```http
+GET /api/v1/users/events/types HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    "UserCreated"
+]
+```
+
+Returns all available event types on users ordered alphabetically.
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table>
 
 
 ## Get User
@@ -750,7 +835,6 @@ Name | In | Type | Description
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
 
-//todo: migrate to html tables. after cool looking nested table
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
 <table>
@@ -872,6 +956,58 @@ role | query | string | Filter mandates depending on role. Possible values are '
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get Events for User
+
+```http
+GET /api/v1/users/{id}/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "resourceType": "User",
+        "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": "1",
+        "timestamp": "2015-01-01T12:00:00Z",
+        "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+        "eventType": "UserCreated"
+    }
+]
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events for a given user.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+
 ## Get my User Profile
 
 ```http
@@ -952,7 +1088,7 @@ Returns the profile information of the authenticated user.
 
 # Bank Accounts
 
-## Finds Bank Accounts
+## Find Bank Accounts
 
 ```http
 GET /api/v1/bank_accounts HTTP/1.1
@@ -1106,6 +1242,95 @@ bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newb
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get All Bank Account Events
+
+```http
+GET /api/v1/bank_accounts/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "events": [
+        {
+            "resourceType": "BankAccount",
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "timestamp": "2015-01-01T12:00:00Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "BankAccountCreated"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events on bank accounts since a given date.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get Bank Account Event Types
+
+```http
+GET /api/v1/bank_accounts/events/types HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    "BankAccountCreated",
+    "BankAccountDisabled",
+    "BankAccountUpdatedByPSP"
+]
+```
+
+Returns all available event types on bank accounts ordered alphabetically.
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table>
+
+
 ## Get Bank Account
 
 ```http
@@ -1232,6 +1457,57 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Disabled bank account.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get Events for Bank Account
+
+```http
+GET /api/v1/bank_accounts/{id}/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "resourceType": "BankAccount",
+        "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": "1",
+        "timestamp": "2015-01-01T12:00:00Z",
+        "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+        "eventType": "BankAccountCreated"
+    }
+]
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events for a given bank account.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
+//todo: migrate to html tables. after cool looking nested table
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
@@ -1633,6 +1909,100 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get All Mandate Events
+
+```http
+GET /api/v1/mandates/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "events": [
+        {
+            "resourceType": "SDDMandate",
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "timestamp": "2015-01-01T12:00:00Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "SDDMandateRequested"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events on mandates since a given date.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get Mandate Event Types
+
+```http
+GET /api/v1/mandates/events/types HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    "ClientRegistered",
+    "SDDMandateCanceled",
+    "SDDMandateRejectedByPSP",
+    "SDDMandateRequested",
+    "SDDMandateRevoked",
+    "SDDMandateSigned",
+    "SDDMandateUsedByPSP",
+    "SDDMandateValidatedByPSP",
+    "SignedDocumentStored"
+]
+```
+
+Returns all available event types on mandates ordered alphabetically.
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table>
+
 ## Get Mandate
 
 ```http
@@ -1889,6 +2259,156 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get Events for Mandate
+
+```http
+GET /api/v1/mandates/{id}/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "resourceType": "SDDMandate",
+        "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": "1",
+        "timestamp": "2015-01-01T12:00:00Z",
+        "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+        "eventType": "SDDMandateRequested"
+    }
+]
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events for a given mandate.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+# Events
+## Get All Events
+
+```http
+GET /api/v1/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "events": [
+        {
+            "resourceType": "SDDMandate",
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "timestamp": "2015-01-01T12:00:00Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "SDDMandateRequested"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events since a given date.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get All Event Types
+
+```http
+GET /api/v1/events/types HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    "BankAccountCreated",
+    "BankAccountDisabled",
+    "BankAccountUpdatedByPSP"
+    "ClientRegistered",
+    "SDDMandateCanceled",
+    "SDDMandateRejectedByPSP",
+    "SDDMandateRequested",
+    "SDDMandateRevoked",
+    "SDDMandateSigned",
+    "SDDMandateUsedByPSP",
+    "SDDMandateValidatedByPSP",
+    "SignedDocumentStored",
+    "UserCreated"
+]
+```
+
+Returns all available event types ordered alphabetically.
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table>
+
 
 # Models
 ## Address
@@ -1901,7 +2421,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 }
 ```
 
-Address JSON schema.
+A physical address object.
 
 	
 ### Fields
@@ -1942,7 +2462,7 @@ Address JSON schema.
 }
 ```
 
-Bank account information JSON schema.
+A managed bank account.
 
 	
 ### Fields
@@ -2024,6 +2544,58 @@ Bank account information JSON schema.
 |fields||true|string||
 
 
+## Event
+```json
+{
+    "resourceType": "User",
+    "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "timestamp": "2015-01-01T12:00:00Z",
+    "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "eventType": "UserCreated"
+}
+```
+
+An object that describes an event that occurred to a resource.
+
+	
+### Fields
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|resourceType|Type of resource that the event applies to.|true|enum (BankAccount, Document, SDDMandate, User, Wallet)||
+|resourceId|ID of the resource affected by the event.|true|string||
+|versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
+|timestamp|Event timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|commandId|ID of the command that triggered the event.|true|string||
+|eventType|Type of the event.|true|string||
+	
+## EventArray
+```json
+{
+    "offset": "0",
+    "limit": "10",
+    "count": "1",
+    "events": [
+        {
+             "resourceType": "User",
+             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+             "versionNo": "1",
+             "timestamp": "2015-01-01T12:00:00Z",
+             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+             "eventType": "UserCreated"
+        }
+    ]
+}
+```
+	
+### Fields
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|offset|Position in pagination.|true|integer (int32)||
+|limit|Number of items to retrieve (100 max).|true|integer (int32)||
+|count|Total number of events available.|true|integer (int32)||
+|events||true|array[[Event](#event)]||
+
 ## LegalEntity
 ```json
 {
@@ -2056,6 +2628,9 @@ Information about all types of corporation such as companies, associations...
     "verb": "GET"
 }
 ```
+
+An available action on a resource.
+
 	
 ### Fields
 |Name|Description|Required|Schema|Default|
@@ -2258,7 +2833,7 @@ Information required to issue a new mandate.
 "ValidatedUsed"
 ```
 
-Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
+Status of the mandate. Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
 &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
 
 	
@@ -2273,7 +2848,7 @@ Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSi
 }
 ```
 
-Bank account information JSON schema.
+Bank account information required to declare a new bank account.
 
 	
 ### Fields
@@ -2349,7 +2924,7 @@ Information required to issue a new mandate.
 }
 ```
 
-JSON schema of user information required to create a new user.
+User information required to create a new user.
 
 	
 ### Fields
@@ -2654,7 +3229,7 @@ Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 ch
 }
 ```
 
-JSON schema of user information required to create a new user.
+User information required to create a new user.
 
 	
 ### Fields
