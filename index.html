@@ -483,6 +483,110 @@ the display name and other details about each user.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
+<h2 id="get-all-user-events">Get All User Events</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserCreated"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events on users since a given date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-user-event-types">Get User Event Types</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="s2">"UserCreated"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all available event types on users ordered alphabetically.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table></p>
+
 <h2 id="get-user">Get User</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
@@ -884,8 +988,6 @@ the display name and other details about each user.</p>
 </tr>
 </tbody></table>
 
-<p>//todo: migrate to html tables. after cool looking nested table</p>
-
 <h3 id="responses">Responses</h3>
 
 <p><span comment="workaround for markdown processing in table"></span>
@@ -1023,6 +1125,67 @@ the display name and other details about each user.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
+<h2 id="get-events-for-user">Get Events for User</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserCreated"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events for a given user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
 <h2 id="get-my-user-profile">Get my User Profile</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
@@ -1100,7 +1263,7 @@ the display name and other details about each user.</p>
 
 <h1 id="bank-accounts">Bank Accounts</h1>
 
-<h2 id="finds-bank-accounts">Finds Bank Accounts</h2>
+<h2 id="find-bank-accounts">Find Bank Accounts</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
@@ -1280,6 +1443,112 @@ they authorized you to access their information.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
+<h2 id="get-all-bank-account-events">Get All Bank Account Events</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccount"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccountCreated"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events on bank accounts since a given date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-bank-account-event-types">Get Bank Account Event Types</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankAccountDisabled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all available event types on bank accounts ordered alphabetically.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table></p>
+
 <h2 id="get-bank-account">Get Bank Account</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
@@ -1424,6 +1693,69 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Disabled bank account.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-events-for-bank-account">Get Events for Bank Account</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccountCreated"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events for a given bank account.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the bank account.</td>
+</tr>
+</tbody></table>
+
+<p>//todo: migrate to html tables. after cool looking nested table</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
@@ -1864,6 +2196,118 @@ they authorized you to access their information.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
+<h2 id="get-all-mandate-events">Get All Mandate Events</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events on mandates since a given date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-mandate-event-types">Get Mandate Event Types</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="s2">"ClientRegistered"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateCanceled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRejectedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRequested"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRevoked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateSigned"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateUsedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateValidatedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SignedDocumentStored"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all available event types on mandates ordered alphabetically.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table></p>
+
 <h2 id="get-mandate">Get Mandate</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
@@ -2147,6 +2591,185 @@ they authorized you to access their information.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
+<h2 id="get-events-for-mandate">Get Events for Mandate</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events for a given mandate.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the mandate.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h1 id="events">Events</h1>
+
+<h2 id="get-all-events">Get All Events</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events since a given date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Number of items to retrieve. Default is 10, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-all-event-types">Get All Event Types</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankAccountDisabled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="w">
+    </span><span class="s2">"ClientRegistered"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateCanceled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRejectedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRequested"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateRevoked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateSigned"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateUsedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SDDMandateValidatedByPSP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SignedDocumentStored"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"UserCreated"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns all available event types ordered alphabetically.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table></p>
+
 <h1 id="models">Models</h1>
 
 <h2 id="address">Address</h2>
@@ -2158,7 +2781,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Address JSON schema.</p>
+<p>A physical address object.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -2229,7 +2852,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Bank account information JSON schema.</p>
+<p>A managed bank account.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -2446,6 +3069,133 @@ they authorized you to access their information.</p>
 </tr>
 </tbody></table>
 
+<h2 id="event">Event</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserCreated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>An object that describes an event that occurred to a resource.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>resourceType</td>
+<td>Type of resource that the event applies to.</td>
+<td>true</td>
+<td>enum (BankAccount, Document, SDDMandate, User, Wallet)</td>
+<td></td>
+</tr>
+<tr>
+<td>resourceId</td>
+<td>ID of the resource affected by the event.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>versionNo</td>
+<td>Version number of the resource after the event occurs.</td>
+<td>true</td>
+<td>integer (int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Event timestamp in UTC, for example &#39;2015-01-01T12:00:00Z&rsquo;.</td>
+<td>true</td>
+<td>string (date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>commandId</td>
+<td>ID of the command that triggered the event.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>eventType</td>
+<td>Type of the event.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="eventarray">EventArray</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserCreated"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset</td>
+<td>Position in pagination.</td>
+<td>true</td>
+<td>integer (int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Number of items to retrieve (100 max).</td>
+<td>true</td>
+<td>integer (int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>count</td>
+<td>Total number of events available.</td>
+<td>true</td>
+<td>integer (int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>events</td>
+<td></td>
+<td>true</td>
+<td>array[<a href="#event">Event</a>]</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="legalentity">LegalEntity</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="p">,</span><span class="w">
@@ -2513,6 +3263,8 @@ they authorized you to access their information.</p>
     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>An available action on a resource.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -2939,7 +3691,7 @@ they authorized you to access their information.</p>
 <pre class="highlight json"><code><span class="s2">"ValidatedUsed"</span><span class="w">
 </span></code></pre>
 
-<p>Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
+<p>Status of the mandate. Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
 &#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.</p>
 
 <h2 id="newbankaccount">NewBankAccount</h2>
@@ -2952,7 +3704,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Bank account information JSON schema.</p>
+<p>Bank account information required to declare a new bank account.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -3142,7 +3894,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>JSON schema of user information required to create a new user.</p>
+<p>User information required to create a new user.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -3659,7 +4411,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>JSON schema of user information required to create a new user.</p>
+<p>User information required to create a new user.</p>
 
 <h3 id="fields">Fields</h3>
 
