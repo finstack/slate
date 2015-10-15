@@ -414,6 +414,11 @@ Content-Type: application/json
     "events": [
         {
             "resourceType": "User",
+            "resourceLink": {
+                "rel": "Get User",
+                "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
+            },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "timestamp": "2015-01-01T12:00:00Z",
@@ -972,6 +977,11 @@ Content-Type: application/json
 [
     {
         "resourceType": "User",
+        "resourceLink": {
+            "rel": "Get User",
+            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
         "timestamp": "2015-01-01T12:00:00Z",
@@ -1262,6 +1272,11 @@ Content-Type: application/json
     "events": [
         {
             "resourceType": "BankAccount",
+            "resourceLink": {
+                "rel": "Get Bank Account",
+                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
+            },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "timestamp": "2015-01-01T12:00:00Z",
@@ -1476,6 +1491,11 @@ Content-Type: application/json
 [
     {
         "resourceType": "BankAccount",
+        "resourceLink": {
+            "rel": "Get Bank Account",
+            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
         "timestamp": "2015-01-01T12:00:00Z",
@@ -1929,6 +1949,11 @@ Content-Type: application/json
     "events": [
         {
             "resourceType": "SDDMandate",
+            "resourceLink": {
+                "rel": "Get Mandate",
+                "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
+            },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "timestamp": "2015-01-01T12:00:00Z",
@@ -2275,6 +2300,11 @@ Content-Type: application/json
 [
     {
         "resourceType": "SDDMandate",
+        "resourceLink": {
+            "rel": "Get Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
         "timestamp": "2015-01-01T12:00:00Z",
@@ -2331,6 +2361,11 @@ Content-Type: application/json
     "events": [
         {
             "resourceType": "SDDMandate",
+            "resourceLink": {
+                "rel": "Get Mandate",
+                "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
+            },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "timestamp": "2015-01-01T12:00:00Z",
@@ -2548,6 +2583,11 @@ A managed bank account.
 ```json
 {
     "resourceType": "User",
+    "resourceLink": {
+        "rel": "Get User",
+        "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "verb": "GET"
+    },
     "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
     "timestamp": "2015-01-01T12:00:00Z",
@@ -2556,19 +2596,21 @@ A managed bank account.
 }
 ```
 
-An object that describes an event that occurred to a resource.
+An object that describes an event that occurred to a resource. An event is uniquely identified by the couple resourceId - versionNo.
 
 	
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |resourceType|Type of resource that the event applies to.|true|enum (BankAccount, Document, SDDMandate, User, Wallet)||
+|resourceLink|Link to follow to get the latest representation of the resource.|true|[Link](#link)||
 |resourceId|ID of the resource affected by the event.|true|string||
 |versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
 |timestamp|Event timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
 |commandId|ID of the command that triggered the event.|true|string||
 |eventType|Type of the event.|true|string||
-	
+
+
 ## EventArray
 ```json
 {
@@ -2577,12 +2619,17 @@ An object that describes an event that occurred to a resource.
     "count": "1",
     "events": [
         {
-             "resourceType": "User",
-             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-             "versionNo": "1",
-             "timestamp": "2015-01-01T12:00:00Z",
-             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
-             "eventType": "UserCreated"
+            "resourceType": "User",
+            "resourceLink": {
+                "rel": "Get User",
+                "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
+            },
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "timestamp": "2015-01-01T12:00:00Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "UserCreated"
         }
     ]
 }
@@ -2595,6 +2642,7 @@ An object that describes an event that occurred to a resource.
 |limit|Number of items to retrieve (100 max).|true|integer (int32)||
 |count|Total number of events available.|true|integer (int32)||
 |events||true|array[[Event](#event)]||
+
 
 ## LegalEntity
 ```json
