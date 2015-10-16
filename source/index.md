@@ -457,34 +457,6 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get User Event Types
-
-```http
-GET /api/v1/users/events/types HTTP/1.1
-X-Auth-Token: myapikeyvalue
-```
-
-> HTTP response example:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-[
-    "UserCreated"
-]
-```
-
-Returns all available event types on users ordered alphabetically.
-
-
-### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
-</table>
-
 
 ## Get User
 
@@ -1315,36 +1287,6 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get Bank Account Event Types
-
-```http
-GET /api/v1/bank_accounts/events/types HTTP/1.1
-X-Auth-Token: myapikeyvalue
-```
-
-> HTTP response example:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-[
-    "BankAccountCreated",
-    "BankAccountDisabled",
-    "BankAccountUpdatedByPSP"
-]
-```
-
-Returns all available event types on bank accounts ordered alphabetically.
-
-
-### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
-</table>
-
 
 ## Get Bank Account
 
@@ -1992,41 +1934,6 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get Mandate Event Types
-
-```http
-GET /api/v1/mandates/events/types HTTP/1.1
-X-Auth-Token: myapikeyvalue
-```
-
-> HTTP response example:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-[
-    "ClientRegistered",
-    "SDDMandateCanceled",
-    "SDDMandateRejectedByPSP",
-    "SDDMandateRequested",
-    "SDDMandateRevoked",
-    "SDDMandateSigned",
-    "SDDMandateUsedByPSP",
-    "SDDMandateValidatedByPSP",
-    "SignedDocumentStored"
-]
-```
-
-Returns all available event types on mandates ordered alphabetically.
-
-
-### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
-</table>
 
 ## Get Mandate
 
@@ -2341,6 +2248,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 </table>
 
 # Events
+
 ## Get All Events
 
 ```http
@@ -2404,48 +2312,27 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
-## Get All Event Types
+## Event Types
 
-```http
-GET /api/v1/events/types HTTP/1.1
-X-Auth-Token: myapikeyvalue
-```
-
-> HTTP response example:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-[
-    "BankAccountCreated",
-    "BankAccountDisabled",
-    "BankAccountUpdatedByPSP"
-    "ClientRegistered",
-    "SDDMandateCanceled",
-    "SDDMandateRejectedByPSP",
-    "SDDMandateRequested",
-    "SDDMandateRevoked",
-    "SDDMandateSigned",
-    "SDDMandateUsedByPSP",
-    "SDDMandateValidatedByPSP",
-    "SignedDocumentStored",
-    "UserCreated"
-]
-```
-
-Returns all available event types ordered alphabetically.
-
-
-### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
-</table>
-
+|Resource|Event Type|Description|Origin|
+|----|----|----|----|
+|BankAccount|BankAccountCreated|Occurs when a bank account is created.|Finstack website or API|
+|BankAccount|BankAccountDisabled|Occurs when a bank account is disabled.|API|
+|BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
+|Mandate|ClientRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.|Finstack website|
+|Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the admin.|Finstack admin or API|
+|Mandate|SDDMandateRejectedByPSP|Occurs when a mandate is submitted to a PSP for user verification (KYC) and this latter fails.|PSP|
+|Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack admin or API|
+|Mandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack admin or API|
+|Mandate|SDDMandateSigned|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
+|Mandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
+|Mandate|SDDMandateValidatedByPSP|Occurs when the mandate, once signed, is submitted and validated by the PSP.|PSP|
+|Mandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
+|User|UserCreated|Occurs when a user is created through the API or when she registers directly at Finstack's website.|Finstack website or API|
+   
 
 #Webhooks
+
 ## Get Webhooks
 
 ```http
