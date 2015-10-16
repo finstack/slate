@@ -2550,7 +2550,7 @@ they authorized you to access their information.</p>
 <td>id<b title="required">&nbsp;*&nbsp;</b></td>
 <td>path</td>
 <td>string</td>
-<td>UUID of the bank account.</td>
+<td>UUID of the mandate.</td>
 </tr>
 </tbody></table>
 
@@ -2803,6 +2803,411 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+</table></p>
+
+<h1 id="webhooks">Webhooks</h1>
+
+<h2 id="get-webhooks">Get Webhooks</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/webhooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BankAccount"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all webhooks.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[<a href="#webhook">Webhook</a>]</td><td>A list of webhooks.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="create-webhook">Create Webhook</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/webhooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+             </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"BankAccount"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+             </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a new web hook. All you need to provide is an HTTPS URL that will be used to send you events. 
+All other parameters are optional, by default all events are sent. Resources and events parameters act like filters.
+If resources and events are specified then they are both taken into account without sending duplicate events.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webhook<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newwebhook">NewWebhook</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>201</td><td><a href="#webhook">Webhook</a></td><td>The newly created webhook.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-webhook">Get Webhook</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets the webhook with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the webhook.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Webhook found.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="update-webhook">Update webhook</h2>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BankAccount"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T18:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates the webhook.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the webhook.</td>
+</tr>
+<tr>
+<td>webhook<b title="required">&nbsp;*&nbsp;</b></td>
+<td>body</td>
+<td><a href="#newwebhook">NewWebhook</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>The updated webhook.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="delete-webhook">Delete Webhook</h2>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Deletes a webhook.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the webhook.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Deleted webhook.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
 <h1 id="models">Models</h1>
@@ -3137,7 +3542,7 @@ they authorized you to access their information.</p>
 <td>resourceType</td>
 <td>Type of resource that the event applies to.</td>
 <td>true</td>
-<td>enum (BankAccount, Document, SDDMandate, User, Wallet)</td>
+<td><a href="#resourcetype">ResourceType</a></td>
 <td></td>
 </tr>
 <tr>
@@ -4017,11 +4422,74 @@ they authorized you to access their information.</p>
 </tr>
 </tbody></table>
 
+<h2 id="newwebhook">NewWebhook</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information required to create a new webhook.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callbackURL</td>
+<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resources</td>
+<td>The list of resources for which events will be sent.</td>
+<td>false</td>
+<td>array[<a href="#resourcetype">ResourceType</a>]</td>
+<td></td>
+</tr>
+<tr>
+<td>events</td>
+<td>The list of event types you would like to listen to.</td>
+<td>false</td>
+<td>array[string]</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>Optional description.</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="phonenumber">PhoneNumber</h2>
 <pre class="highlight json"><code><span class="s2">"33612345678"</span><span class="w">
 </span></code></pre>
 
 <p>Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.</p>
+
+<h2 id="resourcetype">ResourceType</h2>
+<pre class="highlight json"><code><span class="s2">"User"</span><span class="w">
+</span></code></pre>
+
+<p>Type of resource. Enum, can be: BankAccount, Document, SDDMandate, User and Wallet.</p>
 
 <h2 id="sci">SCI</h2>
 <pre class="highlight json"><code><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
@@ -4658,6 +5126,106 @@ they authorized you to access their information.</p>
 <td></td>
 <td>true</td>
 <td>array[<a href="#user">User</a>]</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="webhook">Webhook</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BankAccount"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information required to create a new webhook.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Should be a valid UUID string.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00Z&rsquo;</td>
+<td>true</td>
+<td>string (date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00Z&rsquo;</td>
+<td>false</td>
+<td>string (date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>links</td>
+<td>Available actions on the web hook.</td>
+<td>true</td>
+<td>array[<a href="#link">Link</a>]</td>
+<td></td>
+</tr>
+<tr>
+<td>callbackURL</td>
+<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>resources</td>
+<td>The list of resources for which events will be sent.</td>
+<td>false</td>
+<td>array[<a href="#resourcetype">ResourceType</a>]</td>
+<td></td>
+</tr>
+<tr>
+<td>events</td>
+<td>The list of event types you would like to listen to.</td>
+<td>false</td>
+<td>array[string]</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>Optional description.</td>
+<td>false</td>
+<td>string</td>
 <td></td>
 </tr>
 </tbody></table>
