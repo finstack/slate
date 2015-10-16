@@ -2461,24 +2461,30 @@ Content-Type: application/json
 
 [
     {
-        "id": "string",
-        "createdAt": "string",
-        "updatedAt": "string",
+        "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "createdAt": "2015-01-01T12:00:00Z",
+        "updatedAt": "2015-01-01T12:00:00Z",
         "links": [
             {
-                "rel": "string",
-                "href": "string",
-                "verb": "string"
+                "rel": "Update Webhook",
+                "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "PUT"
+            },
+            {
+                "rel": "Delete Webhook",
+                "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "DELETE"
             }
         ],
-        "callbackURL": "string",
+        "callbackURL": "https://www.yourwebsite.com/webhooklistener",
         "resources": [
-            "string"
+            "User",
+            "BankAccount"
         ],
         "events": [
-            "string"
+            "SDDMandateRequested"
         ],
-        "description": "string"
+        "description": "Listen to all events on users and bank accounts as well as mandate creation events."
     }
 ]
 ```
@@ -2513,14 +2519,15 @@ X-Auth-Token: myapikeyvalue
 
 {
     "webhook": {
-        "callbackURL": "string",
-        "resources": [
-            "string"
-        ],
-        "events": [
-            "string"
-        ],
-        "description": "string"
+         "callbackURL": "https://www.yourwebsite.com/webhooklistener",
+         "resources": [
+             "User",
+             "BankAccount"
+         ],
+         "events": [
+             "SDDMandateRequested"
+         ],
+         "description": "Listen to all events on users and bank accounts as well as mandate creation events."
     }
 }
 ```
@@ -2532,24 +2539,30 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "links": [
         {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Update Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Delete Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
         }
     ],
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
     "events": [
-        "string"
+        "SDDMandateRequested"
     ],
-    "description": "string"
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 ```http
@@ -2596,24 +2609,30 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "links": [
         {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Update Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Delete Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
         }
     ],
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
     "events": [
-        "string"
+        "SDDMandateRequested"
     ],
-    "description": "string"
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 ```http
@@ -2655,14 +2674,12 @@ Content-Type: application/json
 
 {
     "webhook": {
-        "callbackURL": "string",
+        "callbackURL": "https://www.yourwebsite.com/webhooklistener",
         "resources": [
-            "string"
+            "User",
+            "BankAccount"
         ],
-        "events": [
-            "string"
-        ],
-        "description": "string"
+        "description": "Listen to all events on users and bank accounts."
     }
 }
 ```
@@ -2671,24 +2688,28 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T18:00:00Z",
     "links": [
         {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Update Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Delete Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
         }
     ],
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
-    "events": [
-        "string"
-    ],
-    "description": "string"
+    "events": [],
+    "description": "Listen to all events on users and bank accounts."
 }
 ```
 ```http
@@ -2733,24 +2754,30 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "links": [
         {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Update Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Delete Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
         }
     ],
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
     "events": [
-        "string"
+        "SDDMandateRequested"
     ],
-    "description": "string"
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 ```http
@@ -3331,14 +3358,15 @@ User information required to create a new user.
 ## NewWebhook
 ```json
 {
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
     "events": [
-        "string"
+        "SDDMandateRequested"
     ],
-    "description": "string"
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 
@@ -3346,12 +3374,12 @@ Information required to create a new webhook.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-callbackURL<b title="required">&nbsp;*&nbsp;</b> | string | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!
-resources | array[[ResourceType](#resourcetype)] | The list of resources for which events will be sent.
-events | array[string] | The list of event types you would like to listen to.
-description | string | Optional description.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
+|resources|The list of resources for which events will be sent.|false|array[[ResourceType](#resourcetype)]||
+|events|The list of event types you would like to listen to.|false|array[string]||
+|description|Optional description.|false|string||
 
 
 ## PhoneNumber
@@ -3737,24 +3765,30 @@ User information required to create a new user.
 ## Webhook
 ```json
 {
-    "id": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
     "links": [
         {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Update Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "PUT"
+        },
+        {
+            "rel": "Delete Webhook",
+            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
         }
     ],
-    "callbackURL": "string",
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
     "resources": [
-        "string"
+        "User",
+        "BankAccount"
     ],
     "events": [
-        "string"
+        "SDDMandateRequested"
     ],
-    "description": "string"
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 
@@ -3762,13 +3796,13 @@ Information required to create a new webhook.
 
 	
 ### Fields
-Name | Type | Description
---- | --- | ---
-id | string | Should be a valid UUID string.
-createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
-links | array[[Link](#link)] | Available actions on the web hook.
-callbackURL<b title="required">&nbsp;*&nbsp;</b> | string | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!
-resources | array[[ResourceType](#resourcetype)] | The list of resources for which events will be sent.
-events | array[string] | The list of event types you would like to listen to.
-description | string | Optional description.
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id|Should be a valid UUID string.|true|string||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'|false|string (date-time)||
+|links|Available actions on the web hook.|true|array[[Link](#link)]||
+|callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
+|resources|The list of resources for which events will be sent.|false|array[[ResourceType](#resourcetype)]||
+|events|The list of event types you would like to listen to.|false|array[string]||
+|description|Optional description.|false|string||
