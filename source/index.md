@@ -2316,6 +2316,56 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+## Get Event Summary
+
+```http
+GET /api/v1/events/summary HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/csv
+
+BankAccount,BankAccountCreated,4
+Mandate,SDDMandateRequested,4
+Mandate,SDDMandateSigned,1
+User,UserCreated,5
+
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns a CSV summary of events that occured during the provided time range.
+The CSV has 3 columns: resource, event type and number of events.
+
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+
 ## Event Types
 
 |Resource|Event Type|Description|Origin|
