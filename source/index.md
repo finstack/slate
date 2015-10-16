@@ -439,13 +439,14 @@ Content-Type: application/json
 }
 ```
 
-Returns all events on users since a given date.
+Returns all events on users since a given date and optionally until another date.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
 
@@ -923,7 +924,7 @@ Returns all mandates that belong to the specified user with details.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-role | query | string | Filter mandates depending on role. Possible values are 'all', 'asDebtor', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all mandates.
+role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -1269,13 +1270,14 @@ Content-Type: application/json
 }
 ```
 
-Returns all events on bank accounts since a given date.
+Returns all events on bank accounts since a given date and optionally until another date.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
 
@@ -1916,13 +1918,14 @@ Content-Type: application/json
 }
 ```
 
-Returns all events on mandates since a given date.
+Returns all events on mandates since a given date and optionally until another date.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
 
@@ -2294,13 +2297,14 @@ Content-Type: application/json
 }
 ```
 
-Returns all events since a given date.
+Returns all events since a given date and optionally until another date.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
 
