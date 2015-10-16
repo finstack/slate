@@ -2536,6 +2536,43 @@ webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
 
+
+## Get Recent Webhook Failures
+
+```http
+GET /api/v1/webhooks/failures HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "occuredAt": "2015-01-01T12:00:00Z",
+        "error": "TimeoutException"
+    }
+]
+```
+
+Returns the list of failures (if any) on all webhooks in the previous month.
+Failures are grouped by webhook ID and ordered chronologically.
+
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[[WebhookFailure](#webhookfailure)]</td><td>A list of failures.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+
 ## Get Webhook
 
 ```http
@@ -3747,3 +3784,23 @@ Information required to create a new webhook.
 |resources|The list of resources for which events will be sent.|false|array[[ResourceType](#resourcetype)]||
 |events|The list of event types you would like to listen to.|false|array[string]||
 |description|Optional description.|false|string||
+
+
+## WebhookFailure
+```json
+{
+    "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "occuredAt": "2015-01-01T12:00:00Z",
+    "error": "TimeoutException"
+}
+```
+
+A webhook failure that occured when trying to deliver an event.
+
+	
+### Fields
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|webhookId|The ID of the webhook that failed.|true|string||
+|occuredAt|Timestamp at which the failure occured in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|error|Error message of the failure|true|string||
