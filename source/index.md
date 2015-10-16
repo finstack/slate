@@ -2230,7 +2230,7 @@ Cancels the mandate if it isn&#039;t signed yet or revokes it if it is signed.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -2445,6 +2445,346 @@ Returns all available event types ordered alphabetically.
 </table>
 
 
+#Webhooks
+## Get Webhooks
+
+```http
+GET /api/v1/webhooks HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "id": "string",
+        "createdAt": "string",
+        "updatedAt": "string",
+        "links": [
+            {
+                "rel": "string",
+                "href": "string",
+                "verb": "string"
+            }
+        ],
+        "callbackURL": "string",
+        "resources": [
+            "string"
+        ],
+        "events": [
+            "string"
+        ],
+        "description": "string"
+    }
+]
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all webhooks.
+
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[[Webhook](#webhook)]</td><td>A list of webhooks.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Create Webhook
+
+```http
+POST /api/v1/webhooks HTTP/1.1
+Content-Type: application/json
+X-Auth-Token: myapikeyvalue
+
+{
+    "webhook": {
+        "callbackURL": "string",
+        "resources": [
+            "string"
+        ],
+        "events": [
+            "string"
+        ],
+        "description": "string"
+    }
+}
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "id": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "links": [
+        {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        }
+    ],
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Creates a new web hook. All you need to provide is an HTTPS URL that will be used to send you events. 
+All other parameters are optional, by default all events are sent. Resources and events parameters act like filters.
+If resources and events are specified then they are both taken into account without sending duplicate events.
+
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) | 
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>201</td><td>[Webhook](#webhook)</td><td>The newly created webhook.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Get Webhook
+
+```http
+GET /api/v1/webhooks/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "links": [
+        {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        }
+    ],
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+```http
+HTTP/1.1 204 No Content
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Gets the webhook with the specified id.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[Webhook](#webhook)</td><td>Webhook found.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Update webhook
+
+```http
+PUT /api/v1/webhooks/{id} HTTP/1.1
+Content-Type: application/json
+
+{
+    "webhook": {
+        "callbackURL": "string",
+        "resources": [
+            "string"
+        ],
+        "events": [
+            "string"
+        ],
+        "description": "string"
+    }
+}
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "links": [
+        {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        }
+    ],
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Updates the webhook.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
+webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) | 
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[Webhook](#webhook)</td><td>The updated webhook.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+## Delete Webhook
+
+```http
+DELETE /api/v1/webhooks/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "links": [
+        {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        }
+    ],
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+```http
+HTTP/1.1 204 No Content
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Deletes a webhook.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[Webhook](#webhook)</td><td>Deleted webhook.</td></tr> 
+<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
+
 # Models
 ## Address
 ```json
@@ -2602,7 +2942,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|resourceType|Type of resource that the event applies to.|true|enum (BankAccount, Document, SDDMandate, User, Wallet)||
+|resourceType|Type of resource that the event applies to.|true|[ResourceType](#resourcetype)||
 |resourceLink|Link to follow to get the latest representation of the resource.|true|[Link](#link)||
 |resourceId|ID of the resource affected by the event.|true|string||
 |versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
@@ -2988,12 +3328,46 @@ User information required to create a new user.
 |metadata|Custom information goes here.|false|string||
 
 
+## NewWebhook
+```json
+{
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+
+Information required to create a new webhook.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+callbackURL<b title="required">&nbsp;*&nbsp;</b> | string | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!
+resources | array[[ResourceType](#resourcetype)] | The list of resources for which events will be sent.
+events | array[string] | The list of event types you would like to listen to.
+description | string | Optional description.
+
+
 ## PhoneNumber
 ```json
 "33612345678"
 ```
 
 Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.
+
+
+## ResourceType
+```json
+"User"
+```
+
+Type of resource. Enum, can be: BankAccount, Document, SDDMandate, User and Wallet.
 
 
 ## SCI
@@ -3358,3 +3732,43 @@ User information required to create a new user.
 |limit|Number of items to retrieve (100 max).|true|integer (int32)||
 |count|Total number of users available.|true|integer (int32)||
 |users||true|array[[User](#user)]||
+
+
+## Webhook
+```json
+{
+    "id": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "links": [
+        {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        }
+    ],
+    "callbackURL": "string",
+    "resources": [
+        "string"
+    ],
+    "events": [
+        "string"
+    ],
+    "description": "string"
+}
+```
+
+Information required to create a new webhook.
+
+	
+### Fields
+Name | Type | Description
+--- | --- | ---
+id | string | Should be a valid UUID string.
+createdAt | string | Creation timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+updatedAt | string | Last update timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;
+links | array[[Link](#link)] | Available actions on the web hook.
+callbackURL<b title="required">&nbsp;*&nbsp;</b> | string | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!
+resources | array[[ResourceType](#resourcetype)] | The list of resources for which events will be sent.
+events | array[string] | The list of event types you would like to listen to.
+description | string | Optional description.
