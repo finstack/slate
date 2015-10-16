@@ -397,7 +397,7 @@ limit | query | integer | 10 | Number of items to retrieve. Default is 10, maxim
 ## Get All User Events
 
 ```http
-GET /api/v1/users/events HTTP/1.1
+GET /api/v1/users/events?since=2015-01-01T12:00:00Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -1228,7 +1228,7 @@ bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newb
 ## Get All Bank Account Events
 
 ```http
-GET /api/v1/bank_accounts/events HTTP/1.1
+GET /api/v1/bank_accounts/events?since=2015-01-01T12:00:00Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -1876,7 +1876,7 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 ## Get All Mandate Events
 
 ```http
-GET /api/v1/mandates/events HTTP/1.1
+GET /api/v1/mandates/events?since=2015-01-01T12:00:00Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2255,7 +2255,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 ## Get All Events
 
 ```http
-GET /api/v1/events HTTP/1.1
+GET /api/v1/events?since=2015-01-01T12:00:00Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2319,7 +2319,7 @@ limit | query | integer | Number of items to retrieve. Default is 10, maximum is
 ## Get Event Summary
 
 ```http
-GET /api/v1/events/summary HTTP/1.1
+GET /api/v1/events/summary?since=2015-01-01T12:00:00Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
