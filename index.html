@@ -484,7 +484,7 @@ the display name and other details about each user.</p>
 </table></p>
 
 <h2 id="get-all-user-events">Get All User Events</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events?since=2015-01-01T12:00:00Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -525,7 +525,7 @@ the display name and other details about each user.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns all events on users since a given date.</p>
+<p>Returns all events on users since a given date and optionally until another date.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -542,6 +542,12 @@ the display name and other details about each user.</p>
 <td>query</td>
 <td>string</td>
 <td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
 </tr>
 <tr>
 <td>offset</td>
@@ -564,32 +570,6 @@ the display name and other details about each user.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
-</table></p>
-
-<h2 id="get-user-event-types">Get User Event Types</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
-</code></pre>
-
-<blockquote>
-<p>HTTP response example:</p>
-</blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">[</span><span class="w">
-    </span><span class="s2">"UserCreated"</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>Returns all available event types on users ordered alphabetically.</p>
-
-<h3 id="responses">Responses</h3>
-
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
 </table></p>
 
 <h2 id="get-user">Get User</h2>
@@ -1117,7 +1097,7 @@ the display name and other details about each user.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Filter mandates depending on role. Possible values are &lsquo;all&rsquo;, &#39;asDebtor&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all mandates.</td>
+<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
 </tr>
 </tbody></table>
 
@@ -1454,7 +1434,7 @@ they authorized you to access their information.</p>
 </table></p>
 
 <h2 id="get-all-bank-account-events">Get All Bank Account Events</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events?since=2015-01-01T12:00:00Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -1495,7 +1475,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns all events on bank accounts since a given date.</p>
+<p>Returns all events on bank accounts since a given date and optionally until another date.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1512,6 +1492,12 @@ they authorized you to access their information.</p>
 <td>query</td>
 <td>string</td>
 <td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
 </tr>
 <tr>
 <td>offset</td>
@@ -1534,34 +1520,6 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
-</table></p>
-
-<h2 id="get-bank-account-event-types">Get Bank Account Event Types</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
-</code></pre>
-
-<blockquote>
-<p>HTTP response example:</p>
-</blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">[</span><span class="w">
-    </span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BankAccountDisabled"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>Returns all available event types on bank accounts ordered alphabetically.</p>
-
-<h3 id="responses">Responses</h3>
-
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
 </table></p>
 
 <h2 id="get-bank-account">Get Bank Account</h2>
@@ -2217,7 +2175,7 @@ they authorized you to access their information.</p>
 </table></p>
 
 <h2 id="get-all-mandate-events">Get All Mandate Events</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events?since=2015-01-01T12:00:00Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -2258,7 +2216,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns all events on mandates since a given date.</p>
+<p>Returns all events on mandates since a given date and optionally until another date.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2275,6 +2233,12 @@ they authorized you to access their information.</p>
 <td>query</td>
 <td>string</td>
 <td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
 </tr>
 <tr>
 <td>offset</td>
@@ -2297,40 +2261,6 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
-</table></p>
-
-<h2 id="get-mandate-event-types">Get Mandate Event Types</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
-</code></pre>
-
-<blockquote>
-<p>HTTP response example:</p>
-</blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="p">[</span><span class="w">
-    </span><span class="s2">"ClientRegistered"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateCanceled"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRejectedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRequested"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRevoked"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateSigned"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateUsedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateValidatedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SignedDocumentStored"</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>Returns all available event types on mandates ordered alphabetically.</p>
-
-<h3 id="responses">Responses</h3>
-
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
 </table></p>
 
 <h2 id="get-mandate">Get Mandate</h2>
@@ -2685,7 +2615,7 @@ they authorized you to access their information.</p>
 <h1 id="events">Events</h1>
 
 <h2 id="get-all-events">Get All Events</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events?since=2015-01-01T12:00:00Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -2726,7 +2656,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns all events since a given date.</p>
+<p>Returns all events since a given date and optionally until another date.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2743,6 +2673,12 @@ they authorized you to access their information.</p>
 <td>query</td>
 <td>string</td>
 <td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
 </tr>
 <tr>
 <td>offset</td>
@@ -2767,8 +2703,8 @@ they authorized you to access their information.</p>
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
-<h2 id="get-all-event-types">Get All Event Types</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events/types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="get-event-summary">Get Event Summary</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events/summary?since=2015-01-01T12:00:00Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -2776,34 +2712,149 @@ they authorized you to access their information.</p>
 <p>HTTP response example:</p>
 </blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/csv</span>
+
+BankAccount,BankAccountCreated,4
+Mandate,SDDMandateRequested,4
+Mandate,SDDMandateSigned,1
+User,UserCreated,5
+
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<span class="p">[</span><span class="w">
-    </span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BankAccountDisabled"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="w">
-    </span><span class="s2">"ClientRegistered"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateCanceled"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRejectedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRequested"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateRevoked"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateSigned"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateUsedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SDDMandateValidatedByPSP"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SignedDocumentStored"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"UserCreated"</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns all available event types ordered alphabetically.</p>
+<p>Returns a CSV summary of events that occured during the provided time range.
+The CSV has 3 columns: resource, event type and number of events.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.</td>
+</tr>
+</tbody></table>
 
 <h3 id="responses">Responses</h3>
 
 <p><span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[string]</td><td>A list of events.</td></tr> 
+<tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
+
+<h2 id="event-types">Event Types</h2>
+
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Event Type</th>
+<th>Description</th>
+<th>Origin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BankAccount</td>
+<td>BankAccountCreated</td>
+<td>Occurs when a bank account is created.</td>
+<td>Finstack website or API</td>
+</tr>
+<tr>
+<td>BankAccount</td>
+<td>BankAccountDisabled</td>
+<td>Occurs when a bank account is disabled.</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BankAccount</td>
+<td>BankAccountUpdatedByPSP</td>
+<td>Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>ClientRegistered</td>
+<td>Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.</td>
+<td>Finstack website</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateCanceled</td>
+<td>Occurs when the creditor cancels a mandate request either from the API or the admin.</td>
+<td>Finstack admin or API</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateRejectedByPSP</td>
+<td>Occurs when a mandate is submitted to a PSP for user verification (KYC) and this latter fails.</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateRequested</td>
+<td>Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.</td>
+<td>Finstack admin or API</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateRevoked</td>
+<td>Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.</td>
+<td>Finstack admin or API</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateSigned</td>
+<td>Occurs when the mandate is electronically signed by the debtor.</td>
+<td>Finstack website</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateUsedByPSP</td>
+<td>Occurs when the mandate is used for the first time for a direct debit.</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SDDMandateValidatedByPSP</td>
+<td>Occurs when the mandate, once signed, is submitted and validated by the PSP.</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>Mandate</td>
+<td>SignedDocumentStored</td>
+<td>Occurs immediately after signature when the signed PDF document is archived.</td>
+<td>Finstack system</td>
+</tr>
+<tr>
+<td>User</td>
+<td>UserCreated</td>
+<td>Occurs when a user is created through the API or when she registers directly at Finstack&rsquo;s website.</td>
+<td>Finstack website or API</td>
+</tr>
+</tbody></table>
 
 <h1 id="webhooks">Webhooks</h1>
 
@@ -2959,6 +3010,38 @@ If resources and events are specified then they are both taken into account with
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td><a href="#webhook">Webhook</a></td><td>The newly created webhook.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+</table></p>
+
+<h2 id="get-recent-webhook-failures">Get Recent Webhook Failures</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/webhooks/failures</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"occuredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeoutException"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Returns the list of failures (if any) on all webhooks in the previous month.
+Failures are grouped by webhook ID and ordered chronologically.</p>
+
+<h3 id="responses">Responses</h3>
+
+<p><span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>array[<a href="#webhookfailure">WebhookFailure</a>]</td><td>A list of failures.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
 </table></p>
 
@@ -3236,7 +3319,7 @@ If resources and events are specified then they are both taken into account with
 </thead><tbody>
 <tr>
 <td>street</td>
-<td>Full street information including number, for example &#39;82, avenue du général Leclerc&rsquo;.</td>
+<td>Full street information including number, for example &lsquo;82, avenue du général Leclerc&rsquo;.</td>
 <td>true</td>
 <td>string</td>
 <td></td>
@@ -5225,6 +5308,50 @@ If resources and events are specified then they are both taken into account with
 <td>description</td>
 <td>Optional description.</td>
 <td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="webhookfailure">WebhookFailure</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"occuredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeoutException"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>A webhook failure that occured when trying to deliver an event.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webhookId</td>
+<td>The ID of the webhook that failed.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>occuredAt</td>
+<td>Timestamp at which the failure occured in UTC, for example &#39;2015-01-01T12:00:00Z&rsquo;.</td>
+<td>true</td>
+<td>string (date-time)</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td>Error message of the failure</td>
+<td>true</td>
 <td>string</td>
 <td></td>
 </tr>
