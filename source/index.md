@@ -79,7 +79,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "users": [
         {
@@ -131,7 +131,7 @@ the display name and other details about each user.
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -317,7 +317,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "users": [
         {
@@ -384,7 +384,7 @@ the display name and other details about each user.
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -409,7 +409,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "events": [
         {
@@ -448,7 +448,7 @@ Name | In | Type | Description
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -744,7 +744,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "bankAccounts": [
         {
@@ -817,7 +817,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -909,7 +909,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -1159,7 +1159,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "bankAccounts": [
         {
@@ -1210,7 +1210,7 @@ they authorized you to access their information.
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -1313,7 +1313,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "events": [
         {
@@ -1352,7 +1352,7 @@ Name | In | Type | Description
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -1563,7 +1563,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "bankAccounts": [
         {
@@ -1633,7 +1633,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -1700,7 +1700,7 @@ Returns mandates that belong to users that you manage, or mandates that you crea
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 10 | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -1848,7 +1848,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -1936,7 +1936,7 @@ Returns mandates that belong to users that you manage, or mandates that you crea
 Name | In | Type | Description
 --- | --- | --- | ---
 offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -1961,7 +1961,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "events": [
         {
@@ -2000,7 +2000,7 @@ Name | In | Type | Description
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -2340,7 +2340,7 @@ Content-Type: application/json
 
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "events": [
         {
@@ -2379,7 +2379,7 @@ Name | In | Type | Description
 since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 10, maximum is 100.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -2939,7 +2939,7 @@ A managed bank account.
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "bankAccounts": [
         {
@@ -3033,7 +3033,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "events": [
         {
@@ -3213,7 +3213,7 @@ A managed mandate.
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -3493,7 +3493,7 @@ Minimal information about a mandate.
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "mandates": [
         {
@@ -3600,7 +3600,7 @@ Minimal information about a user.
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "users": [
         {
@@ -3714,7 +3714,7 @@ User information required to create a new user.
 ```json
 {
     "offset": "0",
-    "limit": "10",
+    "limit": "20",
     "count": "1",
     "users": [
         {
