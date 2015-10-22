@@ -163,7 +163,7 @@ X-Auth-Token: myapikeyvalue
         },
         "phone": "33187654321",
         "legalEntity": {
-            "category": "company",
+            "category": "Company",
             "name": "Acme",
             "registrationId": "73282932000074",
             "vatNumber": "FR44732829320",
@@ -214,7 +214,7 @@ Content-Type: application/json
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -261,7 +261,7 @@ Content-Type: application/json
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -506,7 +506,7 @@ Content-Type: application/json
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -568,7 +568,7 @@ X-Auth-Token: myapikeyvalue
         },
         "phone": "33187654321",
         "legalEntity": {
-            "category": "company",
+            "category": "Company",
             "name": "Acme",
             "registrationId": "73282932000074",
             "vatNumber": "FR44732829320",
@@ -619,7 +619,7 @@ Content-Type: application/json
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -655,6 +655,79 @@ user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) |
 <tr><td>200</td><td>[User](#user)</td><td>The updated user.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
 </table>
+
+## Delete User
+
+```http
+DELETE /api/v1/users/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "createdAt": "2015-01-01T12:00:00Z",
+    "updatedAt": "2015-01-01T12:00:00Z",
+    "links": [],
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "phone": "33187654321",
+    "legalEntity": {
+        "category": "Company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
+}
+```
+```http
+HTTP/1.1 204 No Content
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Deletes all information (mandates, bank accounts, events and user account) relative to the user with the specified id. WARNING: This action is only available in test mode and disabled in production. Use this only for automated testing.
+
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>[User](#user)</td><td>Deactivated user.</td></tr> 
+<tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+</table>
+
 
 ## Find Bank Accounts of User
 
@@ -1038,7 +1111,7 @@ Content-Type: application/json
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -2947,7 +3020,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|resourceType|Type of resource that the event applies to.|true|[ResourceType](#resourcetype)||
+|resourceType|Type of resource that the event applies to.|true|enum (BankAccount, Document, SDDMandate, User, Wallet)||
 |resourceLink|Link to follow to get the latest representation of the resource.|true|[Link](#link)||
 |resourceId|ID of the resource affected by the event.|true|string||
 |versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
@@ -2992,7 +3065,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ## LegalEntity
 ```json
 {
-    "category": "company",
+    "category": "Company",
     "name": "Acme",
     "registrationId": "73282932000074",
     "vatNumber": "FR44732829320",
@@ -3006,11 +3079,11 @@ Information about all types of corporation such as companies, associations...
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|category|Type of legal entity.|true|enum (company, association, auto-entrepreneur)|company|
+|category|Type of legal entity.|true|enum (Company, Association, AutoEntrepreneur)|Company|
 |name||true|string||
 |registrationId||false|string||
 |vatNumber||false|string||
-|sci|SEPA creditor identifier, called ICS in French.|false|[SCI](#sci)||
+|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 
 
 ## Link
@@ -3101,7 +3174,7 @@ An available action on a resource.
 }
 ```
 
-Information required to issue a new mandate.
+A managed mandate.
 
 	
 ### Fields
@@ -3109,12 +3182,12 @@ Information required to issue a new mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the mandate.|true|[MandateStatus](#mandatestatus)||
+|status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
 |debtorAddress|Address of the debtor when the mandate was generated.|true|[Address](#address)||
-|sci|SEPA Creditor Identifier.|true|[SCI](#sci)||
+|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
 |creditorAddress|Address of the creditor when the mandate was generated.|true|[Address](#address)||
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
@@ -3129,7 +3202,7 @@ Information required to issue a new mandate.
 |mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
 |scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|false|boolean|true|
-|umr||false|[UMR](#umr)||
+|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|false|string||
 |clientReference||false|string||
 |contractId||false|string||
 |contractDescription||false|string||
@@ -3220,15 +3293,6 @@ Information required to issue a new mandate.
 |count|Total number of mandates available.|true|integer (int32)||
 |mandates||true|array[[Mandate](#mandate)]||
 
-
-## MandateStatus
-```json
-"ValidatedUsed"
-```
-
-Status of the mandate. Can be &#039;Canceled&#039;, &#039;PendingClientRegistration&#039;, &#039;ToBeSigned&#039;, &#039;ToBeValidated&#039;, &#039;ValidatedNotUsedYet&#039;,
-&#039;ValidatedUsed&#039;, &#039;Disabled&#039; or &#039;Rejected&#039;.
-
 	
 ## NewBankAccount
 ```json
@@ -3285,7 +3349,7 @@ Information required to issue a new mandate.
 |mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
 |scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|false|boolean|true|
-|umr||false|[UMR](#umr)||
+|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|false|string||
 |clientReference||false|string||
 |contractId||false|string||
 |contractDescription||false|string||
@@ -3307,7 +3371,7 @@ Information required to issue a new mandate.
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -3326,9 +3390,9 @@ User information required to create a new user.
 |email||true|string||
 |firstName||true|string||
 |lastName||true|string||
-|mobile|Mobile phone number.|true|[PhoneNumber](#phonenumber)||
+|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
-|phone|Landline phone number.|false|[PhoneNumber](#phonenumber)||
+|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3355,33 +3419,9 @@ Information required to create a new webhook.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resources|The list of resources for which events will be sent.|false|array[[ResourceType](#resourcetype)]||
+|resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
 |events|The list of event types you would like to listen to.|false|array[string]||
 |description|Optional description.|false|string||
-
-
-## PhoneNumber
-```json
-"33612345678"
-```
-
-Phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.
-
-
-## ResourceType
-```json
-"User"
-```
-
-Type of resource. Enum, can be: BankAccount, Document, SDDMandate, User and Wallet.
-
-
-## SCI
-```json
-"DE98ZZZ09999999999"
-```
-
-SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
 
 
 ## ShortMandate
@@ -3438,8 +3478,8 @@ Minimal information about a mandate.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
-|umr|Unique Mandate Reference, also called RUM in French.|true|[UMR](#umr)||
-|status|Status of the mandate.|true|[MandateStatus](#mandatestatus)||
+|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
+|status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3603,14 +3643,6 @@ Minimal information about a user.
 |users||true|array[[ShortUser](#shortuser)]||
 
 
-## UMR
-```json
-"MYSPECIALUMR"
-```
-
-Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-
-
 ## User
 ```json
 {
@@ -3647,7 +3679,7 @@ Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 ch
     },
     "phone": "33187654321",
     "legalEntity": {
-        "category": "company",
+        "category": "Company",
         "name": "Acme",
         "registrationId": "73282932000074",
         "vatNumber": "FR44732829320",
@@ -3671,9 +3703,9 @@ User information required to create a new user.
 |email||true|string||
 |firstName||true|string||
 |lastName||true|string||
-|mobile|Mobile phone number.|true|[PhoneNumber](#phonenumber)||
+|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
-|phone|Landline phone number.|false|[PhoneNumber](#phonenumber)||
+|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3719,7 +3751,7 @@ User information required to create a new user.
             },
             "phone": "33187654321",
             "legalEntity": {
-                "category": "company",
+                "category": "Company",
                 "name": "Acme",
                 "registrationId": "73282932000074",
                 "vatNumber": "FR44732829320",
@@ -3770,18 +3802,18 @@ User information required to create a new user.
 }
 ```
 
-Information required to create a new webhook.
+A webhook is a subscription to listen to potentially all events in Finstack.
 
 	
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'|false|string (date-time)||
-|links|Available actions on the web hook.|true|array[[Link](#link)]||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|links|Available actions on the web hook.|true|[[Link](#link)]||
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resources|The list of resources for which events will be sent.|false|array[[ResourceType](#resourcetype)]||
+|resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
 |events|The list of event types you would like to listen to.|false|array[string]||
 |description|Optional description.|false|string||
 
