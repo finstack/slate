@@ -85,7 +85,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "designation": "An Awesome Company",
-            "createdAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
                     "rel": "Get User",
@@ -183,8 +183,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "2",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T18:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T18:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -230,8 +230,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -323,8 +323,8 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
                     "rel": "Update User",
@@ -397,7 +397,7 @@ limit | query | integer | 20 | Number of items to retrieve. Default is 20, maxim
 ## Get All User Events
 
 ```http
-GET /api/v1/users/events?since=2015-01-01T12:00:00Z HTTP/1.1
+GET /api/v1/users/events?since=2015-01-01T12:00:00.000Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -421,7 +421,7 @@ Content-Type: application/json
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "timestamp": "2015-01-01T12:00:00Z",
+            "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "UserCreated"
         }
@@ -445,8 +445,8 @@ Returns all events on users since a given date and optionally until another date
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
@@ -475,8 +475,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -588,8 +588,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "2",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T18:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T18:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -672,8 +672,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [],
     "email": "user@example.com",
     "firstName": "Marc",
@@ -751,8 +751,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
@@ -824,8 +824,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T18:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "creditorDesignation": "Creditor SARL",
             "thirdPartyCreditorDesignation": "3rd party Company",
@@ -916,8 +916,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "debtorAddress": {
                 "street": "13, rue du paradis",
@@ -1030,7 +1030,7 @@ Content-Type: application/json
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
-        "timestamp": "2015-01-01T12:00:00Z",
+        "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "UserCreated"
     }
@@ -1080,8 +1080,8 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -1166,8 +1166,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
@@ -1249,8 +1249,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
     "status": "Verified",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
@@ -1301,7 +1301,7 @@ bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newb
 ## Get All Bank Account Events
 
 ```http
-GET /api/v1/bank_accounts/events?since=2015-01-01T12:00:00Z HTTP/1.1
+GET /api/v1/bank_accounts/events?since=2015-01-01T12:00:00.000Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -1325,7 +1325,7 @@ Content-Type: application/json
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "timestamp": "2015-01-01T12:00:00Z",
+            "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "BankAccountCreated"
         }
@@ -1349,8 +1349,8 @@ Returns all events on bank accounts since a given date and optionally until anot
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
@@ -1380,8 +1380,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
     "status": "Verified",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
@@ -1450,8 +1450,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "2",
     "status": "Disabled",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T18:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T18:00:00.000Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [],
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -1515,7 +1515,7 @@ Content-Type: application/json
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
-        "timestamp": "2015-01-01T12:00:00Z",
+        "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "BankAccountCreated"
     }
@@ -1570,8 +1570,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
@@ -1640,8 +1640,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "creditorDesignation": "Creditor SARL",
             "thirdPartyCreditorDesignation": "3rd party Company",
@@ -1745,8 +1745,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
     "status": "ToBeSigned",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "debtorAddress": {
         "street": "13, rue du paradis",
@@ -1855,8 +1855,8 @@ Content-Type: application/json
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "debtorAddress": {
                 "street": "13, rue du paradis",
@@ -1949,7 +1949,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 ## Get All Mandate Events
 
 ```http
-GET /api/v1/mandates/events?since=2015-01-01T12:00:00Z HTTP/1.1
+GET /api/v1/mandates/events?since=2015-01-01T12:00:00.000Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -1973,7 +1973,7 @@ Content-Type: application/json
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "timestamp": "2015-01-01T12:00:00Z",
+            "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "SDDMandateRequested"
         }
@@ -1997,8 +1997,8 @@ Returns all events on mandates since a given date and optionally until another d
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
@@ -2028,8 +2028,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "2",
     "status": "ValidatedNotUsedYet",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-02-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "debtorAddress": {
         "street": "13, rue du paradis",
@@ -2137,8 +2137,8 @@ Content-Type: application/json
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "3",
     "status": "Disabled",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-02-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "debtorAddress": {
         "street": "13, rue du paradis",
@@ -2290,7 +2290,7 @@ Content-Type: application/json
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
         "versionNo": "1",
-        "timestamp": "2015-01-01T12:00:00Z",
+        "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "SDDMandateRequested"
     }
@@ -2328,7 +2328,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 ## Get All Events
 
 ```http
-GET /api/v1/events?since=2015-01-01T12:00:00Z HTTP/1.1
+GET /api/v1/events?since=2015-01-01T12:00:00.000Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2352,7 +2352,7 @@ Content-Type: application/json
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "timestamp": "2015-01-01T12:00:00Z",
+            "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "SDDMandateRequested"
         }
@@ -2376,8 +2376,8 @@ Returns all events since a given date and optionally until another date.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
@@ -2392,7 +2392,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 ## Get Event Summary
 
 ```http
-GET /api/v1/events/summary?since=2015-01-01T12:00:00Z HTTP/1.1
+GET /api/v1/events/summary?since=2015-01-01T12:00:00.000Z HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2427,8 +2427,8 @@ The CSV has 3 columns: resource, event type and number of events.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00Z&#039;.
+since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -2476,8 +2476,8 @@ Content-Type: application/json
 [
     {
         "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "createdAt": "2015-01-01T12:00:00Z",
-        "updatedAt": "2015-01-01T12:00:00Z",
+        "createdAt": "2015-01-01T12:00:00.000Z",
+        "updatedAt": "2015-01-01T12:00:00.000Z",
         "links": [
             {
                 "rel": "Update Webhook",
@@ -2554,8 +2554,8 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update Webhook",
@@ -2626,7 +2626,7 @@ Content-Type: application/json
 [
     {
         "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "occuredAt": "2015-01-01T12:00:00Z",
+        "occuredAt": "2015-01-01T12:00:00.000Z",
         "error": "TimeoutException"
     }
 ]
@@ -2661,8 +2661,8 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update Webhook",
@@ -2740,8 +2740,8 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T18:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T18:00:00.000Z",
     "links": [
         {
             "rel": "Update Webhook",
@@ -2806,8 +2806,8 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update Webhook",
@@ -2892,8 +2892,8 @@ A physical address object.
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
     "status": "Verified",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
@@ -2924,8 +2924,8 @@ A managed bank account.
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
 |status|Status of the bank account.|true|enum (ToBeVerified, Verified, Rejected, Disabled)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
 |proof|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
 |links|Available actions on the bank account.|true|array[[Link](#link)]||
 |user|The user's id to whom the bank account belongs.|true|string||
@@ -2946,8 +2946,8 @@ A managed bank account.
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
             "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
@@ -3008,7 +3008,7 @@ A managed bank account.
     },
     "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "timestamp": "2015-01-01T12:00:00Z",
+    "timestamp": "2015-01-01T12:00:00.000Z",
     "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
     "eventType": "UserCreated"
 }
@@ -3024,7 +3024,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 |resourceLink|Link to follow to get the latest representation of the resource.|true|[Link](#link)||
 |resourceId|ID of the resource affected by the event.|true|string||
 |versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
-|timestamp|Event timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|timestamp|Event timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |commandId|ID of the command that triggered the event.|true|string||
 |eventType|Type of the event.|true|string||
 
@@ -3045,7 +3045,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "timestamp": "2015-01-01T12:00:00Z",
+            "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "UserCreated"
         }
@@ -3112,8 +3112,8 @@ An available action on a resource.
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "2",
     "status": "ValidatedNotUsedYet",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-02-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "debtorAddress": {
         "street": "13, rue du paradis",
@@ -3183,8 +3183,8 @@ A managed mandate.
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
 |status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
 |debtorAddress|Address of the debtor when the mandate was generated.|true|[Address](#address)||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
@@ -3220,8 +3220,8 @@ A managed mandate.
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "debtorAddress": {
                 "street": "13, rue du paradis",
@@ -3430,8 +3430,8 @@ Information required to create a new webhook.
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "umr": "ASPECIALUMR",
     "status": "ValidatedNotUsedYet",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-02-01T18:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T18:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "creditorDesignation": "Creditor SARL",
     "thirdPartyCreditorDesignation": "3rd party Company",
@@ -3480,8 +3480,8 @@ Minimal information about a mandate.
 |id|Should be a valid UUID string.|true|string||
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
 |status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
@@ -3500,8 +3500,8 @@ Minimal information about a mandate.
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
             "status": "ValidatedNotUsedYet",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-02-01T18:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
             "creditorDesignation": "Creditor SARL",
             "thirdPartyCreditorDesignation": "3rd party Company",
@@ -3557,7 +3557,7 @@ Minimal information about a mandate.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "designation": "An Awesome Company",
-    "createdAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Get User",
@@ -3591,8 +3591,8 @@ Minimal information about a user.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |designation|If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.|true|string||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
 |links|Actions available on the user.|true|array[[Link](#link)]||
 
 
@@ -3606,7 +3606,7 @@ Minimal information about a user.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "designation": "An Awesome Company",
-            "createdAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
                     "rel": "Get User",
@@ -3648,8 +3648,8 @@ Minimal information about a user.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": "1",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update User",
@@ -3697,8 +3697,8 @@ User information required to create a new user.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|false|string (date-time)||
 |links|Available actions on the user.|true|array[[Link](#link)]||
 |email||true|string||
 |firstName||true|string||
@@ -3720,8 +3720,8 @@ User information required to create a new user.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
-            "createdAt": "2015-01-01T12:00:00Z",
-            "updatedAt": "2015-01-01T12:00:00Z",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
                     "rel": "Update User",
@@ -3776,8 +3776,8 @@ User information required to create a new user.
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "createdAt": "2015-01-01T12:00:00Z",
-    "updatedAt": "2015-01-01T12:00:00Z",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
             "rel": "Update Webhook",
@@ -3809,8 +3809,8 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00Z'.|false|string (date-time)||
+|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
 |links|Available actions on the web hook.|true|[[Link](#link)]||
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
 |resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
@@ -3822,7 +3822,7 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 ```json
 {
     "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "occuredAt": "2015-01-01T12:00:00Z",
+    "occuredAt": "2015-01-01T12:00:00.000Z",
     "error": "TimeoutException"
 }
 ```
@@ -3834,5 +3834,5 @@ A webhook failure that occured when trying to deliver an event.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |webhookId|The ID of the webhook that failed.|true|string||
-|occuredAt|Timestamp at which the failure occured in UTC, for example '2015-01-01T12:00:00Z'.|true|string (date-time)||
+|occuredAt|Timestamp at which the failure occured in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |error|Error message of the failure|true|string||
