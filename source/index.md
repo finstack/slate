@@ -138,7 +138,7 @@ limit | query | integer | 20 | Number of items to retrieve. Default is 20, maxim
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[ShortUserArray](#shortuserarray)</td><td>An array of short users.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -299,7 +299,7 @@ user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
 <tr><td>200</td><td>[User](#user)</td><td>The updated user, if `isUpdateAllowed` is set to `true`, and the email provided belongs to an existing user.
 </td></tr> 
 <tr><td>201</td><td>[User](#user)</td><td>The newly created user.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Find Users with Details
@@ -391,7 +391,7 @@ limit | query | integer | 20 | Number of items to retrieve. Default is 20, maxim
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[UserArray](#userarray)</td><td>An array of users with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get All User Events
@@ -455,7 +455,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -543,7 +543,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[User](#user)</td><td>User found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid</td></tr> 
 </table>
 
 
@@ -653,7 +653,7 @@ user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) |
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[User](#user)</td><td>The updated user.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Delete User
@@ -725,7 +725,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[User](#user)</td><td>Deactivated user.</td></tr> 
 <tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -799,7 +799,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Find Mandates of User
@@ -891,7 +891,7 @@ role | query | string | Filter mandates depending on role. Possible values are &
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Find Mandates of User with Details
@@ -1004,7 +1004,7 @@ role | query | string | Filter mandates depending on role. Possible values are &
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get Events for User
@@ -1060,7 +1060,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -1139,7 +1139,7 @@ Returns the profile information of the authenticated user.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[User](#user)</td><td>Profile information.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 # Bank Accounts
@@ -1217,7 +1217,7 @@ limit | query | integer | 20 | Number of items to retrieve. Default is 20, maxim
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -1295,7 +1295,7 @@ bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newb
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td>[BankAccount](#bankaccount)</td><td>The newly created bank account.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get All Bank Account Events
@@ -1359,7 +1359,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -1430,7 +1430,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Bank account found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Disable Bank Account
@@ -1489,7 +1489,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Disabled bank account.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get Events for Bank Account
@@ -1545,7 +1545,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Find My Bank Accounts
@@ -1613,7 +1613,7 @@ Finds all bank accounts that belong to the authenticated user.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 # Mandates
@@ -1707,7 +1707,7 @@ limit | query | integer | 20 | Number of items to retrieve. Default is 20, maxim
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Create Mandate
@@ -1829,7 +1829,7 @@ mandate<b title="required">&nbsp;*&nbsp;</b> | body | [NewMandate](#newmandate) 
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td>[Mandate](#mandate)</td><td>The newly created mandate.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -1943,7 +1943,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get All Mandate Events
@@ -2007,7 +2007,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -2117,7 +2117,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Mandate](#mandate)</td><td>Mandate found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Cancel or Revoke Mandate
@@ -2221,7 +2221,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Mandate](#mandate)</td><td>Mandate canceled or revoked.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get Signed Mandate in PDF
@@ -2264,7 +2264,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get Events for Mandate
@@ -2320,7 +2320,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 # Events
@@ -2386,7 +2386,7 @@ limit | query | integer | Number of items to retrieve. Default is 20, maximum is
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Get Event Summary
@@ -2435,7 +2435,7 @@ until | query | string | Return all events before given timestamp in UTC, for ex
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -2521,7 +2521,7 @@ Returns all webhooks.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Webhook](#webhook)]</td><td>A list of webhooks.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Create Webhook
@@ -2606,7 +2606,7 @@ webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) 
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td>[Webhook](#webhook)</td><td>The newly created webhook.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -2642,7 +2642,7 @@ Failures are grouped by webhook ID and ordered chronologically.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[WebhookFailure](#webhookfailure)]</td><td>A list of failures.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
@@ -2714,7 +2714,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Webhook](#webhook)</td><td>Webhook found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Update webhook
@@ -2788,7 +2788,7 @@ webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) 
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Webhook](#webhook)</td><td>The updated webhook.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 ## Delete Webhook
@@ -2859,7 +2859,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Webhook](#webhook)</td><td>Deleted webhook.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
 
