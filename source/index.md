@@ -753,7 +753,7 @@ Content-Type: application/json
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
                     "rel": "Disable Bank Account",
@@ -766,7 +766,7 @@ Content-Type: application/json
                     "verb": "GET"
                 }
             ],
-            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
             "iban": "FR**********************606",
@@ -935,7 +935,7 @@ Content-Type: application/json
             },
             "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
                 {
                     "rel": "Get Debtor",
@@ -963,10 +963,10 @@ Content-Type: application/json
                     "verb": "DELETE"
                 }
             ],
-            "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-            "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+            "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": "true",
@@ -1168,7 +1168,7 @@ Content-Type: application/json
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
                     "rel": "Disable Bank Account",
@@ -1181,7 +1181,7 @@ Content-Type: application/json
                     "verb": "GET"
                 }
             ],
-            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
             "iban": "FR**********************606",
@@ -1230,7 +1230,7 @@ X-Auth-Token: myapikeyvalue
 
 {
     "bankAccount": {
-        "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+        "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
         "holder": "Marc Dupont",
         "bic": "SOGEFRPPXXX",
         "iban": "FR1420041010050500013M02606",
@@ -1251,7 +1251,7 @@ Content-Type: application/json
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
-    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
             "rel": "Disable Bank Account",
@@ -1264,7 +1264,7 @@ Content-Type: application/json
             "verb": "GET"
         }
     ],
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
     "iban": "FR**********************606",
@@ -1382,7 +1382,7 @@ Content-Type: application/json
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
-    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
             "rel": "Disable Bank Account",
@@ -1395,7 +1395,7 @@ Content-Type: application/json
             "verb": "GET"
         }
     ],
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
     "iban": "FR**********************606",
@@ -1452,9 +1452,9 @@ Content-Type: application/json
     "status": "Disabled",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T18:00:00.000Z",
-    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [],
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
     "iban": "FR**********************606",
@@ -1572,7 +1572,7 @@ Content-Type: application/json
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
                     "rel": "Disable Bank Account",
@@ -1585,7 +1585,7 @@ Content-Type: application/json
                     "verb": "GET"
                 }
             ],
-            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
             "iban": "FR**********************606",
@@ -1719,10 +1719,10 @@ X-Auth-Token: myapikeyvalue
 
 {
     "mandate": {
-        "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-        "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-        "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-        "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+        "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+        "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+        "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+        "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
         "mandateType": "SEPA",
         "scheme": "Core",
         "isRecurring": "true",
@@ -1791,10 +1791,10 @@ Content-Type: application/json
             "verb": "DELETE"
         }
     ],
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": "true",
@@ -1874,7 +1874,7 @@ Content-Type: application/json
             },
             "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
                 {
                     "rel": "Get Debtor",
@@ -1902,10 +1902,10 @@ Content-Type: application/json
                     "verb": "DELETE"
                 }
             ],
-            "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-            "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+            "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": "true",
@@ -2047,7 +2047,7 @@ Content-Type: application/json
     },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "links": [
         {
             "rel": "Get Debtor",
@@ -2075,10 +2075,10 @@ Content-Type: application/json
             "verb": "DELETE"
         }
     ],
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": "true",
@@ -2156,7 +2156,7 @@ Content-Type: application/json
     },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "links": [
         {
             "rel": "Get Debtor",
@@ -2179,10 +2179,10 @@ Content-Type: application/json
             "verb": "GET"
         }
     ],
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": "true",
@@ -2894,7 +2894,7 @@ A physical address object.
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
-    "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+    "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
     "links": [
         {
             "rel": "Disable Bank Account",
@@ -2907,7 +2907,7 @@ A physical address object.
             "verb": "GET"
         }
     ],
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
     "iban": "FR**********************606",
@@ -2926,9 +2926,9 @@ A managed bank account.
 |status|Status of the bank account.|true|enum (ToBeVerified, Verified, Rejected, Disabled)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
-|proof|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
+|proofId|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
 |links|Available actions on the bank account.|true|array[[Link](#link)]||
-|user|The user's id to whom the bank account belongs.|true|string||
+|userId|The user's id to whom the bank account belongs.|true|string||
 |holder|Holder of the bank account.|true|string||
 |bic|Bank Identifier Code.|true|string||
 |iban|International Bank Account Number.|true|string||
@@ -2948,7 +2948,7 @@ A managed bank account.
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proof": "01e55840-149c-48dc-aadc-0448e066a9f5",
+            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
             "links": [
                 {
                     "rel": "Disable Bank Account",
@@ -2961,7 +2961,7 @@ A managed bank account.
                     "verb": "GET"
                 }
             ],
-            "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
             "iban": "FR**********************606",
@@ -3131,7 +3131,7 @@ An available action on a resource.
     },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
-    "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "links": [
         {
             "rel": "Get Debtor",
@@ -3159,10 +3159,10 @@ An available action on a resource.
             "verb": "DELETE"
         }
     ],
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": "true",
@@ -3193,12 +3193,12 @@ A managed mandate.
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
 |signatureUrl|This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.|false|string||
 |signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
-|document|ID of the signed PDF document (if any).|false|string||
+|documentId|ID of the signed PDF document (if any).|false|string||
 |links|Available actions on the mandate.|true|array[[Link](#link)]||
-|debtor|The debtor's user id.|true|string||
-|debtorBankAccount|The debtor's bank account id.|true|string||
-|creditor|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
-|thirdPartyCreditor|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
+|debtorId|The debtor's user id.|true|string||
+|debtorBankAccountId|The debtor's bank account id.|true|string||
+|creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
+|thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
 |mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
 |scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|false|boolean|true|
@@ -3240,7 +3240,7 @@ A managed mandate.
             "thirdPartyCreditorDesignation": "3rd party Company",
             "signatureUrl": "string",
             "signatureDate": "2015-02-01",
-            "document": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
                 {
                     "rel": "Get Debtor",
@@ -3268,10 +3268,10 @@ A managed mandate.
                     "verb": "DELETE"
                 }
             ],
-            "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-            "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+            "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": "true",
@@ -3297,7 +3297,7 @@ A managed mandate.
 ## NewBankAccount
 ```json
 {
-    "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
     "iban": "FR1420041010050500013M02606",
@@ -3311,7 +3311,7 @@ Bank account information required to declare a new bank account.
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|user|The user's id to whom the bank account belongs.|true|string||
+|userId|The user's id to whom the bank account belongs.|true|string||
 |holder|Holder of the bank account.|true|string||
 |bic|Bank Identifier Code.|true|string||
 |iban|International Bank Account Number.|true|string||
@@ -3321,10 +3321,10 @@ Bank account information required to declare a new bank account.
 ## NewMandate
 ```json
 {
-    "debtor": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccount": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditor": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditor": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": "true",
@@ -3342,10 +3342,10 @@ Information required to issue a new mandate.
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|debtor|The debtor's user id.|true|string||
-|debtorBankAccount|The debtor's bank account id.|true|string||
-|creditor|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
-|thirdPartyCreditor|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
+|debtorId|The debtor's user id.|true|string||
+|debtorBankAccountId|The debtor's bank account id.|true|string||
+|creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
+|thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
 |mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
 |scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|false|boolean|true|
