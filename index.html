@@ -191,7 +191,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#shortuserarray">ShortUserArray</a></td><td>An array of short users.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="create-user">Create User</h2>
@@ -369,7 +369,7 @@ update the existing user with the new details.</p>
 <tr><td>200</td><td><a href="#user">User</a></td><td>The updated user, if <code class="prettyprint">isUpdateAllowed</code> is set to <code class="prettyprint">true</code>, and the email provided belongs to an existing user.
 </td></tr> 
 <tr><td>201</td><td><a href="#user">User</a></td><td>The newly created user.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-users-with-details">Find Users with Details</h2>
@@ -480,7 +480,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#userarray">UserArray</a></td><td>An array of users with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-all-user-events">Get All User Events</h2>
@@ -569,7 +569,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-user">Get User</h2>
@@ -665,7 +665,7 @@ the display name and other details about each user.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#user">User</a></td><td>User found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid</td></tr> 
 </table></p>
 
 <h2 id="update-user">Update User</h2>
@@ -789,7 +789,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#user">User</a></td><td>The updated user.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="delete-user">Delete User</h2>
@@ -869,7 +869,7 @@ the display name and other details about each user.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#user">User</a></td><td>Deactivated user.</td></tr> 
 <tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-bank-accounts-of-user">Find Bank Accounts of User</h2>
@@ -910,7 +910,7 @@ the display name and other details about each user.</p>
             </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -952,7 +952,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-mandates-of-user">Find Mandates of User</h2>
@@ -1059,7 +1059,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#shortmandatearray">ShortMandateArray</a></td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-mandates-of-user-with-details">Find Mandates of User with Details</h2>
@@ -1187,7 +1187,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#mandatearray">MandateArray</a></td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-events-for-user">Get Events for User</h2>
@@ -1253,7 +1253,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-my-user-profile">Get my User Profile</h2>
@@ -1328,7 +1328,7 @@ the display name and other details about each user.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#user">User</a></td><td>Profile information.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h1 id="bank-accounts">Bank Accounts</h1>
@@ -1371,7 +1371,7 @@ the display name and other details about each user.</p>
             </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1423,7 +1423,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="create-bank-account">Create Bank Account</h2>
@@ -1470,7 +1470,7 @@ they authorized you to access their information.</p>
     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1510,7 +1510,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td><a href="#bankaccount">BankAccount</a></td><td>The newly created bank account.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-all-bank-account-events">Get All Bank Account Events</h2>
@@ -1599,7 +1599,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-bank-account">Get Bank Account</h2>
@@ -1635,7 +1635,7 @@ they authorized you to access their information.</p>
     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1678,7 +1678,7 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Bank account found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="disable-bank-account">Disable Bank Account</h2>
@@ -1703,7 +1703,7 @@ they authorized you to access their information.</p>
     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1746,7 +1746,7 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Disabled bank account.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-events-for-bank-account">Get Events for Bank Account</h2>
@@ -1814,7 +1814,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-my-bank-accounts">Find My Bank Accounts</h2>
@@ -1855,7 +1855,7 @@ they authorized you to access their information.</p>
             </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1879,7 +1879,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h1 id="mandates">Mandates</h1>
@@ -1991,7 +1991,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#shortmandatearray">ShortMandateArray</a></td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="create-mandate">Create Mandate</h2>
@@ -2123,7 +2123,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td><a href="#mandate">Mandate</a></td><td>The newly created mandate.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="find-mandates-with-details">Find Mandates with Details</h2>
@@ -2251,7 +2251,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#mandatearray">MandateArray</a></td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-all-mandate-events">Get All Mandate Events</h2>
@@ -2340,7 +2340,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-mandate">Get Mandate</h2>
@@ -2458,7 +2458,7 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="cancel-or-revoke-mandate">Cancel or Revoke Mandate</h2>
@@ -2571,7 +2571,7 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate canceled or revoked.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-signed-mandate-in-pdf">Get Signed Mandate in PDF</h2>
@@ -2623,7 +2623,7 @@ they authorized you to access their information.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-events-for-mandate">Get Events for Mandate</h2>
@@ -2689,7 +2689,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h1 id="events">Events</h1>
@@ -2780,7 +2780,7 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-event-summary">Get Event Summary</h2>
@@ -2843,7 +2843,7 @@ The CSV has 3 columns: resource, event type and number of events.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="event-types">Event Types</h2>
@@ -2996,7 +2996,7 @@ The CSV has 3 columns: resource, event type and number of events.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[<a href="#webhook">Webhook</a>]</td><td>A list of webhooks.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="create-webhook">Create Webhook</h2>
@@ -3090,7 +3090,7 @@ If resources and events are specified then they are both taken into account with
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>201</td><td><a href="#webhook">Webhook</a></td><td>The newly created webhook.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-recent-webhook-failures">Get Recent Webhook Failures</h2>
@@ -3122,7 +3122,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[<a href="#webhookfailure">WebhookFailure</a>]</td><td>A list of failures.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="get-webhook">Get Webhook</h2>
@@ -3202,7 +3202,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Webhook found.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="update-webhook">Update webhook</h2>
@@ -3290,7 +3290,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>The updated webhook.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h2 id="delete-webhook">Delete Webhook</h2>
@@ -3370,7 +3370,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Deleted webhook.</td></tr> 
 <tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Unexpected error.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
 <h1 id="models">Models</h1>
@@ -3450,7 +3450,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3582,7 +3582,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR1420041010050500013M02606"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
