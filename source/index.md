@@ -769,7 +769,7 @@ Content-Type: application/json
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
-            "iban": "FR1420041010050500013M02606",
+            "iban": "FR**********************606",
             "metadata": "custom data"
         }
     ]
@@ -1184,7 +1184,7 @@ Content-Type: application/json
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
-            "iban": "FR1420041010050500013M02606",
+            "iban": "FR**********************606",
             "metadata": "custom data"
         }
     ]
@@ -1267,7 +1267,7 @@ Content-Type: application/json
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
-    "iban": "FR1420041010050500013M02606",
+    "iban": "FR**********************606",
     "metadata": "custom data"
 }
 ```
@@ -1398,7 +1398,7 @@ Content-Type: application/json
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
-    "iban": "FR1420041010050500013M02606",
+    "iban": "FR**********************606",
     "metadata": "custom data"
 }
 ```
@@ -1457,7 +1457,7 @@ Content-Type: application/json
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
-    "iban": "FR1420041010050500013M02606",
+    "iban": "FR**********************606",
     "metadata": "custom data"
 }
 ```
@@ -1588,7 +1588,7 @@ Content-Type: application/json
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
-            "iban": "FR1420041010050500013M02606",
+            "iban": "FR**********************606",
             "metadata": "custom data"
         }
     ]
@@ -2910,7 +2910,7 @@ A physical address object.
     "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
-    "iban": "FR1420041010050500013M02606",
+    "iban": "FR**********************606",
     "metadata": "custom data"
 }
 ```
@@ -2964,7 +2964,7 @@ A managed bank account.
             "user": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "holder": "Marc Dupont",
             "bic": "SOGEFRPPXXX",
-            "iban": "FR1420041010050500013M02606",
+            "iban": "FR**********************606",
             "metadata": "custom data"
         }
     ]
