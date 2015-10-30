@@ -2810,7 +2810,7 @@ User,UserCreated,5
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a CSV summary of events that occured during the provided time range.
+<p>Returns a CSV summary of events that occurred during the provided time range.
 The CSV has 3 columns: resource, event type and number of events.</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -3107,7 +3107,7 @@ If resources and events are specified then they are both taken into account with
 <span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"occuredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"occurredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeoutException"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -5365,12 +5365,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <h2 id="webhookfailure">WebhookFailure</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"occuredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"occurredAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeoutException"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>A webhook failure that occured when trying to deliver an event.</p>
+<p>A webhook failure that occurred when trying to deliver an event.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -5391,8 +5391,8 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td></td>
 </tr>
 <tr>
-<td>occuredAt</td>
-<td>Timestamp at which the failure occured in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+<td>occurredAt</td>
+<td>Timestamp at which the failure occurred in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 <td>true</td>
 <td>string (date-time)</td>
 <td></td>
