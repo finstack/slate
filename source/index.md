@@ -154,14 +154,14 @@ X-Auth-Token: myapikeyvalue
         "email": "user@example.com",
         "firstName": "Marc",
         "lastName": "Dupont",
-        "mobile": "33612345678",
+        "mobile": "+33612345678",
         "address": {
             "street": "82, avenue du général Leclerc",
             "postCode": "75014",
             "city": "PARIS",
             "country": "France"
         },
-        "phone": "33187654321",
+        "phone": "+33187654321",
         "legalEntity": {
             "category": "Company",
             "name": "Acme",
@@ -205,14 +205,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -252,14 +252,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -345,14 +345,14 @@ Content-Type: application/json
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
-            "mobile": "33612345678",
+            "mobile": "+33612345678",
             "address": {
                 "street": "82, avenue du général Leclerc",
                 "postCode": "75014",
                 "city": "PARIS",
                 "country": "France"
             },
-            "phone": "33187654321",
+            "phone": "+33187654321",
             "legalEntity": {
                 "category": "Acme",
                 "name": "73282932000074",
@@ -497,14 +497,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -559,14 +559,14 @@ X-Auth-Token: myapikeyvalue
         "email": "user@example.com",
         "firstName": "Marc",
         "lastName": "Dupont",
-        "mobile": "33612345678",
+        "mobile": "+33612345678",
         "address": {
             "street": "82, avenue du général Leclerc",
             "postCode": "75014",
             "city": "PARIS",
             "country": "France"
         },
-        "phone": "33187654321",
+        "phone": "+33187654321",
         "legalEntity": {
             "category": "Company",
             "name": "Acme",
@@ -610,14 +610,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -678,14 +678,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -1102,14 +1102,14 @@ Content-Type: application/json
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3362,14 +3362,14 @@ Information required to issue a new mandate.
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3390,9 +3390,9 @@ User information required to create a new user.
 |email||true|string||
 |firstName||true|string||
 |lastName||true|string||
-|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|true|string||
+|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
-|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|false|string||
+|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3670,14 +3670,14 @@ Minimal information about a user.
     "email": "user@example.com",
     "firstName": "Marc",
     "lastName": "Dupont",
-    "mobile": "33612345678",
+    "mobile": "+33612345678",
     "address": {
         "street": "82, avenue du général Leclerc",
         "postCode": "75014",
         "city": "PARIS",
         "country": "France"
     },
-    "phone": "33187654321",
+    "phone": "+33187654321",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3703,9 +3703,9 @@ User information required to create a new user.
 |email||true|string||
 |firstName||true|string||
 |lastName||true|string||
-|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|true|string||
+|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
-|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use 33650021433 instead of 0650021433.|false|string||
+|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3742,14 +3742,14 @@ User information required to create a new user.
             "email": "user@example.com",
             "firstName": "Marc",
             "lastName": "Dupont",
-            "mobile": "33612345678",
+            "mobile": "+33612345678",
             "address": {
                 "street": "82, avenue du général Leclerc",
                 "postCode": "75014",
                 "city": "PARIS",
                 "country": "France"
             },
-            "phone": "33187654321",
+            "phone": "+33187654321",
             "legalEntity": {
                 "category": "Company",
                 "name": "Acme",
