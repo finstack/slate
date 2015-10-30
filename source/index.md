@@ -78,9 +78,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -182,7 +182,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
+    "versionNo": 2,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T18:00:00.000Z",
     "links": [
@@ -229,7 +229,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
@@ -316,13 +316,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
             "links": [
@@ -408,9 +408,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "events": [
         {
             "resourceType": "User",
@@ -420,7 +420,7 @@ Content-Type: application/json
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "UserCreated"
@@ -474,7 +474,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
@@ -587,7 +587,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
+    "versionNo": 2,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T18:00:00.000Z",
     "links": [
@@ -671,7 +671,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [],
@@ -743,13 +743,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "bankAccounts": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -816,9 +816,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -908,13 +908,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "2",
+            "versionNo": 2,
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -1029,7 +1029,7 @@ Content-Type: application/json
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "versionNo": "1",
+        "versionNo": 1,
         "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "UserCreated"
@@ -1079,7 +1079,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
@@ -1158,13 +1158,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "bankAccounts": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -1247,7 +1247,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -1312,9 +1312,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "events": [
         {
             "resourceType": "BankAccount",
@@ -1324,7 +1324,7 @@ Content-Type: application/json
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "BankAccountCreated"
@@ -1378,7 +1378,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -1448,7 +1448,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
+    "versionNo": 2,
     "status": "Disabled",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T18:00:00.000Z",
@@ -1514,7 +1514,7 @@ Content-Type: application/json
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "versionNo": "1",
+        "versionNo": 1,
         "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "BankAccountCreated"
@@ -1562,13 +1562,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "bankAccounts": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -1632,9 +1632,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -1743,7 +1743,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "status": "ToBeSigned",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -1847,13 +1847,13 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "2",
+            "versionNo": 2,
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -1960,9 +1960,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "events": [
         {
             "resourceType": "SDDMandate",
@@ -1972,7 +1972,7 @@ Content-Type: application/json
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "SDDMandateRequested"
@@ -2026,7 +2026,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
+    "versionNo": 2,
     "status": "ValidatedNotUsedYet",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -2135,7 +2135,7 @@ Content-Type: application/json
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "3",
+    "versionNo": 3,
     "status": "Disabled",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -2289,7 +2289,7 @@ Content-Type: application/json
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "versionNo": "1",
+        "versionNo": 1,
         "timestamp": "2015-01-01T12:00:00.000Z",
         "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "eventType": "SDDMandateRequested"
@@ -2339,9 +2339,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "events": [
         {
             "resourceType": "SDDMandate",
@@ -2351,7 +2351,7 @@ Content-Type: application/json
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "SDDMandateRequested"
@@ -2890,7 +2890,7 @@ A physical address object.
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "status": "Verified",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -2938,13 +2938,13 @@ A managed bank account.
 ## BankAccountArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "bankAccounts": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "status": "Verified",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
@@ -3007,7 +3007,7 @@ A managed bank account.
         "verb": "GET"
     },
     "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "timestamp": "2015-01-01T12:00:00.000Z",
     "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
     "eventType": "UserCreated"
@@ -3032,9 +3032,9 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ## EventArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "events": [
         {
             "resourceType": "User",
@@ -3044,7 +3044,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "timestamp": "2015-01-01T12:00:00.000Z",
             "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "eventType": "UserCreated"
@@ -3110,7 +3110,7 @@ An available action on a resource.
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "2",
+    "versionNo": 2,
     "status": "ValidatedNotUsedYet",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -3212,13 +3212,13 @@ A managed mandate.
 ## MandateArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "2",
+            "versionNo": 2,
             "status": "ValidatedNotUsedYet",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
@@ -3492,9 +3492,9 @@ Minimal information about a mandate.
 ## ShortMandateArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "mandates": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3599,9 +3599,9 @@ Minimal information about a user.
 ## ShortUserArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3647,7 +3647,7 @@ Minimal information about a user.
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
+    "versionNo": 1,
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "links": [
@@ -3713,13 +3713,13 @@ User information required to create a new user.
 ## UserArray
 ```json
 {
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
+            "versionNo": 1,
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-01-01T12:00:00.000Z",
             "links": [
