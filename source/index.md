@@ -969,7 +969,7 @@ Content-Type: application/json
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
-            "isRecurring": "true",
+            "isRecurring": true,
             "umr": "ASPECIALUMR",
             "clientReference": "CLIENT1",
             "contractId": "CONTRACT1",
@@ -1725,7 +1725,7 @@ X-Auth-Token: myapikeyvalue
         "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
         "mandateType": "SEPA",
         "scheme": "Core",
-        "isRecurring": "true",
+        "isRecurring": true,
         "umr": "ASPECIALUMR",
         "clientReference": "CLIENT1",
         "contractId": "CONTRACT1",
@@ -1797,7 +1797,7 @@ Content-Type: application/json
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
-    "isRecurring": "true",
+    "isRecurring": true,
     "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
@@ -1908,7 +1908,7 @@ Content-Type: application/json
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
-            "isRecurring": "true",
+            "isRecurring": true,
             "umr": "ASPECIALUMR",
             "clientReference": "CLIENT1",
             "contractId": "CONTRACT1",
@@ -2081,7 +2081,7 @@ Content-Type: application/json
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
-    "isRecurring": "true",
+    "isRecurring": true,
     "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
@@ -2185,7 +2185,7 @@ Content-Type: application/json
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
-    "isRecurring": "true",
+    "isRecurring": true,
     "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
@@ -3165,7 +3165,7 @@ An available action on a resource.
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
-    "isRecurring": "true",
+    "isRecurring": true,
     "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
@@ -3199,10 +3199,10 @@ A managed mandate.
 |debtorBankAccountId|The debtor's bank account id.|true|string||
 |creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
 |thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
-|mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
-|scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
-|isRecurring|Is 'true' by default.|false|boolean|true|
-|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|false|string||
+|mandateType|Can only be 'SEPA'.|true|enum (SEPA)|SEPA|
+|scheme|Can be 'Core' or 'B2B'.|true|enum (Core, B2B)|Core|
+|isRecurring|Is 'true' by default.|true|boolean|true|
+|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
 |clientReference||false|string||
 |contractId||false|string||
 |contractDescription||false|string||
@@ -3274,7 +3274,7 @@ A managed mandate.
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "mandateType": "SEPA",
             "scheme": "Core",
-            "isRecurring": "true",
+            "isRecurring": true,
             "umr": "ASPECIALUMR",
             "clientReference": "CLIENT1",
             "contractId": "CONTRACT1",
@@ -3327,7 +3327,7 @@ Bank account information required to declare a new bank account.
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "mandateType": "SEPA",
     "scheme": "Core",
-    "isRecurring": "true",
+    "isRecurring": true,
     "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
