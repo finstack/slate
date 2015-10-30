@@ -2419,7 +2419,7 @@ Content-Type: application/json
 }
 ```
 
-Returns a CSV summary of events that occured during the provided time range.
+Returns a CSV summary of events that occurred during the provided time range.
 The CSV has 3 columns: resource, event type and number of events.
 
 
@@ -2626,7 +2626,7 @@ Content-Type: application/json
 [
     {
         "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-        "occuredAt": "2015-01-01T12:00:00.000Z",
+        "occurredAt": "2015-01-01T12:00:00.000Z",
         "error": "TimeoutException"
     }
 ]
@@ -3822,17 +3822,17 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 ```json
 {
     "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "occuredAt": "2015-01-01T12:00:00.000Z",
+    "occurredAt": "2015-01-01T12:00:00.000Z",
     "error": "TimeoutException"
 }
 ```
 
-A webhook failure that occured when trying to deliver an event.
+A webhook failure that occurred when trying to deliver an event.
 
 	
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |webhookId|The ID of the webhook that failed.|true|string||
-|occuredAt|Timestamp at which the failure occured in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
+|occurredAt|Timestamp at which the failure occurred in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |error|Error message of the failure|true|string||
