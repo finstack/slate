@@ -37,7 +37,7 @@ Getting Started with Slate
 
 You're going to need:
 
- - **Linux or OS X** — Windows may work, but is unsupported.
+ - **Linux or OS X** — Windows may work, but is unsupported. (on Mac execute `brew install v8` first! -> http://stackoverflow.com/questions/24081473/how-to-install-therubyracer-gem-on-10-10-yosemite)
  - **Ruby, version 1.9.3 or newer**
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
