@@ -663,9 +663,10 @@ the display name and other details about each user.</p>
 <p><span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>User found.</td></tr> 
-<tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid</td></tr> 
+<tr><td>200</td><td><a href="#user">User</a></td><td>User found.</td></tr>
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a user you don&rsquo;t manage.</td></tr>
+<tr><td>404</td><td><a href="#error">Error</a></td><td>User not found.</td></tr>
 </table></p>
 
 <h2 id="update-user">Update User</h2>
@@ -1677,8 +1678,9 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Bank account found.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a bank account belonging to a user you don&rsquo;t manage.</td></tr>
+<tr><td>404</td><td><a href="#error">Error</a></td><td>Bank account not found.</td></tr>
 </table></p>
 
 <h2 id="disable-bank-account">Disable Bank Account</h2>
@@ -2457,8 +2459,9 @@ they authorized you to access their information.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate found.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td></tr> 
+<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr> 
 </table></p>
 
 <h2 id="cancel-or-revoke-mandate">Cancel or Revoke Mandate</h2>
@@ -3201,8 +3204,9 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Webhook found.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a webhook belonging to a user you don&rsquo;t manage.</td></tr> 
+<tr><td>404</td><td><a href="#error">Error</a></td><td>Webhook not found.</td></tr> 
 </table></p>
 
 <h2 id="update-webhook">Update webhook</h2>
