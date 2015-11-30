@@ -2929,7 +2929,7 @@ A managed bank account.
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
 |status|Status of the bank account.|true|enum (ToBeVerified, Verified, Rejected, Disabled)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |proofId|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
 |links|Available actions on the bank account.|true|array[[Link](#link)]||
 |userId|The user's id to whom the bank account belongs.|true|string||
@@ -3188,7 +3188,7 @@ A managed mandate.
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
 |status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
 |debtorAddress|Address of the debtor when the mandate was generated.|true|[Address](#address)||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
@@ -3485,7 +3485,7 @@ Minimal information about a mandate.
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
 |status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
@@ -3596,7 +3596,7 @@ Minimal information about a user.
 |id|Should be a valid UUID string.|true|string||
 |designation|If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.|true|string||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |links|Actions available on the user.|true|array[[Link](#link)]||
 
 
@@ -3702,7 +3702,7 @@ User information required to create a new user.
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
 |links|Available actions on the user.|true|array[[Link](#link)]||
 |email||true|string||
 |firstName||true|string||
@@ -3814,7 +3814,7 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|false|string (date-time)||
+|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |links|Available actions on the web hook.|true|[[Link](#link)]||
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
 |resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
