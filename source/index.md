@@ -290,7 +290,7 @@ update the existing user with the new details.
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 isUpdateAllowed | query | boolean | false | This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
-user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
+user<b title="required">&nbsp;*&nbsp;</b> | body | [UserInfo](#userinfo) | |
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -647,7 +647,7 @@ Updates the user profile.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | 
+user<b title="required">&nbsp;*&nbsp;</b> | body | [UserInfo](#userinfo) | 
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -3360,7 +3360,7 @@ Information required to issue a new mandate.
 |metadata|Custom information goes here.|false|string||
 
 
-## NewUser
+## UserInfo
 ```json
 {
     "email": "user@example.com",
