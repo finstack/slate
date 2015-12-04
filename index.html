@@ -355,7 +355,7 @@ update the existing user with the new details.</p>
 <tr>
 <td>user<b title="required">&nbsp;*&nbsp;</b></td>
 <td>body</td>
-<td><a href="#userinfo">UserInfo</a></td>
+<td><a href="#newuser">NewUser</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -779,7 +779,7 @@ the display name and other details about each user.</p>
 <tr>
 <td>user<b title="required">&nbsp;*&nbsp;</b></td>
 <td>body</td>
-<td><a href="#userinfo">UserInfo</a></td>
+<td><a href="#modifieduser">ModifiedUser</a></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4311,6 +4311,101 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
+<h2 id="modifieduser">ModifiedUser</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33612345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82, avenue du général Leclerc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75014"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PARIS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33187654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"legalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"registrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73282932000074"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"vatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR44732829320"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>User information required to create a new user.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>firstName</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastName</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td></td>
+<td>false</td>
+<td><a href="#address">Address</a></td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>legalEntity</td>
+<td>Provide this field if the user is not an individual.</td>
+<td>false</td>
+<td><a href="#legalentity">LegalEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>Custom information goes here.</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="newbankaccount">NewBankAccount</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
@@ -4487,7 +4582,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="userinfo">UserInfo</h2>
+<h2 id="newuser">NewUser</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc"</span><span class="p">,</span><span class="w">
