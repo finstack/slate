@@ -290,7 +290,7 @@ update the existing user with the new details.
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
 isUpdateAllowed | query | boolean | false | This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
-user<b title="required">&nbsp;*&nbsp;</b> | body | [UserInfo](#userinfo) | |
+user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -647,7 +647,7 @@ Updates the user profile.
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-user<b title="required">&nbsp;*&nbsp;</b> | body | [UserInfo](#userinfo) | 
+user<b title="required">&nbsp;*&nbsp;</b> | body | [ModifiedUser](#modifieduser) | 
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -3297,6 +3297,47 @@ A managed mandate.
 |count|Total number of mandates available.|true|integer (int32)||
 |mandates||true|array[[Mandate](#mandate)]||
 
+
+## ModifiedUser
+```json
+{
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "phone": "+33187654321",
+    "legalEntity": {
+        "category": "Company",
+        "name": "Acme",
+        "registrationId": "73282932000074",
+        "vatNumber": "FR44732829320",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
+}
+```
+
+User information required to create a new user.
+
+	
+### Fields
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||false|string||
+|firstName||false|string||
+|lastName||false|string||
+|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
+|address||false|[Address](#address)||
+|phone|Landline phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
+|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
+|metadata|Custom information goes here.|false|string||
+
 	
 ## NewBankAccount
 ```json
@@ -3360,7 +3401,7 @@ Information required to issue a new mandate.
 |metadata|Custom information goes here.|false|string||
 
 
-## UserInfo
+## NewUser
 ```json
 {
     "email": "user@example.com",
