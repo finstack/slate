@@ -2405,6 +2405,7 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 Content-Type: text/csv
 
+resourceType,eventType,numberOfEvents
 BankAccount,BankAccountCreated,4
 Mandate,SDDMandateRequested,4
 Mandate,SDDMandateSigned,1
@@ -2423,8 +2424,8 @@ Content-Type: application/json
 ```
 
 Returns a CSV summary of events that occurred during the provided time range.
-The CSV has 3 columns: resource, event type and number of events.
-
+The CSV has 3 columns: resource type, event type and number of events.
+The first line is the header of the file and contains column names.
 
 
 ### Parameters
