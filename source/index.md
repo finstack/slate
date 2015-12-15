@@ -743,38 +743,33 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-{
-    "offset": 0,
-    "limit": 20,
-    "count": 1,
-    "bankAccounts": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": 1,
-            "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00.000Z",
-            "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
-            "links": [
-                {
-                    "rel": "Disable Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
-                    "verb": "DELETE"
-                },
-                {
-                    "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-                    "verb": "GET"
-                }
-            ],
-            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-            "holder": "Marc Dupont",
-            "bic": "SOGEFRPPXXX",
-            "iban": "FR**********************606",
-            "metadata": "custom data"
-        }
-    ]
-}
+[
+    {
+        "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": 1,
+        "status": "Verified",
+        "createdAt": "2015-01-01T12:00:00.000Z",
+        "updatedAt": "2015-01-01T12:00:00.000Z",
+        "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
+        "links": [
+            {
+                "rel": "Disable Bank Account",
+                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "DELETE"
+            },
+            {
+                "rel": "Get User",
+                "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                "verb": "GET"
+           
+        ],
+        "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+        "holder": "Marc Dupont",
+        "bic": "SOGEFRPPXXX",
+        "iban": "FR**********************606",
+        "metadata": "custom data"
+    }
+]
 ```
 ```http
 HTTP/1.1 400 Bad Request
@@ -799,7 +794,7 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>array[[BankAccount](#bankaccount)]</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
@@ -1563,38 +1558,33 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-{
-    "offset": 0,
-    "limit": 20,
-    "count": 1,
-    "bankAccounts": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": 1,
-            "status": "Verified",
-            "createdAt": "2015-01-01T12:00:00.000Z",
-            "updatedAt": "2015-01-01T12:00:00.000Z",
-            "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
-            "links": [
-                {
-                    "rel": "Disable Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
-                    "verb": "DELETE"
-                },
-                {
-                    "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-                    "verb": "GET"
-                }
-            ],
-            "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-            "holder": "Marc Dupont",
-            "bic": "SOGEFRPPXXX",
-            "iban": "FR**********************606",
-            "metadata": "custom data"
-        }
-    ]
-}
+[
+    {
+        "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": 1,
+        "status": "Verified",
+        "createdAt": "2015-01-01T12:00:00.000Z",
+        "updatedAt": "2015-01-01T12:00:00.000Z",
+        "proofId": "01e55840-149c-48dc-aadc-0448e066a9f5",
+        "links": [
+            {
+                "rel": "Disable Bank Account",
+                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "DELETE"
+            },
+            {
+                "rel": "Get User",
+                "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                "verb": "GET"
+            }
+        ],
+        "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+        "holder": "Marc Dupont",
+        "bic": "SOGEFRPPXXX",
+        "iban": "FR**********************606",
+        "metadata": "custom data"
+    }
+]
 ```
 ```http
 HTTP/1.1 400 Bad Request
@@ -1614,7 +1604,7 @@ Finds all bank accounts that belong to the authenticated user.
 <span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>array[[BankAccount](#bankaccount)]</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table>
 
