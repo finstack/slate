@@ -884,38 +884,33 @@ the display name and other details about each user.</p>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"proofId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proofId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+
+        </span><span class="err">]</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -952,7 +947,7 @@ the display name and other details about each user.</p>
 <p><span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>array[<a href="#bankaccount">BankAccount</a>]</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
@@ -1830,38 +1825,33 @@ they authorized you to access their information.</p>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"proofId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verified"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"proofId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01e55840-149c-48dc-aadc-0448e066a9f5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR**********************606"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1880,7 +1870,7 @@ they authorized you to access their information.</p>
 <p><span comment="workaround for markdown processing in table"></span>
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
+<tr><td>200</td><td>array[<a href="#bankaccount">BankAccount</a>]</td><td>An array of bank accounts.</td></tr> 
 <tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
 </table></p>
 
@@ -2797,6 +2787,7 @@ they authorized you to access their information.</p>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/csv</span>
 
+resourceType,eventType,numberOfEvents
 BankAccount,BankAccountCreated,4
 Mandate,SDDMandateRequested,4
 Mandate,SDDMandateSigned,1
@@ -2814,7 +2805,8 @@ User,UserCreated,5
 </span></code></pre>
 
 <p>Returns a CSV summary of events that occurred during the provided time range.
-The CSV has 3 columns: resource, event type and number of events.</p>
+The CSV has 3 columns: resource type, event type and number of events.
+The first line is the header of the file and contains column names.</p>
 
 <h3 id="parameters">Parameters</h3>
 
