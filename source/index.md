@@ -1399,9 +1399,6 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -1411,6 +1408,31 @@ Content-Type: application/json
     "fields": "string"
 }
 ```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "BankAccountForbidden",
+    "message": "You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "BankAccountNotFound",
+    "message": "Bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
+
 
 Gets the bank account with the specified id.
 
@@ -1459,9 +1481,6 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -1469,6 +1488,30 @@ Content-Type: application/json
     "code": "string",
     "message": "string",
     "fields": "string"
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "BankAccountForbidden",
+    "message": "You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "BankAccountNotFound",
+    "message": "Bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -1485,8 +1528,9 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Disabled bank account.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Bank account not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you disable a bank account belonging to a user you don't manage.</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Bank account not found.</td></tr>
 </table>
 
 ## Get Events for Bank Account
