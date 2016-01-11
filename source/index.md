@@ -3234,8 +3234,8 @@ A managed mandate.
 |signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
 |documentId|ID of the signed PDF document (if any).|false|string||
 |links|Available actions on the mandate.|true|array[[Link](#link)]||
-|debtorId|The debtor's user id.|true|string||
-|debtorBankAccountId|The debtor's bank account id.|true|string||
+|debtorId|The debtor's user id.|false|string||
+|debtorBankAccountId|The debtor's bank account id.|false|string||
 |creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
 |thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
 |mandateType|Can only be 'SEPA'.|true|enum (SEPA)|SEPA|
