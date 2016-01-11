@@ -3225,7 +3225,7 @@ A managed mandate.
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
-|debtorAddress|Address of the debtor when the mandate was generated.|true|[Address](#address)||
+|debtorAddress|Address of the debtor when the mandate was generated.|false|[Address](#address)||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
 |creditorAddress|Address of the creditor when the mandate was generated.|true|[Address](#address)||
