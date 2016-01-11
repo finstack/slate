@@ -1572,6 +1572,18 @@ Content-Type: application/json
     "fields": "string"
 }
 ```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "BankAccountNotFound",
+    "message": "Bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
 
 Returns all events for a given bank account.
 
@@ -1586,7 +1598,8 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank accou
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Bank account not found.</td></tr>
 </table>
 
 ## Find My Bank Accounts
@@ -1799,7 +1812,6 @@ Content-Type: application/json
         "country": "France"
     },
     "thirdPartyCreditorDesignation": "3rd party Company",
-    "signatureUrl": "https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503",
     "links": [
         {
             "rel": "Get Debtor",
@@ -2126,9 +2138,6 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -2136,6 +2145,18 @@ Content-Type: application/json
     "code": "string",
     "message": "string",
     "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -2231,9 +2252,6 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -2241,6 +2259,18 @@ Content-Type: application/json
     "code": "string",
     "message": "string",
     "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -2257,9 +2287,66 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>[Mandate](#mandate)</td><td>Mandate canceled or revoked.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
 </table>
+
+
+## Get Signature URL
+
+```http
+GET /api/v1/mandates/{id}/sign HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/plain
+
+https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
+
+Returns the link to be sent to the debtor for her to sign the mandate. Can only be called when the mandate is not signed yet.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+
+### Responses
+<span comment="workaround for markdown processing in table"></span>
+<table>
+<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
+<tr><td>200</td><td>text</td><td>URL to send to the debtor.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
+</table>
+
 
 ## Get Signed Mandate in PDF
 
@@ -2274,9 +2361,6 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
@@ -2284,6 +2368,18 @@ Content-Type: application/json
     "code": "string",
     "message": "string",
     "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -2300,8 +2396,8 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Mandate not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
 </table>
 
 ## Get Events for Mandate
@@ -2343,6 +2439,18 @@ Content-Type: application/json
     "fields": "string"
 }
 ```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
 
 Returns all events for a given mandate.
 
@@ -2357,7 +2465,8 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 <table>
 <tr><th>Http code</th><th>Type</th><th>Description</th></tr>
 <tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
+<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
+<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
 </table>
 
 # Events
@@ -3230,7 +3339,6 @@ A managed mandate.
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
 |creditorAddress|Address of the creditor when the mandate was generated.|true|[Address](#address)||
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
-|signatureUrl|This field only appears when the mandate is not signed yet. It is the link to be sent to the debtor for her to sign the mandate.|false|string||
 |signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
 |documentId|ID of the signed PDF document (if any).|false|string||
 |links|Available actions on the mandate.|true|array[[Link](#link)]||
@@ -3277,7 +3385,6 @@ A managed mandate.
                 "country": "France"
             },
             "thirdPartyCreditorDesignation": "3rd party Company",
-            "signatureUrl": "string",
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
