@@ -2152,7 +2152,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": MandateNotFound",
+    "code": "MandateNotFound",
     "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
     "fields": {
         "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
@@ -2266,7 +2266,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": MandateNotFound",
+    "code": "MandateNotFound",
     "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
     "fields": {
         "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
@@ -2322,7 +2322,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": MandateNotFound",
+    "code": "MandateNotFound",
     "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
     "fields": {
         "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
@@ -2375,7 +2375,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": MandateNotFound",
+    "code": "MandateNotFound",
     "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
     "fields": {
         "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
@@ -2444,7 +2444,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": MandateNotFound",
+    "code": "MandateNotFound",
     "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
     "fields": {
         "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
