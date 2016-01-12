@@ -1745,12 +1745,13 @@ Content-Type: application/json
 }
 ```
 
-Returns mandates that belong to users that you manage, or mandates that you created.
+Returns mandates for which you are a counterparty.
 
 
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
+role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
 offset | query | integer | 0 | Offset the list of returned results by this amount.
 limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
 
@@ -1980,12 +1981,13 @@ Content-Type: application/json
 }
 ```
 
-Returns mandates that belong to users that you manage, or mandates that you created.
+Returns mandates for which you are a counterparty.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
+role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
 offset | query | integer | Offset the list of returned results by this amount.
 limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
