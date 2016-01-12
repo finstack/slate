@@ -2025,7 +2025,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns mandates that belong to users that you manage, or mandates that you created.</p>
+<p>Returns mandates for which you are a counterparty.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2038,6 +2038,13 @@ they authorized you to access their information.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>role</td>
+<td>query</td>
+<td>string</td>
+<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
+<td></td>
+</tr>
 <tr>
 <td>offset</td>
 <td>query</td>
@@ -2287,7 +2294,7 @@ they authorized you to access their information.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns mandates that belong to users that you manage, or mandates that you created.</p>
+<p>Returns mandates for which you are a counterparty.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2299,6 +2306,12 @@ they authorized you to access their information.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>role</td>
+<td>query</td>
+<td>string</td>
+<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
+</tr>
 <tr>
 <td>offset</td>
 <td>query</td>
