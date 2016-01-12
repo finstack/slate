@@ -881,6 +881,8 @@ Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
@@ -988,12 +990,13 @@ Content-Type: application/json
 
 Returns all mandates that belong to the specified user with details.
 
-
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
 role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
+offset | query | integer | Offset the list of returned results by this amount.
+limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 <span comment="workaround for markdown processing in table"></span>
