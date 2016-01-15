@@ -953,7 +953,6 @@ Content-Type: application/json
             "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
@@ -1764,10 +1763,6 @@ X-Auth-Token: myapikeyvalue
         "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
         "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
         "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-        "mandateType": "SEPA",
-        "scheme": "Core",
-        "isRecurring": true,
-        "umr": "ASPECIALUMR",
         "clientReference": "CLIENT1",
         "contractId": "CONTRACT1",
         "contractDescription": "A special contract",
@@ -1823,7 +1818,6 @@ Content-Type: application/json
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
@@ -1922,7 +1916,6 @@ Content-Type: application/json
             "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
@@ -2084,7 +2077,6 @@ Content-Type: application/json
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
@@ -2186,7 +2178,6 @@ Content-Type: application/json
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
@@ -3244,7 +3235,6 @@ An available action on a resource.
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
@@ -3277,7 +3267,6 @@ A managed mandate.
 |debtorBankAccountId|The debtor's bank account id.|false|string||
 |creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
 |thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
-|mandateType|Can only be 'SEPA'.|true|enum (SEPA)|SEPA|
 |scheme|Can be 'Core' or 'B2B'.|true|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|true|boolean|true|
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
@@ -3337,7 +3326,6 @@ A managed mandate.
             "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "mandateType": "SEPA",
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
@@ -3431,10 +3419,6 @@ Bank account information required to declare a new bank account.
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "mandateType": "SEPA",
-    "scheme": "Core",
-    "isRecurring": true,
-    "umr": "ASPECIALUMR",
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
     "contractDescription": "A special contract",
@@ -3452,10 +3436,6 @@ Information required to issue a new mandate.
 |debtorBankAccountId|The debtor's bank account id.|true|string||
 |creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
 |thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
-|mandateType|Can only be 'SEPA'.|false|enum (SEPA)|SEPA|
-|scheme|Can be 'Core' or 'B2B'.|false|enum (Core, B2B)|Core|
-|isRecurring|Is 'true' by default.|false|boolean|true|
-|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|false|string||
 |clientReference||false|string||
 |contractId||false|string||
 |contractDescription||false|string||
