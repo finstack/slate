@@ -917,20 +917,8 @@ Content-Type: application/json
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
-            "debtorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "sci": "DE98ZZZ09999999999",
             "creditorDesignation": "Creditor SARL",
-            "creditorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -1801,20 +1789,8 @@ Content-Type: application/json
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
-    "debtorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "sci": "DE98ZZZ09999999999",
     "creditorDesignation": "Creditor SARL",
-    "creditorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "links": [
         {
@@ -1910,20 +1886,8 @@ Content-Type: application/json
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
-            "debtorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "sci": "DE98ZZZ09999999999",
             "creditorDesignation": "Creditor SARL",
-            "creditorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "thirdPartyCreditorDesignation": "3rd party Company",            
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -2084,20 +2048,8 @@ Content-Type: application/json
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
-    "debtorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "sci": "DE98ZZZ09999999999",
     "creditorDesignation": "Creditor SARL",
-    "creditorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -2203,20 +2155,8 @@ Content-Type: application/json
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
-    "debtorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "sci": "DE98ZZZ09999999999",
     "creditorDesignation": "Creditor SARL",
-    "creditorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -2353,10 +2293,10 @@ id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
 </table>
 
 
-## Get Signed Mandate in PDF
+## Get Signed Mandate Document
 
 ```http
-GET /api/v1/mandates/{id}/pdf HTTP/1.1
+GET /api/v1/mandates/{id}/document HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2388,7 +2328,7 @@ Content-Type: application/json
 }
 ```
 
-Returns signed mandate (if any) with the specified id in PDF.
+Returns signed mandate document (if any) with the specified id in PDF.
 
 
 ### Parameters
@@ -3268,20 +3208,8 @@ An available action on a resource.
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
-    "debtorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "sci": "DE98ZZZ09999999999",
     "creditorDesignation": "Creditor SARL",
-    "creditorAddress": {
-        "street": "13, rue du paradis",
-        "postCode": "54000",
-        "city": "NANCY",
-        "country": "France"
-    },
     "thirdPartyCreditorDesignation": "3rd party Company",
     "signatureDate": "2015-02-01",
     "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
@@ -3339,10 +3267,8 @@ A managed mandate.
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
-|debtorAddress|Address of the debtor when the mandate was generated.|false|[Address](#address)||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
 |creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
-|creditorAddress|Address of the creditor when the mandate was generated.|true|[Address](#address)||
 |thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
 |signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
 |documentId|ID of the signed PDF document (if any).|false|string||
@@ -3375,20 +3301,8 @@ A managed mandate.
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
-            "debtorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "sci": "DE98ZZZ09999999999",
             "creditorDesignation": "Creditor SARL",
-            "creditorAddress": {
-                "street": "13, rue du paradis",
-                "postCode": "54000",
-                "city": "NANCY",
-                "country": "France"
-            },
             "thirdPartyCreditorDesignation": "3rd party Company",
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
