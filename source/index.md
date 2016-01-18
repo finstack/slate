@@ -1759,7 +1759,6 @@ X-Auth-Token: myapikeyvalue
 
 {
     "mandate": {
-        "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
         "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
         "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
         "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -3415,7 +3414,6 @@ Bank account information required to declare a new bank account.
 ## NewMandate
 ```json
 {
-    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -3432,7 +3430,6 @@ Information required to issue a new mandate.
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|debtorId|The debtor's user id.|true|string||
 |debtorBankAccountId|The debtor's bank account id.|true|string||
 |creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
 |thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
