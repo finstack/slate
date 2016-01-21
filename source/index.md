@@ -1760,8 +1760,8 @@ X-Auth-Token: myapikeyvalue
 {
     "mandate": {
         "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-        "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
-        "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+        "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+        "useFinalCreditorSCI": false,
         "clientReference": "CLIENT1",
         "contractId": "CONTRACT1",
         "contractDescription": "A special contract",
@@ -1784,7 +1784,7 @@ Content-Type: application/json
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
     "sci": "DE98ZZZ09999999999",
-    "creditorDesignation": "Creditor SARL",
+    "creditorDesignation": "Lemon Way",
     "thirdPartyCreditorDesignation": "3rd party Company",
     "links": [
         {
@@ -3415,8 +3415,8 @@ Bank account information required to declare a new bank account.
 ```json
 {
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "useFinalCreditorSCI": false,
     "clientReference": "CLIENT1",
     "contractId": "CONTRACT1",
     "contractDescription": "A special contract",
@@ -3431,8 +3431,8 @@ Information required to issue a new mandate.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |debtorBankAccountId|The debtor's bank account id.|true|string||
-|creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
-|thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
+|finalCreditorId|The final creditor's user id.|true|string||
+|useFinalCreditorSCI|If set to true, mandate will be generated with the SEPA creditor identifier (SCI) of the final creditor. Otherwise, the SCI of our PSP is taken and the creditor would appear as a third party creditor on the mandate. Remember that if you choose to generate a mandate that doens't use our PSP's SCI, you won't be able to use it to process payments on our platform.|true|string||
 |clientReference||false|string||
 |contractId||false|string||
 |contractDescription||false|string||
