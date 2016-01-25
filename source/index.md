@@ -24,7 +24,7 @@ Focus is on simplicity, consistency and security; less on discoverability.
 
 Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces `application/json` content.
 
-The base URL of the API is __https://finstack.io/api/v1__.
+The base URL of the production API is __https://finstack.io/api/v1__. For testing purposes, you can use __https://sandbox.finstack.io/api/v1__
 
 The current version is __1.0.0__.
 
@@ -711,7 +711,7 @@ Content-Type: application/json
 }
 ```
 
-Deletes all information (mandates, bank accounts, events and user account) relative to the user with the specified id. WARNING: This action is only available in test mode and disabled in production. Use this only for automated testing.
+Deletes all information (mandates, bank accounts, events and user account) relative to the user with the specified id. WARNING: This action is only available in a SANDBOX environment. Use this only for automated testing.
 
 
 
