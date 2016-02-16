@@ -165,8 +165,6 @@ X-Auth-Token: myapikeyvalue
         "legalEntity": {
             "category": "Company",
             "name": "Acme",
-            "registrationId": "73282932000074",
-            "vatNumber": "FR44732829320",
             "sci": "DE98ZZZ09999999999"
         },
         "metadata": "custom data"
@@ -216,8 +214,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -263,8 +259,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -356,8 +350,6 @@ Content-Type: application/json
             "legalEntity": {
                 "category": "Acme",
                 "name": "73282932000074",
-                "registrationId": "FR44732829320",
-                "vatNumber": "FR44732829320",
                 "sci": "DE98ZZZ09999999999"
             },
             "metadata": "custom data"
@@ -508,8 +500,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -571,8 +561,6 @@ X-Auth-Token: myapikeyvalue
         "legalEntity": {
             "category": "Company",
             "name": "Acme",
-            "registrationId": "73282932000074",
-            "vatNumber": "FR44732829320",
             "sci": "DE98ZZZ09999999999"
         },
         "metadata": "custom data"
@@ -622,8 +610,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -690,8 +676,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -1096,8 +1080,6 @@ Content-Type: application/json
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -3132,8 +3114,6 @@ An object that describes an event that occurred to a resource. An event is uniqu
 {
     "category": "Company",
     "name": "Acme",
-    "registrationId": "73282932000074",
-    "vatNumber": "FR44732829320",
     "sci": "DE98ZZZ09999999999"
 }
 ```
@@ -3146,8 +3126,6 @@ Information about all types of corporation such as companies, associations...
 |----|----|----|----|----|
 |category|Type of legal entity.|true|enum (Company, Association, AutoEntrepreneur)|Company|
 |name||true|string||
-|registrationId||false|string||
-|vatNumber||false|string||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 
 
@@ -3336,8 +3314,6 @@ A managed mandate.
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -3423,8 +3399,6 @@ Information required to issue a new mandate.
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -3731,8 +3705,6 @@ Minimal information about a user.
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
-        "registrationId": "73282932000074",
-        "vatNumber": "FR44732829320",
         "sci": "DE98ZZZ09999999999"
     },
     "metadata": "custom data"
@@ -3803,8 +3775,6 @@ User information required to create a new user.
             "legalEntity": {
                 "category": "Company",
                 "name": "Acme",
-                "registrationId": "73282932000074",
-                "vatNumber": "FR44732829320",
                 "sci": "DE98ZZZ09999999999"
             },
             "metadata": "custom data"
