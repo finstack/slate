@@ -956,9 +956,6 @@ Content-Type: application/json
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
-            "clientReference": "CLIENT1",
-            "contractId": "CONTRACT1",
-            "contractDescription": "A special contract",
             "metadata": "custom data"
         }
     ]
@@ -1762,9 +1759,6 @@ X-Auth-Token: myapikeyvalue
         "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
         "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
         "useFinalCreditorSCI": false,
-        "clientReference": "CLIENT1",
-        "contractId": "CONTRACT1",
-        "contractDescription": "A special contract",
         "metadata": "custom data"
     }
 }
@@ -1820,9 +1814,6 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
     "metadata": "custom data"
 }
 ```
@@ -1918,9 +1909,6 @@ Content-Type: application/json
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
-            "clientReference": "CLIENT1",
-            "contractId": "CONTRACT1",
-            "contractDescription": "A special contract",
             "metadata": "custom data"
         }
     ]
@@ -2079,9 +2067,6 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
     "metadata": "custom data"
 }
 ```
@@ -2180,9 +2165,6 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
     "metadata": "custom data"
 }
 ```
@@ -3237,9 +3219,6 @@ An available action on a resource.
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
     "metadata": "custom data"
 }
 ```
@@ -3269,9 +3248,6 @@ A managed mandate.
 |scheme|Can be 'Core' or 'B2B'.|true|enum (Core, B2B)|Core|
 |isRecurring|Is 'true' by default.|true|boolean|true|
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|clientReference||false|string||
-|contractId||false|string||
-|contractDescription||false|string||
 |metadata|Custom information goes here.|false|string||
 
 	
@@ -3328,9 +3304,6 @@ A managed mandate.
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
-            "clientReference": "CLIENT1",
-            "contractId": "CONTRACT1",
-            "contractDescription": "A special contract",
             "metadata": "custom data"
         }
     ]
@@ -3417,9 +3390,6 @@ Bank account information required to declare a new bank account.
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "useFinalCreditorSCI": false,
-    "clientReference": "CLIENT1",
-    "contractId": "CONTRACT1",
-    "contractDescription": "A special contract",
     "metadata": "custom data"
 }
 ```
@@ -3433,9 +3403,6 @@ Information required to issue a new mandate.
 |debtorBankAccountId|The debtor's bank account id.|true|string||
 |finalCreditorId|The final creditor's user id.|true|string||
 |useFinalCreditorSCI|If set to true, mandate will be generated with the SEPA creditor identifier (SCI) of the final creditor. Otherwise, the SCI of our PSP is taken and the creditor would appear as a third party creditor on the mandate. Remember that if you choose to generate a mandate that doens't use our PSP's SCI, you won't be able to use it to process payments on our platform.|true|string||
-|clientReference||false|string||
-|contractId||false|string||
-|contractDescription||false|string||
 |metadata|Custom information goes here.|false|string||
 
 
