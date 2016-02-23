@@ -124,7 +124,7 @@ Content-Type: application/json
 ```
 
 The Users endpoint returns information about *Finstack* users you created,
-whether they are merchants or simply end users. The response includes 
+whether they are creditors or simply end users. The response includes 
 the display name and other details about each user.
 
 ### Parameters
@@ -365,7 +365,7 @@ Content-Type: application/json
 ```
 
 The Users endpoint returns information about *Finstack* users you created,
-whether they are merchants or simply end users. The response includes 
+whether they are creditors or simply end users. The response includes 
 the display name and other details about each user.
 
 ### Parameters
@@ -2483,7 +2483,7 @@ until | query | string | Return all events before given timestamp in UTC, for ex
 |BankAccount|BankAccountCreated|Occurs when a bank account is created.|Finstack website or API|
 |BankAccount|BankAccountDisabled|Occurs when a bank account is disabled.|API|
 |BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
-|Mandate|ClientRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.|Finstack website|
+|Mandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.|Finstack website|
 |Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the admin.|Finstack admin or API|
 |Mandate|SDDMandateRejectedByPSP|Occurs when a mandate is submitted to a PSP for user verification (KYC) and this latter fails.|PSP|
 |Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack admin or API|
@@ -3200,7 +3200,7 @@ A managed mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3490,7 +3490,7 @@ Minimal information about a mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|status|Status of the mandate.|true|enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
