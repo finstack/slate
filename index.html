@@ -155,7 +155,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 </span></code></pre>
 
 <p>The Users endpoint returns information about <em>Finstack</em> users you created,
-whether they are merchants or simply end users. The response includes 
+whether they are creditors or simply end users. The response includes 
 the display name and other details about each user.</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -432,7 +432,7 @@ update the existing user with the new details.</p>
 </span></code></pre>
 
 <p>The Users endpoint returns information about <em>Finstack</em> users you created,
-whether they are merchants or simply end users. The response includes 
+whether they are creditors or simply end users. The response includes 
 the display name and other details about each user.</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -2948,7 +2948,7 @@ The first line is the header of the file and contains column names.</p>
 </tr>
 <tr>
 <td>Mandate</td>
-<td>ClientRegistered</td>
+<td>DebtorRegistered</td>
 <td>Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.</td>
 <td>Finstack website</td>
 </tr>
@@ -4059,7 +4059,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>status</td>
 <td>Status of the mandate.</td>
 <td>true</td>
-<td>enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)</td>
+<td>enum (Canceled, PendinDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)</td>
 <td></td>
 </tr>
 <tr>
@@ -4698,7 +4698,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>status</td>
 <td>Status of the mandate.</td>
 <td>true</td>
-<td>enum (Canceled, PendingClientRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)</td>
+<td>enum (Canceled, PendingDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)</td>
 <td></td>
 </tr>
 <tr>
