@@ -733,7 +733,7 @@ Content-Type: application/json
                 "rel": "Get User",
                 "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
                 "verb": "GET"
-           
+            }
         ],
         "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
         "holder": "Marc Dupont",
