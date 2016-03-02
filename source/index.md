@@ -150,24 +150,22 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
-    "user": {
-        "email": "user@example.com",
-        "firstName": "Marc",
-        "lastName": "Dupont",
-        "mobile": "+33612345678",
-        "address": {
-            "street": "82, avenue du général Leclerc",
-            "postCode": "75014",
-            "city": "PARIS",
-            "country": "France"
-        },
-        "legalEntity": {
-            "category": "Company",
-            "name": "Acme",
-            "sci": "DE98ZZZ09999999999"
-        },
-        "metadata": "custom data"
-    }
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "legalEntity": {
+        "category": "Company",
+        "name": "Acme",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
 }
 ```
 
@@ -541,24 +539,22 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
-    "user": {
-        "email": "user@example.com",
-        "firstName": "Marc",
-        "lastName": "Dupont",
-        "mobile": "+33612345678",
-        "address": {
-            "street": "82, avenue du général Leclerc",
-            "postCode": "75014",
-            "city": "PARIS",
-            "country": "France"
-        },
-        "legalEntity": {
-            "category": "Company",
-            "name": "Acme",
-            "sci": "DE98ZZZ09999999999"
-        },
-        "metadata": "custom data"
-    }
+    "email": "user@example.com",
+    "firstName": "Marc",
+    "lastName": "Dupont",
+    "mobile": "+33612345678",
+    "address": {
+        "street": "82, avenue du général Leclerc",
+        "postCode": "75014",
+        "city": "PARIS",
+        "country": "France"
+    },
+    "legalEntity": {
+        "category": "Company",
+        "name": "Acme",
+        "sci": "DE98ZZZ09999999999"
+    },
+    "metadata": "custom data"
 }
 ```
 
@@ -1185,13 +1181,11 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
-    "bankAccount": {
-        "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-        "holder": "Marc Dupont",
-        "bic": "SOGEFRPPXXX",
-        "iban": "FR1420041010050500013M02606",
-        "metadata": "custom data"
-    }
+    "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "holder": "Marc Dupont",
+    "bic": "SOGEFRPPXXX",
+    "iban": "FR1420041010050500013M02606",
+    "metadata": "custom data"
 }
 ```
 
@@ -1728,12 +1722,11 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
-    "mandate": {
-        "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-        "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-        "useFinalCreditorSCI": false,
-        "metadata": "custom data"
-    }
+    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "sendSignatureRequestByEmail": false,
+    "useFinalCreditorSCI": false,
+    "metadata": "custom data"
 }
 ```
 
@@ -1754,6 +1747,16 @@ Content-Type: application/json
     "creditorDesignation": "Lemon Way",
     "thirdPartyCreditorDesignation": "3rd party Company",
     "links": [
+        {
+            "rel": "Get Mandate",
+            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
+        },
+        {
+            "rel": "Sign Mandate",
+            "href": "https://finstack.io/admin/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869",
+            "verb": "GET"
+        },
         {
             "rel": "Get Debtor",
             "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
@@ -2569,17 +2572,15 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
-    "webhook": {
-         "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-         "resources": [
-             "User",
-             "BankAccount"
-         ],
-         "events": [
-             "SDDMandateRequested"
-         ],
-         "description": "Listen to all events on users and bank accounts as well as mandate creation events."
-    }
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
+    "resources": [
+        "User",
+        "BankAccount"
+    ],
+    "events": [
+        "SDDMandateRequested"
+    ],
+    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
 }
 ```
 
@@ -2762,14 +2763,12 @@ PUT /api/v1/webhooks/{id} HTTP/1.1
 Content-Type: application/json
 
 {
-    "webhook": {
-        "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-        "resources": [
-            "User",
-            "BankAccount"
-        ],
-        "description": "Listen to all events on users and bank accounts."
-    }
+    "callbackURL": "https://www.yourwebsite.com/webhooklistener",
+    "resources": [
+        "User",
+        "BankAccount"
+    ],
+    "description": "Listen to all events on users and bank accounts."
 }
 ```
 ```http
@@ -3115,7 +3114,7 @@ Information about all types of corporation such as companies, associations...
 ### Fields
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|category|Type of legal entity.|true|enum (Company, Association, AutoEntrepreneur)|Company|
+|category|Type of legal entity.|false|enum (Company, Association, AutoEntrepreneur)|Company|
 |name||true|string||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 
@@ -3343,7 +3342,7 @@ Bank account information required to declare a new bank account.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |userId|The user's id to whom the bank account belongs.|true|string||
-|holder|Holder of the bank account.|true|string||
+|holder|Holder of the bank account. By default, it is equal to the full name of the user or it's legal entity name.|false|string||
 |bic|Bank Identifier Code.|true|string||
 |iban|International Bank Account Number.|true|string||
 |metadata|Custom information goes here.|false|string||
@@ -3354,6 +3353,7 @@ Bank account information required to declare a new bank account.
 {
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "sendSignatureRequestByEmail": false,
     "useFinalCreditorSCI": false,
     "metadata": "custom data"
 }
@@ -3366,8 +3366,9 @@ Information required to issue a new mandate.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |debtorBankAccountId|The debtor's bank account id.|true|string||
-|finalCreditorId|The final creditor's user id.|true|string||
-|useFinalCreditorSCI|If set to true, mandate will be generated with the SEPA creditor identifier (SCI) of the final creditor. Otherwise, the SCI of our PSP is taken and the creditor would appear as a third party creditor on the mandate. Remember that if you choose to generate a mandate that doens't use our PSP's SCI, you won't be able to use it to process payments on our platform.|true|string||
+|finalCreditorId|Use this field only if the final creditor of the mandate is not the API user.|false|string||
+|sendSignatureRequestByEmail|The final creditor's user id|false|string|false|
+|useFinalCreditorSCI|If set to true, mandate will be generated with the SEPA creditor identifier (SCI) of the final creditor. Otherwise, the SCI of our PSP is taken and the creditor would appear as a third party creditor on the mandate. Remember that if you choose to generate a mandate that doens't use our PSP's SCI, you won't be able to use it to process payments on our platform.|false|string|false|
 |metadata|Custom information goes here.|false|string||
 
 
