@@ -5388,11 +5388,11 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
           <h1 id="http-error-codes">HTTP Error Codes</h1>
 
-<p>The Finstack API uses the following error codes:</p>
+<p>The Finstack API uses the following HTTP error codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>HTTP Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
@@ -5431,6 +5431,169 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>503</td>
 <td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+<h1 id="business-error-codes">Business Error Codes</h1>
+
+<p>The Finstack API uses the following business error codes, variables are marked with a &rsquo;$&rsquo; sign:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>HTTP Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>BankAccountForbidden</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot view bank account $bankAccountId because you do not manage its owner</td>
+</tr>
+<tr>
+<td>BankAccountNotActive</td>
+<td>400 &ndash; Bad Request</td>
+<td>Bank account $bankAccountId is not active and cannot be used in a mandate</td>
+</tr>
+<tr>
+<td>BankAccountNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>Bank account $bankAccountId was not found</td>
+</tr>
+<tr>
+<td>DeleteUserNotAllowedInProduction</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot delete user $userId in production</td>
+</tr>
+<tr>
+<td>DocumentNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>Document $documentId was not found</td>
+</tr>
+<tr>
+<td>InsufficientBalanceOnWallet</td>
+<td>400 &ndash; Bad Request</td>
+<td>Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €)</td>
+</tr>
+<tr>
+<td>InvalidCommandForMandate</td>
+<td>400 &ndash; Bad Request</td>
+<td>Received command $commandName for mandate $mandateRef in status $status</td>
+</tr>
+<tr>
+<td>InvalidCommandForPayment</td>
+<td>400 &ndash; Bad Request</td>
+<td>Received command $commandName for payment $paymentId in status $status</td>
+</tr>
+<tr>
+<td>InvalidKeyForOperation</td>
+<td>403 &ndash; Forbidden</td>
+<td>You are not allowed to execute a $operationType operation with a $apiKeyRole API key</td>
+</tr>
+<tr>
+<td>InvalidOrNonExistentKey</td>
+<td>401 &ndash; Unauthorized</td>
+<td>Please provide a valid API key</td>
+</tr>
+<tr>
+<td>InvalidOrNonExistentMandate</td>
+<td>400 &ndash; Bad Request</td>
+<td>Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist</td>
+</tr>
+<tr>
+<td>PSPError</td>
+<td>400 &ndash; Bad Request</td>
+<td>Payment service provider error ($code): $message</td>
+</tr>
+<tr>
+<td>LimitShouldBeStrictlyPositive</td>
+<td>400 &ndash; Bad Request</td>
+<td>Limit ($limit) should be strictly positive</td>
+</tr>
+<tr>
+<td>MandateIsNotToBeSigned</td>
+<td>400 &ndash; Bad Request</td>
+<td>You cannot sign mandate $mandateRef because it is in status $status</td>
+</tr>
+<tr>
+<td>MandateForbidden</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot view mandate $mandateId because you do not manage one of its parties</td>
+</tr>
+<tr>
+<td>MandateNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>Mandate $mandateId was not found</td>
+</tr>
+<tr>
+<td>MandateWasNeverSigned</td>
+<td>400 &ndash; Bad Request</td>
+<td>You cannot download the document associated to mandate $mandateRef because it was never signed</td>
+</tr>
+<tr>
+<td>MaximumLimitExceeded</td>
+<td>400 &ndash; Bad Request</td>
+<td>You cannot request $requestedLimit elements because it exceeds the maximum limit ($maximumLimit)</td>
+</tr>
+<tr>
+<td>OffsetShouldBePositive</td>
+<td>400 &ndash; Bad Request</td>
+<td>Offset ($offset) should be positive</td>
+</tr>
+<tr>
+<td>SCIAndUMRAlreadyUsed</td>
+<td>400 &ndash; Bad Request</td>
+<td>A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr</td>
+</tr>
+<tr>
+<td>SinceShouldBeInThePast</td>
+<td>400 &ndash; Bad Request</td>
+<td>Since ($since) should be before now ($now)</td>
+</tr>
+<tr>
+<td>UnexpectedDebtorForMandate</td>
+<td>400 &ndash; Bad Request</td>
+<td>Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId</td>
+</tr>
+<tr>
+<td>UntilShouldBeAfterSince</td>
+<td>400 &ndash; Bad Request</td>
+<td>Since ($since) should be before until ($until)</td>
+</tr>
+<tr>
+<td>UserAlreadyExists</td>
+<td>400 &ndash; Bad Request</td>
+<td>User with email $email already exists</td>
+</tr>
+<tr>
+<td>UserForbidden</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot view user $userId because you do not manage it</td>
+</tr>
+<tr>
+<td>UserHasNoActiveBankAccount</td>
+<td>400 &ndash; Bad Request</td>
+<td>User $name has no active bank account</td>
+</tr>
+<tr>
+<td>UserHasNoSCI</td>
+<td>400 &ndash; Bad Request</td>
+<td>User $name cannot be a creditor because it does not have a SEPA Creditor Identifier (SCI)</td>
+</tr>
+<tr>
+<td>UserNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>User $userId was not found</td>
+</tr>
+<tr>
+<td>WebhookForbidden</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot view webhook $webhookId because you do not manage its owner</td>
+</tr>
+<tr>
+<td>WebhookNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>Webhook $webhookId was not found</td>
 </tr>
 </tbody></table>
 
