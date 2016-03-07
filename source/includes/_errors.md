@@ -41,36 +41,36 @@ HTTP Code | Meaning
 
 The Finstack API uses the following business error codes, variables are marked with a '$' sign:
 
-Error Code | HTTP Code | Message
----------- | --------- | -------
-BankAccountForbidden | 403 -- Forbidden | You cannot view bank account $bankAccountId because you do not manage its owner
-BankAccountNotActive | 400 -- Bad Request | Bank account $bankAccountId is not active and cannot be used in a mandate
-BankAccountNotFound | 404 -- Not Found | Bank account $bankAccountId was not found
-DeleteUserNotAllowedInProduction | 403 -- Forbidden | You cannot delete user $userId in production
-DocumentNotFound | 404 -- Not Found | Document $documentId was not found
-InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €)
-InvalidCommandForMandate | 400 -- Bad Request | Received command $commandName for mandate $mandateRef in status $status
-InvalidCommandForPayment | 400 -- Bad Request | Received command $commandName for payment $paymentId in status $status
-InvalidJSON | 400 -- Bad Request | This error is raised anytime the JSON is invalid or any field inside it such as mobile phone, BIC or IBAN
-InvalidKeyForOperation | 403 -- Forbidden | You are not allowed to execute a $operationType operation with a $apiKeyRole API key
-InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key
-InvalidOrNonExistentMandate | 400 -- Bad Request | Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist
-LimitShouldBeStrictlyPositive | 400 -- Bad Request | Limit ($limit) should be strictly positive
-MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status
-MandateForbidden | 403 -- Forbidden | You cannot view mandate $mandateId because you do not manage one of its parties
-MandateNotFound | 404 -- Not Found | Mandate $mandateId was not found
-MandateWasNeverSigned | 400 -- Bad Request | You cannot download the document associated to mandate $mandateRef because it was never signed
-MaximumLimitExceeded | 400 -- Bad Request | You cannot request $requestedLimit elements because it exceeds the maximum limit ($maximumLimit)
-OffsetShouldBePositive | 400 -- Bad Request | Offset ($offset) should be positive
-PSPError | 400 -- Bad Request | Payment service provider error ($code): $message
-SCIAndUMRAlreadyUsed | 400 -- Bad Request | A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr
-SinceShouldBeInThePast | 400 -- Bad Request | Since ($since) should be before now ($now)
-UnexpectedDebtorForMandate | 400 -- Bad Request | Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId
-UntilShouldBeAfterSince | 400 -- Bad Request | Since ($since) should be before until ($until)
-UserAlreadyExists | 400 -- Bad Request | User with email $email already exists
-UserForbidden | 403 -- Forbidden | You cannot view user $userId because you do not manage it
-UserHasNoActiveBankAccount | 400 -- Bad Request | User $name has no active bank account
-UserHasNoSCI | 400 -- Bad Request | User $name cannot be a creditor because it does not have a SEPA Creditor Identifier (SCI)
-UserNotFound | 404 -- Not Found | User $userId was not found
-WebhookForbidden | 403 -- Forbidden | You cannot view webhook $webhookId because you do not manage its owner
-WebhookNotFound | 404 -- Not Found | Webhook $webhookId was not found
+Error Code | HTTP Code | Message | Fields
+---------- | --------- | ------- | ------
+BankAccountForbidden | 403 -- Forbidden | You cannot view bank account $bankAccountId because you do not manage its owner | bankAccountId
+BankAccountNotActive | 400 -- Bad Request | Bank account $bankAccountId is not active and cannot be used in a mandate | bankAccountId
+BankAccountNotFound | 404 -- Not Found | Bank account $bankAccountId was not found | bankAccountId
+DeleteUserNotAllowedInProduction | 403 -- Forbidden | You cannot delete user $userId in production | userId
+DocumentNotFound | 404 -- Not Found | Document $documentId was not found | documentId
+InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €) | walletId, balance, pendingFees
+InvalidCommandForMandate | 400 -- Bad Request | Received command $commandName for mandate $mandateRef in status $status | mandateId, mandateRef, commandName, status
+InvalidCommandForPayment | 400 -- Bad Request | Received command $commandName for payment $paymentId in status $status | paymentId, commandName, status
+InvalidJSON | 400 -- Bad Request | This error is raised anytime the JSON is invalid or any field inside it such as mobile phone, BIC or IBAN |
+InvalidKeyForOperation | 403 -- Forbidden | You are not allowed to execute a $operationType operation with a $apiKeyRole API key | apiKeyId, apiKeyRole, operationType
+InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key | keyHeader
+InvalidOrNonExistentMandate | 400 -- Bad Request | Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist | mandateId
+LimitShouldBeStrictlyPositive | 400 -- Bad Request | Limit ($limit) should be strictly positive | limit
+MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status | mandateId, mandateRef, status
+MandateForbidden | 403 -- Forbidden | You cannot view mandate $mandateId because you do not manage one of its parties | mandateId
+MandateNotFound | 404 -- Not Found | Mandate $mandateId was not found | mandateId
+MandateWasNeverSigned | 400 -- Bad Request | You cannot download the document associated to mandate $mandateRef because it was never signed | mandateId, mandateRef, status
+MaximumLimitExceeded | 400 -- Bad Request | You cannot request $requestedLimit elements because it exceeds the maximum limit ($maximumLimit) | requestedLimit, maximumLimit
+OffsetShouldBePositive | 400 -- Bad Request | Offset ($offset) should be positive | offset
+PSPError | 400 -- Bad Request | Payment service provider error ($code): $message | code, message
+SCIAndUMRAlreadyUsed | 400 -- Bad Request | A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr | sci, umr
+SinceShouldBeInThePast | 400 -- Bad Request | Since ($since) should be before now ($now) | since, now
+UnexpectedDebtorForMandate | 400 -- Bad Request | Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId | mandateId, mandateRef, unexpectedDebtorId, expectedDebtorId
+UntilShouldBeAfterSince | 400 -- Bad Request | Since ($since) should be before until ($until) | since, until
+UserAlreadyExists | 400 -- Bad Request | User with email $email already exists | email 
+UserForbidden | 403 -- Forbidden | You cannot view user $userId because you do not manage it | userId
+UserHasNoActiveBankAccount | 400 -- Bad Request | User $name has no active bank account | userId, name
+UserHasNoSCI | 400 -- Bad Request | User $name cannot be a creditor because it does not have a SEPA Creditor Identifier (SCI) | userId, name
+UserNotFound | 404 -- Not Found | User $userId was not found | userId
+WebhookForbidden | 403 -- Forbidden | You cannot view webhook $webhookId because you do not manage its owner | webhookId
+WebhookNotFound | 404 -- Not Found | Webhook $webhookId was not found | webhookId
