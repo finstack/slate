@@ -3702,48 +3702,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="error">Error</h2>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td></td>
-<td>true</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>message</td>
-<td></td>
-<td>true</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>fields</td>
-<td></td>
-<td>true</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
-
 <h2 id="event">Event</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
@@ -5386,7 +5344,55 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="http-error-codes">HTTP Error Codes</h1>
+          <h1 id="errors">Errors</h1>
+
+<h2 id="error">Error</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccountForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"bankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>All errors have the same format.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Full list is available in the <a href="#business-error-codes">business error codes</a> section.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>Full list is available in the <a href="#business-error-codes">business error codes</a> section.</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Optional</td>
+<td>true</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="http-error-codes">HTTP Error Codes</h2>
 
 <p>The Finstack API uses the following HTTP error codes:</p>
 
@@ -5434,7 +5440,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h1 id="business-error-codes">Business Error Codes</h1>
+<h2 id="business-error-codes">Business Error Codes</h2>
 
 <p>The Finstack API uses the following business error codes, variables are marked with a &rsquo;$&rsquo; sign:</p>
 
@@ -5486,6 +5492,11 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Received command $commandName for payment $paymentId in status $status</td>
 </tr>
 <tr>
+<td>InvalidJSON</td>
+<td>400 &ndash; Bad Request</td>
+<td>This error is raised anytime the JSON is invalid or any field inside it such as mobile phone, BIC or IBAN</td>
+</tr>
+<tr>
 <td>InvalidKeyForOperation</td>
 <td>403 &ndash; Forbidden</td>
 <td>You are not allowed to execute a $operationType operation with a $apiKeyRole API key</td>
@@ -5499,11 +5510,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>InvalidOrNonExistentMandate</td>
 <td>400 &ndash; Bad Request</td>
 <td>Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist</td>
-</tr>
-<tr>
-<td>PSPError</td>
-<td>400 &ndash; Bad Request</td>
-<td>Payment service provider error ($code): $message</td>
 </tr>
 <tr>
 <td>LimitShouldBeStrictlyPositive</td>
@@ -5539,6 +5545,11 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>OffsetShouldBePositive</td>
 <td>400 &ndash; Bad Request</td>
 <td>Offset ($offset) should be positive</td>
+</tr>
+<tr>
+<td>PSPError</td>
+<td>400 &ndash; Bad Request</td>
+<td>Payment service provider error ($code): $message</td>
 </tr>
 <tr>
 <td>SCIAndUMRAlreadyUsed</td>
