@@ -160,6 +160,7 @@ X-Auth-Token: myapikeyvalue
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -207,6 +208,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -251,6 +253,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -490,6 +493,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -549,6 +553,7 @@ X-Auth-Token: myapikeyvalue
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -596,6 +601,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -661,6 +667,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -1064,6 +1071,7 @@ Content-Type: application/json
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3283,6 +3291,7 @@ A managed mandate.
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "en",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3303,6 +3312,7 @@ User information required to create a new user.
 |lastName||false|string||
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
 |address||false|[Address](#address)||
+|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3368,6 +3378,7 @@ Information required to issue a new mandate.
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3388,6 +3399,7 @@ User information required to create a new user.
 |lastName||true|string||
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
+|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string|'fr'|
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3672,6 +3684,7 @@ Minimal information about a user.
         "city": "PARIS",
         "country": "France"
     },
+    "preferredLang": "fr",
     "legalEntity": {
         "category": "Company",
         "name": "Acme",
@@ -3697,6 +3710,7 @@ User information required to create a new user.
 |lastName||true|string||
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
+|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
