@@ -3017,23 +3017,6 @@ A managed bank account.
 |bankAccounts||true|array[[BankAccount](#bankaccount)]||
 
 
-## Error
-```json
-{
-    "code": "string",
-    "message": "string",
-    "fields": "string"
-}
-```
-	
-### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|code||true|string||
-|message||true|string||
-|fields||true|string||
-
-
 ## Event
 ```json
 {

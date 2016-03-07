@@ -1,7 +1,29 @@
-# HTTP Error Codes
+# Errors
+
+## Error
+
+```json
+{
+    "code": "BankAccountForbidden",
+    "message": "You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
+}
+```
+
+All errors have the same format.
+	
+### Fields
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|code| Full list is available in the [business error codes](#business-error-codes) section. |true|string||
+|message| Full list is available in the [business error codes](#business-error-codes) section. |true|string||
+|fields| Optional |true|string||
+
+## HTTP Error Codes
 
 The Finstack API uses the following HTTP error codes:
-
 
 HTTP Code | Meaning
 --------- | -------
@@ -15,7 +37,7 @@ HTTP Code | Meaning
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
 
-# Business Error Codes
+## Business Error Codes
 
 The Finstack API uses the following business error codes, variables are marked with a '$' sign:
 
@@ -29,10 +51,10 @@ DocumentNotFound | 404 -- Not Found | Document $documentId was not found
 InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €)
 InvalidCommandForMandate | 400 -- Bad Request | Received command $commandName for mandate $mandateRef in status $status
 InvalidCommandForPayment | 400 -- Bad Request | Received command $commandName for payment $paymentId in status $status
+InvalidJSON | 400 -- Bad Request | This error is raised anytime the JSON is invalid or any field inside it such as mobile phone, BIC or IBAN
 InvalidKeyForOperation | 403 -- Forbidden | You are not allowed to execute a $operationType operation with a $apiKeyRole API key
 InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key
 InvalidOrNonExistentMandate | 400 -- Bad Request | Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist
-PSPError | 400 -- Bad Request | Payment service provider error ($code): $message
 LimitShouldBeStrictlyPositive | 400 -- Bad Request | Limit ($limit) should be strictly positive
 MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status
 MandateForbidden | 403 -- Forbidden | You cannot view mandate $mandateId because you do not manage one of its parties
@@ -40,6 +62,7 @@ MandateNotFound | 404 -- Not Found | Mandate $mandateId was not found
 MandateWasNeverSigned | 400 -- Bad Request | You cannot download the document associated to mandate $mandateRef because it was never signed
 MaximumLimitExceeded | 400 -- Bad Request | You cannot request $requestedLimit elements because it exceeds the maximum limit ($maximumLimit)
 OffsetShouldBePositive | 400 -- Bad Request | Offset ($offset) should be positive
+PSPError | 400 -- Bad Request | Payment service provider error ($code): $message
 SCIAndUMRAlreadyUsed | 400 -- Bad Request | A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr
 SinceShouldBeInThePast | 400 -- Bad Request | Since ($since) should be before now ($now)
 UnexpectedDebtorForMandate | 400 -- Bad Request | Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId
