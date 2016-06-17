@@ -110,7 +110,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://finstack.io/admin/settings'>Sign Up for an API Key</a></li>
+            <li><a href='https://finstack.io/bo/settings'>Sign Up for an API Key</a></li>
             <li><a href='http://swagger.io/'>API Specification Powered by Swagger</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
@@ -149,7 +149,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>Make sure to replace <code class="prettyprint">myapikeyvalue</code> with your API key.</p>
 </blockquote>
 
-<p>Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our <a href="https://finstack.io/admin/settings">admin portal</a>.</p>
+<p>Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our <a href="https://finstack.io/bo/settings">back office</a>.</p>
 
 <p>Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
@@ -2140,7 +2140,7 @@ they authorized you to access their information.</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sign Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/admin/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2654,7 +2654,7 @@ they authorized you to access their information.</p>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/plain</span>
 
-https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
+https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
 </code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -3033,14 +3033,14 @@ The first line is the header of the file and contains column names.</p>
 <tr>
 <td>Mandate</td>
 <td>DebtorRegistered</td>
-<td>Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.</td>
+<td>Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.</td>
 <td>Finstack website</td>
 </tr>
 <tr>
 <td>Mandate</td>
 <td>SDDMandateCanceled</td>
-<td>Occurs when the creditor cancels a mandate request either from the API or the admin.</td>
-<td>Finstack admin or API</td>
+<td>Occurs when the creditor cancels a mandate request either from the API or the back office.</td>
+<td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>Mandate</td>
@@ -3052,13 +3052,13 @@ The first line is the header of the file and contains column names.</p>
 <td>Mandate</td>
 <td>SDDMandateRequested</td>
 <td>Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.</td>
-<td>Finstack admin or API</td>
+<td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>Mandate</td>
 <td>SDDMandateRevoked</td>
 <td>Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.</td>
-<td>Finstack admin or API</td>
+<td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>Mandate</td>
@@ -3123,14 +3123,12 @@ The first line is the header of the file and contains column names.</p>
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"BankAccount"</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+        </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+          </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+          </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3162,14 +3160,12 @@ The first line is the header of the file and contains column names.</p>
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3196,14 +3192,12 @@ The first line is the header of the file and contains column names.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
@@ -3217,8 +3211,7 @@ The first line is the header of the file and contains column names.</p>
 </span></code></pre>
 
 <p>Creates a new web hook. All you need to provide is an HTTPS URL that will be used to send you events. 
-All other parameters are optional, by default all events are sent. Resources and events parameters act like filters.
-If resources and events are specified then they are both taken into account without sending duplicate events.</p>
+All other parameters are optional, by default all events are sent. Resources and events parameters act like filters.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3307,14 +3300,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
@@ -3366,10 +3357,10 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3393,11 +3384,10 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3474,14 +3464,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
@@ -4629,14 +4617,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <h2 id="newwebhook">NewWebhook</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4661,17 +4647,10 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td></td>
 </tr>
 <tr>
-<td>resources</td>
-<td>The list of resources for which events will be sent.</td>
+<td>resourcesAndEvents</td>
+<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn&rsquo;t provided the webhook will listen to all events.</td>
 <td>false</td>
-<td>enum (BankAccount, Document, SDDMandate, User, Wallet) array</td>
-<td></td>
-</tr>
-<tr>
-<td>events</td>
-<td>The list of event types you would like to listen to.</td>
-<td>false</td>
-<td>array[string]</td>
+<td>object</td>
 <td></td>
 </tr>
 <tr>
@@ -5323,14 +5302,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"callbackURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhooklistener"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BankAccount"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"SDDMandateRequested"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to all events on users and bank accounts as well as mandate creation events."</span><span class="w">
+    </span><span class="nt">"resourcesAndEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BankAccountCreated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BankAccountUpdatedByPSP"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"User"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PendingFeeAdded"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5383,17 +5360,10 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td></td>
 </tr>
 <tr>
-<td>resources</td>
-<td>The list of resources for which events will be sent.</td>
+<td>resourcesAndEvents</td>
+<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.</td>
 <td>false</td>
-<td>enum (BankAccount, Document, SDDMandate, User, Wallet) array</td>
-<td></td>
-</tr>
-<tr>
-<td>events</td>
-<td>The list of event types you would like to listen to.</td>
-<td>false</td>
-<td>array[string]</td>
+<td>object</td>
 <td></td>
 </tr>
 <tr>
@@ -5582,6 +5552,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>userId</td>
 </tr>
 <tr>
+<td>DocumentCannotBeDeleted</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot delete/ignore document &rsquo;$fileName&rsquo; because it was already sent to PSP</td>
+<td>documentId, documentType, fileName</td>
+</tr>
+<tr>
 <td>DocumentNotFound</td>
 <td>404 &ndash; Not Found</td>
 <td>Document $documentId was not found</td>
@@ -5628,6 +5604,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>400 &ndash; Bad Request</td>
 <td>Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist</td>
 <td>mandateId</td>
+</tr>
+<tr>
+<td>InvalidURL</td>
+<td>400 &ndash; Bad Request</td>
+<td>String &rsquo;$url&rsquo; is not a valid URL or service is down</td>
+<td>url, errorMessage</td>
 </tr>
 <tr>
 <td>LimitShouldBeStrictlyPositive</td>
