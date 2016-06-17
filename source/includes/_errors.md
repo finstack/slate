@@ -47,6 +47,7 @@ BankAccountForbidden | 403 -- Forbidden | You cannot view bank account $bankAcco
 BankAccountNotActive | 400 -- Bad Request | Bank account $bankAccountId is not active and cannot be used in a mandate | bankAccountId
 BankAccountNotFound | 404 -- Not Found | Bank account $bankAccountId was not found | bankAccountId
 DeleteUserNotAllowedInProduction | 403 -- Forbidden | You cannot delete user $userId in production | userId
+DocumentCannotBeDeleted | 403 -- Forbidden | You cannot delete/ignore document '$fileName' because it was already sent to PSP | documentId, documentType, fileName
 DocumentNotFound | 404 -- Not Found | Document $documentId was not found | documentId
 InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €) | walletId, balance, pendingFees
 InvalidCommandForMandate | 400 -- Bad Request | Received command $commandName for mandate $mandateRef in status $status | mandateId, mandateRef, commandName, status
@@ -55,6 +56,7 @@ InvalidJSON | 400 -- Bad Request | This error is raised anytime the JSON is inva
 InvalidKeyForOperation | 403 -- Forbidden | You are not allowed to execute a $operationType operation with a $apiKeyRole API key | apiKeyId, apiKeyRole, operationType
 InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key | keyHeader
 InvalidOrNonExistentMandate | 400 -- Bad Request | Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist | mandateId
+InvalidURL | 400 -- Bad Request | String '$url' is not a valid URL or service is down | url, errorMessage
 LimitShouldBeStrictlyPositive | 400 -- Bad Request | Limit ($limit) should be strictly positive | limit
 MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status | mandateId, mandateRef, status
 MandateForbidden | 403 -- Forbidden | You cannot view mandate $mandateId because you do not manage one of its parties | mandateId
