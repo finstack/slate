@@ -5,7 +5,7 @@ language_tabs:
   - http: HTTP
 
 toc_footers:
-  - <a href='https://finstack.io/admin/settings'>Sign Up for an API Key</a>
+  - <a href='https://finstack.io/bo/settings'>Sign Up for an API Key</a>
   - <a href='http://swagger.io/'>API Specification Powered by Swagger</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
@@ -44,7 +44,7 @@ curl "api_endpoint_here"
 
 > Make sure to replace `myapikeyvalue` with your API key.
 
-Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our [admin portal](https://finstack.io/admin/settings).
+Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our [back office](https://finstack.io/bo/settings).
 
 Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -1762,7 +1762,7 @@ Content-Type: application/json
         },
         {
             "rel": "Sign Mandate",
-            "href": "https://finstack.io/admin/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869",
+            "href": "https://finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869",
             "verb": "GET"
         },
         {
@@ -2206,7 +2206,7 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 Content-Type: text/plain
 
-https://finstack.io/admin/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
+https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
 ```
 ```http
 HTTP/1.1 400 Bad Request
@@ -2494,11 +2494,11 @@ until | query | string | Return all events before given timestamp in UTC, for ex
 |BankAccount|BankAccountCreated|Occurs when a bank account is created.|Finstack website or API|
 |BankAccount|BankAccountDisabled|Occurs when a bank account is disabled.|API|
 |BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
-|Mandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the admin and the debtor is not yet a Finstack user.|Finstack website|
-|Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the admin.|Finstack admin or API|
+|Mandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.|Finstack website|
+|Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the back office.|Finstack back office or API|
 |Mandate|SDDMandateRejectedByPSP|Occurs when a mandate is submitted to a PSP for user verification (KYC) and this latter fails.|PSP|
-|Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack admin or API|
-|Mandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack admin or API|
+|Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack back office or API|
+|Mandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
 |Mandate|SDDMandateSigned|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
 |Mandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
 |Mandate|SDDMandateValidatedByPSP|Occurs when the mandate, once signed, is submitted and validated by the PSP.|PSP|
