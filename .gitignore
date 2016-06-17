@@ -16,6 +16,8 @@ tmp
 *.DS_Store
 build/
 .cache
+.vagrant
+.sass-cache
 
 # YARD artifacts
 .yardoc
