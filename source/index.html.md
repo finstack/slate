@@ -2539,14 +2539,12 @@ Content-Type: application/json
             }
         ],
         "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-        "resources": [
-            "User",
-            "BankAccount"
-        ],
-        "events": [
-            "SDDMandateRequested"
-        ],
-        "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+        "resourcesAndEvents": {
+          "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+          "User": [],
+          "Wallet": ["PendingFeeAdded"]
+        },
+        "description": "Listen to specific events on bank accounts and wallets and all events on users."
     }
 ]
 ```
@@ -2581,14 +2579,12 @@ X-Auth-Token: myapikeyvalue
 
 {
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 
@@ -2615,14 +2611,12 @@ Content-Type: application/json
         }
     ],
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 ```http
@@ -2638,7 +2632,6 @@ Content-Type: application/json
 
 Creates a new web hook. All you need to provide is an HTTPS URL that will be used to send you events. 
 All other parameters are optional, by default all events are sent. Resources and events parameters act like filters.
-If resources and events are specified then they are both taken into account without sending duplicate events.
 
 
 
@@ -2722,14 +2715,12 @@ Content-Type: application/json
         }
     ],
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 ```http
@@ -2772,10 +2763,10 @@ Content-Type: application/json
 
 {
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
+    "resourcesAndEvents": {
+        "BankAccount": [],
+        "User": []
+    },
     "description": "Listen to all events on users and bank accounts."
 }
 ```
@@ -2800,11 +2791,10 @@ Content-Type: application/json
         }
     ],
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [],
+    "resourcesAndEvents": {
+        "BankAccount": [],
+        "User": []
+    },
     "description": "Listen to all events on users and bank accounts."
 }
 ```
@@ -2866,14 +2856,12 @@ Content-Type: application/json
         }
     ],
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 ```http
@@ -3408,14 +3396,12 @@ User information required to create a new user.
 ```json
 {
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 
@@ -3426,8 +3412,7 @@ Information required to create a new webhook.
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
-|events|The list of event types you would like to listen to.|false|array[string]||
+|resourcesAndEvents|A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn't provided the webhook will listen to all events.|false|object||
 |description|Optional description.|false|string||
 
 
@@ -3793,14 +3778,12 @@ User information required to create a new user.
         }
     ],
     "callbackURL": "https://www.yourwebsite.com/webhooklistener",
-    "resources": [
-        "User",
-        "BankAccount"
-    ],
-    "events": [
-        "SDDMandateRequested"
-    ],
-    "description": "Listen to all events on users and bank accounts as well as mandate creation events."
+    "resourcesAndEvents": {
+        "BankAccount": ["BankAccountCreated", "BankAccountUpdatedByPSP"],
+        "User": [],
+        "Wallet": ["PendingFeeAdded"]
+    },
+    "description": "Listen to specific events on bank accounts and wallets and all events on users."
 }
 ```
 
@@ -3815,8 +3798,7 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |links|Available actions on the web hook.|true|[[Link](#link)]||
 |callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resources|The list of resources for which events will be sent.|false|enum (BankAccount, Document, SDDMandate, User, Wallet) array||
-|events|The list of event types you would like to listen to.|false|array[string]||
+|resourcesAndEvents|A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.|false|object||
 |description|Optional description.|false|string||
 
 
