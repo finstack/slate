@@ -2111,7 +2111,6 @@ they authorized you to access their information.</p>
     </span><span class="nt">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"useFinalCreditorSCI"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4466,7 +4465,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"useFinalCreditorSCI"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4501,13 +4499,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>sendSignatureRequestByEmail</td>
 <td>The final creditor&rsquo;s user id</td>
-<td>false</td>
-<td>string</td>
-<td>false</td>
-</tr>
-<tr>
-<td>useFinalCreditorSCI</td>
-<td>If set to true, mandate will be generated with the SEPA creditor identifier (SCI) of the final creditor. Otherwise, the SCI of our PSP is taken and the creditor would appear as a third party creditor on the mandate. Remember that if you choose to generate a mandate that doens&rsquo;t use our PSP&rsquo;s SCI, you won&rsquo;t be able to use it to process payments on our platform.</td>
 <td>false</td>
 <td>string</td>
 <td>false</td>
