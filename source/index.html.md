@@ -161,10 +161,10 @@ X-Auth-Token: myapikeyvalue
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -209,10 +209,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -254,10 +254,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -344,10 +344,10 @@ Content-Type: application/json
                 "city": "PARIS",
                 "country": "France"
             },
+            "sci": "DE98ZZZ09999999999",
             "legalEntity": {
-                "category": "Acme",
-                "name": "73282932000074",
-                "sci": "DE98ZZZ09999999999"
+                "category": "Company",
+                "name": "Acme"
             },
             "metadata": "custom data"
         }
@@ -494,10 +494,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -554,10 +554,10 @@ X-Auth-Token: myapikeyvalue
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -602,10 +602,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -668,10 +668,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -1072,10 +1072,10 @@ Content-Type: application/json
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -3081,8 +3081,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ```json
 {
     "category": "Company",
-    "name": "Acme",
-    "sci": "DE98ZZZ09999999999"
+    "name": "Acme"
 }
 ```
 
@@ -3094,7 +3093,6 @@ Information about all types of corporation such as companies, associations...
 |----|----|----|----|----|
 |category|Type of legal entity.|false|enum (Company, Association, AutoEntrepreneur)|Company|
 |name||true|string||
-|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 
 
 ## Link
@@ -3279,10 +3277,10 @@ A managed mandate.
         "country": "France"
     },
     "preferredLang": "en",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -3300,6 +3298,7 @@ User information required to create a new user.
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
 |address||false|[Address](#address)||
 |preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
+|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3364,10 +3363,10 @@ Information required to issue a new mandate.
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -3385,6 +3384,7 @@ User information required to create a new user.
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
 |preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string|'fr'|
+|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3667,10 +3667,10 @@ Minimal information about a user.
         "country": "France"
     },
     "preferredLang": "fr",
+    "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme",
-        "sci": "DE98ZZZ09999999999"
+        "name": "Acme"
     },
     "metadata": "custom data"
 }
@@ -3693,6 +3693,7 @@ User information required to create a new user.
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
 |address||true|[Address](#address)||
 |preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
+|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
 
@@ -3736,10 +3737,10 @@ User information required to create a new user.
                 "city": "PARIS",
                 "country": "France"
             },
+            "sci": "DE98ZZZ09999999999",
             "legalEntity": {
                 "category": "Company",
-                "name": "Acme",
-                "sci": "DE98ZZZ09999999999"
+                "name": "Acme"
             },
             "metadata": "custom data"
         }
