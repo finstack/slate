@@ -798,7 +798,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -892,7 +892,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -1650,7 +1650,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -1849,7 +1849,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -2007,7 +2007,7 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": 2,
-    "status": "ValidatedNotUsedYet",
+    "status": "Validated",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -2110,7 +2110,7 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": 3,
-    "status": "Disabled",
+    "status": "Revoked",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -3120,7 +3120,7 @@ An available action on a resource.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": 2,
-    "status": "ValidatedNotUsedYet",
+    "status": "Validated",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -3175,7 +3175,7 @@ A managed mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, ToBeValidated, Validated, Revoked, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3205,7 +3205,7 @@ A managed mandate.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -3418,7 +3418,7 @@ Information required to create a new webhook.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "umr": "ASPECIALUMR",
-    "status": "ValidatedNotUsedYet",
+    "status": "Validated",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T18:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -3468,7 +3468,7 @@ Minimal information about a mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, ToBeValidated, ValidatedNotUsedYet, ValidatedUsed, Disabled, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, ToBeValidated, Validated, Revoked, Rejected)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3488,7 +3488,7 @@ Minimal information about a mandate.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "ValidatedNotUsedYet",
+            "status": "Validated",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
