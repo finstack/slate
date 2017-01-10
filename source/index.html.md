@@ -798,7 +798,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "Validated",
+            "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -892,7 +892,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "Validated",
+            "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -1650,7 +1650,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "Validated",
+            "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -1849,7 +1849,7 @@ Content-Type: application/json
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "Validated",
+            "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -2007,7 +2007,7 @@ Content-Type: application/json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": 2,
-    "status": "Validated",
+    "status": "SignedElectronically",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -2451,7 +2451,7 @@ Content-Type: text/csv
 resourceType,eventType,numberOfEvents
 BankAccount,BankAccountCreated,4
 Mandate,SDDMandateRequested,4
-Mandate,SDDMandateSigned,1
+Mandate,SDDMandateSignedElectronically,1
 User,UserCreated,5
 
 ```
@@ -2495,12 +2495,11 @@ until | query | string | Return all events before given timestamp in UTC, for ex
 |BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
 |Mandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.|Finstack website|
 |Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the back office.|Finstack back office or API|
-|Mandate|SDDMandateRejectedByPSP|Occurs when a mandate is submitted to a PSP for user verification (KYC) and this latter fails.|PSP|
 |Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack back office or API|
 |Mandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
-|Mandate|SDDMandateSigned|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
+|Mandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
+|Mandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the debtor.|Finstack back office|
 |Mandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
-|Mandate|SDDMandateValidatedByPSP|Occurs when the mandate, once signed, is submitted and validated by the PSP.|PSP|
 |Mandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
 |User|UserCreated|Occurs when a user is created through the API or when she registers directly at Finstack's website.|Finstack website or API|
    
@@ -3120,7 +3119,7 @@ An available action on a resource.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "versionNo": 2,
-    "status": "Validated",
+    "status": "SignedElectronically",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -3175,7 +3174,7 @@ A managed mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, ToBeValidated, Validated, Revoked, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3205,7 +3204,7 @@ A managed mandate.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": 2,
-            "status": "Validated",
+            "status": "SignedManually",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
@@ -3418,7 +3417,7 @@ Information required to create a new webhook.
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "umr": "ASPECIALUMR",
-    "status": "Validated",
+    "status": "SignedManually",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T18:00:00.000Z",
     "debtorDesignation": "Debtor SAS",
@@ -3468,7 +3467,7 @@ Minimal information about a mandate.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, ToBeValidated, Validated, Revoked, Rejected)||
+|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
@@ -3488,7 +3487,7 @@ Minimal information about a mandate.
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "umr": "ASPECIALUMR",
-            "status": "Validated",
+            "status": "SignedManually",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
             "debtorDesignation": "Debtor SAS",
