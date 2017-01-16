@@ -2954,7 +2954,7 @@ A managed bank account.
 |----|----|----|----|----|
 |id|Should be a valid UUID string.|true|string||
 |versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the bank account.|true|enum (ToBeVerified, Verified, Rejected, Disabled)||
+|status|Status of the bank account.|true|enum (Created, Verified, Disabled, RejectedByBank, RejectedByPSP)||
 |createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
 |proofId|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
