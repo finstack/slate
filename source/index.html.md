@@ -5,7 +5,7 @@ language_tabs:
   - http: HTTP
 
 toc_footers:
-  - <a href='https://finstack.io/bo/settings'>Sign Up for an API Key</a>
+  - <a href='https://app.finstack.io/bo/settings'>Sign Up for an API Key</a>
   - <a href='http://swagger.io/'>API Specification Powered by Swagger</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
@@ -24,13 +24,13 @@ Focus is on simplicity, consistency and security; less on discoverability.
 
 Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces `application/json` content.
 
-The base URL of the production API is __https://finstack.io/api/v1__. For testing purposes, you can use __https://sandbox.finstack.io/api/v1__
+The base URL of the production API is __https://app.finstack.io/api/v1__. For testing purposes, you can use __https://sandbox.finstack.io/api/v1__
 
 The current version is __1.0.0__.
 
 You can contact us at __contact@finstack.io__.
 
-[Terms of service](http://finstack.io/terms/)
+[Terms of service](http://app.finstack.io/terms/)
 
 # Authentication
 
@@ -44,7 +44,7 @@ curl "api_endpoint_here"
 
 > Make sure to replace `myapikeyvalue` with your API key.
 
-Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our [back office](https://finstack.io/bo/settings).
+Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our [back office](https://app.finstack.io/bo/settings).
 
 Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -89,22 +89,22 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
                 },
                 {
                     "rel": "Update User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "PUT"
                 },
                 {
                     "rel": "Find Bank Accounts of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
                     "verb": "GET"
                 },
                 {
                     "rel": "Find Mandates of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
                     "verb": "GET"
                 }
             ]            
@@ -184,17 +184,17 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -229,17 +229,17 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -320,17 +320,17 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Update User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "PUT"
                 },
                 {
                     "rel": "Find Bank Accounts of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
                     "verb": "GET"
                 },
                 {
                     "rel": "Find Mandates of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
                     "verb": "GET"
                 }
             ],
@@ -405,7 +405,7 @@ Content-Type: application/json
             "resourceType": "User",
             "resourceLink": {
                 "rel": "Get User",
-                "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -469,17 +469,17 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -577,17 +577,17 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -733,12 +733,12 @@ Content-Type: application/json
         "links": [
             {
                 "rel": "Disable Bank Account",
-                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "DELETE"
             },
             {
                 "rel": "Get User",
-                "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
                 "verb": "GET"
             }
         ],
@@ -808,32 +808,32 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Get Mandate Details",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ]
@@ -904,27 +904,27 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ],
@@ -987,7 +987,7 @@ Content-Type: application/json
         "resourceType": "User",
         "resourceLink": {
             "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -1047,17 +1047,17 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -1132,12 +1132,12 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Disable Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 },
                 {
                     "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
                     "verb": "GET"
                 }
             ],
@@ -1213,12 +1213,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Disable Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         },
         {
             "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "verb": "GET"
         }
     ],
@@ -1278,7 +1278,7 @@ Content-Type: application/json
             "resourceType": "BankAccount",
             "resourceLink": {
                 "rel": "Get Bank Account",
-                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -1344,12 +1344,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Disable Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         },
         {
             "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "verb": "GET"
         }
     ],
@@ -1513,7 +1513,7 @@ Content-Type: application/json
         "resourceType": "BankAccount",
         "resourceLink": {
             "rel": "Get Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -1588,12 +1588,12 @@ Content-Type: application/json
         "links": [
             {
                 "rel": "Disable Bank Account",
-                "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "DELETE"
             },
             {
                 "rel": "Get User",
-                "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
                 "verb": "GET"
             }
         ],
@@ -1660,32 +1660,32 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Get Mandate Details",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ]
@@ -1756,37 +1756,37 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Get Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         {
             "rel": "Sign Mandate",
-            "href": "https://finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869",
+            "href": "https://app.finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor",
-            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
         {
             "rel": "Get Creditor",
-            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
             "verb": "GET"
         },
         {
             "rel": "Get Third Party Creditor",
-            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
             "verb": "GET"
         },
         {
             "rel": "Cancel Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -1861,27 +1861,27 @@ Content-Type: application/json
             "links": [
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ],
@@ -1948,7 +1948,7 @@ Content-Type: application/json
             "resourceType": "SDDMandate",
             "resourceLink": {
                 "rel": "Get Mandate",
-                "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -2019,27 +2019,27 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Get Debtor",
-            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
         {
             "rel": "Get Creditor",
-            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
             "verb": "GET"
         },
         {
             "rel": "Get Third Party Creditor",
-            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
             "verb": "GET"
         },
         {
             "rel": "Revoke Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -2122,22 +2122,22 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Get Debtor",
-            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
         {
             "rel": "Get Creditor",
-            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
             "verb": "GET"
         },
         {
             "rel": "Get Third Party Creditor",
-            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
             "verb": "GET"
         }
     ],
@@ -2205,7 +2205,7 @@ X-Auth-Token: myapikeyvalue
 HTTP/1.1 200 OK
 Content-Type: text/plain
 
-https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
+https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
 ```
 ```http
 HTTP/1.1 400 Bad Request
@@ -2318,7 +2318,7 @@ Content-Type: application/json
         "resourceType": "SDDMandate",
         "resourceLink": {
             "rel": "Get Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -2393,7 +2393,7 @@ Content-Type: application/json
             "resourceType": "SDDMandate",
             "resourceLink": {
                 "rel": "Get Mandate",
-                "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -2527,12 +2527,12 @@ Content-Type: application/json
         "links": [
             {
                 "rel": "Update Webhook",
-                "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "PUT"
             },
             {
                 "rel": "Delete Webhook",
-                "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "DELETE"
             }
         ],
@@ -2599,12 +2599,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Delete Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -2703,12 +2703,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Delete Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -2779,12 +2779,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Delete Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -2844,12 +2844,12 @@ Content-Type: application/json
     "links": [
         {
             "rel": "Update Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Delete Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -2929,12 +2929,12 @@ A physical address object.
     "links": [
         {
             "rel": "Disable Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         },
         {
             "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "verb": "GET"
         }
     ],
@@ -2983,12 +2983,12 @@ A managed bank account.
             "links": [
                 {
                     "rel": "Disable Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 },
                 {
                     "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+                    "href": "https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61",
                     "verb": "GET"
                 }
             ],
@@ -3017,7 +3017,7 @@ A managed bank account.
     "resourceType": "User",
     "resourceLink": {
         "rel": "Get User",
-        "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
         "verb": "GET"
     },
     "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3054,7 +3054,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
             "resourceType": "User",
             "resourceLink": {
                 "rel": "Get User",
-                "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3098,7 +3098,7 @@ Information about all types of corporation such as companies, associations...
 ```json
 {
     "rel": "Get User",
-    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
     "verb": "GET"
 }
 ```
@@ -3131,27 +3131,27 @@ An available action on a resource.
     "links": [
         {
             "rel": "Get Debtor",
-            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
         {
             "rel": "Get Creditor",
-            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
             "verb": "GET"
         },
         {
             "rel": "Get Third Party Creditor",
-            "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
             "verb": "GET"
         },
         {
             "rel": "Revoke Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
@@ -3216,27 +3216,27 @@ A managed mandate.
             "links": [
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ],
@@ -3427,32 +3427,32 @@ Information required to create a new webhook.
     "links": [
         {
             "rel": "Get Mandate Details",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor",
-            "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
             "rel": "Get Debtor Bank Account",
-            "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
         {
             "rel": "Get Creditor",
-            "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
             "verb": "GET"
         },
         {
             "rel": "Get Third Party Creditor",
-           "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+           "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
             "verb": "GET"
         },
         {
             "rel": "Revoke Mandate",
-            "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ]
@@ -3497,32 +3497,32 @@ Minimal information about a mandate.
             "links": [
                 {
                     "rel": "Get Mandate Details",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor",
-                    "href": "https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Debtor Bank Account",
-                    "href": "https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Creditor",
-                    "href": "https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
                     "verb": "GET"
                 },
                 {
                     "rel": "Get Third Party Creditor",
-                    "href": "https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
                     "verb": "GET"
                 },
                 {
                     "rel": "Revoke Mandate",
-                    "href": "https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "DELETE"
                 }
             ]
@@ -3549,22 +3549,22 @@ Minimal information about a mandate.
     "links": [
         {
             "rel": "Get User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ]
@@ -3598,22 +3598,22 @@ Minimal information about a user.
             "links": [
                 {
                     "rel": "Get User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "GET"
                 },
                 {
                     "rel": "Update User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "PUT"
                 },
                 {
                     "rel": "Find Bank Accounts of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
                     "verb": "GET"
                 },
                 {
                     "rel": "Find Mandates of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
                     "verb": "GET"
                 }
             ]
@@ -3641,17 +3641,17 @@ Minimal information about a user.
     "links": [
         {
             "rel": "Update User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Find Bank Accounts of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
             "verb": "GET"
         },
         {
             "rel": "Find Mandates of User",
-            "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+            "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
             "verb": "GET"
         }
     ],
@@ -3712,17 +3712,17 @@ User information required to create a new user.
             "links": [
                 {
                     "rel": "Update User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555",
                     "verb": "PUT"
                 },
                 {
                     "rel": "Find Bank Accounts of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts",
                     "verb": "GET"
                 },
                 {
                     "rel": "Find Mandates of User",
-                    "href": "https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
+                    "href": "https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates",
                     "verb": "GET"
                 }
             ],
@@ -3765,12 +3765,12 @@ User information required to create a new user.
     "links": [
         {
             "rel": "Update Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "PUT"
         },
         {
             "rel": "Delete Webhook",
-            "href": "https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "DELETE"
         }
     ],
