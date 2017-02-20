@@ -110,7 +110,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://finstack.io/bo/settings'>Sign Up for an API Key</a></li>
+            <li><a href='https://app.finstack.io/bo/settings'>Sign Up for an API Key</a></li>
             <li><a href='http://swagger.io/'>API Specification Powered by Swagger</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
@@ -127,13 +127,13 @@ Focus is on simplicity, consistency and security; less on discoverability.</p>
 
 <p>Except for rare cases such as PDF document upload and download, Finstack API exclusively consumes and produces <code class="prettyprint">application/json</code> content.</p>
 
-<p>The base URL of the production API is <strong>https://finstack.io/api/v1</strong>. For testing purposes, you can use <strong>https://sandbox.finstack.io/api/v1</strong></p>
+<p>The base URL of the production API is <strong>https://app.finstack.io/api/v1</strong>. For testing purposes, you can use <strong>https://sandbox.finstack.io/api/v1</strong></p>
 
 <p>The current version is <strong>1.0.0</strong>.</p>
 
 <p>You can contact us at <strong>contact@finstack.io</strong>.</p>
 
-<p><a href="http://finstack.io/terms/">Terms of service</a></p>
+<p><a href="http://app.finstack.io/terms/">Terms of service</a></p>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -149,7 +149,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>Make sure to replace <code class="prettyprint">myapikeyvalue</code> with your API key.</p>
 </blockquote>
 
-<p>Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our <a href="https://finstack.io/bo/settings">back office</a>.</p>
+<p>Finstack uses API keys to allow access to the API. You can register a new Finstack API key at our <a href="https://app.finstack.io/bo/settings">back office</a>.</p>
 
 <p>Finstack expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
@@ -194,22 +194,22 @@ curl <span class="s2">"api_endpoint_here"</span>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">            
@@ -307,17 +307,17 @@ the display name and other details about each user.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -351,17 +351,17 @@ the display name and other details about each user.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -461,17 +461,17 @@ update the existing user with the new details.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -565,7 +565,7 @@ the display name and other details about each user.</p>
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -653,17 +653,17 @@ the display name and other details about each user.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -769,17 +769,17 @@ the display name and other details about each user.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -947,12 +947,12 @@ the display name and other details about each user.</p>
         </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -1032,32 +1032,32 @@ the display name and other details about each user.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate Details"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -1153,27 +1153,27 @@ the display name and other details about each user.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -1262,7 +1262,7 @@ the display name and other details about each user.</p>
         </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -1331,17 +1331,17 @@ the display name and other details about each user.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -1413,12 +1413,12 @@ the display name and other details about each user.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -1510,12 +1510,12 @@ they authorized you to access their information.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -1585,7 +1585,7 @@ they authorized you to access their information.</p>
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccount"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Bank Account"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -1675,12 +1675,12 @@ they authorized you to access their information.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -1859,7 +1859,7 @@ they authorized you to access their information.</p>
         </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccount"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -1945,12 +1945,12 @@ they authorized you to access their information.</p>
         </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -2014,32 +2014,32 @@ they authorized you to access their information.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate Details"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -2134,37 +2134,37 @@ they authorized you to access their information.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sign Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/bo/mandate/341d533a-d90f-4fce-9fc0-12072f7bd555/sign/mkqdfnmjqmfmqjd7689869"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2248,27 +2248,27 @@ they authorized you to access their information.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -2355,7 +2355,7 @@ they authorized you to access their information.</p>
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -2450,27 +2450,27 @@ they authorized you to access their information.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2562,22 +2562,22 @@ they authorized you to access their information.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2653,7 +2653,7 @@ they authorized you to access their information.</p>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/plain</span>
 
-https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
+https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5d-94ef-45e2-89c8-b5c1658d8503
 </code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -2783,7 +2783,7 @@ https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5
         </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -2867,7 +2867,7 @@ https://finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/0893af5
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDMandate"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -3106,12 +3106,12 @@ The first line is the header of the file and contains column names.</p>
         </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -3175,12 +3175,12 @@ The first line is the header of the file and contains column names.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -3283,12 +3283,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -3367,12 +3367,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -3447,12 +3447,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -3572,12 +3572,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -3704,12 +3704,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disable Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -3769,7 +3769,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -3854,7 +3854,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -3947,7 +3947,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <h2 id="link">Link</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4004,27 +4004,27 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -4215,27 +4215,27 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -4667,32 +4667,32 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate Details"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -4803,32 +4803,32 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate Details"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -4886,22 +4886,22 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -4971,22 +4971,22 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -5045,17 +5045,17 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -5206,17 +5206,17 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Bank Accounts of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/bank_accounts"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Find Mandates of User"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/341d533a-d90f-4fce-9fc0-12072f7bd555/mandates"</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -5290,12 +5290,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delete Webhook"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/webhooks/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
