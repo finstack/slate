@@ -3381,7 +3381,7 @@ User information required to create a new user.
 |firstName||true|string||
 |lastName||true|string||
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
-|address||true|[Address](#address)||
+|address||false|[Address](#address)||
 |preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string|'fr'|
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
@@ -3690,8 +3690,8 @@ User information required to create a new user.
 |firstName||true|string||
 |lastName||true|string||
 |mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
-|address||true|[Address](#address)||
-|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
+|address||false|[Address](#address)||
+|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|true|string||
 |sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
 |legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
 |metadata|Custom information goes here.|false|string||
