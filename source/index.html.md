@@ -130,17 +130,14 @@ the display name and other details about each user.
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
-offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
+offset | query | integer | 0 | Optional. Offset the list of returned results by this amount.
+limit | query | integer | 20 | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[ShortUserArray](#shortuserarray)</td><td>An array of short users.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
-
+Http code | Type | Description
+--- | --- | ---
+200 | [ShortUserArray](#shortuserarray) | An array of short users.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create User
 
@@ -281,18 +278,16 @@ update the existing user with the new details.
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
-isUpdateAllowed | query | boolean | false | This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
+isUpdateAllowed | query | boolean | false | Optional. This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.
 user<b title="required">&nbsp;*&nbsp;</b> | body | [NewUser](#newuser) | |
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[User](#user)</td><td>The updated user, if `isUpdateAllowed` is set to `true`, and the email provided belongs to an existing user.
-</td></tr> 
-<tr><td>201</td><td>[User](#user)</td><td>The newly created user.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [User](#user) | The updated user, if `isUpdateAllowed` is set to `true`, and the email provided belongs to an existing user.<br/>
+201 | [User](#user) | The newly created user.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Find Users with Details
 
@@ -372,16 +367,15 @@ the display name and other details about each user.
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
-offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
+offset | query | integer | 0 | Optional. Offset the list of returned results by this amount.
+limit | query | integer | 20 | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[UserArray](#userarray)</td><td>An array of users with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [UserArray](#userarray) | An array of users with details.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Get All User Events
 
@@ -434,18 +428,16 @@ Returns all events on users since a given date and optionally until another date
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [EventArray](#eventarray) | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Get User
@@ -503,10 +495,27 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
 ```
 ```http
-HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
@@ -522,18 +531,15 @@ Returns the user with the specified id.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[User](#user)</td><td>User found.</td></tr>
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you request a user you don't manage.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>User not found.</td></tr>
-</table>
-
+Http code | Type | Description
+--- | --- | ---
+200 | [User](#user) | User found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a user you don't manage.
+404 | [Error](#error) | User not found.
 
 ## Update User
 
@@ -627,16 +633,14 @@ Updates the user profile.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-user<b title="required">&nbsp;*&nbsp;</b> | body | [ModifiedUser](#modifieduser) | 
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
+user<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [ModifiedUser](#modifieduser) | 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[User](#user)</td><td>The updated user.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [User](#user) | The updated user.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Delete User
 
@@ -697,16 +701,14 @@ Deletes all information (mandates, bank accounts, events and user account) relat
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[User](#user)</td><td>Deactivated user.</td></tr> 
-<tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [User](#user) | Deactivated user.
+204 | no content | User not found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Find Bank Accounts of User
@@ -767,15 +769,14 @@ Returns all bank accounts that belong to the specified user.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[BankAccount](#bankaccount)]</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[BankAccount](#bankaccount)] | An array of bank accounts.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Find Mandates of User
 
@@ -858,18 +859,17 @@ Returns all mandates that belong to the specified user.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
+role | query | string | Optional. Filter mandates depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all mandates.<br/>
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [ShortMandateArray](#shortmandatearray) | An array of mandates.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Find Mandates of User with Details
 
@@ -956,18 +956,86 @@ Returns all mandates that belong to the specified user with details.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
-role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
+role | query | string | Optional. Filter mandates depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all mandates.<br/>
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [MandateArray](#mandatearray) | An array of mandates with details.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
+
+## Find Direct Debits of User
+
+```http
+GET /api/v1/users/{id}/directdebits HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "integer",
+    "limit": "integer",
+    "count": "integer",
+    "directDebits": [
+        {
+            "id": "string",
+            "versionNo": "integer",
+            "status": "string",
+            "createdAt": "string",
+            "updatedAt": "string",
+            "mandateId": "string",
+            "finalCreditorId": "string",
+            "finalCreditorName": "string",
+            "payerId": "string",
+            "payerName": "string",
+            "amount": "number",
+            "currency": "string",
+            "label": "string",
+            "valueDate": "string",
+            "fee": "number",
+            "canBeCanceled": "boolean",
+            "metadata": "string"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all direct debits that belong to a specified user.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
+role | query | string | Optional. Filter direct debits depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all direct debits.<br/>
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | [DirectDebitArray](#directdebitarray) | An array of direct debits.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Get Events for User
 
@@ -1015,18 +1083,16 @@ Returns all events for a given user.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the user.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[Event](#event)] | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
-## Get my User Profile
+## Get My User Profile
 
 ```http
 GET /api/v1/users/me HTTP/1.1
@@ -1095,12 +1161,10 @@ Returns the profile information of the authenticated user.
 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[User](#user)</td><td>Profile information.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [User](#user) | Profile information.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 # Bank Accounts
 
@@ -1169,17 +1233,14 @@ they authorized you to access their information.
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
-offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
+offset | query | integer | 0 | Optional. Offset the list of returned results by this amount.
+limit | query | integer | 20 | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccountArray](#bankaccountarray)</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
-
+Http code | Type | Description
+--- | --- | ---
+200 | [BankAccountArray](#bankaccountarray) | An array of bank accounts.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create Bank Account
 
@@ -1246,15 +1307,14 @@ Creates a managed bank account.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-bankAccount<b title="required">&nbsp;*&nbsp;</b> | body | [NewBankAccount](#newbankaccount) | 
+bankAccount<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewBankAccount](#newbankaccount) | 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td>[BankAccount](#bankaccount)</td><td>The newly created bank account.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+201 | [BankAccount](#bankaccount) | The newly created bank account.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Get All Bank Account Events
 
@@ -1307,18 +1367,16 @@ Returns all events on bank accounts since a given date and optionally until anot
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [EventArray](#eventarray) | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Get Bank Account
@@ -1402,17 +1460,15 @@ Gets the bank account with the specified id.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the bank account.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Bank account found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you request a bank account belonging to a user you don't manage.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Bank account not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [BankAccount](#bankaccount) | Bank account found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a bank account belonging to a user you don't manage.
+404 | [Error](#error) | Bank account not found.
 
 ## Disable Bank Account
 
@@ -1483,17 +1539,16 @@ Disables the bank account with the specified id.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the bank account.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[BankAccount](#bankaccount)</td><td>Disabled bank account.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you disable a bank account belonging to a user you don't manage.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Bank account not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [BankAccount](#bankaccount) | Disabled bank account.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you disable a bank account belonging to a user you don't manage.
+404 | [Error](#error) | Bank account not found.
+
 
 ## Get Events for Bank Account
 
@@ -1553,16 +1608,15 @@ Returns all events for a given bank account.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the bank account.
-//todo: migrate to html tables. after cool looking nested table
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the bank account.
+
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Bank account not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[Event](#event)] | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+404 | [Error](#error) | Bank account not found.
+
 
 ## Find My Bank Accounts
 
@@ -1620,12 +1674,10 @@ Finds all bank accounts that belong to the authenticated user.
 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[BankAccount](#bankaccount)]</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[BankAccount](#bankaccount)] | An array of bank accounts.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 # Mandates
 
@@ -1710,17 +1762,15 @@ Returns mandates for which you are a counterparty.
 ### Parameters
 Name | In | Type | Default | Description
 --- | --- | --- | --- | ---
-role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
-offset | query | integer | 0 | Offset the list of returned results by this amount.
-limit | query | integer | 20 | Number of items to retrieve. Default is 20, maximum is 100.
+role | query | string | all | Optional. Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asPayer&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
+offset | query | integer | 0 | Optional. Offset the list of returned results by this amount.
+limit | query | integer | 20 | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[ShortMandateArray](#shortmandatearray)</td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [ShortMandateArray](#shortmandatearray) | An array of mandates.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create Mandate
 
@@ -1817,15 +1867,13 @@ Creates a direct debit mandate to be signed.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-mandate<b title="required">&nbsp;*&nbsp;</b> | body | [NewMandate](#newmandate) | 
+mandate<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewMandate](#newmandate) | 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td>[Mandate](#mandate)</td><td>The newly created mandate.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+201 | [Mandate](#mandate) | The newly created mandate.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Find Mandates with Details
@@ -1914,17 +1962,16 @@ Returns mandates for which you are a counterparty.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-role | query | string | Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+role | query | string | Optional. Filter mandates depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all mandates.<br/>
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[MandateArray](#mandatearray)</td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [MandateArray](#mandatearray) | An array of mandates with details.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Get All Mandate Events
 
@@ -1977,18 +2024,16 @@ Returns all events on mandates since a given date and optionally until another d
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [EventArray](#eventarray) | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Get Mandate
@@ -2064,6 +2109,16 @@ Content-Type: application/json
 }
 ```
 ```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 
@@ -2082,17 +2137,15 @@ Gets the mandate with the specified id.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the mandate.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Mandate](#mandate)</td><td>Mandate found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.</td></tr> 
-<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [Mandate](#mandate) | Mandate found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
+404 | [Error](#error) | Mandate not found.
 
 ## Cancel or Revoke Mandate
 
@@ -2180,16 +2233,14 @@ Cancels the mandate if it isn&#039;t signed yet or revokes it if it is signed.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the mandate.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Mandate](#mandate)</td><td>Mandate canceled or revoked.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [Mandate](#mandate) | Mandate canceled or revoked.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+404 | [Error](#error) | Mandate not found.
 
 
 ## Get Signature URL
@@ -2236,16 +2287,14 @@ Returns the link to be sent to the debtor for her to sign the mandate. Can only 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the mandate.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>text</td><td>URL to send to the debtor.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | no content | URL to send to the debtor.
+400 | [Error](#error) | Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).
+404 | [Error](#error) | Mandate not found.
 
 
 ## Get Signed Mandate Document
@@ -2289,16 +2338,15 @@ Returns signed mandate document (if any) with the specified id in PDF.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the mandate.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | no content | Signed mandate file in PDF format.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+404 | [Error](#error) | Mandate not found.
+
 
 ## Get Events for Mandate
 
@@ -2358,16 +2406,444 @@ Returns all events for a given mandate.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the mandate.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the mandate.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[Event](#event)]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td>[Error](#error)</td><td>Mandate not found.</td></tr>
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[Event](#event)] | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+404 | [Error](#error) | Mandate not found.
+
+
+# Direct Debits
+
+## Find Direct Debits
+
+```http
+GET /api/v1/directdebits HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "integer",
+    "limit": "integer",
+    "count": "integer",
+    "directDebits": [
+        {
+            "id": "string",
+            "versionNo": "integer",
+            "status": "string",
+            "createdAt": "string",
+            "updatedAt": "string",
+            "mandateId": "string",
+            "finalCreditorId": "string",
+            "finalCreditorName": "string",
+            "payerId": "string",
+            "payerName": "string",
+            "amount": "number",
+            "currency": "string",
+            "label": "string",
+            "valueDate": "string",
+            "fee": "number",
+            "canBeCanceled": "boolean",
+            "metadata": "string"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns direct debits for which you are a counterparty.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+role | query | string | Optional. Filter direct debits depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all direct debits.<br/>
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | [DirectDebitArray](#directdebitarray) | An array of direct debits.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
+## Create Direct Debit
+
+```http
+POST /api/v1/directdebits HTTP/1.1
+X-Auth-Token: myapikeyvalue
+Content-Type: application/json
+
+{
+    "id": "string",
+    "mandateId": "string",
+    "amount": "number",
+    "label": "string",
+    "valueDate": "string",
+    "metadata": "string"
+}
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "id": "string",
+    "versionNo": "integer",
+    "status": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "mandateId": "string",
+    "finalCreditorId": "string",
+    "finalCreditorName": "string",
+    "payerId": "string",
+    "payerName": "string",
+    "amount": "number",
+    "currency": "string",
+    "label": "string",
+    "valueDate": "string",
+    "fee": "number",
+    "canBeCanceled": "boolean",
+    "metadata": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Creates a direct debit to withdraw money from a payer's bank account.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+directDebit<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewDirectDebit](#newdirectdebit) | 
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+201 | [DirectDebit](#directdebit) | The newly created direct debit.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
+
+## Get All Direct Debit Events
+
+```http
+GET /api/v1/directdebits/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "offset": "integer",
+    "limit": "integer",
+    "count": "integer",
+    "events": [
+        {
+            "resourceType": "string",
+            "resourceLink": {
+                "rel": "string",
+                "href": "string",
+                "verb": "string"
+            },
+            "resourceId": "string",
+            "versionNo": "integer",
+            "timestamp": "string",
+            "commandId": "string",
+            "eventType": "string"
+        }
+    ]
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events on direct debits since a given date and optionally until another date.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | [EventArray](#eventarray) | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
+
+## Get Direct Debit
+
+```http
+GET /api/v1/directdebits/{id} HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "string",
+    "versionNo": "integer",
+    "status": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "mandateId": "string",
+    "finalCreditorId": "string",
+    "finalCreditorName": "string",
+    "payerId": "string",
+    "payerName": "string",
+    "amount": "number",
+    "currency": "string",
+    "label": "string",
+    "valueDate": "string",
+    "fee": "number",
+    "canBeCanceled": "boolean",
+    "metadata": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Gets the direct debit with the specified id.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | [DirectDebit](#directdebit) | Direct debit found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a direct debit where you don't manage any of the parties involved.
+404 | [Error](#error) | Direct debit not found.
+
+
+## Get Events for Direct Debit
+
+```http
+GET /api/v1/directdebits/{id}/events HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "resourceType": "string",
+        "resourceLink": {
+            "rel": "string",
+            "href": "string",
+            "verb": "string"
+        },
+        "resourceId": "string",
+        "versionNo": "integer",
+        "timestamp": "string",
+        "commandId": "string",
+        "eventType": "string"
+    }
+]
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Returns all events for a given direct debit.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | array[[Event](#event)] | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+404 | [Error](#error) | Direct debit not found.
+
+
+## Cancel Direct Debit
+
+```http
+POST /api/v1/directdebits/{id}/cancel HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "string",
+    "versionNo": "integer",
+    "status": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "mandateId": "string",
+    "finalCreditorId": "string",
+    "finalCreditorName": "string",
+    "payerId": "string",
+    "payerName": "string",
+    "amount": "number",
+    "currency": "string",
+    "label": "string",
+    "valueDate": "string",
+    "fee": "number",
+    "canBeCanceled": "boolean",
+    "metadata": "string"
+}
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+
+Cancels the direct debit while it's still possible.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | [DirectDebit](#directdebit) | The canceled direct debit.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid or when the direct debit can no longer be canceled.
+403 | [Error](#error) | Forbidden, occurs when you cancel a direct debit where you don't manage any of the parties involved.
+404 | [Error](#error) | Direct debit not found.
+
 
 # Events
 
@@ -2422,18 +2898,17 @@ Returns all events since a given date and optionally until another date.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-offset | query | integer | Offset the list of returned results by this amount.
-limit | query | integer | Number of items to retrieve. Default is 20, maximum is 100.
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+offset | query | integer | Optional. Offset the list of returned results by this amount.
+limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[EventArray](#eventarray)</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [EventArray](#eventarray) | A list of events ordered chronologically.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 ## Get Event Summary
 
@@ -2474,16 +2949,14 @@ The first line is the header of the file and contains column names.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-since<b title="required">&nbsp;*&nbsp;</b> | query | string | Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
-until | query | string | Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.
+since<span title="required" class="required">&nbsp;*&nbsp;</span> | query | string | Return all events after given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+until | query | string | Optional. Return all events before given timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | string | A list of event counters formatted in CSV.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Event Types
@@ -2561,12 +3034,10 @@ Returns all webhooks.
 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[Webhook](#webhook)]</td><td>A list of webhooks.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[Webhook](#webhook)] | A list of webhooks.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create Webhook
 
@@ -2636,15 +3107,13 @@ All other parameters are optional, by default all events are sent. Resources and
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) | 
+webhook<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewWebhook](#newwebhook) | 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td>[Webhook](#webhook)</td><td>The newly created webhook.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+201 | [Webhook](#webhook) | The newly created webhook.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Get Recent Webhook Failures
@@ -2675,12 +3144,9 @@ Failures are grouped by webhook ID and ordered chronologically.
 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[[WebhookFailure](#webhookfailure)]</td><td>A list of failures.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | array[[WebhookFailure](#webhookfailure)] | A list of failures.
 
 
 ## Get Webhook
@@ -2722,10 +3188,27 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
 ```
 ```http
-HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "string",
+    "message": "string",
+    "fields": "string"
+}
+```
+```http
+HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
@@ -2741,19 +3224,17 @@ Gets the webhook with the specified id.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the webhook.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Webhook](#webhook)</td><td>Webhook found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-<tr><td>403</td><td>[Error](#error)</td><td>Forbidden, occurs when you request a webhook belonging to a user you don't manage.</td></tr> 
-<tr><td>404</td><td>[Error](#error)</td><td>Webhook not found.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [Webhook](#webhook) | Webhook found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a webhook belonging to a user you don't manage.
+404 | [Error](#error) | Webhook not found.
 
-## Update webhook
+## Update Webhook
 
 ```http
 PUT /api/v1/webhooks/{id} HTTP/1.1
@@ -2813,16 +3294,14 @@ Updates the webhook.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
-webhook<b title="required">&nbsp;*&nbsp;</b> | body | [NewWebhook](#newwebhook) | 
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the webhook.
+webhook<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewWebhook](#newwebhook) | 
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Webhook](#webhook)</td><td>The updated webhook.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [Webhook](#webhook) | The updated webhook.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Delete Webhook
 
@@ -2882,16 +3361,15 @@ Deletes a webhook.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<b title="required">&nbsp;*&nbsp;</b> | path | string | UUID of the webhook.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the webhook.
 
 ### Responses
-<span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>[Webhook](#webhook)</td><td>Deleted webhook.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td>[Error](#error)</td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table>
+Http code | Type | Description
+--- | --- | ---
+200 | [Webhook](#webhook) | Deleted webhook.
+204 | no content | Webhook not found.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+
 
 
 # Models
@@ -2909,12 +3387,12 @@ A physical address object.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|street|Full street information including number, for example '82, avenue du général Leclerc'.|true|string||
-|postCode|For example '93500'.|true|string||
-|city|For example 'Paris'.|true|string||
-|country|For example 'France'.|true|string|France|
+Name | Type | Format | Description
+--- | --- | --- | ---
+street<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full street information including number, for example '82, avenue du général Leclerc'.
+postCode<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | For example '93500'.
+city<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | For example 'Paris'.
+country<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | For example 'France'.
 
 	
 ## BankAccount
@@ -2950,20 +3428,20 @@ A managed bank account.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the bank account.|true|enum (Created, Verified, Disabled, RejectedByBank, RejectedByPSP)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|proofId|ID of the uploaded document (if any) that proves that the bank account belongs to the user.|false|string||
-|links|Available actions on the bank account.|true|array[[Link](#link)]||
-|userId|The user's id to whom the bank account belongs.|true|string||
-|holder|Holder of the bank account.|true|string||
-|bic|Bank Identifier Code.|true|string||
-|iban|International Bank Account Number.|true|string||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Created</li><li>Verified</li><li>Disabled</li><li>RejectedByBank</li><li>RejectedByPSP</li></ul> | Status of the bank account.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+proofId | string | uuid | ID of the uploaded document (if any) that proves that the bank account belongs to the user.
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the bank account.
+userId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The user's id to whom the bank account belongs.
+holder<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Holder of the bank account.
+bic<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Bank Identifier Code.
+iban<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | International Bank Account Number.
+metadata | string |  | Custom information goes here.
 
 	
 ## BankAccountArray
@@ -3003,12 +3481,99 @@ A managed bank account.
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of bank accounts available.|true|integer (int32)||
-|bankAccounts||true|array[[BankAccount](#bankaccount)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of bank accounts available.
+bankAccounts<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[BankAccount](#bankaccount)] |  | 
+
+
+## DirectDebit
+```json
+{
+    "id": "string",
+    "versionNo": "integer",
+    "status": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "mandateId": "string",
+    "finalCreditorId": "string",
+    "finalCreditorName": "string",
+    "payerId": "string",
+    "payerName": "string",
+    "amount": "number",
+    "currency": "string",
+    "label": "string",
+    "valueDate": "string",
+    "fee": "number",
+    "canBeCanceled": "boolean",
+    "metadata": "string"
+}
+```
+
+Desribes a payment via SEPA Direct Debit (SDD).
+
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul> | Status of the direct debit.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate.
+finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.
+finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
+payerId | string | uuid | ID of the payer.
+payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
+amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
+currency<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Always equal to 'EUR'.
+label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
+valueDate<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date | Date when the payment is charged, for example '2015-01-01'.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit, '0.50' for example.
+canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the direct debit can still be canceled, 'false' otherwise.
+metadata | string |  | Custom information goes here.
+
+	
+## DirectDebitArray
+```json
+{
+    "offset": "integer",
+    "limit": "integer",
+    "count": "integer",
+    "directDebits": [
+        {
+            "id": "string",
+            "versionNo": "integer",
+            "status": "string",
+            "createdAt": "string",
+            "updatedAt": "string",
+            "mandateId": "string",
+            "finalCreditorId": "string",
+            "finalCreditorName": "string",
+            "payerId": "string",
+            "payerName": "string",
+            "amount": "number",
+            "currency": "string",
+            "label": "string",
+            "valueDate": "string",
+            "fee": "number",
+            "canBeCanceled": "boolean",
+            "metadata": "string"
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of direct debits available.
+directDebits<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[DirectDebit](#directdebit)] |  | 
 
 
 ## Event
@@ -3032,15 +3597,15 @@ An object that describes an event that occurred to a resource. An event is uniqu
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|resourceType|Type of resource that the event applies to.|true|enum (BankAccount, Document, SDDMandate, User, Wallet)||
-|resourceLink|Link to follow to get the latest representation of the resource.|true|[Link](#link)||
-|resourceId|ID of the resource affected by the event.|true|string||
-|versionNo|Version number of the resource after the event occurs.|true|integer (int32)||
-|timestamp|Event timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|commandId|ID of the command that triggered the event.|true|string||
-|eventType|Type of the event.|true|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+resourceType<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>User</li><li>Wallet</li></ul> | Type of resource that the event applies to.
+resourceLink<span title="required" class="required">&nbsp;*&nbsp;</span> | [Link](#link) |  | Link to follow to get the latest representation of the resource.
+resourceId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the resource affected by the event.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the resource after the event occurs.
+timestamp<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Event timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+commandId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | ID of the command that triggered the event.
+eventType<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Type of the event.
 
 
 ## EventArray
@@ -3068,12 +3633,12 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of events available.|true|integer (int32)||
-|events||true|array[[Event](#event)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of events available.
+events<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Event](#event)] |  | 
 
 
 ## LegalEntity
@@ -3088,10 +3653,10 @@ Information about all types of corporation such as companies, associations...
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|category|Type of legal entity.|false|enum (Company, Association, AutoEntrepreneur)|Company|
-|name||true|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+category | string | <div>Acceptable values:</div><ul class="enum"><li>Company</li><li>Association</li><li>AutoEntrepreneur</li></ul> | Type of legal entity.
+name<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
 
 
 ## Link
@@ -3107,11 +3672,11 @@ An available action on a resource.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|rel|Describes the action that can be conducted.|true|string||
-|href|URL to execute the action.|true|string||
-|verb|HTTP verb required to execute the action.|true|enum (GET, POST, PUT, DELETE)||
+Name | Type | Format | Description
+--- | --- | --- | ---
+rel<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Describes the action that can be conducted.
+href<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uri | URL to execute the action.
+verb<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>GET</li><li>POST</li><li>PUT</li><li>DELETE</li></ul> | HTTP verb required to execute the action.
 
 	
 ## Mandate
@@ -3170,28 +3735,28 @@ A managed mandate.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|status|Status of the mandate.|true|enum (Canceled, PendinDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
-|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|true|string||
-|creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
-|thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
-|signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
-|documentId|ID of the signed PDF document (if any).|false|string||
-|links|Available actions on the mandate.|true|array[[Link](#link)]||
-|debtorId|The debtor's user id.|false|string||
-|debtorBankAccountId|The debtor's bank account id.|false|string||
-|creditorId|The creditor's user id. The creditor must be a corporation that owns an SCI.|true|string||
-|thirdPartyCreditorId|The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.|false|string||
-|scheme|Can be 'Core' or 'B2B'.|true|enum (Core, B2B)|Core|
-|isRecurring|Is 'true' by default.|true|boolean|true|
-|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul> | Status of the mandate.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the debtor whether it's an individual or legal entity.<br/>It is taken from the 'holder' field of the bank account!<br/>
+sci<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
+thirdPartyCreditorDesignation | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.<br/>
+signatureDate | string | date | Signature date, for example '2015-01-01'.
+documentId | string | uuid | ID of the signed PDF document (if any).
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the mandate.
+debtorId | string | uuid | The debtor's user id.
+debtorBankAccountId | string | uuid | The debtor's bank account id.
+creditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The creditor's user id. The creditor must be a corporation that owns an SCI.
+thirdPartyCreditorId | string |  | The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/>
+scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
+isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
+umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+metadata | string |  | Custom information goes here.
 
 	
 ## MandateArray
@@ -3254,12 +3819,12 @@ A managed mandate.
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of mandates available.|true|integer (int32)||
-|mandates||true|array[[Mandate](#mandate)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of mandates available.
+mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Mandate](#mandate)] |  | 
 
 
 ## ModifiedUser
@@ -3289,17 +3854,17 @@ User information required to create a new user.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|email||false|string||
-|firstName||false|string||
-|lastName||false|string||
-|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|false|string||
-|address||false|[Address](#address)||
-|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string||
-|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
-|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+email | string | email | 
+firstName | string |  | 
+lastName | string |  | 
+mobile | string |  | Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.
+address | [Address](#address) |  | A physical address object.
+preferredLang | string |  | ISO code of the preferred language of the user, 'fr' for example.
+sci | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+legalEntity | [LegalEntity](#legalentity) |  | Provide this field if the user is not an individual.
+metadata | string |  | Custom information goes here.
 
 	
 ## NewBankAccount
@@ -3317,13 +3882,39 @@ Bank account information required to declare a new bank account.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|userId|The user's id to whom the bank account belongs.|true|string||
-|holder|Holder of the bank account. By default, it is equal to the full name of the user or it's legal entity name.|false|string||
-|bic|Bank Identifier Code.|true|string||
-|iban|International Bank Account Number.|true|string||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+userId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The user's id to whom the bank account belongs.
+holder | string |  | Holder of the bank account. By default, it is equal to the full name of the user or it's legal entity name.
+bic<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Bank Identifier Code.
+iban<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | International Bank Account Number.
+metadata | string |  | Custom information goes here.
+
+	
+## NewDirectDebit
+```json
+{
+    "id": "string",
+    "mandateId": "string",
+    "amount": "number",
+    "label": "string",
+    "valueDate": "string",
+    "metadata": "string"
+}
+```
+
+Information required to issue a new SEPA Direct Debit (SDD).
+
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the direct debit in order to make the call idempotent. That allows you to safely retry to create the direct debit without fearing to create multiple debits on our side in case there was a network problem.
+mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate. The mandate will be used to know who is the creditor and who is the payer in this transaction.
+amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
+label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
+valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified, the direct debit will be executed as soon as possible.
+metadata | string |  | Custom information goes here.
 
 
 ## NewMandate
@@ -3340,12 +3931,12 @@ Information required to issue a new mandate.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|debtorBankAccountId|The debtor's bank account id.|true|string||
-|finalCreditorId|Use this field only if the final creditor of the mandate is not the API user.|false|string||
-|sendSignatureRequestByEmail|The final creditor's user id|false|string|false|
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The debtor's bank account id.
+finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
+sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
+metadata | string |  | Custom information goes here.
 
 
 ## NewUser
@@ -3375,17 +3966,17 @@ User information required to create a new user.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|email||true|string||
-|firstName||true|string||
-|lastName||true|string||
-|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
-|address||false|[Address](#address)||
-|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|false|string|'fr'|
-|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
-|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+email<span title="required" class="required">&nbsp;*&nbsp;</span> | string | email | 
+firstName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
+lastName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
+mobile<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.
+address | [Address](#address) |  | A physical address object.
+preferredLang | string |  | ISO code of the preferred language of the user, 'fr' for example.
+sci | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+legalEntity | [LegalEntity](#legalentity) |  | Provide this field if the user is not an individual.
+metadata | string |  | Custom information goes here.
 
 
 ## NewWebhook
@@ -3405,11 +3996,11 @@ Information required to create a new webhook.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resourcesAndEvents|A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn't provided the webhook will listen to all events.|false|object||
-|description|Optional description.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+callbackURL<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uri | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS in production!
+resourcesAndEvents | object |  | A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn't provided the webhook will listen to all events.
+description | string |  | Optional description.
 
 
 ## ShortMandate
@@ -3463,18 +4054,18 @@ Minimal information about a mandate.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|umr|Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.|true|string||
-|status|Status of the mandate.|true|enum (Canceled, PendingDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|debtorDesignation|Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!|true|string||
-|creditorDesignation|Full name of the creditor whether it's an individual or legal entity.|true|string||
-|thirdPartyCreditorDesignation|Full name of the third party creditor (if any) whether it's an individual or legal entity.|false|string||
-|signatureDate|Signature date, for example '2015-01-01'.|false|string (date)||
-|links|Available actions on the mandate.|true|array[[Link](#link)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul> | Status of the mandate.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!
+creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
+thirdPartyCreditorDesignation | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.
+signatureDate | string | date | Signature date, for example '2015-01-01'.
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the mandate.
 
 
 ## ShortMandateArray
@@ -3532,12 +4123,12 @@ Minimal information about a mandate.
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of mandates available.|true|integer (int32)||
-|mandates||true|array[[ShortMandate](#shortmandate)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of mandates available.
+mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[ShortMandate](#shortmandate)] |  | 
 
 
 ## ShortUser
@@ -3575,13 +4166,13 @@ Minimal information about a user.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|designation|If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.|true|string||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|links|Actions available on the user.|true|array[[Link](#link)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+designation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Actions available on the user.
 
 
 ## ShortUserArray
@@ -3623,12 +4214,12 @@ Minimal information about a user.
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of users available.|true|integer (int32)||
-|users||true|array[[ShortUser](#shortuser)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of users available.
+users<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[ShortUser](#shortuser)] |  | 
 
 
 ## User
@@ -3679,22 +4270,22 @@ User information required to create a new user.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|versionNo|Version number of the object, useful to track changes through events.|true|integer (int32)||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'|true|string (date-time)||
-|links|Available actions on the user.|true|array[[Link](#link)]||
-|email||true|string||
-|firstName||true|string||
-|lastName||true|string||
-|mobile|Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.|true|string||
-|address||false|[Address](#address)||
-|preferredLang|ISO code of the preferred language of the user, 'fr' for example.|true|string||
-|sci|SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.|false|string||
-|legalEntity|Provide this field if the user is not an individual.|false|[LegalEntity](#legalentity)||
-|metadata|Custom information goes here.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the user.
+email<span title="required" class="required">&nbsp;*&nbsp;</span> | string | email | 
+firstName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
+lastName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
+mobile<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.
+address | [Address](#address) |  | A physical address object.
+preferredLang<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | ISO code of the preferred language of the user, 'fr' for example.
+sci | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+legalEntity | [LegalEntity](#legalentity) |  | Provide this field if the user is not an individual.
+metadata | string |  | Custom information goes here.
 
 
 ## UserArray
@@ -3748,12 +4339,12 @@ User information required to create a new user.
 ```
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|offset|Position in pagination.|true|integer (int32)||
-|limit|Number of items to retrieve (100 max).|true|integer (int32)||
-|count|Total number of users available.|true|integer (int32)||
-|users||true|array[[User](#user)]||
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of users available.
+users<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[User](#user)] |  | 
 
 
 ## Webhook
@@ -3788,15 +4379,15 @@ A webhook is a subscription to listen to potentially all events in Finstack.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id|Should be a valid UUID string.|true|string||
-|createdAt|Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|updatedAt|Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|links|Available actions on the web hook.|true|[[Link](#link)]||
-|callbackURL|Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!|true|string||
-|resourcesAndEvents|A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.|false|object||
-|description|Optional description.|false|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the web hook.
+callbackURL<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uri | Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!
+resourcesAndEvents | object |  | A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.
+description | string |  | Optional description.
 
 
 ## WebhookFailure
@@ -3812,8 +4403,27 @@ A webhook failure that occurred when trying to deliver an event.
 
 	
 ### Fields
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|webhookId|The ID of the webhook that failed.|true|string||
-|occurredAt|Timestamp at which the failure occurred in UTC, for example '2015-01-01T12:00:00.000Z'.|true|string (date-time)||
-|error|Error message of the failure|true|string||
+Name | Type | Format | Description
+--- | --- | --- | ---
+webhookId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The ID of the webhook that failed.
+occurredAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Timestamp at which the failure occurred in UTC, for example '2015-01-01T12:00:00.000Z'.
+error<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Error message of the failure
+
+	
+
+
+<style>
+    ul.enum {
+        margin: 0;
+        padding: 0 0 0 2px;
+        list-style-position: inside;
+    }
+    .required {
+        color: red;
+        font-weight: bold;
+    }
+    a.pseudo {
+        border-bottom:1px dashed; 
+        text-decoration: none;
+    }
+</style>
