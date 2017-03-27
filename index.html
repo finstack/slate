@@ -247,25 +247,37 @@ the display name and other details about each user.</p>
 <td>query</td>
 <td>integer</td>
 <td>0</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
 <td>20</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#shortuserarray">ShortUserArray</a></td><td>An array of short users.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#shortuserarray">ShortUserArray</a></td>
+<td>An array of short users.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="create-user">Create User</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -415,7 +427,7 @@ update the existing user with the new details.</p>
 <td>query</td>
 <td>boolean</td>
 <td>false</td>
-<td>This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.</td>
+<td>Optional. This parameter allows to update an existing user than throw an error if she already exists. Only use it when your system cannot garanty the unicity of user accounts and their associated emails.</td>
 </tr>
 <tr>
 <td>user<b title="required">&nbsp;*&nbsp;</b></td>
@@ -428,14 +440,29 @@ update the existing user with the new details.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>The updated user, if <code class="prettyprint">isUpdateAllowed</code> is set to <code class="prettyprint">true</code>, and the email provided belongs to an existing user.
-</td></tr> 
-<tr><td>201</td><td><a href="#user">User</a></td><td>The newly created user.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#user">User</a></td>
+<td>The updated user, if <code class="prettyprint">isUpdateAllowed</code> is set to <code class="prettyprint">true</code>, and the email provided belongs to an existing user.<br/></td>
+</tr>
+<tr>
+<td>201</td>
+<td><a href="#user">User</a></td>
+<td>The newly created user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-users-with-details">Find Users with Details</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/full</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -525,25 +552,37 @@ the display name and other details about each user.</p>
 <td>query</td>
 <td>integer</td>
 <td>0</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
 <td>20</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#userarray">UserArray</a></td><td>An array of users with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#userarray">UserArray</a></td>
+<td>An array of users with details.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-all-user-events">Get All User Events</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/events?since=2015-01-01T12:00:00.000Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -600,39 +639,51 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>query</td>
 <td>string</td>
-<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Return all events after given timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>until</td>
 <td>query</td>
 <td>string</td>
-<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#eventarray">EventArray</a></td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-user">Get User</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -686,9 +737,25 @@ the display name and other details about each user.</p>
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -711,7 +778,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -720,14 +787,34 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>User found.</td></tr>
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a user you don&rsquo;t manage.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>User not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#user">User</a></td>
+<td>User found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="update-user">Update User</h2>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -825,13 +912,13 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
 </tr>
 <tr>
-<td>user<b title="required">&nbsp;*&nbsp;</b></td>
+<td>user<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#modifieduser">ModifiedUser</a></td>
 <td></td>
@@ -840,12 +927,24 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>The updated user.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#user">User</a></td>
+<td>The updated user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="delete-user">Delete User</h2>
 <pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/users/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -908,7 +1007,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -917,13 +1016,29 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>Deactivated user.</td></tr> 
-<tr><td>204</td><td>no content</td><td>User not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#user">User</a></td>
+<td>Deactivated user.</td>
+</tr>
+<tr>
+<td>204</td>
+<td>no content</td>
+<td>User not found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-bank-accounts-of-user">Find Bank Accounts of User</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -987,7 +1102,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -996,12 +1111,24 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#bankaccount">BankAccount</a>]</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#bankaccount">BankAccount</a>]</td>
+<td>An array of bank accounts.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-mandates-of-user">Find Mandates of User</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/mandates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1088,7 +1215,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -1097,30 +1224,42 @@ the display name and other details about each user.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
+<td>Optional. Filter mandates depending on role. Possible values are &#39;all&rsquo;, &#39;asPayer&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all mandates.<br/></td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#shortmandatearray">ShortMandateArray</a></td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#shortmandatearray">ShortMandateArray</a></td>
+<td>An array of mandates.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-mandates-of-user-with-details">Find Mandates of User with Details</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/mandates/full</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1212,7 +1351,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -1221,30 +1360,149 @@ the display name and other details about each user.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
+<td>Optional. Filter mandates depending on role. Possible values are &#39;all&rsquo;, &#39;asPayer&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all mandates.<br/></td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#mandatearray">MandateArray</a></td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#mandatearray">MandateArray</a></td>
+<td>An array of mandates with details.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
+
+<h2 id="find-direct-debits-of-user">Find Direct Debits of User</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all direct debits that belong to a specified user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+<tr>
+<td>role</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Filter direct debits depending on role. Possible values are &#39;all&rsquo;, &#39;asPayer&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all direct debits.<br/></td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#directdebitarray">DirectDebitArray</a></td>
+<td>An array of direct debits.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-events-for-user">Get Events for User</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1296,7 +1554,7 @@ the display name and other details about each user.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the user.</td>
@@ -1305,14 +1563,26 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#event">Event</a>]</td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
-<h2 id="get-my-user-profile">Get my User Profile</h2>
+<h2 id="get-my-user-profile">Get My User Profile</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
@@ -1378,12 +1648,24 @@ the display name and other details about each user.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#user">User</a></td><td>Profile information.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#user">User</a></td>
+<td>Profile information.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h1 id="bank-accounts">Bank Accounts</h1>
 
@@ -1460,25 +1742,37 @@ they authorized you to access their information.</p>
 <td>query</td>
 <td>integer</td>
 <td>0</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
 <td>20</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#bankaccountarray">BankAccountArray</a></td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#bankaccountarray">BankAccountArray</a></td>
+<td>An array of bank accounts.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="create-bank-account">Create Bank Account</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/bank_accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1549,7 +1843,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>bankAccount<b title="required">&nbsp;*&nbsp;</b></td>
+<td>bankAccount<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#newbankaccount">NewBankAccount</a></td>
 <td></td>
@@ -1558,12 +1852,24 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td><a href="#bankaccount">BankAccount</a></td><td>The newly created bank account.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#bankaccount">BankAccount</a></td>
+<td>The newly created bank account.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-all-bank-account-events">Get All Bank Account Events</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/events?since=2015-01-01T12:00:00.000Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1620,39 +1926,51 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>query</td>
 <td>string</td>
-<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Return all events after given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>until</td>
 <td>query</td>
 <td>string</td>
-<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#eventarray">EventArray</a></td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-bank-account">Get Bank Account</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1736,7 +2054,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the bank account.</td>
@@ -1745,14 +2063,34 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Bank account found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a bank account belonging to a user you don&rsquo;t manage.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Bank account not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#bankaccount">BankAccount</a></td>
+<td>Bank account found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a bank account belonging to a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Bank account not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="disable-bank-account">Disable Bank Account</h2>
 <pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/bank_accounts/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1825,7 +2163,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the bank account.</td>
@@ -1834,14 +2172,34 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#bankaccount">BankAccount</a></td><td>Disabled bank account.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you disable a bank account belonging to a user you don&rsquo;t manage.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Bank account not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#bankaccount">BankAccount</a></td>
+<td>Disabled bank account.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you disable a bank account belonging to a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Bank account not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-events-for-bank-account">Get Events for Bank Account</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1904,24 +2262,38 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the bank account.</td>
 </tr>
 </tbody></table>
 
-<p>//todo: migrate to html tables. after cool looking nested table</p>
-
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Bank account not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#event">Event</a>]</td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Bank account not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-my-bank-accounts">Find My Bank Accounts</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/bank_accounts/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1976,12 +2348,24 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#bankaccount">BankAccount</a>]</td><td>An array of bank accounts.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#bankaccount">BankAccount</a>]</td>
+<td>An array of bank accounts.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h1 id="mandates">Mandates</h1>
 
@@ -2074,33 +2458,45 @@ they authorized you to access their information.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
-<td></td>
+<td>all</td>
+<td>Optional. Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asPayer&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
 <td>0</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
 <td>20</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#shortmandatearray">ShortMandateArray</a></td><td>An array of mandates.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#shortmandatearray">ShortMandateArray</a></td>
+<td>An array of mandates.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="create-mandate">Create Mandate</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/mandates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2201,7 +2597,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>mandate<b title="required">&nbsp;*&nbsp;</b></td>
+<td>mandate<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#newmandate">NewMandate</a></td>
 <td></td>
@@ -2210,12 +2606,24 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td><a href="#mandate">Mandate</a></td><td>The newly created mandate.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#mandate">Mandate</a></td>
+<td>The newly created mandate.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="find-mandates-with-details">Find Mandates with Details</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/full</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2310,30 +2718,42 @@ they authorized you to access their information.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Filter mandates depending on role. Possible values are &#039;all&#039;, &#039;asDebtor&#039;, &#039;asCreditor&#039; and &#039;asThirdPartyCreditor&#039;. By default, return all mandates.</td>
+<td>Optional. Filter mandates depending on role. Possible values are &#39;all&rsquo;, &#39;asPayer&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all mandates.<br/></td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#mandatearray">MandateArray</a></td><td>An array of mandates with details.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#mandatearray">MandateArray</a></td>
+<td>An array of mandates with details.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-all-mandate-events">Get All Mandate Events</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/events?since=2015-01-01T12:00:00.000Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2390,39 +2810,51 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>query</td>
 <td>string</td>
-<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Return all events after given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>until</td>
 <td>query</td>
 <td>string</td>
-<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#eventarray">EventArray</a></td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-mandate">Get Mandate</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2493,6 +2925,15 @@ they authorized you to access their information.</p>
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -2518,7 +2959,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the mandate.</td>
@@ -2527,14 +2968,34 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td></tr> 
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#mandate">Mandate</a></td>
+<td>Mandate found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="cancel-or-revoke-mandate">Cancel or Revoke Mandate</h2>
 <pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/mandates/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2625,7 +3086,7 @@ they authorized you to access their information.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the mandate.</td>
@@ -2634,13 +3095,29 @@ they authorized you to access their information.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#mandate">Mandate</a></td><td>Mandate canceled or revoked.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#mandate">Mandate</a></td>
+<td>Mandate canceled or revoked.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-signature-url">Get Signature URL</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}/sign</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2689,7 +3166,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the mandate.</td>
@@ -2698,13 +3175,29 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>text</td><td>URL to send to the debtor.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>no content</td>
+<td>URL to send to the debtor.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-signed-mandate-document">Get Signed Mandate Document</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}/document</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2750,7 +3243,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the mandate.</td>
@@ -2759,13 +3252,29 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>no content</td><td>Signed mandate file in PDF format.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>no content</td>
+<td>Signed mandate file in PDF format.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-events-for-mandate">Get Events for Mandate</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/mandates/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2828,7 +3337,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the mandate.</td>
@@ -2837,13 +3346,637 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#event">Event</a>]</td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr>
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Mandate not found.</td></tr>
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#event">Event</a>]</td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
+</tbody></table>
+
+<h1 id="direct-debits">Direct Debits</h1>
+
+<h2 id="find-direct-debits">Find Direct Debits</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns direct debits for which you are a counterparty.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Filter direct debits depending on role. Possible values are &#39;all&rsquo;, &#39;asPayer&rsquo;, &#39;asCreditor&rsquo; and &#39;asThirdPartyCreditor&rsquo;. By default, return all direct debits.<br/></td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#directdebitarray">DirectDebitArray</a></td>
+<td>An array of direct debits.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-direct-debit">Create Direct Debit</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a direct debit to withdraw money from a payer&rsquo;s bank account.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>directDebit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>body</td>
+<td><a href="#newdirectdebit">NewDirectDebit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#directdebit">DirectDebit</a></td>
+<td>The newly created direct debit.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-direct-debit-events">Get All Direct Debit Events</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events on direct debits since a given date and optionally until another date.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>query</td>
+<td>string</td>
+<td>Return all events after given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>until</td>
+<td>query</td>
+<td>string</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#eventarray">EventArray</a></td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-direct-debit">Get Direct Debit</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets the direct debit with the specified id.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the direct debit.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#directdebit">DirectDebit</a></td>
+<td>Direct debit found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Direct debit not found.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-events-for-direct-debit">Get Events for Direct Debit</h2>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all events for a given direct debit.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the direct debit.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#event">Event</a>]</td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Direct debit not found.</td>
+</tr>
+</tbody></table>
+
+<h2 id="cancel-direct-debit">Cancel Direct Debit</h2>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/directdebits/{id}/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Cancels the direct debit while it&rsquo;s still possible.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>UUID of the direct debit.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#directdebit">DirectDebit</a></td>
+<td>The canceled direct debit.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid or when the direct debit can no longer be canceled.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you cancel a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Direct debit not found.</td>
+</tr>
+</tbody></table>
 
 <h1 id="events">Events</h1>
 
@@ -2902,39 +4035,51 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </thead><tbody>
 <tr>
-<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>query</td>
 <td>string</td>
-<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Return all events after given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>until</td>
 <td>query</td>
 <td>string</td>
-<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>query</td>
 <td>integer</td>
-<td>Offset the list of returned results by this amount.</td>
+<td>Optional. Offset the list of returned results by this amount.</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>query</td>
 <td>integer</td>
-<td>Number of items to retrieve. Default is 20, maximum is 100.</td>
+<td>Optional. Number of items to retrieve. Default is 20, maximum is 100.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#eventarray">EventArray</a></td><td>A list of events ordered chronologically.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#eventarray">EventArray</a></td>
+<td>A list of events ordered chronologically.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-event-summary">Get Event Summary</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/events/summary?since=2015-01-01T12:00:00.000Z</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -2979,27 +4124,39 @@ The first line is the header of the file and contains column names.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>since<b title="required">&nbsp;*&nbsp;</b></td>
+<td>since<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>query</td>
 <td>string</td>
-<td>Return all events after given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Return all events after given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
 <td>until</td>
 <td>query</td>
 <td>string</td>
-<td>Return all events before given timestamp in UTC, for example &#039;2015-01-01T12:00:00.000Z&#039;.</td>
+<td>Optional. Return all events before given timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 </tbody></table>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>string</td><td>A list of event counters formatted in CSV.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>string</td>
+<td>A list of event counters formatted in CSV.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="event-types">Event Types</h2>
 
@@ -3139,12 +4296,24 @@ The first line is the header of the file and contains column names.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#webhook">Webhook</a>]</td><td>A list of webhooks.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#webhook">Webhook</a>]</td>
+<td>A list of webhooks.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="create-webhook">Create Webhook</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/webhooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -3217,7 +4386,7 @@ All other parameters are optional, by default all events are sent. Resources and
 </tr>
 </thead><tbody>
 <tr>
-<td>webhook<b title="required">&nbsp;*&nbsp;</b></td>
+<td>webhook<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#newwebhook">NewWebhook</a></td>
 <td></td>
@@ -3226,12 +4395,24 @@ All other parameters are optional, by default all events are sent. Resources and
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>201</td><td><a href="#webhook">Webhook</a></td><td>The newly created webhook.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="#webhook">Webhook</a></td>
+<td>The newly created webhook.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-recent-webhook-failures">Get Recent Webhook Failures</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/webhooks/failures</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -3258,12 +4439,19 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td>array[<a href="#webhookfailure">WebhookFailure</a>]</td><td>A list of failures.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>array[<a href="#webhookfailure">WebhookFailure</a>]</td>
+<td>A list of failures.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-webhook">Get Webhook</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -3301,9 +4489,25 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -3326,7 +4530,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the webhook.</td>
@@ -3335,16 +4539,36 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Webhook found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-<tr><td>403</td><td><a href="#error">Error</a></td><td>Forbidden, occurs when you request a webhook belonging to a user you don&rsquo;t manage.</td></tr> 
-<tr><td>404</td><td><a href="#error">Error</a></td><td>Webhook not found.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#webhook">Webhook</a></td>
+<td>Webhook found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a webhook belonging to a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Webhook not found.</td>
+</tr>
+</tbody></table>
 
-<h2 id="update-webhook">Update webhook</h2>
+<h2 id="update-webhook">Update Webhook</h2>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -3407,13 +4631,13 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the webhook.</td>
 </tr>
 <tr>
-<td>webhook<b title="required">&nbsp;*&nbsp;</b></td>
+<td>webhook<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#newwebhook">NewWebhook</a></td>
 <td></td>
@@ -3422,12 +4646,24 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>The updated webhook.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#webhook">Webhook</a></td>
+<td>The updated webhook.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h2 id="delete-webhook">Delete Webhook</h2>
 <pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/v1/webhooks/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -3490,7 +4726,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<b title="required">&nbsp;*&nbsp;</b></td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
 <td>UUID of the webhook.</td>
@@ -3499,13 +4735,29 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h3 id="responses">Responses</h3>
 
-<p><span comment="workaround for markdown processing in table"></span>
-<table>
-<tr><th>Http code</th><th>Type</th><th>Description</th></tr>
-<tr><td>200</td><td><a href="#webhook">Webhook</a></td><td>Deleted webhook.</td></tr> 
-<tr><td>204</td><td>no content</td><td>Webhook not found.</td></tr> 
-<tr><td>400</td><td><a href="#error">Error</a></td><td>Bad request, occurs most often when parameters passed are invalid.</td></tr> 
-</table></p>
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="#webhook">Webhook</a></td>
+<td>Deleted webhook.</td>
+</tr>
+<tr>
+<td>204</td>
+<td>no content</td>
+<td>Webhook not found.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+</tbody></table>
 
 <h1 id="models">Models</h1>
 
@@ -3525,39 +4777,34 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>street</td>
-<td>Full street information including number, for example &lsquo;82, avenue du général Leclerc&rsquo;.</td>
-<td>true</td>
+<td>street<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Full street information including number, for example &#39;82, avenue du général Leclerc&rsquo;.</td>
 </tr>
 <tr>
-<td>postCode</td>
+<td>postCode<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>For example &#39;93500&rsquo;.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>city</td>
+<td>city<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>For example &#39;Paris&rsquo;.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>country</td>
-<td>For example &#39;France&rsquo;.</td>
-<td>true</td>
+<td>country<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td>France</td>
+<td></td>
+<td>For example &#39;France&rsquo;.</td>
 </tr>
 </tbody></table>
 
@@ -3596,95 +4843,82 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Should be a valid UUID string.</td>
-<td>true</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>Should be a valid UUID string.</td>
 </tr>
 <tr>
-<td>versionNo</td>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Version number of the object, useful to track changes through events.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>status</td>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Created</li><li>Verified</li><li>Disabled</li><li>RejectedByBank</li><li>RejectedByPSP</li></ul></td>
 <td>Status of the bank account.</td>
-<td>true</td>
-<td>enum (Created, Verified, Disabled, RejectedByBank, RejectedByPSP)</td>
-<td></td>
 </tr>
 <tr>
-<td>createdAt</td>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
 <td>proofId</td>
-<td>ID of the uploaded document (if any) that proves that the bank account belongs to the user.</td>
-<td>false</td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>ID of the uploaded document (if any) that proves that the bank account belongs to the user.</td>
 </tr>
 <tr>
-<td>links</td>
-<td>Available actions on the bank account.</td>
-<td>true</td>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Available actions on the bank account.</td>
 </tr>
 <tr>
-<td>userId</td>
+<td>userId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>The user&rsquo;s id to whom the bank account belongs.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>holder</td>
+<td>holder<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Holder of the bank account.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>bic</td>
+<td>bic<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Bank Identifier Code.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>iban</td>
-<td>International Bank Account Number.</td>
-<td>true</td>
+<td>iban<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>International Bank Account Number.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -3728,38 +4962,236 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of bank accounts available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>bankAccounts</td>
-<td></td>
-<td>true</td>
+<td>bankAccounts<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#bankaccount">BankAccount</a>]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="directdebit">DirectDebit</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Desribes a payment via SEPA Direct Debit (SDD).</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Version number of the object, useful to track changes through events.</td>
+</tr>
+<tr>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul></td>
+<td>Status of the direct debit.</td>
+</tr>
+<tr>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>mandateId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the associated mandate.</td>
+</tr>
+<tr>
+<td>finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.</td>
+</tr>
+<tr>
+<td>finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name or legal entity name of the final creditor.</td>
+</tr>
+<tr>
+<td>payerId</td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the payer.</td>
+</tr>
+<tr>
+<td>payerName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name or legal entity name of the final creditor.</td>
+</tr>
+<tr>
+<td>amount<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Amount to be withdrawn from the payer&rsquo;s bank account, for example &#39;100.00&rsquo;. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.</td>
+</tr>
+<tr>
+<td>currency<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Always equal to &#39;EUR&rsquo;.</td>
+</tr>
+<tr>
+<td>label<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Short message that will appear on the payer&rsquo;s bank account statement.</td>
+</tr>
+<tr>
+<td>valueDate<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date</td>
+<td>Date when the payment is charged, for example &#39;2015-01-01&rsquo;.</td>
+</tr>
+<tr>
+<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Fee charged to the creditor for the direct debit, &#39;0.50&rsquo; for example.</td>
+</tr>
+<tr>
+<td>canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>boolean</td>
+<td></td>
+<td>Is &#39;true&rsquo; if the direct debit can still be canceled, &#39;false&rsquo; otherwise.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="directdebitarray">DirectDebitArray</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Total number of direct debits available.</td>
+</tr>
+<tr>
+<td>directDebits<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>array[<a href="#directdebit">DirectDebit</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -3787,60 +5219,52 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>resourceType</td>
+<td>resourceType<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>User</li><li>Wallet</li></ul></td>
 <td>Type of resource that the event applies to.</td>
-<td>true</td>
-<td>enum (BankAccount, Document, SDDMandate, User, Wallet)</td>
-<td></td>
 </tr>
 <tr>
-<td>resourceLink</td>
-<td>Link to follow to get the latest representation of the resource.</td>
-<td>true</td>
+<td>resourceLink<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td><a href="#link">Link</a></td>
 <td></td>
+<td>Link to follow to get the latest representation of the resource.</td>
 </tr>
 <tr>
-<td>resourceId</td>
+<td>resourceId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>ID of the resource affected by the event.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>versionNo</td>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Version number of the resource after the event occurs.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>timestamp</td>
+<td>timestamp<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Event timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>commandId</td>
+<td>commandId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>ID of the command that triggered the event.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>eventType</td>
-<td>Type of the event.</td>
-<td>true</td>
+<td>eventType<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Type of the event.</td>
 </tr>
 </tbody></table>
 
@@ -3872,38 +5296,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of events available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>events</td>
-<td></td>
-<td>true</td>
+<td>events<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#event">Event</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -3922,24 +5341,21 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>category</td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Company</li><li>Association</li><li>AutoEntrepreneur</li></ul></td>
 <td>Type of legal entity.</td>
-<td>false</td>
-<td>enum (Company, Association, AutoEntrepreneur)</td>
-<td>Company</td>
 </tr>
 <tr>
-<td>name</td>
-<td></td>
-<td>true</td>
+<td>name<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -3959,32 +5375,28 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>rel</td>
+<td>rel<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Describes the action that can be conducted.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>href</td>
+<td>href<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uri</td>
 <td>URL to execute the action.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>verb</td>
+<td>verb<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>GET</li><li>POST</li><li>PUT</li><li>DELETE</li></ul></td>
 <td>HTTP verb required to execute the action.</td>
-<td>true</td>
-<td>enum (GET, POST, PUT, DELETE)</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -4046,151 +5458,130 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>Should be a valid UUID string.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>versionNo</td>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Version number of the object, useful to track changes through events.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>status</td>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul></td>
 <td>Status of the mandate.</td>
-<td>true</td>
-<td>enum (Canceled, PendinDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)</td>
-<td></td>
 </tr>
 <tr>
-<td>createdAt</td>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>debtorDesignation</td>
-<td>Full name of the debtor whether it&rsquo;s an individual or legal entity. It is taken from the &#39;holder&rsquo; field of the bank account!</td>
-<td>true</td>
+<td>debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Full name of the debtor whether it&rsquo;s an individual or legal entity.<br/>It is taken from the &#39;holder&rsquo; field of the bank account!<br/></td>
 </tr>
 <tr>
-<td>sci</td>
+<td>sci<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>creditorDesignation</td>
-<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
-<td>true</td>
+<td>creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
 </tr>
 <tr>
 <td>thirdPartyCreditorDesignation</td>
-<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.<br/></td>
 </tr>
 <tr>
 <td>signatureDate</td>
+<td>string</td>
+<td>date</td>
 <td>Signature date, for example &#39;2015-01-01&rsquo;.</td>
-<td>false</td>
-<td>string (date)</td>
-<td></td>
 </tr>
 <tr>
 <td>documentId</td>
-<td>ID of the signed PDF document (if any).</td>
-<td>false</td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>ID of the signed PDF document (if any).</td>
 </tr>
 <tr>
-<td>links</td>
-<td>Available actions on the mandate.</td>
-<td>true</td>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Available actions on the mandate.</td>
 </tr>
 <tr>
 <td>debtorId</td>
-<td>The debtor&rsquo;s user id.</td>
-<td>false</td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>The debtor&rsquo;s user id.</td>
 </tr>
 <tr>
 <td>debtorBankAccountId</td>
-<td>The debtor&rsquo;s bank account id.</td>
-<td>false</td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>The debtor&rsquo;s bank account id.</td>
 </tr>
 <tr>
-<td>creditorId</td>
-<td>The creditor&rsquo;s user id. The creditor must be a corporation that owns an SCI.</td>
-<td>true</td>
+<td>creditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>The creditor&rsquo;s user id. The creditor must be a corporation that owns an SCI.</td>
 </tr>
 <tr>
 <td>thirdPartyCreditorId</td>
-<td>The third party creditor&rsquo;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>The third party creditor&rsquo;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/></td>
 </tr>
 <tr>
-<td>scheme</td>
+<td>scheme<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul></td>
 <td>Can be &#39;Core&rsquo; or &#39;B2B&rsquo;.</td>
-<td>true</td>
-<td>enum (Core, B2B)</td>
-<td>Core</td>
 </tr>
 <tr>
-<td>isRecurring</td>
-<td>Is &#39;true&rsquo; by default.</td>
-<td>true</td>
+<td>isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>boolean</td>
-<td>true</td>
+<td></td>
+<td>Is &#39;true&rsquo; by default.</td>
 </tr>
 <tr>
-<td>umr</td>
-<td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
-<td>true</td>
+<td>umr<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -4257,38 +5648,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of mandates available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>mandates</td>
-<td></td>
-<td>true</td>
+<td>mandates<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#mandate">Mandate</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4322,74 +5708,64 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>email</td>
-<td></td>
-<td>false</td>
 <td>string</td>
+<td>email</td>
 <td></td>
 </tr>
 <tr>
 <td>firstName</td>
-<td></td>
-<td>false</td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>lastName</td>
-<td></td>
-<td>false</td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>mobile</td>
-<td>Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
 </tr>
 <tr>
 <td>address</td>
-<td></td>
-<td>false</td>
 <td><a href="#address">Address</a></td>
 <td></td>
+<td>A physical address object.</td>
 </tr>
 <tr>
 <td>preferredLang</td>
-<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
 </tr>
 <tr>
 <td>sci</td>
-<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
 </tr>
 <tr>
 <td>legalEntity</td>
-<td>Provide this field if the user is not an individual.</td>
-<td>false</td>
 <td><a href="#legalentity">LegalEntity</a></td>
 <td></td>
+<td>Provide this field if the user is not an individual.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -4410,46 +5786,101 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
-<td>The user&rsquo;s id to whom the bank account belongs.</td>
-<td>true</td>
+<td>userId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>The user&rsquo;s id to whom the bank account belongs.</td>
 </tr>
 <tr>
 <td>holder</td>
+<td>string</td>
+<td></td>
 <td>Holder of the bank account. By default, it is equal to the full name of the user or it&rsquo;s legal entity name.</td>
-<td>false</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>bic</td>
+<td>bic<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Bank Identifier Code.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>iban</td>
-<td>International Bank Account Number.</td>
-<td>true</td>
+<td>iban<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>International Bank Account Number.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="newdirectdebit">NewDirectDebit</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Information required to issue a new SEPA Direct Debit (SDD).</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string. You are required to generate the id of the direct debit in order to make the call idempotent. That allows you to safely retry to create the direct debit without fearing to create multiple debits on our side in case there was a network problem.</td>
+</tr>
+<tr>
+<td>mandateId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the associated mandate. The mandate will be used to know who is the creditor and who is the payer in this transaction.</td>
+</tr>
+<tr>
+<td>amount<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Amount to be withdrawn from the payer&rsquo;s bank account, for example &#39;100.00&rsquo;. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.</td>
+</tr>
+<tr>
+<td>label<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Short message that will appear on the payer&rsquo;s bank account statement.</td>
+</tr>
+<tr>
+<td>valueDate</td>
+<td>string</td>
+<td>date</td>
+<td>Date when the payment is charged, for example &#39;2015-01-01&rsquo;. If not specified, the direct debit will be executed as soon as possible.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -4469,39 +5900,34 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>debtorBankAccountId</td>
-<td>The debtor&rsquo;s bank account id.</td>
-<td>true</td>
+<td>debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>The debtor&rsquo;s bank account id.</td>
 </tr>
 <tr>
 <td>finalCreditorId</td>
-<td>Use this field only if the final creditor of the mandate is not the API user.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Use this field only if the final creditor of the mandate is not the API user.</td>
 </tr>
 <tr>
 <td>sendSignatureRequestByEmail</td>
-<td>The final creditor&rsquo;s user id</td>
-<td>false</td>
-<td>string</td>
-<td>false</td>
+<td>boolean</td>
+<td></td>
+<td>Set this flag to &#39;true&rsquo; if you want to send a mandate signature request by email through Finstack.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -4534,74 +5960,64 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>email<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
 <td>email</td>
 <td></td>
-<td>true</td>
+</tr>
+<tr>
+<td>firstName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>firstName</td>
-<td></td>
-<td>true</td>
+<td>lastName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>lastName</td>
-<td></td>
-<td>true</td>
+<td>mobile<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
-</tr>
-<tr>
-<td>mobile</td>
 <td>Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
 <td>address</td>
-<td></td>
-<td>false</td>
 <td><a href="#address">Address</a></td>
 <td></td>
+<td>A physical address object.</td>
 </tr>
 <tr>
 <td>preferredLang</td>
-<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
-<td>false</td>
 <td>string</td>
-<td>&#39;fr&rsquo;</td>
+<td></td>
+<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
 </tr>
 <tr>
 <td>sci</td>
-<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
 </tr>
 <tr>
 <td>legalEntity</td>
-<td>Provide this field if the user is not an individual.</td>
-<td>false</td>
 <td><a href="#legalentity">LegalEntity</a></td>
 <td></td>
+<td>Provide this field if the user is not an individual.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -4624,32 +6040,28 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>callbackURL</td>
-<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!</td>
-<td>true</td>
+<td>callbackURL<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
+<td>uri</td>
+<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS in production!</td>
 </tr>
 <tr>
 <td>resourcesAndEvents</td>
-<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn&rsquo;t provided the webhook will listen to all events.</td>
-<td>false</td>
 <td>object</td>
 <td></td>
+<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. This parameter is optional, if it isn&rsquo;t provided the webhook will listen to all events.</td>
 </tr>
 <tr>
 <td>description</td>
-<td>Optional description.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Optional description.</td>
 </tr>
 </tbody></table>
 
@@ -4706,81 +6118,70 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>Should be a valid UUID string.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>umr</td>
+<td>umr<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>status</td>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul></td>
 <td>Status of the mandate.</td>
-<td>true</td>
-<td>enum (Canceled, PendingDebtorRegistration, ToBeSigned, SignedElectronically, SignedManually, Revoked)</td>
-<td></td>
 </tr>
 <tr>
-<td>createdAt</td>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>debtorDesignation</td>
+<td>debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>Full name of the debtor whether it&rsquo;s an individual or legal entity. It is taken from the &#39;holder&rsquo; field of the bank account!</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>creditorDesignation</td>
-<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
-<td>true</td>
+<td>creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
 </tr>
 <tr>
 <td>thirdPartyCreditorDesignation</td>
-<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.</td>
 </tr>
 <tr>
 <td>signatureDate</td>
+<td>string</td>
+<td>date</td>
 <td>Signature date, for example &#39;2015-01-01&rsquo;.</td>
-<td>false</td>
-<td>string (date)</td>
-<td></td>
 </tr>
 <tr>
-<td>links</td>
-<td>Available actions on the mandate.</td>
-<td>true</td>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Available actions on the mandate.</td>
 </tr>
 </tbody></table>
 
@@ -4842,38 +6243,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of mandates available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>mandates</td>
-<td></td>
-<td>true</td>
+<td>mandates<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#shortmandate">ShortMandate</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4915,46 +6311,40 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>Should be a valid UUID string.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>designation</td>
+<td>designation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
 <td>If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.</td>
-<td>true</td>
+</tr>
+<tr>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>createdAt</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>links</td>
-<td>Actions available on the user.</td>
-<td>true</td>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Actions available on the user.</td>
 </tr>
 </tbody></table>
 
@@ -5000,38 +6390,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of users available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>users</td>
-<td></td>
-<td>true</td>
+<td>users<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#shortuser">ShortUser</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -5086,109 +6471,94 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Should be a valid UUID string.</td>
-<td>true</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td></td>
+<td>uuid</td>
+<td>Should be a valid UUID string.</td>
 </tr>
 <tr>
-<td>versionNo</td>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Version number of the object, useful to track changes through events.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>createdAt</td>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>links</td>
-<td>Available actions on the user.</td>
-<td>true</td>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Available actions on the user.</td>
 </tr>
 <tr>
+<td>email<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
 <td>email</td>
 <td></td>
-<td>true</td>
+</tr>
+<tr>
+<td>firstName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>firstName</td>
-<td></td>
-<td>true</td>
+<td>lastName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>lastName</td>
-<td></td>
-<td>true</td>
+<td>mobile<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
-</tr>
-<tr>
-<td>mobile</td>
 <td>Mobile phone number respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
 <td>address</td>
-<td></td>
-<td>false</td>
 <td><a href="#address">Address</a></td>
 <td></td>
+<td>A physical address object.</td>
 </tr>
 <tr>
-<td>preferredLang</td>
-<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
-<td>true</td>
+<td>preferredLang<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>ISO code of the preferred language of the user, &#39;fr&rsquo; for example.</td>
 </tr>
 <tr>
 <td>sci</td>
-<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
 </tr>
 <tr>
 <td>legalEntity</td>
-<td>Provide this field if the user is not an individual.</td>
-<td>false</td>
 <td><a href="#legalentity">LegalEntity</a></td>
 <td></td>
+<td>Provide this field if the user is not an individual.</td>
 </tr>
 <tr>
 <td>metadata</td>
-<td>Custom information goes here.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Custom information goes here.</td>
 </tr>
 </tbody></table>
 
@@ -5246,38 +6616,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>offset</td>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Position in pagination.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>limit</td>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Number of items to retrieve (100 max).</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>count</td>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
 <td>Total number of users available.</td>
-<td>true</td>
-<td>integer (int32)</td>
-<td></td>
 </tr>
 <tr>
-<td>users</td>
-<td></td>
-<td>true</td>
+<td>users<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#user">User</a>]</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -5316,60 +6681,52 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>Should be a valid UUID string.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>createdAt</td>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Creation timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>updatedAt</td>
-<td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
-</tr>
-<tr>
-<td>links</td>
-<td>Available actions on the web hook.</td>
-<td>true</td>
-<td>[<a href="#link">Link</a>]</td>
-<td></td>
-</tr>
-<tr>
-<td>callbackURL</td>
-<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!</td>
-<td>true</td>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
+<td>date-time</td>
+<td>Last update timestamp in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>array[<a href="#link">Link</a>]</td>
 <td></td>
+<td>Available actions on the web hook.</td>
+</tr>
+<tr>
+<td>callbackURL<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uri</td>
+<td>Finstack will do a POST call to this URL to send events. The URL has to be HTTPS!</td>
 </tr>
 <tr>
 <td>resourcesAndEvents</td>
-<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.</td>
-<td>false</td>
 <td>object</td>
 <td></td>
+<td>A map where keys are resource types - BankAccount, Document, Plan, SDDMandate, SDDPayment, Subscription, User and Wallet. Values are arrays of the names of the events that can occur to the resource. If the array is empty, the webhook will listen to all events related to the corresponding resource type. If the map is empty, the webhook will listen to all events.</td>
 </tr>
 <tr>
 <td>description</td>
-<td>Optional description.</td>
-<td>false</td>
 <td>string</td>
 <td></td>
+<td>Optional description.</td>
 </tr>
 </tbody></table>
 
@@ -5388,34 +6745,46 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <table><thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Format</th>
 <th>Description</th>
-<th>Required</th>
-<th>Schema</th>
-<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>webhookId</td>
+<td>webhookId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
 <td>The ID of the webhook that failed.</td>
-<td>true</td>
-<td>string</td>
-<td></td>
 </tr>
 <tr>
-<td>occurredAt</td>
+<td>occurredAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
 <td>Timestamp at which the failure occurred in UTC, for example &#39;2015-01-01T12:00:00.000Z&rsquo;.</td>
-<td>true</td>
-<td>string (date-time)</td>
-<td></td>
 </tr>
 <tr>
-<td>error</td>
-<td>Error message of the failure</td>
-<td>true</td>
+<td>error<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
+<td>Error message of the failure</td>
 </tr>
 </tbody></table>
+
+<style>
+    ul.enum {
+        margin: 0;
+        padding: 0 0 0 2px;
+        list-style-position: inside;
+    }
+    .required {
+        color: red;
+        font-weight: bold;
+    }
+    a.pseudo {
+        border-bottom:1px dashed; 
+        text-decoration: none;
+    }
+</style>
 
           <h1 id="errors">Errors</h1>
 
