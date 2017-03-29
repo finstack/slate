@@ -117,9 +117,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -264,9 +267,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "UserAlreadyExists",
+    "message": "User with email foo@example.com already exists",
+    "fields": {
+        "emailAddress": "foo@example.com"
+    }
 }
 ```
 
@@ -354,9 +359,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -416,9 +424,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -499,9 +510,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/users/toto"
+    }
 }
 ```
 ```http
@@ -509,9 +522,11 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -519,9 +534,11 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -621,9 +638,35 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/users/toto"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -641,6 +684,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | [User](#user) | The updated user.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to modify a user you don't manage.
+404 | [Error](#error) | User not found.
 
 ## Delete User
 
@@ -681,16 +726,39 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/users/toto"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -707,8 +775,9 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 Http code | Type | Description
 --- | --- | ---
 200 | [User](#user) | Deactivated user.
-204 | no content | User not found.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to delete a user you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Find Bank Accounts of User
@@ -757,9 +826,35 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/users/toto/bank_accccount' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/users/toto/bank_accccount"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -776,6 +871,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | array[[BankAccount](#bankaccount)] | An array of bank accounts.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to access bank accounts of a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Find Mandates of User
@@ -847,9 +944,36 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -869,6 +993,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | [ShortMandateArray](#shortmandatearray) | An array of mandates.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to access mandates of a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Find Mandates of User with Details
@@ -945,9 +1071,36 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -966,6 +1119,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | [MandateArray](#mandatearray) | An array of mandates with details.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to access mandates of a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Find Direct Debits of User
@@ -982,28 +1137,28 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "20",
+    "count": "1",
     "directDebits": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "mandateId": "string",
-            "finalCreditorId": "string",
-            "finalCreditorName": "string",
-            "payerId": "string",
-            "payerName": "string",
-            "amount": "number",
-            "currency": "string",
-            "label": "string",
-            "valueDate": "string",
-            "fee": "number",
-            "canBeCanceled": "boolean",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "2",
+            "status": "SubmittedToPSP",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
+            "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+            "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+            "finalCreditorName": "Alice Jones",
+            "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+            "payerName": "Bob Adams",
+            "amount": 100.00,
+            "currency": "EUR",
+            "label": "Party bill",
+            "valueDate": "2015-02-02",
+            "fee": 1.00,
+            "canBeCanceled": "false",
+            "metadata": {}
         }
     ]
 }
@@ -1013,9 +1168,36 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -1035,6 +1217,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | [DirectDebitArray](#directdebitarray) | An array of direct debits.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to access direct debits of a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Get Events for User
@@ -1071,9 +1255,36 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -1090,6 +1301,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | array[[Event](#event)] | A list of events ordered chronologically.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to access events on a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Get My User Profile
@@ -1151,9 +1364,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/meeee' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/meeee"
+    }
 }
 ```
 
@@ -1219,9 +1434,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -1295,9 +1513,35 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/bank"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "UserForbidden",
+    "message": "You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserNotFound",
+    "message": "User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "userId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -1314,6 +1558,8 @@ Http code | Type | Description
 --- | --- | ---
 201 | [BankAccount](#bankaccount) | The newly created bank account.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to create a bank account for a user that you don't manage.
+404 | [Error](#error) | User not found.
 
 
 ## Get All Bank Account Events
@@ -1355,9 +1601,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -1423,9 +1672,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/bank/toto' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/bank/toto"
+    }
 }
 ```
 ```http
@@ -1503,9 +1754,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/bank"
+    }
 }
 ```
 ```http
@@ -1584,9 +1837,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/bank"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "BankAccountForbidden",
+    "message": "You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 ```http
@@ -1615,6 +1882,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | array[[Event](#event)] | A list of events ordered chronologically.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to request bank account events for a user that you don't manage.
 404 | [Error](#error) | Bank account not found.
 
 
@@ -1664,9 +1932,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/bank/me' is not a valid URL or service is down",
+    "fields": {
+        "url" -> "https://api.finstack.io/api/v1/bank/me"
+    }
 }
 ```
 
@@ -1750,9 +2020,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -1950,9 +2223,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -2012,9 +2288,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -2432,28 +2711,28 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "20",
+    "count": "1",
     "directDebits": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "mandateId": "string",
-            "finalCreditorId": "string",
-            "finalCreditorName": "string",
-            "payerId": "string",
-            "payerName": "string",
-            "amount": "number",
-            "currency": "string",
-            "label": "string",
-            "valueDate": "string",
-            "fee": "number",
-            "canBeCanceled": "boolean",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "2",
+            "status": "SubmittedToPSP",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
+            "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+            "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+            "finalCreditorName": "Alice Jones",
+            "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+            "payerName": "Bob Adams",
+            "amount": 100.00,
+            "currency": "EUR",
+            "label": "Party bill",
+            "valueDate": "2015-02-02",
+            "fee": 1.00,
+            "canBeCanceled": "false",
+            "metadata": {}
         }
     ]
 }
@@ -2463,9 +2742,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -2493,12 +2775,12 @@ X-Auth-Token: myapikeyvalue
 Content-Type: application/json
 
 {
-    "id": "string",
-    "mandateId": "string",
-    "amount": "number",
-    "label": "string",
-    "valueDate": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "amount": "100.00",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "metadata": {}
 }
 ```
 
@@ -2509,23 +2791,23 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "mandateId": "string",
-    "finalCreditorId": "string",
-    "finalCreditorName": "string",
-    "payerId": "string",
-    "payerName": "string",
-    "amount": "number",
-    "currency": "string",
-    "label": "string",
-    "valueDate": "string",
-    "fee": "number",
-    "canBeCanceled": "boolean",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "PendingMandateValidation",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+    "finalCreditorName": "Alice Jones",
+    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+    "payerName": "Bob Adams",
+    "amount": 100.00,
+    "currency": "EUR",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "fee": 0.00,
+    "canBeCanceled": "true",
+    "metadata": {}
 }
 ```
 ```http
@@ -2568,22 +2850,22 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "20",
+    "count": "1",
     "events": [
         {
-            "resourceType": "string",
+            "resourceType": "SDDPayment",
             "resourceLink": {
-                "rel": "string",
-                "href": "string",
-                "verb": "string"
+                "rel": "Get Payment",
+                "href": "https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "verb": "GET"
             },
-            "resourceId": "string",
-            "versionNo": "integer",
-            "timestamp": "string",
-            "commandId": "string",
-            "eventType": "string"
+            "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": 1,
+            "timestamp": "2015-01-01T12:00:00.000Z",
+            "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "eventType": "SDDPaymentInitiated"
         }
     ]
 }
@@ -2593,9 +2875,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -2631,23 +2916,23 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "mandateId": "string",
-    "finalCreditorId": "string",
-    "finalCreditorName": "string",
-    "payerId": "string",
-    "payerName": "string",
-    "amount": "number",
-    "currency": "string",
-    "label": "string",
-    "valueDate": "string",
-    "fee": "number",
-    "canBeCanceled": "boolean",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "PendingMandateValidation",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+    "finalCreditorName": "Alice Jones",
+    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+    "payerName": "Bob Adams",
+    "amount": 100.00,
+    "currency": "EUR",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "fee": 0.00,
+    "canBeCanceled": "true",
+    "metadata": {}
 }
 ```
 ```http
@@ -2713,17 +2998,17 @@ Content-Type: application/json
 
 [
     {
-        "resourceType": "string",
+        "resourceType": "SDDPayment",
         "resourceLink": {
-            "rel": "string",
-            "href": "string",
-            "verb": "string"
+            "rel": "Get Payment",
+            "href": "https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "GET"
         },
-        "resourceId": "string",
-        "versionNo": "integer",
-        "timestamp": "string",
-        "commandId": "string",
-        "eventType": "string"
+        "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+        "versionNo": 1,
+        "timestamp": "2015-01-01T12:00:00.000Z",
+        "commandId": "b220221e-e461-4819-b10f-0c838c59fe82",
+        "eventType": "SDDPaymentInitiated"
     }
 ]
 ```
@@ -2778,23 +3063,23 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "mandateId": "string",
-    "finalCreditorId": "string",
-    "finalCreditorName": "string",
-    "payerId": "string",
-    "payerName": "string",
-    "amount": "number",
-    "currency": "string",
-    "label": "string",
-    "valueDate": "string",
-    "fee": "number",
-    "canBeCanceled": "boolean",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "2",
+    "status": "Canceled",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+    "finalCreditorName": "Alice Jones",
+    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+    "payerName": "Bob Adams",
+    "amount": 100.00,
+    "currency": "EUR",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "fee": 1.00,
+    "canBeCanceled": "false",
+    "metadata": {}
 }
 ```
 ```http
@@ -2886,9 +3171,12 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MaximumLimitExceeded",
+    "message": "You cannot request 150 elements because it exceeds the maximum limit (100)",
+    "fields": {
+        "requestedLimit": "150",
+         "maximumLimit": "100"
+    }
 }
 ```
 
@@ -3492,23 +3780,23 @@ bankAccounts<span title="required" class="required">&nbsp;*&nbsp;</span> | array
 ## DirectDebit
 ```json
 {
-    "id": "string",
-    "versionNo": "integer",
-    "status": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "mandateId": "string",
-    "finalCreditorId": "string",
-    "finalCreditorName": "string",
-    "payerId": "string",
-    "payerName": "string",
-    "amount": "number",
-    "currency": "string",
-    "label": "string",
-    "valueDate": "string",
-    "fee": "number",
-    "canBeCanceled": "boolean",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "PendingMandateValidation",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+    "finalCreditorName": "Alice Jones",
+    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+    "payerName": "Bob Adams",
+    "amount": 100.00,
+    "currency": "EUR",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "fee": 0.00,
+    "canBeCanceled": "true",
+    "metadata": {}
 }
 ```
 
@@ -3540,28 +3828,28 @@ metadata | string |  | Custom information goes here.
 ## DirectDebitArray
 ```json
 {
-    "offset": "integer",
-    "limit": "integer",
-    "count": "integer",
+    "offset": "0",
+    "limit": "20",
+    "count": "1",
     "directDebits": [
         {
-            "id": "string",
-            "versionNo": "integer",
-            "status": "string",
-            "createdAt": "string",
-            "updatedAt": "string",
-            "mandateId": "string",
-            "finalCreditorId": "string",
-            "finalCreditorName": "string",
-            "payerId": "string",
-            "payerName": "string",
-            "amount": "number",
-            "currency": "string",
-            "label": "string",
-            "valueDate": "string",
-            "fee": "number",
-            "canBeCanceled": "boolean",
-            "metadata": "string"
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "PendingMandateValidation",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
+            "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+            "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+            "finalCreditorName": "Alice Jones",
+            "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+            "payerName": "Bob Adams",
+            "amount": 100.00,
+            "currency": "EUR",
+            "label": "Party bill",
+            "valueDate": "2015-02-02",
+            "fee": 0.00,
+            "canBeCanceled": "true",
+            "metadata": {}
         }
     ]
 }
@@ -3599,7 +3887,7 @@ An object that describes an event that occurred to a resource. An event is uniqu
 ### Fields
 Name | Type | Format | Description
 --- | --- | --- | ---
-resourceType<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>User</li><li>Wallet</li></ul> | Type of resource that the event applies to.
+resourceType<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>SDDPayment</li><li>User</li></ul> | Type of resource that the event applies to.
 resourceLink<span title="required" class="required">&nbsp;*&nbsp;</span> | [Link](#link) |  | Link to follow to get the latest representation of the resource.
 resourceId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the resource affected by the event.
 versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the resource after the event occurs.
@@ -3894,12 +4182,12 @@ metadata | string |  | Custom information goes here.
 ## NewDirectDebit
 ```json
 {
-    "id": "string",
-    "mandateId": "string",
-    "amount": "number",
-    "label": "string",
-    "valueDate": "string",
-    "metadata": "string"
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "amount": "100.00",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "metadata": {}
 }
 ```
 
