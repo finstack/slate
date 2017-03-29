@@ -513,7 +513,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/users/toto"
+        "url": "https://api.finstack.io/api/v1/users/toto"
     }
 }
 ```
@@ -641,7 +641,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/users/toto"
+        "url": "https://api.finstack.io/api/v1/users/toto"
     }
 }
 ```
@@ -733,7 +733,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/users/toto"
+        "url": "https://api.finstack.io/api/v1/users/toto"
     }
 }
 ```
@@ -829,7 +829,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/users/toto/bank_accccount' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/users/toto/bank_accccount"
+        "url": "https://api.finstack.io/api/v1/users/toto/bank_accccount"
     }
 }
 ```
@@ -1367,7 +1367,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/meeee' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/meeee"
+        "url": "https://api.finstack.io/api/v1/meeee"
     }
 }
 ```
@@ -1516,7 +1516,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/bank"
+        "url": "https://api.finstack.io/api/v1/bank"
     }
 }
 ```
@@ -1675,7 +1675,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/bank/toto' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/bank/toto"
+        "url": "https://api.finstack.io/api/v1/bank/toto"
     }
 }
 ```
@@ -1757,7 +1757,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/bank"
+        "url": "https://api.finstack.io/api/v1/bank"
     }
 }
 ```
@@ -1840,7 +1840,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/bank"
+        "url": "https://api.finstack.io/api/v1/bank"
     }
 }
 ```
@@ -1935,7 +1935,7 @@ Content-Type: application/json
     "code": "InvalidURL",
     "message": "String 'https://api.finstack.io/api/v1/bank/me' is not a valid URL or service is down",
     "fields": {
-        "url" -> "https://api.finstack.io/api/v1/bank/me"
+        "url": "https://api.finstack.io/api/v1/bank/me"
     }
 }
 ```
