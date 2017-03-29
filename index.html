@@ -221,9 +221,12 @@ curl <span class="s2">"api_endpoint_here"</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -400,9 +403,11 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserAlreadyExists"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User with email foo@example.com already exists"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo@example.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -526,9 +531,12 @@ update the existing user with the new details.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -620,9 +628,12 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -741,27 +752,33 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/users/toto"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -893,9 +910,33 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/users/toto"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -944,6 +985,16 @@ the display name and other details about each user.</p>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to modify a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="delete-user">Delete User</h2>
@@ -982,15 +1033,37 @@ the display name and other details about each user.</p>
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/users/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/users/toto"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1029,14 +1102,19 @@ the display name and other details about each user.</p>
 <td>Deactivated user.</td>
 </tr>
 <tr>
-<td>204</td>
-<td>no content</td>
-<td>User not found.</td>
-</tr>
-<tr>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to delete a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
 </tr>
 </tbody></table>
 
@@ -1083,9 +1161,33 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/users/toto/bank_accccount' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/users/toto/bank_accccount"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1127,6 +1229,16 @@ the display name and other details about each user.</p>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to access bank accounts of a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
 </tr>
 </tbody></table>
 
@@ -1196,9 +1308,34 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1258,6 +1395,16 @@ the display name and other details about each user.</p>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to access mandates of a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
 </tr>
 </tbody></table>
 
@@ -1332,9 +1479,34 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1395,6 +1567,16 @@ the display name and other details about each user.</p>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to access mandates of a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="find-direct-debits-of-user">Find Direct Debits of User</h2>
@@ -1409,28 +1591,28 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SubmittedToPSP"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1439,9 +1621,34 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1502,6 +1709,16 @@ the display name and other details about each user.</p>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to access direct debits of a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-events-for-user">Get Events for User</h2>
@@ -1535,9 +1752,34 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1579,6 +1821,16 @@ the display name and other details about each user.</p>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to access events on a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
 </tr>
 </tbody></table>
 
@@ -1638,9 +1890,11 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/meeee' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/meeee"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1717,9 +1971,12 @@ the display name and other details about each user.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1824,9 +2081,33 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/bank"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access user 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage it"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1869,6 +2150,16 @@ they authorized you to access their information.</p>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to create a bank account for a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-all-bank-account-events">Get All Bank Account Events</h2>
@@ -1907,9 +2198,12 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2013,9 +2307,11 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/bank/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/bank/toto"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
@@ -2122,9 +2418,11 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/bank"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
@@ -2232,9 +2530,22 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/bank' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/bank"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccountForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 because you do not manage its owner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"bankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -2289,6 +2600,11 @@ they authorized you to access their information.</p>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to request bank account events for a user that you don&rsquo;t manage.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Bank account not found.</td>
@@ -2338,9 +2654,11 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/bank/me' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="nt">"https://api.finstack.io/api/v1/bank/me"</span><span class="w">
+    </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2435,9 +2753,12 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2696,9 +3017,12 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2791,9 +3115,12 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3384,28 +3711,28 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SubmittedToPSP"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3414,9 +3741,12 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3479,12 +3809,12 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3495,23 +3825,23 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
@@ -3577,22 +3907,22 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPaymentInitiated"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3601,9 +3931,12 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3678,23 +4011,23 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
@@ -3789,17 +4122,17 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"commandId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPaymentInitiated"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3880,23 +4213,23 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
@@ -4016,9 +4349,12 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaximumLimitExceeded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot request 150 elements because it exceeds the maximum limit (100)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"requestedLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"maximumLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4995,23 +5331,23 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h2 id="directdebit">DirectDebit</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5133,28 +5469,28 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h2 id="directdebitarray">DirectDebitArray</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5227,7 +5563,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>resourceType<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>User</li><li>Wallet</li></ul></td>
+<td><div>Acceptable values:</div><ul class="enum"><li>BankAccount</li><li>Document</li><li>SDDMandate</li><li>SDDPayment</li><li>User</li></ul></td>
 <td>Type of resource that the event applies to.</td>
 </tr>
 <tr>
@@ -5825,12 +6161,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h2 id="newdirectdebit">NewDirectDebit</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
