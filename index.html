@@ -2037,6 +2037,7 @@ they authorized you to access their information.</p>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 
 <span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
@@ -2825,6 +2826,7 @@ they authorized you to access their information.</p>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 
 <span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -2892,6 +2894,8 @@ they authorized you to access their information.</p>
     </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2899,9 +2903,33 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidJSON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidKeyForOperation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not allowed to execute a Write operation with a Read API key"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"apiKeyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="s2">"apiKeyRole"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Read"</span><span class="w">
+        </span><span class="s2">"operationType"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Write"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankAccountNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"bankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2943,6 +2971,16 @@ they authorized you to access their information.</p>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to create a mandate with the wrong API key for example.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Bank account or user not found.</td>
 </tr>
 </tbody></table>
 
@@ -3008,6 +3046,8 @@ they authorized you to access their information.</p>
             </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -3240,6 +3280,8 @@ they authorized you to access their information.</p>
     </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3247,18 +3289,22 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/mandates/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/mandates/toto"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -3266,9 +3312,9 @@ they authorized you to access their information.</p>
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3376,6 +3422,8 @@ they authorized you to access their information.</p>
     </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3383,9 +3431,22 @@ they authorized you to access their information.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/mandates/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/mandates/toto"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -3393,9 +3454,9 @@ they authorized you to access their information.</p>
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3440,6 +3501,11 @@ they authorized you to access their information.</p>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you cancel a mandate where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Mandate not found.</td>
@@ -3463,9 +3529,22 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/mandates/toto/sign' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/mandates/toto/sign"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -3473,9 +3552,9 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3520,6 +3599,11 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Mandate not found.</td>
@@ -3540,9 +3624,22 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/mandates/toto/doc' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/mandates/toto/doc"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -3550,9 +3647,9 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3597,6 +3694,11 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Mandate not found.</td>
@@ -3634,9 +3736,22 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/mandates/toto/events' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/mandates/toto/events"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
@@ -3644,9 +3759,9 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3691,6 +3806,11 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a mandate where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Mandate not found.</td>
@@ -3700,7 +3820,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <h1 id="direct-debits">Direct Debits</h1>
 
 <h2 id="find-direct-debits">Find Direct Debits</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -3804,7 +3924,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tbody></table>
 
 <h2 id="create-direct-debit">Create Direct Debit</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/direct_debits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -3848,9 +3968,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidJSON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidKeyForOperation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not allowed to execute a Write operation with a Read API key"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"apiKeyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="s2">"apiKeyRole"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Read"</span><span class="w">
+        </span><span class="s2">"operationType"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Write"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MandateNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3893,10 +4037,20 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to create a direct debit with the wrong API key for example.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Mandate not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-all-direct-debit-events">Get All Direct Debit Events</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -3915,7 +4069,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
             </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -4000,7 +4154,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tbody></table>
 
 <h2 id="get-direct-debit">Get Direct Debit</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -4034,27 +4188,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4110,7 +4270,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tbody></table>
 
 <h2 id="get-events-for-direct-debit">Get Events for Direct Debit</h2>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/directdebits/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -4125,7 +4285,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
         </span><span class="nt">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -4140,18 +4300,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto/events' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto/events"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4195,6 +4370,11 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 <tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you request a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+</tr>
+<tr>
 <td>404</td>
 <td><a href="#error">Error</a></td>
 <td>Direct debit not found.</td>
@@ -4202,7 +4382,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tbody></table>
 
 <h2 id="cancel-direct-debit">Cancel Direct Debit</h2>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/directdebits/{id}/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/v1/direct_debits/{id}/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 
@@ -4236,27 +4416,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto/cancel' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto/cancel"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4439,9 +4625,11 @@ User,UserCreated,5
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/event/summary' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/event/summary"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4523,57 +4711,111 @@ The first line is the header of the file and contains column names.</p>
 <td>PSP</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>DebtorRegistered</td>
 <td>Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.</td>
 <td>Finstack website</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateCanceled</td>
 <td>Occurs when the creditor cancels a mandate request either from the API or the back office.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateRequested</td>
 <td>Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateRevoked</td>
 <td>Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateSignedElectronically</td>
 <td>Occurs when the mandate is electronically signed by the debtor.</td>
 <td>Finstack website</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateSignedManually</td>
 <td>Occurs when the mandate is manually signed by the debtor.</td>
 <td>Finstack back office</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SDDMandateUsedByPSP</td>
 <td>Occurs when the mandate is used for the first time for a direct debit.</td>
 <td>PSP</td>
 </tr>
 <tr>
-<td>Mandate</td>
+<td>SDDMandate</td>
 <td>SignedDocumentStored</td>
 <td>Occurs immediately after signature when the signed PDF document is archived.</td>
 <td>Finstack system</td>
 </tr>
 <tr>
+<td>SDDPayment</td>
+<td>DirectDebitSubmittedToPSP</td>
+<td>Occurs when the direct debit is submitted to be executed.</td>
+<td>Finstack system</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentCanceled</td>
+<td>Occurs when the direct debit is canceled by the final creditor either from the back office or the API.</td>
+<td>Finstack back office or API</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentExecuted</td>
+<td>Occurs when the direct debit is executed.</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentFullySettled</td>
+<td>Occurs 8 weeks after the direct debit is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this direct debit was released.</td>
+<td>Finstack system</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentInitiated</td>
+<td>Occurs when a direct debit is created.</td>
+<td>Finstack website, back office or API</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentPartiallySettled</td>
+<td>After successful execution, occurs when the amount collected is sent to creditor&rsquo;s bank account before rolling reserve.</td>
+<td>Finstack system</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentPlanned</td>
+<td>Occurs when the mandate associated with the direct debit is signed.</td>
+<td>Finstack website or API</td>
+</tr>
+<tr>
+<td>SDDPayment</td>
+<td>SDDPaymentRejected</td>
+<td>Occurs when the direct debit is charged back.</td>
+<td>Payer&rsquo;s bank account</td>
+</tr>
+<tr>
 <td>User</td>
 <td>UserCreated</td>
 <td>Occurs when a user is created through the API or when she registers directly at Finstack&rsquo;s website.</td>
+<td>Finstack website or API</td>
+</tr>
+<tr>
+<td>User</td>
+<td>UserModified</td>
+<td>Occurs when a user is modified.</td>
 <td>Finstack website or API</td>
 </tr>
 </tbody></table>
@@ -4622,9 +4864,11 @@ The first line is the header of the file and contains column names.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/webhook' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/webhook"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4702,9 +4946,22 @@ The first line is the header of the file and contains column names.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidJSON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidKeyForOperation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not allowed to execute a Write operation with a Read API key"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"apiKeyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="w">
+        </span><span class="s2">"apiKeyRole"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Read"</span><span class="w">
+        </span><span class="s2">"operationType"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Write"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4748,6 +5005,11 @@ All other parameters are optional, by default all events are sent. Resources and
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you try to create a direct debit with the wrong API key for example.</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-recent-webhook-failures">Get Recent Webhook Failures</h2>
@@ -4769,6 +5031,17 @@ All other parameters are optional, by default all events are sent. Resources and
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/webhooks/failure' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/webhooks/failure"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>Returns the list of failures (if any) on all webhooks in the previous month.
 Failures are grouped by webhook ID and ordered chronologically.</p>
@@ -4786,6 +5059,11 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>200</td>
 <td>array[<a href="#webhookfailure">WebhookFailure</a>]</td>
 <td>A list of failures.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
 </tbody></table>
 
@@ -4829,27 +5107,33 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/webhooks/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/webhooks/toto"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4948,9 +5232,31 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidJSON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4999,6 +5305,16 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
 </tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you update a webhook belonging to a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Webhook not found.</td>
+</tr>
 </tbody></table>
 
 <h2 id="delete-webhook">Delete Webhook</h2>
@@ -5037,15 +5353,37 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listen to specific events on bank accounts and wallets and all events on users."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
-</code></pre>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/webhooks/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/webhooks/toto"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebhookNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"webhookId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -5084,14 +5422,19 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Deleted webhook.</td>
 </tr>
 <tr>
-<td>204</td>
-<td>no content</td>
-<td>Webhook not found.</td>
-</tr>
-<tr>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><a href="#error">Error</a></td>
+<td>Forbidden, occurs when you delete a webhook belonging to a user you don&rsquo;t manage.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>Webhook not found.</td>
 </tr>
 </tbody></table>
 
@@ -5451,7 +5794,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>number</td>
 <td></td>
-<td>Fee charged to the creditor for the direct debit, &#39;0.50&rsquo; for example.</td>
+<td>Fee charged to the creditor for the direct debit once executed or chargedback in EUR, &#39;0.50&rsquo; for example.</td>
 </tr>
 <tr>
 <td>canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span></td>
@@ -5488,7 +5831,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
             </span><span class="nt">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -5783,6 +6126,8 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5914,6 +6259,18 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
 </tr>
 <tr>
+<td>isUsed<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>boolean</td>
+<td></td>
+<td>Is &#39;true&rsquo; if mandate is referenced in a direct debit.</td>
+</tr>
+<tr>
+<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Fee charged to the final creditor for the mandate once signed electronically in EUR, &#39;0.99&rsquo; for example.</td>
+</tr>
+<tr>
 <td>metadata</td>
 <td>string</td>
 <td></td>
@@ -5973,6 +6330,8 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="nt">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
             </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -6107,6 +6466,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h2 id="newbankaccount">NewBankAccount</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marc Dupont"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOGEFRPPXXX"</span><span class="p">,</span><span class="w">
@@ -6127,6 +6487,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string. You are required to generate the id of the bank account in order to make the call idempotent. That allows you to safely retry to create the bank account without fearing to create multiple accounts on our side in case there was a network problem.</td>
+</tr>
 <tr>
 <td>userId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
@@ -6210,7 +6576,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>valueDate</td>
 <td>string</td>
 <td>date</td>
-<td>Date when the payment is charged, for example &#39;2015-01-01&rsquo;. If not specified, the direct debit will be executed as soon as possible.</td>
+<td>Date when the payment is charged, for example &#39;2015-01-01&rsquo;. If not specified or date is in the past, the direct debit will be executed as soon as possible.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6222,6 +6588,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 
 <h2 id="newmandate">NewMandate</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -6241,6 +6608,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.</td>
+</tr>
 <tr>
 <td>debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
@@ -7231,6 +7604,18 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>AmountTooBigForDirectDebit</td>
+<td>400 &ndash; Bad Request</td>
+<td>Amount $amount is too big, the maximum amount for a direct debit is 20000€</td>
+<td>amount</td>
+</tr>
+<tr>
+<td>AmountTooSmallForDirectDebit</td>
+<td>400 &ndash; Bad Request</td>
+<td>Amount $amount is too small, the minimum amount for a direct debit is 1€</td>
+<td>amount</td>
+</tr>
+<tr>
 <td>BankAccountForbidden</td>
 <td>403 &ndash; Forbidden</td>
 <td>You cannot view bank account $bankAccountId because you do not manage its owner</td>
@@ -7253,6 +7638,24 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>403 &ndash; Forbidden</td>
 <td>You cannot delete user $userId in production</td>
 <td>userId</td>
+</tr>
+<tr>
+<td>DirectDebitCannotBeCanceled</td>
+<td>400 &ndash; Bad Request</td>
+<td>You cannot cancel direct debit &rsquo;$directDebitId&rsquo; because it is in status $status</td>
+<td>directDebitId, status</td>
+</tr>
+<tr>
+<td>DirectDebitForbidden</td>
+<td>403 &ndash; Forbidden</td>
+<td>You cannot view direct debit $directDebitId because you do not manage one of its parties</td>
+<td>directDebitId</td>
+</tr>
+<tr>
+<td>DirectDebitNotFound</td>
+<td>404 &ndash; Not Found</td>
+<td>Direct debit $directDebitId was not found</td>
+<td>directDebitId</td>
 </tr>
 <tr>
 <td>DocumentCannotBeDeleted</td>
@@ -7379,6 +7782,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>400 &ndash; Bad Request</td>
 <td>Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId</td>
 <td>mandateId, mandateRef, unexpectedDebtorId, expectedDebtorId</td>
+</tr>
+<tr>
+<td>UnknownEventTypeForResourceType</td>
+<td>400 &ndash; Bad Request</td>
+<td>Event type $eventType unknown for resource type $resourceType, occurs with webhooks</td>
+<td>eventType, resourceType</td>
 </tr>
 <tr>
 <td>UntilShouldBeAfterSince</td>
