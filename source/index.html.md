@@ -1468,6 +1468,7 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -2053,6 +2054,7 @@ Content-Type: application/json
 X-Auth-Token: myapikeyvalue
 
 {
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
@@ -2120,6 +2122,8 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
+    "isUsed": false,
+    "fee": 0.99,
     "metadata": "custom data"
 }
 ```
@@ -2213,6 +2217,8 @@ Content-Type: application/json
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
+            "isUsed": false,
+            "fee": 0.99,
             "metadata": "custom data"
         }
     ]
@@ -2374,6 +2380,8 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
+    "isUsed": false,
+    "fee": 0.99,
     "metadata": "custom data"
 }
 ```
@@ -2480,6 +2488,8 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
+    "isUsed": false,
+    "fee": 0.99,
     "metadata": "custom data"
 }
 ```
@@ -2700,7 +2710,7 @@ Http code | Type | Description
 ## Find Direct Debits
 
 ```http
-GET /api/v1/directdebits HTTP/1.1
+GET /api/v1/direct_debits HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2770,7 +2780,7 @@ Http code | Type | Description
 ## Create Direct Debit
 
 ```http
-POST /api/v1/directdebits HTTP/1.1
+POST /api/v1/direct_debits HTTP/1.1
 X-Auth-Token: myapikeyvalue
 Content-Type: application/json
 
@@ -2839,7 +2849,7 @@ Http code | Type | Description
 ## Get All Direct Debit Events
 
 ```http
-GET /api/v1/directdebits/events HTTP/1.1
+GET /api/v1/direct_debits/events HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2858,7 +2868,7 @@ Content-Type: application/json
             "resourceType": "SDDPayment",
             "resourceLink": {
                 "rel": "Get Payment",
-                "href": "https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -2905,7 +2915,7 @@ Http code | Type | Description
 ## Get Direct Debit
 
 ```http
-GET /api/v1/directdebits/{id} HTTP/1.1
+GET /api/v1/direct_debits/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2986,7 +2996,7 @@ Http code | Type | Description
 ## Get Events for Direct Debit
 
 ```http
-GET /api/v1/directdebits/{id}/events HTTP/1.1
+GET /api/v1/direct_debits/{id}/events HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -3001,7 +3011,7 @@ Content-Type: application/json
         "resourceType": "SDDPayment",
         "resourceLink": {
             "rel": "Get Payment",
-            "href": "https://app.finstack.io/api/v1/directdebits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3052,7 +3062,7 @@ Http code | Type | Description
 ## Cancel Direct Debit
 
 ```http
-POST /api/v1/directdebits/{id}/cancel HTTP/1.1
+POST /api/v1/direct_debits/{id}/cancel HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -3820,7 +3830,7 @@ amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  |
 currency<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Always equal to 'EUR'.
 label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
 valueDate<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date | Date when the payment is charged, for example '2015-01-01'.
-fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit, '0.50' for example.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit once executed or chargedback in EUR, '0.50' for example.
 canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the direct debit can still be canceled, 'false' otherwise.
 metadata | string |  | Custom information goes here.
 
@@ -3847,7 +3857,7 @@ metadata | string |  | Custom information goes here.
             "currency": "EUR",
             "label": "Party bill",
             "valueDate": "2015-02-02",
-            "fee": 0.00,
+            "fee": 1.00,
             "canBeCanceled": "true",
             "metadata": {}
         }
@@ -4015,6 +4025,8 @@ verb<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
+    "isUsed": false,
+    "fee": 0.99,
     "metadata": "custom data"
 }
 ```
@@ -4044,6 +4056,8 @@ thirdPartyCreditorId | string |  | The third party creditor's (or true creditor)
 scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
 isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a direct debit.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate once signed electronically in EUR, '0.99' for example.
 metadata | string |  | Custom information goes here.
 
 	
@@ -4100,6 +4114,8 @@ metadata | string |  | Custom information goes here.
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
+            "isUsed": false,
+            "fee": 0.99,
             "metadata": "custom data"
         }
     ]
@@ -4158,6 +4174,7 @@ metadata | string |  | Custom information goes here.
 ## NewBankAccount
 ```json
 {
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "userId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "holder": "Marc Dupont",
     "bic": "SOGEFRPPXXX",
@@ -4172,6 +4189,7 @@ Bank account information required to declare a new bank account.
 ### Fields
 Name | Type | Format | Description
 --- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the bank account in order to make the call idempotent. That allows you to safely retry to create the bank account without fearing to create multiple accounts on our side in case there was a network problem.
 userId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The user's id to whom the bank account belongs.
 holder | string |  | Holder of the bank account. By default, it is equal to the full name of the user or it's legal entity name.
 bic<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Bank Identifier Code.
@@ -4201,13 +4219,14 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid |
 mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate. The mandate will be used to know who is the creditor and who is the payer in this transaction.
 amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
 label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
-valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified, the direct debit will be executed as soon as possible.
+valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified or date is in the past, the direct debit will be executed as soon as possible.
 metadata | string |  | Custom information goes here.
 
 
 ## NewMandate
 ```json
 {
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
     "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
@@ -4221,6 +4240,7 @@ Information required to issue a new mandate.
 ### Fields
 Name | Type | Format | Description
 --- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.
 debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The debtor's bank account id.
 finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
 sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
