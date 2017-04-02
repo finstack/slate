@@ -43,10 +43,15 @@ The Finstack API uses the following business error codes, variables are marked w
 
 Error Code | HTTP Code | Message | Fields
 ---------- | --------- | ------- | ------
+AmountTooBigForDirectDebit | 400 -- Bad Request | Amount $amount is too big, the maximum amount for a direct debit is 20000€ | amount
+AmountTooSmallForDirectDebit | 400 -- Bad Request | Amount $amount is too small, the minimum amount for a direct debit is 1€ | amount
 BankAccountForbidden | 403 -- Forbidden | You cannot view bank account $bankAccountId because you do not manage its owner | bankAccountId
 BankAccountNotActive | 400 -- Bad Request | Bank account $bankAccountId is not active and cannot be used in a mandate | bankAccountId
 BankAccountNotFound | 404 -- Not Found | Bank account $bankAccountId was not found | bankAccountId
 DeleteUserNotAllowedInProduction | 403 -- Forbidden | You cannot delete user $userId in production | userId
+DirectDebitCannotBeCanceled | 400 -- Bad Request | You cannot cancel direct debit '$directDebitId' because it is in status $status | directDebitId, status
+DirectDebitForbidden | 403 -- Forbidden | You cannot view direct debit $directDebitId because you do not manage one of its parties | directDebitId
+DirectDebitNotFound | 404 -- Not Found | Direct debit $directDebitId was not found | directDebitId
 DocumentCannotBeDeleted | 403 -- Forbidden | You cannot delete/ignore document '$fileName' because it was already sent to PSP | documentId, documentType, fileName
 DocumentNotFound | 404 -- Not Found | Document $documentId was not found | documentId
 InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €) | walletId, balance, pendingFees
@@ -68,6 +73,7 @@ PSPError | 400 -- Bad Request | Payment service provider error ($code): $message
 SCIAndUMRAlreadyUsed | 400 -- Bad Request | A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr | sci, umr
 SinceShouldBeInThePast | 400 -- Bad Request | Since ($since) should be before now ($now) | since, now
 UnexpectedDebtorForMandate | 400 -- Bad Request | Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId | mandateId, mandateRef, unexpectedDebtorId, expectedDebtorId
+UnknownEventTypeForResourceType | 400 -- Bad Request | Event type $eventType unknown for resource type $resourceType, occurs with webhooks | eventType, resourceType
 UntilShouldBeAfterSince | 400 -- Bad Request | Since ($since) should be before until ($until) | since, until
 UserAlreadyExists | 400 -- Bad Request | User with email $email already exists | email 
 UserForbidden | 403 -- Forbidden | You cannot view user $userId because you do not manage it | userId

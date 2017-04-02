@@ -2132,9 +2132,35 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidJSON",
+    "message": "...",
+    "fields": "..."
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "InvalidKeyForOperation",
+    "message": "You are not allowed to execute a Write operation with a Read API key",
+    "fields": {
+        "apiKeyId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "apiKeyRole": "Read"
+        "operationType": "Write"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "BankAccountNotFound",
+    "message": "Bank account 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "bankAccountId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -2151,6 +2177,8 @@ Http code | Type | Description
 --- | --- | ---
 201 | [Mandate](#mandate) | The newly created mandate.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to create a mandate with the wrong API key for example.
+404 | [Error](#error) | Bank account or user not found.
 
 
 ## Find Mandates with Details
@@ -2390,9 +2418,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/mandates/toto' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/mandates/toto"
+    }
 }
 ```
 ```http
@@ -2400,9 +2430,11 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "MandateForbidden",
+    "message": "You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2411,9 +2443,9 @@ Content-Type: application/json
 
 {
     "code": "MandateNotFound",
-    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "message": "Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
-        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -2498,9 +2530,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/mandates/toto' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/mandates/toto"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "MandateForbidden",
+    "message": "You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2509,9 +2555,9 @@ Content-Type: application/json
 
 {
     "code": "MandateNotFound",
-    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "message": "Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
-        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -2529,6 +2575,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | [Mandate](#mandate) | Mandate canceled or revoked.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you cancel a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
 
 
@@ -2552,9 +2599,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/mandates/toto/sign' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/mandates/toto/sign"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "MandateForbidden",
+    "message": "You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2563,9 +2624,9 @@ Content-Type: application/json
 
 {
     "code": "MandateNotFound",
-    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "message": "Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
-        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -2583,6 +2644,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | no content | URL to send to the debtor.
 400 | [Error](#error) | Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).
+403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
 
 
@@ -2603,9 +2665,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/mandates/toto/doc' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/mandates/toto/doc"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "MandateForbidden",
+    "message": "You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2614,9 +2690,9 @@ Content-Type: application/json
 
 {
     "code": "MandateNotFound",
-    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "message": "Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
-        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -2634,6 +2710,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | no content | Signed mandate file in PDF format.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
 
 
@@ -2671,9 +2748,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/mandates/toto/events' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/mandates/toto/events"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "MandateForbidden",
+    "message": "You cannot access mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2682,9 +2773,9 @@ Content-Type: application/json
 
 {
     "code": "MandateNotFound",
-    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "message": "Mandate 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
-        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -2702,6 +2793,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | array[[Event](#event)] | A list of events ordered chronologically.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
 
 
@@ -2825,9 +2917,35 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidJSON",
+    "message": "...",
+    "fields": "..."
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "InvalidKeyForOperation",
+    "message": "You are not allowed to execute a Write operation with a Read API key",
+    "fields": {
+        "apiKeyId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "apiKeyRole": "Read"
+        "operationType": "Write"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "MandateNotFound",
+    "message": "Mandate 02b331d1-f938-4ac4-ab40-ac287c8e8c61 was not found",
+    "fields": {
+        "mandateId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+    }
 }
 ```
 
@@ -2844,6 +2962,8 @@ Http code | Type | Description
 --- | --- | ---
 201 | [DirectDebit](#directdebit) | The newly created direct debit.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to create a direct debit with the wrong API key for example.
+404 | [Error](#error) | Mandate not found.
 
 
 ## Get All Direct Debit Events
@@ -2950,9 +3070,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/direct_debits/toto"
+    }
 }
 ```
 ```http
@@ -2960,9 +3082,11 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "DirectDebitForbidden",
+    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -2970,9 +3094,11 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "DirectDebitNotFound",
+    "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3027,9 +3153,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto/events' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/direct_debits/toto/events"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "DirectDebitForbidden",
+    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -3037,9 +3177,11 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "DirectDebitNotFound",
+    "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3056,6 +3198,7 @@ Http code | Type | Description
 --- | --- | ---
 200 | array[[Event](#event)] | A list of events ordered chronologically.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you request a direct debit where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
 
 
@@ -3097,9 +3240,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto/cancel' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/direct_debits/toto/cancel"
+    }
 }
 ```
 ```http
@@ -3107,9 +3252,11 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "DirectDebitForbidden",
+    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "fields": {
+        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -3117,9 +3264,11 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "DirectDebitNotFound",
+    "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3233,9 +3382,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/event/summary' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/event/summary"
+    }
 }
 ```
 
@@ -3264,15 +3415,24 @@ Http code | Type | Description
 |BankAccount|BankAccountCreated|Occurs when a bank account is created.|Finstack website or API|
 |BankAccount|BankAccountDisabled|Occurs when a bank account is disabled.|API|
 |BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
-|Mandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.|Finstack website|
-|Mandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the back office.|Finstack back office or API|
-|Mandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack back office or API|
-|Mandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
-|Mandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
-|Mandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the debtor.|Finstack back office|
-|Mandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
-|Mandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
+|SDDMandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.|Finstack website|
+|SDDMandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the back office.|Finstack back office or API|
+|SDDMandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack back office or API|
+|SDDMandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
+|SDDMandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
+|SDDMandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the debtor.|Finstack back office|
+|SDDMandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
+|SDDMandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
+|SDDPayment|DirectDebitSubmittedToPSP|Occurs when the direct debit is submitted to be executed.|Finstack system|
+|SDDPayment|SDDPaymentCanceled|Occurs when the direct debit is canceled by the final creditor either from the back office or the API.|Finstack back office or API|
+|SDDPayment|SDDPaymentExecuted|Occurs when the direct debit is executed.|PSP|
+|SDDPayment|SDDPaymentFullySettled|Occurs 8 weeks after the direct debit is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this direct debit was released.|Finstack system|
+|SDDPayment|SDDPaymentInitiated|Occurs when a direct debit is created.|Finstack website, back office or API|
+|SDDPayment|SDDPaymentPartiallySettled|After successful execution, occurs when the amount collected is sent to creditor's bank account before rolling reserve.|Finstack system|
+|SDDPayment|SDDPaymentPlanned|Occurs when the mandate associated with the direct debit is signed.|Finstack website or API|
+|SDDPayment|SDDPaymentRejected|Occurs when the direct debit is charged back.|Payer's bank account|
 |User|UserCreated|Occurs when a user is created through the API or when she registers directly at Finstack's website.|Finstack website or API|
+|User|UserModified|Occurs when a user is modified.|Finstack website or API|
    
 
 #Webhooks
@@ -3322,9 +3482,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/webhook' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/webhook"
+    }
 }
 ```
 
@@ -3391,9 +3553,23 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidJSON",
+    "message": "...",
+    "fields": "..."
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "InvalidKeyForOperation",
+    "message": "You are not allowed to execute a Write operation with a Read API key",
+    "fields": {
+        "apiKeyId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61"
+        "apiKeyRole": "Read"
+        "operationType": "Write"
+    }
 }
 ```
 
@@ -3412,6 +3588,7 @@ Http code | Type | Description
 --- | --- | ---
 201 | [Webhook](#webhook) | The newly created webhook.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you try to create a direct debit with the wrong API key for example.
 
 
 ## Get Recent Webhook Failures
@@ -3435,6 +3612,18 @@ Content-Type: application/json
     }
 ]
 ```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/webhooks/failure' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/webhooks/failure"
+    }
+}
+```
 
 Returns the list of failures (if any) on all webhooks in the previous month.
 Failures are grouped by webhook ID and ordered chronologically.
@@ -3445,6 +3634,7 @@ Failures are grouped by webhook ID and ordered chronologically.
 Http code | Type | Description
 --- | --- | ---
 200 | array[[WebhookFailure](#webhookfailure)] | A list of failures.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
 ## Get Webhook
@@ -3490,9 +3680,11 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/webhooks/toto' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/webhooks/toto"
+    }
 }
 ```
 ```http
@@ -3500,9 +3692,11 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "WebhookForbidden",
+    "message": "You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 ```http
@@ -3510,9 +3704,11 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "WebhookNotFound",
+    "message": "Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3580,9 +3776,33 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidJSON",
+    "message": "...",
+    "fields": "..."
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "WebhookForbidden",
+    "message": "You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "WebhookNotFound",
+    "message": "Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3600,6 +3820,8 @@ Http code | Type | Description
 --- | --- | ---
 200 | [Webhook](#webhook) | The updated webhook.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you update a webhook belonging to a user you don't manage.
+404 | [Error](#error) | Webhook not found.
 
 ## Delete Webhook
 
@@ -3640,16 +3862,39 @@ Content-Type: application/json
 }
 ```
 ```http
-HTTP/1.1 204 No Content
-```
-```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "code": "string",
-    "message": "string",
-    "fields": "string"
+    "code": "InvalidURL",
+    "message": "String 'https://api.finstack.io/api/v1/webhooks/toto' is not a valid URL or service is down",
+    "fields": {
+        "url": "https://api.finstack.io/api/v1/webhooks/toto"
+    }
+}
+```
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+    "code": "WebhookForbidden",
+    "message": "You cannot access webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage its owner",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "WebhookNotFound",
+    "message": "Webhook 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
+    "fields": {
+        "webhookId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+    }
 }
 ```
 
@@ -3665,8 +3910,9 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 Http code | Type | Description
 --- | --- | ---
 200 | [Webhook](#webhook) | Deleted webhook.
-204 | no content | Webhook not found.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
+403 | [Error](#error) | Forbidden, occurs when you delete a webhook belonging to a user you don't manage.
+404 | [Error](#error) | Webhook not found.
 
 
 
