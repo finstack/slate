@@ -296,7 +296,7 @@ curl <span class="s2">"api_endpoint_here"</span>
     </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"designation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -1338,9 +1338,9 @@ the display name and other details about each user.</p>
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T18:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -1349,12 +1349,12 @@ the display name and other details about each user.</p>
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -1458,7 +1458,7 @@ the display name and other details about each user.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#shortmandatearray">ShortMandateArray</a></td>
+<td><a href="#shortsddmandatearray">ShortSDDMandateArray</a></td>
 <td>An array of mandates.</td>
 </tr>
 <tr>
@@ -1499,20 +1499,20 @@ the display name and other details about each user.</p>
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">            
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">            
             </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -1532,8 +1532,8 @@ the display name and other details about each user.</p>
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
@@ -1624,7 +1624,7 @@ the display name and other details about each user.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#mandatearray">MandateArray</a></td>
+<td><a href="#sddmandatearray">SDDMandateArray</a></td>
 <td>An array of mandates with details.</td>
 </tr>
 <tr>
@@ -1761,7 +1761,7 @@ the display name and other details about each user.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#directdebitarray">DirectDebitArray</a></td>
+<td><a href="#sddpaymentarray">SDDPaymentArray</a></td>
 <td>An array of direct debits.</td>
 </tr>
 <tr>
@@ -2732,9 +2732,9 @@ they authorized you to access their information.</p>
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -2743,12 +2743,12 @@ they authorized you to access their information.</p>
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -2830,7 +2830,7 @@ they authorized you to access their information.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#shortmandatearray">ShortMandateArray</a></td>
+<td><a href="#shortsddmandatearray">ShortSDDMandateArray</a></td>
 <td>An array of mandates.</td>
 </tr>
 <tr>
@@ -2847,7 +2847,7 @@ they authorized you to access their information.</p>
 
 <span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
@@ -2865,10 +2865,10 @@ they authorized you to access their information.</p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ToBeSigned"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lemon Way"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lemon Way"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Mandate"</span><span class="p">,</span><span class="w">
@@ -2881,12 +2881,12 @@ they authorized you to access their information.</p>
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2906,8 +2906,8 @@ they authorized you to access their information.</p>
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
@@ -2963,7 +2963,7 @@ they authorized you to access their information.</p>
 <tr>
 <td>mandate<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
-<td><a href="#newmandate">NewMandate</a></td>
+<td><a href="#newsddmandate">NewSDDMandate</a></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -2979,7 +2979,7 @@ they authorized you to access their information.</p>
 </thead><tbody>
 <tr>
 <td>201</td>
-<td><a href="#mandate">Mandate</a></td>
+<td><a href="#sddmandate">SDDMandate</a></td>
 <td>The newly created mandate.</td>
 </tr>
 <tr>
@@ -3020,20 +3020,20 @@ they authorized you to access their information.</p>
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">            
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">            
             </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -3053,8 +3053,8 @@ they authorized you to access their information.</p>
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
@@ -3121,7 +3121,7 @@ they authorized you to access their information.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#mandatearray">MandateArray</a></td>
+<td><a href="#sddmandatearray">SDDMandateArray</a></td>
 <td>An array of mandates with details.</td>
 </tr>
 <tr>
@@ -3248,20 +3248,20 @@ they authorized you to access their information.</p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3281,8 +3281,8 @@ they authorized you to access their information.</p>
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
@@ -3354,7 +3354,7 @@ they authorized you to access their information.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#mandate">Mandate</a></td>
+<td><a href="#sddmandate">SDDMandate</a></td>
 <td>Mandate found.</td>
 </tr>
 <tr>
@@ -3390,20 +3390,20 @@ they authorized you to access their information.</p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoked"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3418,8 +3418,8 @@ they authorized you to access their information.</p>
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
@@ -3491,7 +3491,7 @@ they authorized you to access their information.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#mandate">Mandate</a></td>
+<td><a href="#sddmandate">SDDMandate</a></td>
 <td>Mandate canceled or revoked.</td>
 </tr>
 <tr>
@@ -3553,7 +3553,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the link to be sent to the debtor for her to sign the mandate. Can only be called when the mandate is not signed yet.</p>
+<p>Returns the link to be sent to the payer for her to sign the mandate. Can only be called when the mandate is not signed yet.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3585,7 +3585,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>200</td>
 <td>no content</td>
-<td>URL to send to the debtor.</td>
+<td>URL to send to the payer.</td>
 </tr>
 <tr>
 <td>400</td>
@@ -3894,7 +3894,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#directdebitarray">DirectDebitArray</a></td>
+<td><a href="#sddpaymentarray">SDDPaymentArray</a></td>
 <td>An array of direct debits.</td>
 </tr>
 <tr>
@@ -3989,7 +3989,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>directDebit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
-<td><a href="#newdirectdebit">NewDirectDebit</a></td>
+<td><a href="#newsddpayment">NewSDDPayment</a></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -4005,7 +4005,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </thead><tbody>
 <tr>
 <td>201</td>
-<td><a href="#directdebit">DirectDebit</a></td>
+<td><a href="#sddpayment">SDDPayment</a></td>
 <td>The newly created direct debit.</td>
 </tr>
 <tr>
@@ -4217,7 +4217,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#directdebit">DirectDebit</a></td>
+<td><a href="#sddpayment">SDDPayment</a></td>
 <td>Direct debit found.</td>
 </tr>
 <tr>
@@ -4435,7 +4435,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </thead><tbody>
 <tr>
 <td>200</td>
-<td><a href="#directdebit">DirectDebit</a></td>
+<td><a href="#sddpayment">SDDPayment</a></td>
 <td>The canceled direct debit.</td>
 </tr>
 <tr>
@@ -4570,8 +4570,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 resourceType,eventType,numberOfEvents
 BankAccount,BankAccountCreated,4
-Mandate,SDDMandateRequested,4
-Mandate,SDDMandateSignedElectronically,1
+SDDMandate,SDDMandateRequested,4
+SDDMandate,SDDMandateSignedElectronically,1
 User,UserCreated,5
 
 </code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
@@ -4664,8 +4664,8 @@ The first line is the header of the file and contains column names.</p>
 </tr>
 <tr>
 <td>SDDMandate</td>
-<td>DebtorRegistered</td>
-<td>Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.</td>
+<td>PayerRegistered</td>
+<td>Occurs after payer registration in Finstack when the mandate is requested manually from the back office and the payer is not yet a Finstack user.</td>
 <td>Finstack website</td>
 </tr>
 <tr>
@@ -4677,25 +4677,25 @@ The first line is the header of the file and contains column names.</p>
 <tr>
 <td>SDDMandate</td>
 <td>SDDMandateRequested</td>
-<td>Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.</td>
+<td>Occurs when a mandate is created (also called requested because a signature request is issued to the payer.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>SDDMandate</td>
 <td>SDDMandateRevoked</td>
-<td>Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.</td>
+<td>Occurs when any of the parties (payer, creditor or third party creditor) revokes the mandate.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>SDDMandate</td>
 <td>SDDMandateSignedElectronically</td>
-<td>Occurs when the mandate is electronically signed by the debtor.</td>
+<td>Occurs when the mandate is electronically signed by the payer.</td>
 <td>Finstack website</td>
 </tr>
 <tr>
 <td>SDDMandate</td>
 <td>SDDMandateSignedManually</td>
-<td>Occurs when the mandate is manually signed by the debtor.</td>
+<td>Occurs when the mandate is manually signed by the payer.</td>
 <td>Finstack back office</td>
 </tr>
 <tr>
@@ -5596,207 +5596,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="directdebit">DirectDebit</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Desribes a payment via SEPA Direct Debit (SDD).</p>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>Should be a valid UUID string.</td>
-</tr>
-<tr>
-<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Version number of the object, useful to track changes through events.</td>
-</tr>
-<tr>
-<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul></td>
-<td>Status of the direct debit.</td>
-</tr>
-<tr>
-<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>date-time</td>
-<td>Creation timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
-</tr>
-<tr>
-<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>date-time</td>
-<td>Last update timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
-</tr>
-<tr>
-<td>mandateId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>ID of the associated mandate.</td>
-</tr>
-<tr>
-<td>finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.</td>
-</tr>
-<tr>
-<td>finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Full name or legal entity name of the final creditor.</td>
-</tr>
-<tr>
-<td>payerId</td>
-<td>string</td>
-<td>uuid</td>
-<td>ID of the payer.</td>
-</tr>
-<tr>
-<td>payerName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Full name or legal entity name of the final creditor.</td>
-</tr>
-<tr>
-<td>amount<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>number</td>
-<td></td>
-<td>Amount to be withdrawn from the payer&rsquo;s bank account, for example &lsquo;100.00&rsquo;. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.</td>
-</tr>
-<tr>
-<td>currency<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Always equal to &lsquo;EUR&rsquo;.</td>
-</tr>
-<tr>
-<td>label<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Short message that will appear on the payer&rsquo;s bank account statement.</td>
-</tr>
-<tr>
-<td>valueDate<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>date</td>
-<td>Date when the payment is charged, for example &lsquo;2015-01-01&rsquo;.</td>
-</tr>
-<tr>
-<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>number</td>
-<td></td>
-<td>Fee charged to the creditor for the direct debit once executed or chargedback in EUR, &lsquo;0.50&rsquo; for example.</td>
-</tr>
-<tr>
-<td>canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>boolean</td>
-<td></td>
-<td>Is &lsquo;true&rsquo; if the direct debit can still be canceled, &lsquo;false&rsquo; otherwise.</td>
-</tr>
-<tr>
-<td>metadata</td>
-<td>string</td>
-<td></td>
-<td>Custom information goes here.</td>
-</tr>
-</tbody></table>
-
-<h2 id="directdebitarray">DirectDebitArray</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Position in pagination.</td>
-</tr>
-<tr>
-<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Number of items to retrieve (100 max).</td>
-</tr>
-<tr>
-<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Total number of direct debits available.</td>
-</tr>
-<tr>
-<td>directDebits<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>array[<a href="#directdebit">DirectDebit</a>]</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
 <h2 id="event">Event</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
@@ -5997,299 +5796,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="mandate">Mandate</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>A managed mandate.</p>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>Should be a valid UUID string.</td>
-</tr>
-<tr>
-<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Version number of the object, useful to track changes through events.</td>
-</tr>
-<tr>
-<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul></td>
-<td>Status of the mandate.</td>
-</tr>
-<tr>
-<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>date-time</td>
-<td>Creation timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
-</tr>
-<tr>
-<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>date-time</td>
-<td>Last update timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
-</tr>
-<tr>
-<td>debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Full name of the debtor whether it&rsquo;s an individual or legal entity.<br/>It is taken from the &lsquo;holder&rsquo; field of the bank account!<br/></td>
-</tr>
-<tr>
-<td>sci<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
-</tr>
-<tr>
-<td>creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
-</tr>
-<tr>
-<td>thirdPartyCreditorDesignation</td>
-<td>string</td>
-<td></td>
-<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.<br/></td>
-</tr>
-<tr>
-<td>signatureDate</td>
-<td>string</td>
-<td>date</td>
-<td>Signature date, for example &lsquo;2015-01-01&rsquo;.</td>
-</tr>
-<tr>
-<td>documentId</td>
-<td>string</td>
-<td>uuid</td>
-<td>ID of the signed PDF document (if any).</td>
-</tr>
-<tr>
-<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>array[<a href="#link">Link</a>]</td>
-<td></td>
-<td>Available actions on the mandate.</td>
-</tr>
-<tr>
-<td>debtorId</td>
-<td>string</td>
-<td>uuid</td>
-<td>The debtor&rsquo;s user id.</td>
-</tr>
-<tr>
-<td>debtorBankAccountId</td>
-<td>string</td>
-<td>uuid</td>
-<td>The debtor&rsquo;s bank account id.</td>
-</tr>
-<tr>
-<td>creditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>The creditor&rsquo;s user id. The creditor must be a corporation that owns an SCI.</td>
-</tr>
-<tr>
-<td>thirdPartyCreditorId</td>
-<td>string</td>
-<td></td>
-<td>The third party creditor&rsquo;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/></td>
-</tr>
-<tr>
-<td>scheme<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul></td>
-<td>Can be &lsquo;Core&rsquo; or &lsquo;B2B&rsquo;.</td>
-</tr>
-<tr>
-<td>isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>boolean</td>
-<td></td>
-<td>Is &lsquo;true&rsquo; by default.</td>
-</tr>
-<tr>
-<td>umr<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
-</tr>
-<tr>
-<td>isUsed<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>boolean</td>
-<td></td>
-<td>Is &lsquo;true&rsquo; if mandate is referenced in a direct debit.</td>
-</tr>
-<tr>
-<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>number</td>
-<td></td>
-<td>Fee charged to the final creditor for the mandate once signed electronically in EUR, &lsquo;0.99&rsquo; for example.</td>
-</tr>
-<tr>
-<td>metadata</td>
-<td>string</td>
-<td></td>
-<td>Custom information goes here.</td>
-</tr>
-</tbody></table>
-
-<h2 id="mandatearray">MandateArray</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mandates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedManually"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"debtorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Position in pagination.</td>
-</tr>
-<tr>
-<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Number of items to retrieve (100 max).</td>
-</tr>
-<tr>
-<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>integer</td>
-<td>int32</td>
-<td>Total number of mandates available.</td>
-</tr>
-<tr>
-<td>mandates<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>array[<a href="#mandate">Mandate</a>]</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
 <h2 id="modifieduser">ModifiedUser</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
@@ -6439,7 +5945,60 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="newdirectdebit">NewDirectDebit</h2>
+<h2 id="newsddmandate">NewSDDMandate</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Information required to issue a new mandate.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.</td>
+</tr>
+<tr>
+<td>payerBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>The payer&rsquo;s bank account id.</td>
+</tr>
+<tr>
+<td>finalCreditorId</td>
+<td>string</td>
+<td></td>
+<td>Use this field only if the final creditor of the mandate is not the API user.</td>
+</tr>
+<tr>
+<td>sendSignatureRequestByEmail</td>
+<td>boolean</td>
+<td></td>
+<td>Set this flag to &lsquo;true&rsquo; if you want to send a mandate signature request by email through Finstack.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="newsddpayment">NewSDDPayment</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
@@ -6490,59 +6049,6 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>string</td>
 <td>date</td>
 <td>Date when the payment is charged, for example &lsquo;2015-01-01&rsquo;. If not specified or date is in the past, the direct debit will be executed as soon as possible.</td>
-</tr>
-<tr>
-<td>metadata</td>
-<td>string</td>
-<td></td>
-<td>Custom information goes here.</td>
-</tr>
-</tbody></table>
-
-<h2 id="newmandate">NewMandate</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Information required to issue a new mandate.</p>
-
-<h3 id="fields">Fields</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td>uuid</td>
-<td>Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.</td>
-</tr>
-<tr>
-<td>debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>string</td>
-<td></td>
-<td>The debtor&rsquo;s bank account id.</td>
-</tr>
-<tr>
-<td>finalCreditorId</td>
-<td>string</td>
-<td></td>
-<td>Use this field only if the final creditor of the mandate is not the API user.</td>
-</tr>
-<tr>
-<td>sendSignatureRequestByEmail</td>
-<td>boolean</td>
-<td></td>
-<td>Set this flag to &lsquo;true&rsquo; if you want to send a mandate signature request by email through Finstack.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6684,16 +6190,510 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="shortmandate">ShortMandate</h2>
+<h2 id="sddmandate">SDDMandate</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedElectronically"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A managed mandate.</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Version number of the object, useful to track changes through events.</td>
+</tr>
+<tr>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul></td>
+<td>Status of the mandate.</td>
+</tr>
+<tr>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Creation timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Last update timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>payerName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name of the payer whether it&rsquo;s an individual or legal entity.<br/>It is taken from the &lsquo;holder&rsquo; field of the bank account!<br/></td>
+</tr>
+<tr>
+<td>sci<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.</td>
+</tr>
+<tr>
+<td>creditorName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
+</tr>
+<tr>
+<td>thirdPartyCreditorName</td>
+<td>string</td>
+<td></td>
+<td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.<br/></td>
+</tr>
+<tr>
+<td>signatureDate</td>
+<td>string</td>
+<td>date</td>
+<td>Signature date, for example &lsquo;2015-01-01&rsquo;.</td>
+</tr>
+<tr>
+<td>documentId</td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the signed PDF document (if any).</td>
+</tr>
+<tr>
+<td>links<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>array[<a href="#link">Link</a>]</td>
+<td></td>
+<td>Available actions on the mandate.</td>
+</tr>
+<tr>
+<td>payerId</td>
+<td>string</td>
+<td>uuid</td>
+<td>The payer&rsquo;s user id.</td>
+</tr>
+<tr>
+<td>payerBankAccountId</td>
+<td>string</td>
+<td>uuid</td>
+<td>The payer&rsquo;s bank account id.</td>
+</tr>
+<tr>
+<td>creditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>The creditor&rsquo;s user id. The creditor must be a corporation that owns an SCI.</td>
+</tr>
+<tr>
+<td>thirdPartyCreditorId</td>
+<td>string</td>
+<td></td>
+<td>The third party creditor&rsquo;s (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/></td>
+</tr>
+<tr>
+<td>scheme<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul></td>
+<td>Can be &lsquo;Core&rsquo; or &lsquo;B2B&rsquo;.</td>
+</tr>
+<tr>
+<td>isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>boolean</td>
+<td></td>
+<td>Is &lsquo;true&rsquo; by default.</td>
+</tr>
+<tr>
+<td>umr<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
+</tr>
+<tr>
+<td>isUsed<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>boolean</td>
+<td></td>
+<td>Is &lsquo;true&rsquo; if mandate is referenced in a direct debit.</td>
+</tr>
+<tr>
+<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Fee charged to the final creditor for the mandate once signed electronically in EUR, &lsquo;0.99&rsquo; for example.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="sddmandatearray">SDDMandateArray</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mandates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedManually"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE98ZZZ09999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b331d1-f938-4ac4-ab40-ac287c8e8c61"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Creditor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Third Party Creditor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revoke Mandate"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d919d8e-0679-4d41-a368-84e896e230ab"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Total number of mandates available.</td>
+</tr>
+<tr>
+<td>mandates<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>array[<a href="#sddmandate">SDDMandate</a>]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="sddpayment">SDDPayment</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Desribes a payment via SEPA Direct Debit (SDD).</p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>Should be a valid UUID string.</td>
+</tr>
+<tr>
+<td>versionNo<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Version number of the object, useful to track changes through events.</td>
+</tr>
+<tr>
+<td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td><div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul></td>
+<td>Status of the direct debit.</td>
+</tr>
+<tr>
+<td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Creation timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date-time</td>
+<td>Last update timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
+</tr>
+<tr>
+<td>mandateId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the associated mandate.</td>
+</tr>
+<tr>
+<td>finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.</td>
+</tr>
+<tr>
+<td>finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name or legal entity name of the final creditor.</td>
+</tr>
+<tr>
+<td>payerId</td>
+<td>string</td>
+<td>uuid</td>
+<td>ID of the payer.</td>
+</tr>
+<tr>
+<td>payerName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Full name or legal entity name of the final creditor.</td>
+</tr>
+<tr>
+<td>amount<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Amount to be withdrawn from the payer&rsquo;s bank account, for example &lsquo;100.00&rsquo;. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.</td>
+</tr>
+<tr>
+<td>currency<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Always equal to &lsquo;EUR&rsquo;.</td>
+</tr>
+<tr>
+<td>label<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td></td>
+<td>Short message that will appear on the payer&rsquo;s bank account statement.</td>
+</tr>
+<tr>
+<td>valueDate<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>string</td>
+<td>date</td>
+<td>Date when the payment is charged, for example &lsquo;2015-01-01&rsquo;.</td>
+</tr>
+<tr>
+<td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>number</td>
+<td></td>
+<td>Fee charged to the creditor for the direct debit once executed or chargedback in EUR, &lsquo;0.50&rsquo; for example.</td>
+</tr>
+<tr>
+<td>canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>boolean</td>
+<td></td>
+<td>Is &lsquo;true&rsquo; if the direct debit can still be canceled, &lsquo;false&rsquo; otherwise.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+<td>Custom information goes here.</td>
+</tr>
+</tbody></table>
+
+<h2 id="sddpaymentarray">SDDPaymentArray</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PendingMandateValidation"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b10dc0b-f123-4d9c-8504-72dc76aa716c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75068e62-1c01-42dd-a125-f79910124615"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"finalCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Jones"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c0498f0-df15-40f4-89b9-5af16f846c31"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Adams"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.00</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party bill"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-02"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"canBeCanceled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offset<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Position in pagination.</td>
+</tr>
+<tr>
+<td>limit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Number of items to retrieve (100 max).</td>
+</tr>
+<tr>
+<td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>integer</td>
+<td>int32</td>
+<td>Total number of direct debits available.</td>
+</tr>
+<tr>
+<td>directDebits<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>array[<a href="#sddpayment">SDDPayment</a>]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="shortsddmandate">ShortSDDMandate</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedManually"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T18:00:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -6702,12 +6702,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -6756,7 +6756,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul></td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul></td>
 <td>Status of the mandate.</td>
 </tr>
 <tr>
@@ -6772,19 +6772,19 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Last update timestamp in UTC, for example &lsquo;2015-01-01T12:00:00.000Z&rsquo;.</td>
 </tr>
 <tr>
-<td>debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>payerName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
-<td>Full name of the debtor whether it&rsquo;s an individual or legal entity. It is taken from the &lsquo;holder&rsquo; field of the bank account!</td>
+<td>Full name of the payer whether it&rsquo;s an individual or legal entity. It is taken from the &lsquo;holder&rsquo; field of the bank account!</td>
 </tr>
 <tr>
-<td>creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>creditorName<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
 <td>Full name of the creditor whether it&rsquo;s an individual or legal entity.</td>
 </tr>
 <tr>
-<td>thirdPartyCreditorDesignation</td>
+<td>thirdPartyCreditorName</td>
 <td>string</td>
 <td></td>
 <td>Full name of the third party creditor (if any) whether it&rsquo;s an individual or legal entity.</td>
@@ -6803,7 +6803,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 </tbody></table>
 
-<h2 id="shortmandatearray">ShortMandateArray</h2>
+<h2 id="shortsddmandatearray">ShortSDDMandateArray</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
@@ -6815,9 +6815,9 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SignedManually"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01T18:00:00.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debtorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debtor SAS"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"creditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"thirdPartyCreditorDesignation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payer SAS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creditor SARL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thirdPartyCreditorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3rd party Company"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -6826,12 +6826,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Debtor Bank Account"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payer Bank Account"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -6885,7 +6885,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 </tr>
 <tr>
 <td>mandates<span title="required" class="required">&nbsp;*&nbsp;</span></td>
-<td>array[<a href="#shortmandate">ShortMandate</a>]</td>
+<td>array[<a href="#shortsddmandate">ShortSDDMandate</a>]</td>
 <td></td>
 <td></td>
 </tr>
@@ -6894,7 +6894,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <h2 id="shortuser">ShortUser</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"designation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -6939,7 +6939,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Should be a valid UUID string.</td>
 </tr>
 <tr>
-<td>designation<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>name<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td></td>
 <td>If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.</td>
@@ -6972,7 +6972,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"designation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An Awesome Company"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:00:00.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
