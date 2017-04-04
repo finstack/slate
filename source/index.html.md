@@ -84,7 +84,7 @@ Content-Type: application/json
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "designation": "An Awesome Company",
+            "name": "An Awesome Company",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
@@ -899,9 +899,9 @@ Content-Type: application/json
             "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",
+            "payerName": "Payer SAS",
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",
             "signatureDate": "2015-02-01",
             "links": [
                 {
@@ -910,12 +910,12 @@ Content-Type: application/json
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor",
+                    "rel": "Get Payer",
                     "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor Bank Account",
+                    "rel": "Get Payer Bank Account",
                     "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
@@ -991,7 +991,7 @@ limit | query | integer | Optional. Number of items to retrieve. Default is 20, 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [ShortMandateArray](#shortmandatearray) | An array of mandates.
+200 | [ShortSDDMandateArray](#shortsddmandatearray) | An array of mandates.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you try to access mandates of a user that you don't manage.
 404 | [Error](#error) | User not found.
@@ -1021,20 +1021,20 @@ Content-Type: application/json
             "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
+            "payerName": "Payer SAS",
             "sci": "DE98ZZZ09999999999",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",            
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",            
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
                 {
-                    "rel": "Get Debtor",
+                    "rel": "Get Payer",
                     "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor Bank Account",
+                    "rel": "Get Payer Bank Account",
                     "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
@@ -1054,8 +1054,8 @@ Content-Type: application/json
                     "verb": "DELETE"
                 }
             ],
-            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "scheme": "Core",
@@ -1117,7 +1117,7 @@ limit | query | integer | Optional. Number of items to retrieve. Default is 20, 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [MandateArray](#mandatearray) | An array of mandates with details.
+200 | [SDDMandateArray](#sddmandatearray) | An array of mandates with details.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you try to access mandates of a user that you don't manage.
 404 | [Error](#error) | User not found.
@@ -1215,7 +1215,7 @@ limit | query | integer | Optional. Number of items to retrieve. Default is 20, 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [DirectDebitArray](#directdebitarray) | An array of direct debits.
+200 | [SDDPaymentArray](#sddpaymentarray) | An array of direct debits.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you try to access direct debits of a user that you don't manage.
 404 | [Error](#error) | User not found.
@@ -1976,9 +1976,9 @@ Content-Type: application/json
             "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",
+            "payerName": "Payer SAS",
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",
             "signatureDate": "2015-02-01",
             "links": [
                 {
@@ -1987,12 +1987,12 @@ Content-Type: application/json
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor",
+                    "rel": "Get Payer",
                     "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor Bank Account",
+                    "rel": "Get Payer Bank Account",
                     "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
@@ -2043,7 +2043,7 @@ limit | query | integer | 20 | Optional. Number of items to retrieve. Default is
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [ShortMandateArray](#shortmandatearray) | An array of mandates.
+200 | [ShortSDDMandateArray](#shortsddmandatearray) | An array of mandates.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create Mandate
@@ -2055,7 +2055,7 @@ X-Auth-Token: myapikeyvalue
 
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
     "metadata": "custom data"
@@ -2074,10 +2074,10 @@ Content-Type: application/json
     "status": "ToBeSigned",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-01-01T12:00:00.000Z",
-    "debtorDesignation": "Debtor SAS",
+    "payerName": "Payer SAS",
     "sci": "DE98ZZZ09999999999",
-    "creditorDesignation": "Lemon Way",
-    "thirdPartyCreditorDesignation": "3rd party Company",
+    "creditorName": "Lemon Way",
+    "thirdPartyCreditorName": "3rd party Company",
     "links": [
         {
             "rel": "Get Mandate",
@@ -2090,12 +2090,12 @@ Content-Type: application/json
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor",
+            "rel": "Get Payer",
             "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor Bank Account",
+            "rel": "Get Payer Bank Account",
             "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
@@ -2115,8 +2115,8 @@ Content-Type: application/json
             "verb": "DELETE"
         }
     ],
-    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "scheme": "Core",
@@ -2170,12 +2170,12 @@ Creates a direct debit mandate to be signed.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-mandate<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewMandate](#newmandate) | 
+mandate<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewSDDMandate](#newsddmandate) | 
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-201 | [Mandate](#mandate) | The newly created mandate.
+201 | [SDDMandate](#sddmandate) | The newly created mandate.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you try to create a mandate with the wrong API key for example.
 404 | [Error](#error) | Bank account or user not found.
@@ -2205,20 +2205,20 @@ Content-Type: application/json
             "status": "SignedElectronically",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T12:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
+            "payerName": "Payer SAS",
             "sci": "DE98ZZZ09999999999",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",            
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",            
             "signatureDate": "2015-02-01",
             "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
             "links": [
                 {
-                    "rel": "Get Debtor",
+                    "rel": "Get Payer",
                     "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor Bank Account",
+                    "rel": "Get Payer Bank Account",
                     "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
@@ -2238,8 +2238,8 @@ Content-Type: application/json
                     "verb": "DELETE"
                 }
             ],
-            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "scheme": "Core",
@@ -2279,7 +2279,7 @@ limit | query | integer | Optional. Number of items to retrieve. Default is 20, 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [MandateArray](#mandatearray) | An array of mandates with details.
+200 | [SDDMandateArray](#sddmandatearray) | An array of mandates with details.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
@@ -2368,20 +2368,20 @@ Content-Type: application/json
     "status": "SignedElectronically",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
-    "debtorDesignation": "Debtor SAS",
+    "payerName": "Payer SAS",
     "sci": "DE98ZZZ09999999999",
-    "creditorDesignation": "Creditor SARL",
-    "thirdPartyCreditorDesignation": "3rd party Company",
+    "creditorName": "Creditor SARL",
+    "thirdPartyCreditorName": "3rd party Company",
     "signatureDate": "2015-02-01",
     "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "links": [
         {
-            "rel": "Get Debtor",
+            "rel": "Get Payer",
             "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor Bank Account",
+            "rel": "Get Payer Bank Account",
             "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
@@ -2401,8 +2401,8 @@ Content-Type: application/json
             "verb": "DELETE"
         }
     ],
-    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "scheme": "Core",
@@ -2461,7 +2461,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [Mandate](#mandate) | Mandate found.
+200 | [SDDMandate](#sddmandate) | Mandate found.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
@@ -2485,20 +2485,20 @@ Content-Type: application/json
     "status": "Revoked",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T12:00:00.000Z",
-    "debtorDesignation": "Debtor SAS",
+    "payerName": "Payer SAS",
     "sci": "DE98ZZZ09999999999",
-    "creditorDesignation": "Creditor SARL",
-    "thirdPartyCreditorDesignation": "3rd party Company",
+    "creditorName": "Creditor SARL",
+    "thirdPartyCreditorName": "3rd party Company",
     "signatureDate": "2015-02-01",
     "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
     "links": [
         {
-            "rel": "Get Debtor",
+            "rel": "Get Payer",
             "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor Bank Account",
+            "rel": "Get Payer Bank Account",
             "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
@@ -2513,8 +2513,8 @@ Content-Type: application/json
             "verb": "GET"
         }
     ],
-    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "scheme": "Core",
@@ -2573,7 +2573,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [Mandate](#mandate) | Mandate canceled or revoked.
+200 | [SDDMandate](#sddmandate) | Mandate canceled or revoked.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you cancel a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
@@ -2631,7 +2631,7 @@ Content-Type: application/json
 }
 ```
 
-Returns the link to be sent to the debtor for her to sign the mandate. Can only be called when the mandate is not signed yet.
+Returns the link to be sent to the payer for her to sign the mandate. Can only be called when the mandate is not signed yet.
 
 
 ### Parameters
@@ -2642,7 +2642,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | no content | URL to send to the debtor.
+200 | no content | URL to send to the payer.
 400 | [Error](#error) | Bad request, occurs when the mandate is not to be signed (already signed, revoked or canceled).
 403 | [Error](#error) | Forbidden, occurs when you request a mandate where you don't manage any of the parties involved.
 404 | [Error](#error) | Mandate not found.
@@ -2866,7 +2866,7 @@ limit | query | integer | Optional. Number of items to retrieve. Default is 20, 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [DirectDebitArray](#directdebitarray) | An array of direct debits.
+200 | [SDDPaymentArray](#sddpaymentarray) | An array of direct debits.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 ## Create Direct Debit
@@ -2955,12 +2955,12 @@ Creates a direct debit to withdraw money from a payer's bank account.
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-directDebit<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewDirectDebit](#newdirectdebit) | 
+directDebit<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewSDDPayment](#newsddpayment) | 
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-201 | [DirectDebit](#directdebit) | The newly created direct debit.
+201 | [SDDPayment](#sddpayment) | The newly created direct debit.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you try to create a direct debit with the wrong API key for example.
 404 | [Error](#error) | Mandate not found.
@@ -3113,7 +3113,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [DirectDebit](#directdebit) | Direct debit found.
+200 | [SDDPayment](#sddpayment) | Direct debit found.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 403 | [Error](#error) | Forbidden, occurs when you request a direct debit where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
@@ -3283,7 +3283,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string |
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [DirectDebit](#directdebit) | The canceled direct debit.
+200 | [SDDPayment](#sddpayment) | The canceled direct debit.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid or when the direct debit can no longer be canceled.
 403 | [Error](#error) | Forbidden, occurs when you cancel a direct debit where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
@@ -3372,8 +3372,8 @@ Content-Type: text/csv
 
 resourceType,eventType,numberOfEvents
 BankAccount,BankAccountCreated,4
-Mandate,SDDMandateRequested,4
-Mandate,SDDMandateSignedElectronically,1
+SDDMandate,SDDMandateRequested,4
+SDDMandate,SDDMandateSignedElectronically,1
 User,UserCreated,5
 
 ```
@@ -3415,12 +3415,12 @@ Http code | Type | Description
 |BankAccount|BankAccountCreated|Occurs when a bank account is created.|Finstack website or API|
 |BankAccount|BankAccountDisabled|Occurs when a bank account is disabled.|API|
 |BankAccount|BankAccountUpdatedByPSP|Occurs when the bank account is submitted and analyzed by a Payment Service Provider (PSP).|PSP|
-|SDDMandate|DebtorRegistered|Occurs after debtor registration in Finstack when the mandate is requested manually from the back office and the debtor is not yet a Finstack user.|Finstack website|
+|SDDMandate|PayerRegistered|Occurs after payer registration in Finstack when the mandate is requested manually from the back office and the payer is not yet a Finstack user.|Finstack website|
 |SDDMandate|SDDMandateCanceled|Occurs when the creditor cancels a mandate request either from the API or the back office.|Finstack back office or API|
-|SDDMandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the debtor.|Finstack back office or API|
-|SDDMandate|SDDMandateRevoked|Occurs when any of the parties (debtor, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
-|SDDMandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the debtor.|Finstack website|
-|SDDMandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the debtor.|Finstack back office|
+|SDDMandate|SDDMandateRequested|Occurs when a mandate is created (also called requested because a signature request is issued to the payer.|Finstack back office or API|
+|SDDMandate|SDDMandateRevoked|Occurs when any of the parties (payer, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
+|SDDMandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the payer.|Finstack website|
+|SDDMandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the payer.|Finstack back office|
 |SDDMandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
 |SDDMandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
 |SDDPayment|DirectDebitSubmittedToPSP|Occurs when the direct debit is submitted to be executed.|Finstack system|
@@ -4033,93 +4033,6 @@ count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | in
 bankAccounts<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[BankAccount](#bankaccount)] |  | 
 
 
-## DirectDebit
-```json
-{
-    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": "1",
-    "status": "PendingMandateValidation",
-    "createdAt": "2015-01-01T12:00:00.000Z",
-    "updatedAt": "2015-02-01T12:00:00.000Z",
-    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
-    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
-    "finalCreditorName": "Alice Jones",
-    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
-    "payerName": "Bob Adams",
-    "amount": 100.00,
-    "currency": "EUR",
-    "label": "Party bill",
-    "valueDate": "2015-02-02",
-    "fee": 0.00,
-    "canBeCanceled": "true",
-    "metadata": {}
-}
-```
-
-Desribes a payment via SEPA Direct Debit (SDD).
-
-	
-### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
-versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul> | Status of the direct debit.
-createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
-updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
-mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate.
-finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.
-finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
-payerId | string | uuid | ID of the payer.
-payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
-amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
-currency<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Always equal to 'EUR'.
-label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
-valueDate<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date | Date when the payment is charged, for example '2015-01-01'.
-fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit once executed or chargedback in EUR, '0.50' for example.
-canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the direct debit can still be canceled, 'false' otherwise.
-metadata | string |  | Custom information goes here.
-
-	
-## DirectDebitArray
-```json
-{
-    "offset": "0",
-    "limit": "20",
-    "count": "1",
-    "directDebits": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": "1",
-            "status": "PendingMandateValidation",
-            "createdAt": "2015-01-01T12:00:00.000Z",
-            "updatedAt": "2015-02-01T12:00:00.000Z",
-            "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
-            "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
-            "finalCreditorName": "Alice Jones",
-            "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
-            "payerName": "Bob Adams",
-            "amount": 100.00,
-            "currency": "EUR",
-            "label": "Party bill",
-            "valueDate": "2015-02-02",
-            "fee": 1.00,
-            "canBeCanceled": "true",
-            "metadata": {}
-        }
-    ]
-}
-```
-	
-### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
-limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
-count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of direct debits available.
-directDebits<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[DirectDebit](#directdebit)] |  | 
-
-
 ## Event
 ```json
 {
@@ -4222,160 +4135,6 @@ rel<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | De
 href<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uri | URL to execute the action.
 verb<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>GET</li><li>POST</li><li>PUT</li><li>DELETE</li></ul> | HTTP verb required to execute the action.
 
-	
-## Mandate
-```json
-{
-    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "versionNo": 2,
-    "status": "SignedElectronically",
-    "createdAt": "2015-01-01T12:00:00.000Z",
-    "updatedAt": "2015-02-01T12:00:00.000Z",
-    "debtorDesignation": "Debtor SAS",
-    "sci": "DE98ZZZ09999999999",
-    "creditorDesignation": "Creditor SARL",
-    "thirdPartyCreditorDesignation": "3rd party Company",
-    "signatureDate": "2015-02-01",
-    "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-    "links": [
-        {
-            "rel": "Get Debtor",
-            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
-            "verb": "GET"
-        },
-        {
-            "rel": "Get Debtor Bank Account",
-            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "verb": "GET"
-        },
-        {
-            "rel": "Get Creditor",
-            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
-            "verb": "GET"
-        },
-        {
-            "rel": "Get Third Party Creditor",
-            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "verb": "GET"
-        },
-        {
-            "rel": "Revoke Mandate",
-            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "verb": "DELETE"
-        }
-    ],
-    "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
-    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "scheme": "Core",
-    "isRecurring": true,
-    "umr": "ASPECIALUMR",
-    "isUsed": false,
-    "fee": 0.99,
-    "metadata": "custom data"
-}
-```
-
-A managed mandate.
-
-	
-### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
-versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul> | Status of the mandate.
-createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
-updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
-debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the debtor whether it's an individual or legal entity.<br/>It is taken from the 'holder' field of the bank account!<br/>
-sci<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
-creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
-thirdPartyCreditorDesignation | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.<br/>
-signatureDate | string | date | Signature date, for example '2015-01-01'.
-documentId | string | uuid | ID of the signed PDF document (if any).
-links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the mandate.
-debtorId | string | uuid | The debtor's user id.
-debtorBankAccountId | string | uuid | The debtor's bank account id.
-creditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The creditor's user id. The creditor must be a corporation that owns an SCI.
-thirdPartyCreditorId | string |  | The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/>
-scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
-isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
-umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a direct debit.
-fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate once signed electronically in EUR, '0.99' for example.
-metadata | string |  | Custom information goes here.
-
-	
-## MandateArray
-```json
-{
-    "offset": 0,
-    "limit": 20,
-    "count": 1,
-    "mandates": [
-        {
-            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "versionNo": 2,
-            "status": "SignedManually",
-            "createdAt": "2015-01-01T12:00:00.000Z",
-            "updatedAt": "2015-02-01T12:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
-            "sci": "DE98ZZZ09999999999",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",
-            "signatureDate": "2015-02-01",
-            "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
-            "links": [
-                {
-                    "rel": "Get Debtor",
-                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
-                    "verb": "GET"
-                },
-                {
-                    "rel": "Get Debtor Bank Account",
-                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-                    "verb": "GET"
-                },
-                {
-                    "rel": "Get Creditor",
-                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
-                    "verb": "GET"
-                },
-                {
-                    "rel": "Get Third Party Creditor",
-                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
-                    "verb": "GET"
-                },
-                {
-                    "rel": "Revoke Mandate",
-                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
-                    "verb": "DELETE"
-                }
-            ],
-            "debtorId": "b220221e-e461-4819-b10f-0c838c59fe82",
-            "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-            "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
-            "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-            "scheme": "Core",
-            "isRecurring": true,
-            "umr": "ASPECIALUMR",
-            "isUsed": false,
-            "fee": 0.99,
-            "metadata": "custom data"
-        }
-    ]
-}
-```
-	
-### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
-limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
-count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of mandates available.
-mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Mandate](#mandate)] |  | 
-
 
 ## ModifiedUser
 ```json
@@ -4442,8 +4201,32 @@ bic<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Ba
 iban<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | International Bank Account Number.
 metadata | string |  | Custom information goes here.
 
+
+## NewSDDMandate
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "sendSignatureRequestByEmail": false,
+    "metadata": "custom data"
+}
+```
+
+Information required to issue a new mandate.
+
 	
-## NewDirectDebit
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.
+payerBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The payer's bank account id.
+finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
+sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
+metadata | string |  | Custom information goes here.
+
+
+## NewSDDPayment
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -4466,30 +4249,6 @@ mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |
 amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
 label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
 valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified or date is in the past, the direct debit will be executed as soon as possible.
-metadata | string |  | Custom information goes here.
-
-
-## NewMandate
-```json
-{
-    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "debtorBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
-    "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
-    "sendSignatureRequestByEmail": false,
-    "metadata": "custom data"
-}
-```
-
-Information required to issue a new mandate.
-
-	
-### Fields
-Name | Type | Format | Description
---- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.
-debtorBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The debtor's bank account id.
-finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
-sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
 metadata | string |  | Custom information goes here.
 
 
@@ -4557,7 +4316,248 @@ resourcesAndEvents | object |  | A map where keys are resource types - BankAccou
 description | string |  | Optional description.
 
 
-## ShortMandate
+## SDDMandate
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": 2,
+    "status": "SignedElectronically",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "payerName": "Payer SAS",
+    "sci": "DE98ZZZ09999999999",
+    "creditorName": "Creditor SARL",
+    "thirdPartyCreditorName": "3rd party Company",
+    "signatureDate": "2015-02-01",
+    "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+    "links": [
+        {
+            "rel": "Get Payer",
+            "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Payer Bank Account",
+            "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Creditor",
+            "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+            "verb": "GET"
+        },
+        {
+            "rel": "Get Third Party Creditor",
+            "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "verb": "GET"
+        },
+        {
+            "rel": "Revoke Mandate",
+            "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "verb": "DELETE"
+        }
+    ],
+    "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+    "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+    "scheme": "Core",
+    "isRecurring": true,
+    "umr": "ASPECIALUMR",
+    "isUsed": false,
+    "fee": 0.99,
+    "metadata": "custom data"
+}
+```
+
+A managed mandate.
+
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul> | Status of the mandate.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the payer whether it's an individual or legal entity.<br/>It is taken from the 'holder' field of the bank account!<br/>
+sci<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
+creditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
+thirdPartyCreditorName | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.<br/>
+signatureDate | string | date | Signature date, for example '2015-01-01'.
+documentId | string | uuid | ID of the signed PDF document (if any).
+links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the mandate.
+payerId | string | uuid | The payer's user id.
+payerBankAccountId | string | uuid | The payer's bank account id.
+creditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | The creditor's user id. The creditor must be a corporation that owns an SCI.
+thirdPartyCreditorId | string |  | The third party creditor's (or true creditor) user id. This field is used when the creditor is a PSP that has a wallet for the real creditor.<br/>
+scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
+isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
+umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
+isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a direct debit.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate once signed electronically in EUR, '0.99' for example.
+metadata | string |  | Custom information goes here.
+
+
+## SDDMandateArray
+```json
+{
+    "offset": 0,
+    "limit": 20,
+    "count": 1,
+    "mandates": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": 2,
+            "status": "SignedManually",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
+            "payerName": "Payer SAS",
+            "sci": "DE98ZZZ09999999999",
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",
+            "signatureDate": "2015-02-01",
+            "documentId": "02b331d1-f938-4ac4-ab40-ac287c8e8c61",
+            "links": [
+                {
+                    "rel": "Get Payer",
+                    "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Payer Bank Account",
+                    "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Creditor",
+                    "href": "https://app.finstack.io/api/v1/users/0d919d8e-0679-4d41-a368-84e896e230ab",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Get Third Party Creditor",
+                    "href": "https://app.finstack.io/api/v1/users/0a881459-5508-4b1b-be6f-dc512e327ee5",
+                    "verb": "GET"
+                },
+                {
+                    "rel": "Revoke Mandate",
+                    "href": "https://app.finstack.io/api/v1/mandates/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                    "verb": "DELETE"
+                }
+            ],
+            "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
+            "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
+            "scheme": "Core",
+            "isRecurring": true,
+            "umr": "ASPECIALUMR",
+            "isUsed": false,
+            "fee": 0.99,
+            "metadata": "custom data"
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of mandates available.
+mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[SDDMandate](#sddmandate)] |  | 
+
+
+## SDDPayment
+```json
+{
+    "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+    "versionNo": "1",
+    "status": "PendingMandateValidation",
+    "createdAt": "2015-01-01T12:00:00.000Z",
+    "updatedAt": "2015-02-01T12:00:00.000Z",
+    "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+    "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+    "finalCreditorName": "Alice Jones",
+    "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+    "payerName": "Bob Adams",
+    "amount": 100.00,
+    "currency": "EUR",
+    "label": "Party bill",
+    "valueDate": "2015-02-02",
+    "fee": 0.00,
+    "canBeCanceled": "true",
+    "metadata": {}
+}
+```
+
+Desribes a payment via SEPA Direct Debit (SDD).
+
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
+versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul> | Status of the direct debit.
+createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
+mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate.
+finalCreditorId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the final creditor. The final creditor is either the third party creditor if there is one or else the creditor.
+finalCreditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
+payerId | string | uuid | ID of the payer.
+payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name or legal entity name of the final creditor.
+amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
+currency<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Always equal to 'EUR'.
+label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
+valueDate<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date | Date when the payment is charged, for example '2015-01-01'.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit once executed or chargedback in EUR, '0.50' for example.
+canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the direct debit can still be canceled, 'false' otherwise.
+metadata | string |  | Custom information goes here.
+
+	
+## SDDPaymentArray
+```json
+{
+    "offset": "0",
+    "limit": "20",
+    "count": "1",
+    "directDebits": [
+        {
+            "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "versionNo": "1",
+            "status": "PendingMandateValidation",
+            "createdAt": "2015-01-01T12:00:00.000Z",
+            "updatedAt": "2015-02-01T12:00:00.000Z",
+            "mandateId": "3b10dc0b-f123-4d9c-8504-72dc76aa716c",
+            "finalCreditorId": "75068e62-1c01-42dd-a125-f79910124615",
+            "finalCreditorName": "Alice Jones",
+            "payerId": "9c0498f0-df15-40f4-89b9-5af16f846c31",
+            "payerName": "Bob Adams",
+            "amount": 100.00,
+            "currency": "EUR",
+            "label": "Party bill",
+            "valueDate": "2015-02-02",
+            "fee": 1.00,
+            "canBeCanceled": "true",
+            "metadata": {}
+        }
+    ]
+}
+```
+	
+### Fields
+Name | Type | Format | Description
+--- | --- | --- | ---
+offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
+limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of direct debits available.
+directDebits<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[SDDPayment](#sddpayment)] |  | 
+
+
+## ShortSDDMandate
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -4565,9 +4565,9 @@ description | string |  | Optional description.
     "status": "SignedManually",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "updatedAt": "2015-02-01T18:00:00.000Z",
-    "debtorDesignation": "Debtor SAS",
-    "creditorDesignation": "Creditor SARL",
-    "thirdPartyCreditorDesignation": "3rd party Company",
+    "payerName": "Payer SAS",
+    "creditorName": "Creditor SARL",
+    "thirdPartyCreditorName": "3rd party Company",
     "signatureDate": "2015-02-01",
     "links": [
         {
@@ -4576,12 +4576,12 @@ description | string |  | Optional description.
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor",
+            "rel": "Get Payer",
             "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
             "verb": "GET"
         },
         {
-            "rel": "Get Debtor Bank Account",
+            "rel": "Get Payer Bank Account",
             "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "verb": "GET"
         },
@@ -4612,17 +4612,17 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingDebtorRegistration</li><li>ToBeSigned</li><li>ToBeValidated</li><li>ValidatedNotUsedYet</li><li>ValidatedUsed</li><li>Disabled</li><li>Rejected</li></ul> | Status of the mandate.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul> | Status of the mandate.
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
-debtorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the debtor whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!
-creditorDesignation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
-thirdPartyCreditorDesignation | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.
+payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the payer whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!
+creditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
+thirdPartyCreditorName | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.
 signatureDate | string | date | Signature date, for example '2015-01-01'.
 links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Available actions on the mandate.
 
 
-## ShortMandateArray
+## ShortSDDMandateArray
 ```json
 {
     "offset": 0,
@@ -4635,9 +4635,9 @@ links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link]
             "status": "SignedManually",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "updatedAt": "2015-02-01T18:00:00.000Z",
-            "debtorDesignation": "Debtor SAS",
-            "creditorDesignation": "Creditor SARL",
-            "thirdPartyCreditorDesignation": "3rd party Company",
+            "payerName": "Payer SAS",
+            "creditorName": "Creditor SARL",
+            "thirdPartyCreditorName": "3rd party Company",
             "signatureDate": "2015-02-01",
             "links": [
                 {
@@ -4646,12 +4646,12 @@ links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link]
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor",
+                    "rel": "Get Payer",
                     "href": "https://app.finstack.io/api/v1/users/b220221e-e461-4819-b10f-0c838c59fe82",
                     "verb": "GET"
                 },
                 {
-                    "rel": "Get Debtor Bank Account",
+                    "rel": "Get Payer Bank Account",
                     "href": "https://app.finstack.io/api/v1/bank_accounts/6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
                     "verb": "GET"
                 },
@@ -4682,14 +4682,14 @@ Name | Type | Format | Description
 offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
 limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
 count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of mandates available.
-mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[ShortMandate](#shortmandate)] |  | 
+mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[ShortSDDMandate](#shortsddmandate)] |  | 
 
 
 ## ShortUser
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "designation": "An Awesome Company",
+    "name": "An Awesome Company",
     "createdAt": "2015-01-01T12:00:00.000Z",
     "links": [
         {
@@ -4723,7 +4723,7 @@ Minimal information about a user.
 Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
-designation<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
+name<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | If the user is an individual, this field displays the first name and the last name, otherwise it would contain the name of the legal entity.
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link](#link)] |  | Actions available on the user.
@@ -4738,7 +4738,7 @@ links<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Link]
     "users": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-            "designation": "An Awesome Company",
+            "name": "An Awesome Company",
             "createdAt": "2015-01-01T12:00:00.000Z",
             "links": [
                 {
