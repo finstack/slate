@@ -1123,10 +1123,10 @@ Http code | Type | Description
 404 | [Error](#error) | User not found.
 
 
-## Find Direct Debits of User
+## Find Payments of User
 
 ```http
-GET /api/v1/users/{id}/directdebits HTTP/1.1
+GET /api/v1/users/{id}/payments HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -1140,7 +1140,7 @@ Content-Type: application/json
     "offset": "0",
     "limit": "20",
     "count": "1",
-    "directDebits": [
+    "payments": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
@@ -1201,23 +1201,23 @@ Content-Type: application/json
 }
 ```
 
-Returns all direct debits that belong to a specified user.
+Returns all payments that belong to a specified user.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the user.
-role | query | string | Optional. Filter direct debits depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all direct debits.<br/>
+role | query | string | Optional. Filter payments depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all payments.<br/>
 offset | query | integer | Optional. Offset the list of returned results by this amount.
 limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [SDDPaymentArray](#sddpaymentarray) | An array of direct debits.
+200 | [SDDPaymentArray](#sddpaymentarray) | An array of payments.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you try to access direct debits of a user that you don't manage.
+403 | [Error](#error) | Forbidden, occurs when you try to access payments of a user that you don't manage.
 404 | [Error](#error) | User not found.
 
 
@@ -2164,7 +2164,7 @@ Content-Type: application/json
 }
 ```
 
-Creates a direct debit mandate to be signed.
+Creates a payment mandate to be signed.
 
 
 ### Parameters
@@ -2797,12 +2797,12 @@ Http code | Type | Description
 404 | [Error](#error) | Mandate not found.
 
 
-# Direct Debits
+# Payments
 
-## Find Direct Debits
+## Find Payments
 
 ```http
-GET /api/v1/direct_debits HTTP/1.1
+GET /api/v1/payments HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2816,7 +2816,7 @@ Content-Type: application/json
     "offset": "0",
     "limit": "20",
     "count": "1",
-    "directDebits": [
+    "payments": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "2",
@@ -2853,26 +2853,26 @@ Content-Type: application/json
 }
 ```
 
-Returns direct debits for which you are a counterparty.
+Returns payments for which you are a counterparty.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-role | query | string | Optional. Filter direct debits depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all direct debits.<br/>
+role | query | string | Optional. Filter payments depending on role. Possible values are 'all', 'asPayer', 'asCreditor' and 'asThirdPartyCreditor'. By default, return all payments.<br/>
 offset | query | integer | Optional. Offset the list of returned results by this amount.
 limit | query | integer | Optional. Number of items to retrieve. Default is 20, maximum is 100.
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [SDDPaymentArray](#sddpaymentarray) | An array of direct debits.
+200 | [SDDPaymentArray](#sddpaymentarray) | An array of payments.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
-## Create Direct Debit
+## Create Payment
 
 ```http
-POST /api/v1/direct_debits HTTP/1.1
+POST /api/v1/payments HTTP/1.1
 X-Auth-Token: myapikeyvalue
 Content-Type: application/json
 
@@ -2949,27 +2949,27 @@ Content-Type: application/json
 }
 ```
 
-Creates a direct debit to withdraw money from a payer's bank account.
+Creates a payment to withdraw money from a payer's bank account.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-directDebit<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewSDDPayment](#newsddpayment) | 
+payment<span title="required" class="required">&nbsp;*&nbsp;</span> | body | [NewSDDPayment](#newsddpayment) | 
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-201 | [SDDPayment](#sddpayment) | The newly created direct debit.
+201 | [SDDPayment](#sddpayment) | The newly created payment.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you try to create a direct debit with the wrong API key for example.
+403 | [Error](#error) | Forbidden, occurs when you try to create a payment with the wrong API key for example.
 404 | [Error](#error) | Mandate not found.
 
 
-## Get All Direct Debit Events
+## Get All Payment Events
 
 ```http
-GET /api/v1/direct_debits/events HTTP/1.1
+GET /api/v1/payments/events HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -2988,7 +2988,7 @@ Content-Type: application/json
             "resourceType": "SDDPayment",
             "resourceLink": {
                 "rel": "Get Payment",
-                "href": "https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+                "href": "https://app.finstack.io/api/v1/payments/341d533a-d90f-4fce-9fc0-12072f7bd555",
                 "verb": "GET"
             },
             "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3014,7 +3014,7 @@ Content-Type: application/json
 }
 ```
 
-Returns all events on direct debits since a given date and optionally until another date.
+Returns all events on payments since a given date and optionally until another date.
 
 
 ### Parameters
@@ -3032,10 +3032,10 @@ Http code | Type | Description
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
 
 
-## Get Direct Debit
+## Get Payment
 
 ```http
-GET /api/v1/direct_debits/{id} HTTP/1.1
+GET /api/v1/payments/{id} HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -3071,9 +3071,9 @@ Content-Type: application/json
 
 {
     "code": "InvalidURL",
-    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto' is not a valid URL or service is down",
+    "message": "String 'https://api.finstack.io/api/v1/payments/toto' is not a valid URL or service is down",
     "fields": {
-        "url": "https://api.finstack.io/api/v1/direct_debits/toto"
+        "url": "https://api.finstack.io/api/v1/payments/toto"
     }
 }
 ```
@@ -3082,10 +3082,10 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "DirectDebitForbidden",
-    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "code": "PaymentForbidden",
+    "message": "You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
     "fields": {
-        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+        "paymentId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -3094,7 +3094,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "DirectDebitNotFound",
+    "code": "PaymentNotFound",
     "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
         "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
@@ -3102,27 +3102,27 @@ Content-Type: application/json
 }
 ```
 
-Gets the direct debit with the specified id.
+Gets the payment with the specified id.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the payment.
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
 200 | [SDDPayment](#sddpayment) | Direct debit found.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you request a direct debit where you don't manage any of the parties involved.
+403 | [Error](#error) | Forbidden, occurs when you request a payment where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
 
 
-## Get Events for Direct Debit
+## Get Events for Payment
 
 ```http
-GET /api/v1/direct_debits/{id}/events HTTP/1.1
+GET /api/v1/payments/{id}/events HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -3137,7 +3137,7 @@ Content-Type: application/json
         "resourceType": "SDDPayment",
         "resourceLink": {
             "rel": "Get Payment",
-            "href": "https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555",
+            "href": "https://app.finstack.io/api/v1/payments/341d533a-d90f-4fce-9fc0-12072f7bd555",
             "verb": "GET"
         },
         "resourceId": "341d533a-d90f-4fce-9fc0-12072f7bd555",
@@ -3154,9 +3154,9 @@ Content-Type: application/json
 
 {
     "code": "InvalidURL",
-    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto/events' is not a valid URL or service is down",
+    "message": "String 'https://api.finstack.io/api/v1/payments/toto/events' is not a valid URL or service is down",
     "fields": {
-        "url": "https://api.finstack.io/api/v1/direct_debits/toto/events"
+        "url": "https://api.finstack.io/api/v1/payments/toto/events"
     }
 }
 ```
@@ -3165,10 +3165,10 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "DirectDebitForbidden",
-    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "code": "PaymentForbidden",
+    "message": "You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
     "fields": {
-        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+        "paymentId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -3177,7 +3177,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "DirectDebitNotFound",
+    "code": "PaymentNotFound",
     "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
         "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
@@ -3185,27 +3185,27 @@ Content-Type: application/json
 }
 ```
 
-Returns all events for a given direct debit.
+Returns all events for a given payment.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the payment.
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
 200 | array[[Event](#event)] | A list of events ordered chronologically.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you request a direct debit where you don't manage any of the parties involved.
+403 | [Error](#error) | Forbidden, occurs when you request a payment where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
 
 
-## Cancel Direct Debit
+## Cancel Payment
 
 ```http
-POST /api/v1/direct_debits/{id}/cancel HTTP/1.1
+POST /api/v1/payments/{id}/cancel HTTP/1.1
 X-Auth-Token: myapikeyvalue
 ```
 
@@ -3241,9 +3241,9 @@ Content-Type: application/json
 
 {
     "code": "InvalidURL",
-    "message": "String 'https://api.finstack.io/api/v1/direct_debits/toto/cancel' is not a valid URL or service is down",
+    "message": "String 'https://api.finstack.io/api/v1/payments/toto/cancel' is not a valid URL or service is down",
     "fields": {
-        "url": "https://api.finstack.io/api/v1/direct_debits/toto/cancel"
+        "url": "https://api.finstack.io/api/v1/payments/toto/cancel"
     }
 }
 ```
@@ -3252,10 +3252,10 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
 {
-    "code": "DirectDebitForbidden",
-    "message": "You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
+    "code": "PaymentForbidden",
+    "message": "You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties",
     "fields": {
-        "directDebitId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
+        "paymentId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
     }
 }
 ```
@@ -3264,7 +3264,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-    "code": "DirectDebitNotFound",
+    "code": "PaymentNotFound",
     "message": "Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found",
     "fields": {
         "mandateId": "341d533a-d90f-4fce-9fc0-12072f7bd555"
@@ -3272,20 +3272,20 @@ Content-Type: application/json
 }
 ```
 
-Cancels the direct debit while it's still possible.
+Cancels the payment while it's still possible.
 
 
 ### Parameters
 Name | In | Type | Description
 --- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the direct debit.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | UUID of the payment.
 
 ### Responses
 Http code | Type | Description
 --- | --- | ---
-200 | [SDDPayment](#sddpayment) | The canceled direct debit.
-400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid or when the direct debit can no longer be canceled.
-403 | [Error](#error) | Forbidden, occurs when you cancel a direct debit where you don't manage any of the parties involved.
+200 | [SDDPayment](#sddpayment) | The canceled payment.
+400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid or when the payment can no longer be canceled.
+403 | [Error](#error) | Forbidden, occurs when you cancel a payment where you don't manage any of the parties involved.
 404 | [Error](#error) | Direct debit not found.
 
 
@@ -3421,16 +3421,16 @@ Http code | Type | Description
 |SDDMandate|SDDMandateRevoked|Occurs when any of the parties (payer, creditor or third party creditor) revokes the mandate.|Finstack back office or API|
 |SDDMandate|SDDMandateSignedElectronically|Occurs when the mandate is electronically signed by the payer.|Finstack website|
 |SDDMandate|SDDMandateSignedManually|Occurs when the mandate is manually signed by the payer.|Finstack back office|
-|SDDMandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a direct debit.|PSP|
+|SDDMandate|SDDMandateUsedByPSP|Occurs when the mandate is used for the first time for a payment.|PSP|
 |SDDMandate|SignedDocumentStored|Occurs immediately after signature when the signed PDF document is archived.|Finstack system|
-|SDDPayment|DirectDebitSubmittedToPSP|Occurs when the direct debit is submitted to be executed.|Finstack system|
-|SDDPayment|SDDPaymentCanceled|Occurs when the direct debit is canceled by the final creditor either from the back office or the API.|Finstack back office or API|
-|SDDPayment|SDDPaymentExecuted|Occurs when the direct debit is executed.|PSP|
-|SDDPayment|SDDPaymentFullySettled|Occurs 8 weeks after the direct debit is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this direct debit was released.|Finstack system|
-|SDDPayment|SDDPaymentInitiated|Occurs when a direct debit is created.|Finstack website, back office or API|
+|SDDPayment|DirectDebitSubmittedToPSP|Occurs when the payment is submitted to be executed.|Finstack system|
+|SDDPayment|SDDPaymentCanceled|Occurs when the payment is canceled by the final creditor either from the back office or the API.|Finstack back office or API|
+|SDDPayment|SDDPaymentExecuted|Occurs when the payment is executed.|PSP|
+|SDDPayment|SDDPaymentFullySettled|Occurs 8 weeks after the payment is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this payment was released.|Finstack system|
+|SDDPayment|SDDPaymentInitiated|Occurs when a payment is created.|Finstack website, back office or API|
 |SDDPayment|SDDPaymentPartiallySettled|After successful execution, occurs when the amount collected is sent to creditor's bank account before rolling reserve.|Finstack system|
-|SDDPayment|SDDPaymentPlanned|Occurs when the mandate associated with the direct debit is signed.|Finstack website or API|
-|SDDPayment|SDDPaymentRejected|Occurs when the direct debit is charged back.|Payer's bank account|
+|SDDPayment|SDDPaymentPlanned|Occurs when the mandate associated with the payment is signed.|Finstack website or API|
+|SDDPayment|SDDPaymentRejected|Occurs when the payment is charged back.|Payer's bank account|
 |User|UserCreated|Occurs when a user is created through the API or when she registers directly at Finstack's website.|Finstack website or API|
 |User|UserModified|Occurs when a user is modified.|Finstack website or API|
    
@@ -3588,7 +3588,7 @@ Http code | Type | Description
 --- | --- | ---
 201 | [Webhook](#webhook) | The newly created webhook.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you try to create a direct debit with the wrong API key for example.
+403 | [Error](#error) | Forbidden, occurs when you try to create a payment with the wrong API key for example.
 
 
 ## Get Recent Webhook Failures
@@ -4238,17 +4238,17 @@ metadata | string |  | Custom information goes here.
 }
 ```
 
-Information required to issue a new SEPA Direct Debit (SDD).
+Information required to issue a new SEPA Direct Debit (SDD) payment.
 
 	
 ### Fields
 Name | Type | Format | Description
 --- | --- | --- | ---
-id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the direct debit in order to make the call idempotent. That allows you to safely retry to create the direct debit without fearing to create multiple debits on our side in case there was a network problem.
+id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the payment in order to make the call idempotent. That allows you to safely retry to create the payment without fearing to create multiple debits on our side in case there was a network problem.
 mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate. The mandate will be used to know who is the creditor and who is the payer in this transaction.
 amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Amount to be withdrawn from the payer's bank account, for example '100.00'. Minimum is 1€ and maximum is 20000€, any amounts outside this range will be rejected.
 label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
-valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified or date is in the past, the direct debit will be executed as soon as possible.
+valueDate | string | date | Date when the payment is charged, for example '2015-01-01'. If not specified or date is in the past, the payment will be executed as soon as possible.
 metadata | string |  | Custom information goes here.
 
 
@@ -4395,7 +4395,7 @@ thirdPartyCreditorId | string |  | The third party creditor's (or true creditor)
 scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
 isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a direct debit.
+isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a payment.
 fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate once signed electronically in EUR, '0.99' for example.
 metadata | string |  | Custom information goes here.
 
@@ -4493,7 +4493,7 @@ mandates<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[SD
 }
 ```
 
-Desribes a payment via SEPA Direct Debit (SDD).
+Desribes a payment via SEPA Direct Debit (SDD) payment.
 
 	
 ### Fields
@@ -4501,7 +4501,7 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
 versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul> | Status of the direct debit.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul> | Status of the payment.
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 mandateId<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | ID of the associated mandate.
@@ -4513,8 +4513,8 @@ amount<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  |
 currency<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Always equal to 'EUR'.
 label<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Short message that will appear on the payer's bank account statement.
 valueDate<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date | Date when the payment is charged, for example '2015-01-01'.
-fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the direct debit once executed or chargedback in EUR, '0.50' for example.
-canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the direct debit can still be canceled, 'false' otherwise.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the creditor for the payment once executed or chargedback in EUR, '0.50' for example.
+canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the payment can still be canceled, 'false' otherwise.
 metadata | string |  | Custom information goes here.
 
 	
@@ -4524,7 +4524,7 @@ metadata | string |  | Custom information goes here.
     "offset": "0",
     "limit": "20",
     "count": "1",
-    "directDebits": [
+    "payments": [
         {
             "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
             "versionNo": "1",
@@ -4553,8 +4553,8 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 offset<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Position in pagination.
 limit<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Number of items to retrieve (100 max).
-count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of direct debits available.
-directDebits<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[SDDPayment](#sddpayment)] |  | 
+count<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Total number of payments available.
+payments<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[SDDPayment](#sddpayment)] |  | 
 
 
 ## ShortSDDMandate
