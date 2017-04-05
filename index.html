@@ -1644,8 +1644,8 @@ the display name and other details about each user.</p>
 </tr>
 </tbody></table>
 
-<h2 id="find-direct-debits-of-user">Find Direct Debits of User</h2>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/directdebits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="find-payments-of-user">Find Payments of User</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/{id}/payments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -1658,7 +1658,7 @@ the display name and other details about each user.</p>
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
@@ -1712,7 +1712,7 @@ the display name and other details about each user.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns all direct debits that belong to a specified user.</p>
+<p>Returns all payments that belong to a specified user.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1734,7 +1734,7 @@ the display name and other details about each user.</p>
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Optional. Filter direct debits depending on role. Possible values are &lsquo;all&rsquo;, &lsquo;asPayer&rsquo;, &lsquo;asCreditor&rsquo; and &lsquo;asThirdPartyCreditor&rsquo;. By default, return all direct debits.<br/></td>
+<td>Optional. Filter payments depending on role. Possible values are &lsquo;all&rsquo;, &lsquo;asPayer&rsquo;, &lsquo;asCreditor&rsquo; and &lsquo;asThirdPartyCreditor&rsquo;. By default, return all payments.<br/></td>
 </tr>
 <tr>
 <td>offset</td>
@@ -1762,7 +1762,7 @@ the display name and other details about each user.</p>
 <tr>
 <td>200</td>
 <td><a href="#sddpaymentarray">SDDPaymentArray</a></td>
-<td>An array of direct debits.</td>
+<td>An array of payments.</td>
 </tr>
 <tr>
 <td>400</td>
@@ -1772,7 +1772,7 @@ the display name and other details about each user.</p>
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you try to access direct debits of a user that you don&rsquo;t manage.</td>
+<td>Forbidden, occurs when you try to access payments of a user that you don&rsquo;t manage.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -2948,7 +2948,7 @@ they authorized you to access their information.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a direct debit mandate to be signed.</p>
+<p>Creates a payment mandate to be signed.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3801,10 +3801,10 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h1 id="direct-debits">Direct Debits</h1>
+<h1 id="payments">Payments</h1>
 
-<h2 id="find-direct-debits">Find Direct Debits</h2>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="find-payments">Find Payments</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/payments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -3817,7 +3817,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
@@ -3851,7 +3851,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns direct debits for which you are a counterparty.</p>
+<p>Returns payments for which you are a counterparty.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3867,7 +3867,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>role</td>
 <td>query</td>
 <td>string</td>
-<td>Optional. Filter direct debits depending on role. Possible values are &lsquo;all&rsquo;, &lsquo;asPayer&rsquo;, &lsquo;asCreditor&rsquo; and &lsquo;asThirdPartyCreditor&rsquo;. By default, return all direct debits.<br/></td>
+<td>Optional. Filter payments depending on role. Possible values are &lsquo;all&rsquo;, &lsquo;asPayer&rsquo;, &lsquo;asCreditor&rsquo; and &lsquo;asThirdPartyCreditor&rsquo;. By default, return all payments.<br/></td>
 </tr>
 <tr>
 <td>offset</td>
@@ -3895,7 +3895,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>200</td>
 <td><a href="#sddpaymentarray">SDDPaymentArray</a></td>
-<td>An array of direct debits.</td>
+<td>An array of payments.</td>
 </tr>
 <tr>
 <td>400</td>
@@ -3904,8 +3904,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h2 id="create-direct-debit">Create Direct Debit</h2>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v1/direct_debits</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="create-payment">Create Payment</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v1/payments</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -3974,7 +3974,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a direct debit to withdraw money from a payer&rsquo;s bank account.</p>
+<p>Creates a payment to withdraw money from a payer&rsquo;s bank account.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -3987,7 +3987,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </thead><tbody>
 <tr>
-<td>directDebit<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>payment<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>body</td>
 <td><a href="#newsddpayment">NewSDDPayment</a></td>
 <td></td>
@@ -4006,7 +4006,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>201</td>
 <td><a href="#sddpayment">SDDPayment</a></td>
-<td>The newly created direct debit.</td>
+<td>The newly created payment.</td>
 </tr>
 <tr>
 <td>400</td>
@@ -4016,7 +4016,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you try to create a direct debit with the wrong API key for example.</td>
+<td>Forbidden, occurs when you try to create a payment with the wrong API key for example.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -4025,8 +4025,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h2 id="get-all-direct-debit-events">Get All Direct Debit Events</h2>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="get-all-payment-events">Get All Payment Events</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/payments/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -4044,7 +4044,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
             </span><span class="s2">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/payments/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -4067,7 +4067,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns all events on direct debits since a given date and optionally until another date.</p>
+<p>Returns all events on payments since a given date and optionally until another date.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4126,8 +4126,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h2 id="get-direct-debit">Get Direct Debit</h2>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="get-payment">Get Payment</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/payments/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -4160,33 +4160,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/payments/toto' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto"</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/payments/toto"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+        </span><span class="s2">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentNotFound"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Gets the direct debit with the specified id.</p>
+<p>Gets the payment with the specified id.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4202,7 +4202,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
-<td>UUID of the direct debit.</td>
+<td>UUID of the payment.</td>
 </tr>
 </tbody></table>
 
@@ -4228,7 +4228,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you request a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+<td>Forbidden, occurs when you request a payment where you don&rsquo;t manage any of the parties involved.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -4237,8 +4237,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h2 id="get-events-for-direct-debit">Get Events for Direct Debit</h2>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/direct_debits/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="get-events-for-payment">Get Events for Payment</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/payments/{id}/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -4252,7 +4252,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
         </span><span class="s2">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDDPayment"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"resourceLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get Payment"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/direct_debits/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.finstack.io/api/v1/payments/341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"resourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
@@ -4267,33 +4267,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto/events' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/payments/toto/events' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto/events"</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/payments/toto/events"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+        </span><span class="s2">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentNotFound"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns all events for a given direct debit.</p>
+<p>Returns all events for a given payment.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4309,7 +4309,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
-<td>UUID of the direct debit.</td>
+<td>UUID of the payment.</td>
 </tr>
 </tbody></table>
 
@@ -4335,7 +4335,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you request a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+<td>Forbidden, occurs when you request a payment where you don&rsquo;t manage any of the parties involved.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -4344,8 +4344,8 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 </tr>
 </tbody></table>
 
-<h2 id="cancel-direct-debit">Cancel Direct Debit</h2>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v1/direct_debits/{id}/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h2 id="cancel-payment">Cancel Payment</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/v1/payments/{id}/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
 </code></pre>
 <blockquote>
@@ -4378,33 +4378,33 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 
 <span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidURL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/direct_debits/toto/cancel' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'https://api.finstack.io/api/v1/payments/toto/cancel' is not a valid URL or service is down"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/direct_debits/toto/cancel"</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.finstack.io/api/v1/payments/toto/cancel"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">403</span> <span class="ne">Forbidden</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitForbidden"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentForbidden"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot view payment 341d533a-d90f-4fce-9fc0-12072f7bd555 because you do not manage one of its parties"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"directDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+        </span><span class="s2">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DirectDebitNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PaymentNotFound"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct debit 341d533a-d90f-4fce-9fc0-12072f7bd555 was not found"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"mandateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Cancels the direct debit while it&rsquo;s still possible.</p>
+<p>Cancels the payment while it&rsquo;s still possible.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -4420,7 +4420,7 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>path</td>
 <td>string</td>
-<td>UUID of the direct debit.</td>
+<td>UUID of the payment.</td>
 </tr>
 </tbody></table>
 
@@ -4436,17 +4436,17 @@ https://app.finstack.io/bo/mandate/a550693f-9743-4e79-bf92-24a023bb81d5/sign/089
 <tr>
 <td>200</td>
 <td><a href="#sddpayment">SDDPayment</a></td>
-<td>The canceled direct debit.</td>
+<td>The canceled payment.</td>
 </tr>
 <tr>
 <td>400</td>
 <td><a href="#error">Error</a></td>
-<td>Bad request, occurs most often when parameters passed are invalid or when the direct debit can no longer be canceled.</td>
+<td>Bad request, occurs most often when parameters passed are invalid or when the payment can no longer be canceled.</td>
 </tr>
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you cancel a direct debit where you don&rsquo;t manage any of the parties involved.</td>
+<td>Forbidden, occurs when you cancel a payment where you don&rsquo;t manage any of the parties involved.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -4701,7 +4701,7 @@ The first line is the header of the file and contains column names.</p>
 <tr>
 <td>SDDMandate</td>
 <td>SDDMandateUsedByPSP</td>
-<td>Occurs when the mandate is used for the first time for a direct debit.</td>
+<td>Occurs when the mandate is used for the first time for a payment.</td>
 <td>PSP</td>
 </tr>
 <tr>
@@ -4713,31 +4713,31 @@ The first line is the header of the file and contains column names.</p>
 <tr>
 <td>SDDPayment</td>
 <td>DirectDebitSubmittedToPSP</td>
-<td>Occurs when the direct debit is submitted to be executed.</td>
+<td>Occurs when the payment is submitted to be executed.</td>
 <td>Finstack system</td>
 </tr>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentCanceled</td>
-<td>Occurs when the direct debit is canceled by the final creditor either from the back office or the API.</td>
+<td>Occurs when the payment is canceled by the final creditor either from the back office or the API.</td>
 <td>Finstack back office or API</td>
 </tr>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentExecuted</td>
-<td>Occurs when the direct debit is executed.</td>
+<td>Occurs when the payment is executed.</td>
 <td>PSP</td>
 </tr>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentFullySettled</td>
-<td>Occurs 8 weeks after the direct debit is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this direct debit was released.</td>
+<td>Occurs 8 weeks after the payment is partially settled if there was a rolling reserve, this event indicates that rolling reserve associated with this payment was released.</td>
 <td>Finstack system</td>
 </tr>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentInitiated</td>
-<td>Occurs when a direct debit is created.</td>
+<td>Occurs when a payment is created.</td>
 <td>Finstack website, back office or API</td>
 </tr>
 <tr>
@@ -4749,13 +4749,13 @@ The first line is the header of the file and contains column names.</p>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentPlanned</td>
-<td>Occurs when the mandate associated with the direct debit is signed.</td>
+<td>Occurs when the mandate associated with the payment is signed.</td>
 <td>Finstack website or API</td>
 </tr>
 <tr>
 <td>SDDPayment</td>
 <td>SDDPaymentRejected</td>
-<td>Occurs when the direct debit is charged back.</td>
+<td>Occurs when the payment is charged back.</td>
 <td>Payer&rsquo;s bank account</td>
 </tr>
 <tr>
@@ -4953,7 +4953,7 @@ All other parameters are optional, by default all events are sent. Resources and
 <tr>
 <td>403</td>
 <td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you try to create a direct debit with the wrong API key for example.</td>
+<td>Forbidden, occurs when you try to create a payment with the wrong API key for example.</td>
 </tr>
 </tbody></table>
 
@@ -6008,7 +6008,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Information required to issue a new SEPA Direct Debit (SDD).</p>
+<p>Information required to issue a new SEPA Direct Debit (SDD) payment.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -6024,7 +6024,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>id<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td>uuid</td>
-<td>Should be a valid UUID string. You are required to generate the id of the direct debit in order to make the call idempotent. That allows you to safely retry to create the direct debit without fearing to create multiple debits on our side in case there was a network problem.</td>
+<td>Should be a valid UUID string. You are required to generate the id of the payment in order to make the call idempotent. That allows you to safely retry to create the payment without fearing to create multiple debits on our side in case there was a network problem.</td>
 </tr>
 <tr>
 <td>mandateId<span title="required" class="required">&nbsp;*&nbsp;</span></td>
@@ -6048,7 +6048,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>valueDate</td>
 <td>string</td>
 <td>date</td>
-<td>Date when the payment is charged, for example &lsquo;2015-01-01&rsquo;. If not specified or date is in the past, the direct debit will be executed as soon as possible.</td>
+<td>Date when the payment is charged, for example &lsquo;2015-01-01&rsquo;. If not specified or date is in the past, the payment will be executed as soon as possible.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6372,7 +6372,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>isUsed<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>boolean</td>
 <td></td>
-<td>Is &lsquo;true&rsquo; if mandate is referenced in a direct debit.</td>
+<td>Is &lsquo;true&rsquo; if mandate is referenced in a payment.</td>
 </tr>
 <tr>
 <td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
@@ -6504,7 +6504,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Desribes a payment via SEPA Direct Debit (SDD).</p>
+<p>Desribes a payment via SEPA Direct Debit (SDD) payment.</p>
 
 <h3 id="fields">Fields</h3>
 
@@ -6532,7 +6532,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
 <td><div>Acceptable values:</div><ul class="enum"><li>PendingMandateValidation</li><li>Planned</li><li>Canceled</li><li>SubmittedToPSP</li><li>Executed</li><li>PartiallySettled</li><li>FullySettled</li><li>ChargedBack</li></ul></td>
-<td>Status of the direct debit.</td>
+<td>Status of the payment.</td>
 </tr>
 <tr>
 <td>createdAt<span title="required" class="required">&nbsp;*&nbsp;</span></td>
@@ -6604,13 +6604,13 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>number</td>
 <td></td>
-<td>Fee charged to the creditor for the direct debit once executed or chargedback in EUR, &lsquo;0.50&rsquo; for example.</td>
+<td>Fee charged to the creditor for the payment once executed or chargedback in EUR, &lsquo;0.50&rsquo; for example.</td>
 </tr>
 <tr>
 <td>canBeCanceled<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>boolean</td>
 <td></td>
-<td>Is &lsquo;true&rsquo; if the direct debit can still be canceled, &lsquo;false&rsquo; otherwise.</td>
+<td>Is &lsquo;true&rsquo; if the payment can still be canceled, &lsquo;false&rsquo; otherwise.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6625,7 +6625,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"directDebits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"versionNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -6674,10 +6674,10 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>count<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>integer</td>
 <td>int32</td>
-<td>Total number of direct debits available.</td>
+<td>Total number of payments available.</td>
 </tr>
 <tr>
-<td>directDebits<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>payments<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>array[<a href="#sddpayment">SDDPayment</a>]</td>
 <td></td>
 <td></td>
