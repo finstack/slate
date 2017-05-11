@@ -26,11 +26,11 @@ Except for rare cases such as PDF document upload and download, Finstack API exc
 
 The base URL of the production API is __https://app.finstack.io/api/v1__. For testing purposes, you can use __https://sandbox.finstack.io/api/v1__
 
-The current version is __1.0.0__.
+The current version is __1.0.1__.
 
 You can contact us at __contact@finstack.io__.
 
-[Terms of service](http://app.finstack.io/terms/)
+[Terms of service](https://cdn2.hubspot.net/hubfs/2126316/Legal%20Documents/Finstack%20Terms%20&%20Conditions.pdf)
 
 # Authentication
 
@@ -2058,6 +2058,7 @@ X-Auth-Token: myapikeyvalue
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
+    "signElectronically": true,
     "metadata": "custom data"
 }
 ```
@@ -4209,6 +4210,7 @@ metadata | string |  | Custom information goes here.
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
+    "signElectronically": true,
     "metadata": "custom data"
 }
 ```
@@ -4223,6 +4225,7 @@ id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid |
 payerBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The payer's bank account id.
 finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
 sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
+signElectronically | boolean |  | Set this flag to 'true' if you want the mandate to be signed electronically by the payer.
 metadata | string |  | Custom information goes here.
 
 
@@ -4378,7 +4381,7 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
 versionNo<span title="required" class="required">&nbsp;*&nbsp;</span> | integer | int32 | Version number of the object, useful to track changes through events.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul> | Status of the mandate.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>AcceptedOnline</li><li>SignedElectronically</li><li>SignedManually</li><li>SignedAndReceivedByPayersBank</li><li>Revoked</li></ul> | Status of the mandate.
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the payer whether it's an individual or legal entity.<br/>It is taken from the 'holder' field of the bank account!<br/>
@@ -4396,7 +4399,7 @@ scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <d
 isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
 isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a payment.
-fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate once signed electronically in EUR, '0.99' for example.
+fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate only if signed electronically in EUR, '0.99' for example.
 metadata | string |  | Custom information goes here.
 
 
@@ -4612,7 +4615,7 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul> | Status of the mandate.
+status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>AcceptedOnline</li><li>SignedElectronically</li><li>SignedManually</li><li>SignedAndReceivedByPayersBank</li><li>Revoked</li></ul> | Status of the mandate.
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the payer whether it's an individual or legal entity. It is taken from the 'holder' field of the bank account!
