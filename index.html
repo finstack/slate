@@ -238,11 +238,11 @@ Focus is on simplicity, consistency and security; less on discoverability.</p>
 
 <p>The base URL of the production API is <strong>https://app.finstack.io/api/v1</strong>. For testing purposes, you can use <strong>https://sandbox.finstack.io/api/v1</strong></p>
 
-<p>The current version is <strong>1.0.0</strong>.</p>
+<p>The current version is <strong>1.0.1</strong>.</p>
 
 <p>You can contact us at <strong>contact@finstack.io</strong>.</p>
 
-<p><a href="http://app.finstack.io/terms/">Terms of service</a></p>
+<p><a href="https://cdn2.hubspot.net/hubfs/2126316/Legal%20Documents/Finstack%20Terms%20&amp;%20Conditions.pdf">Terms of service</a></p>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -2850,6 +2850,7 @@ they authorized you to access their information.</p>
     </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5951,6 +5952,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"payerBankAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f83ebf1-6e4d-40f6-bff5-5f046a93560a"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"finalCreditorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a881459-5508-4b1b-be6f-dc512e327ee5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sendSignatureRequestByEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5989,6 +5991,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>boolean</td>
 <td></td>
 <td>Set this flag to &lsquo;true&rsquo; if you want to send a mandate signature request by email through Finstack.</td>
+</tr>
+<tr>
+<td>signElectronically</td>
+<td>boolean</td>
+<td></td>
+<td>Set this flag to &lsquo;true&rsquo; if you want the mandate to be signed electronically by the payer.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6269,7 +6277,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul></td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>AcceptedOnline</li><li>SignedElectronically</li><li>SignedManually</li><li>SignedAndReceivedByPayersBank</li><li>Revoked</li></ul></td>
 <td>Status of the mandate.</td>
 </tr>
 <tr>
@@ -6378,7 +6386,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>number</td>
 <td></td>
-<td>Fee charged to the final creditor for the mandate once signed electronically in EUR, &lsquo;0.99&rsquo; for example.</td>
+<td>Fee charged to the final creditor for the mandate only if signed electronically in EUR, &lsquo;0.99&rsquo; for example.</td>
 </tr>
 <tr>
 <td>metadata</td>
@@ -6756,7 +6764,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <tr>
 <td>status<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>string</td>
-<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>SignedElectronically</li><li>SignedManually</li><li>Revoked</li></ul></td>
+<td><div>Acceptable values:</div><ul class="enum"><li>Canceled</li><li>PendingPayerRegistration</li><li>ToBeSigned</li><li>AcceptedOnline</li><li>SignedElectronically</li><li>SignedManually</li><li>SignedAndReceivedByPayersBank</li><li>Revoked</li></ul></td>
 <td>Status of the mandate.</td>
 </tr>
 <tr>
