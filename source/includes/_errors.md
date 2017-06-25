@@ -45,6 +45,7 @@ Error Code | HTTP Code | Message | Fields
 ---------- | --------- | ------- | ------
 AmountTooBigForDirectDebit | 400 -- Bad Request | Amount $amount is too big, the maximum amount for a direct debit is 20000€ | amount
 AmountTooSmallForDirectDebit | 400 -- Bad Request | Amount $amount is too small, the minimum amount for a direct debit is 1€ | amount
+BankAccountAlreadyExists | 400 -- Bad Request | Bank account $bankAccountId already exists | bankAccountId
 BankAccountForbidden | 403 -- Forbidden | You cannot view bank account $bankAccountId because you do not manage its owner | bankAccountId
 BankAccountNotActive | 400 -- Bad Request | Bank account $bankAccountId is not active and cannot be used in a mandate | bankAccountId
 BankAccountNotFound | 404 -- Not Found | Bank account $bankAccountId was not found | bankAccountId
