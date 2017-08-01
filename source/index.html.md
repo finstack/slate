@@ -2632,7 +2632,7 @@ Content-Type: application/json
 }
 ```
 
-Returns the link to be sent to the payer for her to sign the mandate. Can only be called when the mandate is not signed yet.
+Returns the link to be sent to the payer for her to sign the mandate. Can only be called when the mandate is not signed yet. Use this call only if you lost the signature link sent in the mandate creation request's response.
 
 
 ### Parameters
