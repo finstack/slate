@@ -43,6 +43,7 @@ The Finstack API uses the following business error codes, variables are marked w
 
 Error Code | HTTP Code | Message | Fields
 ---------- | --------- | ------- | ------
+AccessToAggregateTypeNotAllowed | 403 -- Forbidden | Access to aggregate $aggregateId of type $aggregateType is not open to the API | aggregateType, aggregateId
 AmountTooBigForDirectDebit | 400 -- Bad Request | Amount $amount is too big, the maximum amount for a direct debit is 20000€ | amount
 AmountTooSmallForDirectDebit | 400 -- Bad Request | Amount $amount is too small, the minimum amount for a direct debit is 1€ | amount
 BankAccountAlreadyExists | 400 -- Bad Request | Bank account $bankAccountId already exists | bankAccountId
@@ -64,16 +65,17 @@ InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key |
 InvalidOrNonExistentMandate | 400 -- Bad Request | Mandate $mandateId cannot be used either because it is in an invalid state or it does not exist | mandateId
 InvalidURL | 400 -- Bad Request | String '$url' is not a valid URL or service is down | url, errorMessage
 LimitShouldBeStrictlyPositive | 400 -- Bad Request | Limit ($limit) should be strictly positive | limit
-MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status | mandateId, mandateRef, status
+MandateCannotBeCreated | 400 -- Bad Request | You cannot create a mandate because $reason | reason
 MandateForbidden | 403 -- Forbidden | You cannot view mandate $mandateId because you do not manage one of its parties | mandateId
+MandateIsNotToBeSigned | 400 -- Bad Request | You cannot sign mandate $mandateRef because it is in status $status | mandateId, mandateRef, status
 MandateNotFound | 404 -- Not Found | Mandate $mandateId was not found | mandateId
+MandateNotFoundForPayer | 404 -- Not Found | No active mandate was found for payer $email | email
 MandateWasNeverSigned | 400 -- Bad Request | You cannot download the document associated to mandate $mandateRef because it was never signed | mandateId, mandateRef, status
 MaximumLimitExceeded | 400 -- Bad Request | You cannot request $requestedLimit elements because it exceeds the maximum limit ($maximumLimit) | requestedLimit, maximumLimit
 OffsetShouldBePositive | 400 -- Bad Request | Offset ($offset) should be positive | offset
 PSPError | 400 -- Bad Request | Payment service provider error ($code): $message | code, message
 SCIAndUMRAlreadyUsed | 400 -- Bad Request | A mandate already exists with SCI (SEPA Creditor Identifier) $sci and UMR (Unique Mandate Reference) $umr | sci, umr
 SinceShouldBeInThePast | 400 -- Bad Request | Since ($since) should be before now ($now) | since, now
-UnexpectedDebtorForMandate | 400 -- Bad Request | Unexpected debtor id $unexpectedDebtorId for mandate $mandateRef that has debtor $expectedDebtorId | mandateId, mandateRef, unexpectedDebtorId, expectedDebtorId
 UnknownEventTypeForResourceType | 400 -- Bad Request | Event type $eventType unknown for resource type $resourceType, occurs with webhooks | eventType, resourceType
 UntilShouldBeAfterSince | 400 -- Bad Request | Since ($since) should be before until ($until) | since, until
 UserAlreadyExists | 400 -- Bad Request | User with email $email already exists | email 
@@ -81,5 +83,6 @@ UserForbidden | 403 -- Forbidden | You cannot view user $userId because you do n
 UserHasNoActiveBankAccount | 400 -- Bad Request | User $name has no active bank account | userId, name
 UserHasNoSCI | 400 -- Bad Request | User $name cannot be a creditor because it does not have a SEPA Creditor Identifier (SCI) | userId, name
 UserNotFound | 404 -- Not Found | User $userId was not found | userId
+UserWithEmailNotFound | 404 -- Not Found | User $email was not found | email
 WebhookForbidden | 403 -- Forbidden | You cannot view webhook $webhookId because you do not manage its owner | webhookId
 WebhookNotFound | 404 -- Not Found | Webhook $webhookId was not found | webhookId

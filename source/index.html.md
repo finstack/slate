@@ -1055,6 +1055,7 @@ Content-Type: application/json
                 }
             ],
             "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "payerEmail": "payer@example.com",
             "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -2117,6 +2118,7 @@ Content-Type: application/json
         }
     ],
     "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerEmail": "payer@example.com",
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -2240,6 +2242,7 @@ Content-Type: application/json
                 }
             ],
             "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+            "payerEmail": "payer@example.com",
             "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -2403,6 +2406,7 @@ Content-Type: application/json
         }
     ],
     "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerEmail": "payer@example.com",
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -2515,6 +2519,7 @@ Content-Type: application/json
         }
     ],
     "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerEmail": "payer@example.com",
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
@@ -4207,7 +4212,7 @@ metadata | string |  | Custom information goes here.
 ```json
 {
     "id": "341d533a-d90f-4fce-9fc0-12072f7bd555",
-    "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerEmail": "payer@example.com",
     "finalCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "sendSignatureRequestByEmail": false,
     "signElectronically": true,
@@ -4222,10 +4227,12 @@ Information required to issue a new mandate.
 Name | Type | Format | Description
 --- | --- | --- | ---
 id<span title="required" class="required">&nbsp;*&nbsp;</span> | string | uuid | Should be a valid UUID string. You are required to generate the id of the mandate in order to make the call idempotent. That allows you to safely retry to create the mandate without fearing to create multiple mandates on our side in case there was a network problem.
-payerBankAccountId<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | The payer's bank account id.
+payerEmail | string | email | The payer's email. If you already know the payer's bank account id, do not use this parameter.
+payerBankAccountId | string |  | The payer's bank account id. If you do not know it, you can specify the payer's email instead.
 finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
 sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
 signElectronically | boolean |  | Set this flag to 'true' if you want the mandate to be signed electronically by the payer.
+umr | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters. If not specified, we generate one for you.
 metadata | string |  | Custom information goes here.
 
 
@@ -4361,7 +4368,9 @@ description | string |  | Optional description.
         }
     ],
     "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
+    "payerEmail": "payer@example.com",
     "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+    "payerMobile": "+33650000000",
     "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
     "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
     "scheme": "Core",
@@ -4385,6 +4394,8 @@ status<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <d
 createdAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Creation timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 updatedAt<span title="required" class="required">&nbsp;*&nbsp;</span> | string | date-time | Last update timestamp in UTC, for example '2015-01-01T12:00:00.000Z'.
 payerName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the payer whether it's an individual or legal entity.<br/>It is taken from the 'holder' field of the bank account!<br/>
+payerEmail<span title="required" class="required">&nbsp;*&nbsp;</span> | string | email | The payer's email.
+payerMobile | string | | Mobile phone number of the payer (if available) respecting the <a href="https://en.wikipedia.org/wiki/MSISDN">MSISDN</a> format. For example use +33650021433 instead of 0650021433.
 sci<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | SEPA creditor identifier, called ICS in French. Maximum length is 35 characters.
 creditorName<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Full name of the creditor whether it's an individual or legal entity.
 thirdPartyCreditorName | string |  | Full name of the third party creditor (if any) whether it's an individual or legal entity.<br/>
@@ -4451,6 +4462,8 @@ metadata | string |  | Custom information goes here.
             ],
             "payerId": "b220221e-e461-4819-b10f-0c838c59fe82",
             "payerBankAccountId": "6f83ebf1-6e4d-40f6-bff5-5f046a93560a",
+            "payerEmail": "payer@example.com",
+            "payerMobile": "+33650000000",
             "creditorId": "0d919d8e-0679-4d41-a368-84e896e230ab",
             "thirdPartyCreditorId": "0a881459-5508-4b1b-be6f-dc512e327ee5",
             "scheme": "Core",
