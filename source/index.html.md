@@ -2125,7 +2125,7 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "isUsed": false,
+    "signElectronically": true,
     "fee": 0.99,
     "metadata": "custom data"
 }
@@ -2249,7 +2249,7 @@ Content-Type: application/json
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
-            "isUsed": false,
+            "signElectronically": true,
             "fee": 0.99,
             "metadata": "custom data"
         }
@@ -2413,7 +2413,7 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "isUsed": false,
+    "signElectronically": true,
     "fee": 0.99,
     "metadata": "custom data"
 }
@@ -2526,7 +2526,7 @@ Content-Type: application/json
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "isUsed": false,
+    "signElectronically": true,
     "fee": 0.99,
     "metadata": "custom data"
 }
@@ -4231,7 +4231,8 @@ payerEmail | string | email | The payer's email. If you already know the payer's
 payerBankAccountId | string |  | The payer's bank account id. If you do not know it, you can specify the payer's email instead.
 finalCreditorId | string |  | Use this field only if the final creditor of the mandate is not the API user.
 sendSignatureRequestByEmail | boolean |  | Set this flag to 'true' if you want to send a mandate signature request by email through Finstack.
-signElectronically | boolean |  | Set this flag to 'true' if you want the mandate to be signed electronically by the payer.
+signElectronically | boolean |  | Set this flag to 'true' if you want the mandate to be signed electronically by the payer. 'true' if not specified.
+redirectURL | string |  | Redirect payer to this URL after mandate is signed or accepted.
 umr | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters. If not specified, we generate one for you.
 metadata | string |  | Custom information goes here.
 
@@ -4376,7 +4377,7 @@ description | string |  | Optional description.
     "scheme": "Core",
     "isRecurring": true,
     "umr": "ASPECIALUMR",
-    "isUsed": false,
+    "signElectronically": true,
     "fee": 0.99,
     "metadata": "custom data"
 }
@@ -4409,7 +4410,8 @@ thirdPartyCreditorId | string |  | The third party creditor's (or true creditor)
 scheme<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div>Acceptable values:</div><ul class="enum"><li>Core</li><li>B2B</li></ul> | Can be 'Core' or 'B2B'.
 isRecurring<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' by default.
 umr<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.
-isUsed<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if mandate is referenced in a payment.
+signElectronically<span title="required" class="required">&nbsp;*&nbsp;</span> | boolean |  | Is 'true' if the mandate requires electronic signature.
+redirectURL | string |  | Redirect payer to this URL after mandate is signed or accepted.
 fee<span title="required" class="required">&nbsp;*&nbsp;</span> | number |  | Fee charged to the final creditor for the mandate only if signed electronically in EUR, '0.99' for example.
 metadata | string |  | Custom information goes here.
 
@@ -4469,7 +4471,7 @@ metadata | string |  | Custom information goes here.
             "scheme": "Core",
             "isRecurring": true,
             "umr": "ASPECIALUMR",
-            "isUsed": false,
+            "signElectronically": true,
             "fee": 0.99,
             "metadata": "custom data"
         }
