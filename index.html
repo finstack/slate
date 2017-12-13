@@ -2916,7 +2916,7 @@ they authorized you to access their information.</p>
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3064,7 +3064,7 @@ they authorized you to access their information.</p>
             </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
             </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -3293,7 +3293,7 @@ they authorized you to access their information.</p>
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3431,7 +3431,7 @@ they authorized you to access their information.</p>
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6007,7 +6007,13 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>signElectronically</td>
 <td>boolean</td>
 <td></td>
-<td>Set this flag to &lsquo;true&rsquo; if you want the mandate to be signed electronically by the payer.</td>
+<td>Set this flag to &lsquo;true&rsquo; if you want the mandate to be signed electronically by the payer. &lsquo;true&rsquo; if not specified.</td>
+</tr>
+<tr>
+<td>redirectURL</td>
+<td>string</td>
+<td></td>
+<td>Redirect payer to this URL after mandate is signed or accepted.</td>
 </tr>
 <tr>
 <td>umr</td>
@@ -6264,7 +6270,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
     </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6408,10 +6414,16 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>Unique Mandate Reference, also called RUM in French. Cannot be longer than 35 characters.</td>
 </tr>
 <tr>
-<td>isUsed<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>signElectronically<span title="required" class="required">&nbsp;*&nbsp;</span></td>
 <td>boolean</td>
 <td></td>
-<td>Is &lsquo;true&rsquo; if mandate is referenced in a payment.</td>
+<td>Is &lsquo;true&rsquo; if the mandate requires electronic signature.</td>
+</tr>
+<tr>
+<td>redirectURL</td>
+<td>string</td>
+<td></td>
+<td>Redirect payer to this URL after mandate is signed or accepted.</td>
 </tr>
 <tr>
 <td>fee<span title="required" class="required">&nbsp;*&nbsp;</span></td>
@@ -6481,7 +6493,7 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
             </span><span class="s2">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Core"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"isRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"umr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASPECIALUMR"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"isUsed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signElectronically"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
             </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom data"</span><span class="w">
         </span><span class="p">}</span><span class="w">
