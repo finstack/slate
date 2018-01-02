@@ -164,7 +164,8 @@ X-Auth-Token: myapikeyvalue
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -212,7 +213,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -257,7 +259,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -347,7 +350,8 @@ Content-Type: application/json
             "sci": "DE98ZZZ09999999999",
             "legalEntity": {
                 "category": "Company",
-                "name": "Acme"
+                "name": "Acme",
+                "vatNumber": "YOLO"
             },
             "metadata": "custom data"
         }
@@ -500,7 +504,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -580,7 +585,8 @@ X-Auth-Token: myapikeyvalue
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -628,7 +634,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -720,7 +727,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -1355,7 +1363,8 @@ Content-Type: application/json
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -2078,7 +2087,7 @@ Content-Type: application/json
     "updatedAt": "2015-01-01T12:00:00.000Z",
     "payerName": "Payer SAS",
     "sci": "DE98ZZZ09999999999",
-    "creditorName": "Lemon Way",
+    "creditorName": "Finstack",
     "thirdPartyCreditorName": "3rd party Company",
     "links": [
         {
@@ -4108,7 +4117,8 @@ events<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Even
 ```json
 {
     "category": "Company",
-    "name": "Acme"
+    "name": "Acme",
+    "vatNumber": "YOLO"
 }
 ```
 
@@ -4120,6 +4130,7 @@ Name | Type | Format | Description
 --- | --- | --- | ---
 category | string | <div>Acceptable values:</div><ul class="enum"><li>Company</li><li>Association</li><li>AutoEntrepreneur</li></ul> | Type of legal entity.
 name<span title="required" class="required">&nbsp;*&nbsp;</span> | string |  | 
+vatNumber | string |  | VAT number (if any).
 
 
 ## Link
@@ -4159,7 +4170,8 @@ verb<span title="required" class="required">&nbsp;*&nbsp;</span> | string | <div
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -4280,7 +4292,8 @@ metadata | string |  | Custom information goes here.
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -4832,7 +4845,8 @@ users<span title="required" class="required">&nbsp;*&nbsp;</span> | array[[Short
     "sci": "DE98ZZZ09999999999",
     "legalEntity": {
         "category": "Company",
-        "name": "Acme"
+        "name": "Acme",
+        "vatNumber": "YOLO"
     },
     "metadata": "custom data"
 }
@@ -4902,7 +4916,8 @@ metadata | string |  | Custom information goes here.
             "sci": "DE98ZZZ09999999999",
             "legalEntity": {
                 "category": "Company",
-                "name": "Acme"
+                "name": "Acme",
+                "vatNumber": "YOLO"
             },
             "metadata": "custom data"
         }
