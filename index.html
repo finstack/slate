@@ -1898,6 +1898,84 @@ the display name and other details about each user.</p>
 </tr>
 </tbody></table>
 
+<h2 id="find-user-id">Find User Id</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/id/{email}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
+</code></pre>
+<blockquote>
+<p>HTTP response example:</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="s2">"341d533a-d90f-4fce-9fc0-12072f7bd555"</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidEmailAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String 'lolo' is not a valid email address"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lolo"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserWithEmailNotFound"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User toto@example.com was not found"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toto@example.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Find the user id by email.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email<span title="required" class="required">&nbsp;*&nbsp;</span></td>
+<td>path</td>
+<td>string</td>
+<td>Email address of the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Http code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>string</td>
+<td>UUID of the user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="#error">Error</a></td>
+<td>Bad request, occurs when the string passed is not an email address.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="#error">Error</a></td>
+<td>User not found.</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-my-user-profile">Get My User Profile</h2>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/v1/users/me</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">X-Auth-Token</span><span class="p">:</span> <span class="s">myapikeyvalue</span>
@@ -2166,7 +2244,7 @@ they authorized you to access their information.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates a managed bank account.</p>
+<p>Creates a managed bank account or returns the existing bank account if already in the system.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2204,11 +2282,6 @@ they authorized you to access their information.</p>
 <td>400</td>
 <td><a href="#error">Error</a></td>
 <td>Bad request, occurs most often when parameters passed are invalid.</td>
-</tr>
-<tr>
-<td>403</td>
-<td><a href="#error">Error</a></td>
-<td>Forbidden, occurs when you try to create a bank account for a user that you don&rsquo;t manage.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -7672,6 +7745,12 @@ Failures are grouped by webhook ID and ordered chronologically.</p>
 <td>400 &ndash; Bad Request</td>
 <td>Received command $commandName for payment $paymentId in status $status</td>
 <td>paymentId, commandName, status</td>
+</tr>
+<tr>
+<td>InvalidEmailAddress</td>
+<td>400 &ndash; Bad Request</td>
+<td>String $email is not a valid email address</td>
+<td>email</td>
 </tr>
 <tr>
 <td>InvalidJSON</td>
