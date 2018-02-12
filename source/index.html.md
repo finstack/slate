@@ -1625,7 +1625,6 @@ Http code | Type | Description
 --- | --- | ---
 201 | [BankAccount](#bankaccount) | The newly created bank account.
 400 | [Error](#error) | Bad request, occurs most often when parameters passed are invalid.
-403 | [Error](#error) | Forbidden, occurs when you try to create a bank account for a user that you don't manage.
 404 | [Error](#error) | User not found.
 
 
