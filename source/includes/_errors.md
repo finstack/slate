@@ -59,6 +59,7 @@ DocumentNotFound | 404 -- Not Found | Document $documentId was not found | docum
 InsufficientBalanceOnWallet | 400 -- Bad Request | Insufficient balance ($balance €) on wallet $walletId to pay all fees ($pendingFees €) | walletId, balance, pendingFees
 InvalidCommandForMandate | 400 -- Bad Request | Received command $commandName for mandate $mandateRef in status $status | mandateId, mandateRef, commandName, status
 InvalidCommandForPayment | 400 -- Bad Request | Received command $commandName for payment $paymentId in status $status | paymentId, commandName, status
+InvalidEmailAddress | 400 -- Bad Request | String $email is not a valid email address | email
 InvalidJSON | 400 -- Bad Request | This error is raised anytime the JSON is invalid or any field inside it such as mobile phone, BIC or IBAN |
 InvalidKeyForOperation | 403 -- Forbidden | You are not allowed to execute a $operationType operation with a $apiKeyRole API key | apiKeyId, apiKeyRole, operationType
 InvalidOrNonExistentKey | 401 -- Unauthorized | Please provide a valid API key | keyHeader

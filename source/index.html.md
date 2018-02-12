@@ -1314,6 +1314,62 @@ Http code | Type | Description
 404 | [Error](#error) | User not found.
 
 
+## Find User Id
+
+```http
+GET /api/v1/users/id/{email} HTTP/1.1
+X-Auth-Token: myapikeyvalue
+```
+
+> HTTP response example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+"341d533a-d90f-4fce-9fc0-12072f7bd555"
+```
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "code": "InvalidEmailAddress",
+    "message": "String 'lolo' is not a valid email address",
+    "fields": {
+        "email": "lolo"
+    }
+}
+```
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "code": "UserWithEmailNotFound",
+    "message": "User toto@example.com was not found",
+    "fields": {
+        "email": "toto@example.com"
+    }
+}
+```
+
+Find the user id by email.
+
+
+### Parameters
+Name | In | Type | Description
+--- | --- | --- | ---
+email<span title="required" class="required">&nbsp;*&nbsp;</span> | path | string | Email address of the user.
+
+### Responses
+Http code | Type | Description
+--- | --- | ---
+200 | string | UUID of the user.
+400 | [Error](#error) | Bad request, occurs when the string passed is not an email address.
+404 | [Error](#error) | User not found.
+
+
 ## Get My User Profile
 
 ```http
@@ -1556,7 +1612,7 @@ Content-Type: application/json
 }
 ```
 
-Creates a managed bank account.
+Creates a managed bank account or returns the existing bank account if already in the system.
 
 
 ### Parameters
